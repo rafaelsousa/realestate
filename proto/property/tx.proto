@@ -8,12 +8,39 @@ option go_package = "github.com/rafaelsousa/realestate/x/property/types";
 // Msg defines the Msg service.
 service Msg {
     // this line is used by starport scaffolding # proto/tx/rpc
+  rpc CreateOwner(MsgCreateOwner) returns (MsgCreateOwnerResponse);
+  rpc UpdateOwner(MsgUpdateOwner) returns (MsgUpdateOwnerResponse);
+  rpc DeleteOwner(MsgDeleteOwner) returns (MsgDeleteOwnerResponse);
   rpc CreateProperty(MsgCreateProperty) returns (MsgCreatePropertyResponse);
   rpc UpdateProperty(MsgUpdateProperty) returns (MsgUpdatePropertyResponse);
   rpc DeleteProperty(MsgDeleteProperty) returns (MsgDeletePropertyResponse);
 }
 
 // this line is used by starport scaffolding # proto/tx/message
+message MsgCreateOwner {
+  string creator = 1;
+  string address = 2;
+}
+
+message MsgCreateOwnerResponse {
+  uint64 id = 1;
+}
+
+message MsgUpdateOwner {
+  string creator = 1;
+  uint64 id = 2;
+  string address = 3;
+}
+
+message MsgUpdateOwnerResponse { }
+
+message MsgDeleteOwner {
+  string creator = 1;
+  uint64 id = 2;
+}
+
+message MsgDeleteOwnerResponse { }
+
 message MsgCreateProperty {
   string creator = 1;
   string address = 2;

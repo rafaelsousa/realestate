@@ -4,6 +4,7 @@ package rafaelsousa.realestate.property;
 import "google/api/annotations.proto";
 import "cosmos/base/query/v1beta1/pagination.proto";
 // this line is used by starport scaffolding # 1
+import "property/owner.proto";
 import "property/property.proto";
 
 option go_package = "github.com/rafaelsousa/realestate/x/property/types";
@@ -11,16 +12,44 @@ option go_package = "github.com/rafaelsousa/realestate/x/property/types";
 // Query defines the gRPC querier service.
 service Query {
     // this line is used by starport scaffolding # 2
+	rpc Owner(QueryGetOwnerRequest) returns (QueryGetOwnerResponse) {
+		option (google.api.http).get = "/rafaelsousa/realestate/property/owner/{id}";
+	}
+	rpc OwnerAll(QueryAllOwnerRequest) returns (QueryAllOwnerResponse) {
+		option (google.api.http).get = "/rafaelsousa/realestate/property/owner";
+	}
+
 	rpc Property(QueryGetPropertyRequest) returns (QueryGetPropertyResponse) {
 		option (google.api.http).get = "/rafaelsousa/realestate/property/property/{id}";
 	}
 	rpc PropertyAll(QueryAllPropertyRequest) returns (QueryAllPropertyResponse) {
 		option (google.api.http).get = "/rafaelsousa/realestate/property/property";
 	}
+	// Returns all properties from a specific owner
+	rpc AllProperties(QueryListAllPropertiesRequest) returns (QueryListAllPropertiesResponse){
+		option (google.api.http).get = "/rafaelsousa/realestate/property/listproperties/{owner_addr}";
+	}
+
 
 }
 
 // this line is used by starport scaffolding # 3
+message QueryGetOwnerRequest {
+	uint64 id = 1;
+}
+
+message QueryGetOwnerResponse {
+	Owner Owner = 1;
+}
+
+message QueryAllOwnerRequest {
+	cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+message QueryAllOwnerResponse {
+	repeated Owner Owner = 1;
+	cosmos.base.query.v1beta1.PageResponse pagination = 2;
+}
 message QueryGetPropertyRequest {
 	uint64 id = 1;
 }
@@ -34,6 +63,15 @@ message QueryAllPropertyRequest {
 }
 
 message QueryAllPropertyResponse {
+	repeated Property Property = 1;
+	cosmos.base.query.v1beta1.PageResponse pagination = 2;
+}
+
+message QueryListAllPropertiesRequest {
+	string owner_addr = 1;
+}
+
+message QueryListAllPropertiesResponse {
 	repeated Property Property = 1;
 	cosmos.base.query.v1beta1.PageResponse pagination = 2;
 }

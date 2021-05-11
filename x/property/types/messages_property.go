@@ -7,7 +7,7 @@ import (
 
 var _ sdk.Msg = &MsgCreateProperty{}
 
-func NewMsgCreateProperty(creator string, address string, city string, state string, zip string, country string, latitude string, longitude string, owner_addr string) *MsgCreateProperty {
+func NewMsgCreateProperty(creator string, address string, city string, state string, zip string, country string, latitude string, longitude string, owneraddr string) *MsgCreateProperty {
 	return &MsgCreateProperty{
 		Creator:    creator,
 		Address:    address,
@@ -17,7 +17,7 @@ func NewMsgCreateProperty(creator string, address string, city string, state str
 		Country:    country,
 		Latitude:   latitude,
 		Longitude:  longitude,
-		Owner_addr: owner_addr,
+		OwnerAddr: owneraddr,
 	}
 }
 
@@ -52,7 +52,7 @@ func (msg *MsgCreateProperty) ValidateBasic() error {
 
 var _ sdk.Msg = &MsgUpdateProperty{}
 
-func NewMsgUpdateProperty(creator string, id uint64, address string, city string, state string, zip string, country string, latitude string, longitude string, owner_addr string) *MsgUpdateProperty {
+func NewMsgUpdateProperty(creator string, id uint64, address string, city string, state string, zip string, country string, latitude string, longitude string, owneraddr string) *MsgUpdateProperty {
 	return &MsgUpdateProperty{
 		Id:         id,
 		Creator:    creator,
@@ -63,7 +63,7 @@ func NewMsgUpdateProperty(creator string, id uint64, address string, city string
 		Country:    country,
 		Latitude:   latitude,
 		Longitude:  longitude,
-		Owner_addr: owner_addr,
+		OwnerAddr: owneraddr,
 	}
 }
 

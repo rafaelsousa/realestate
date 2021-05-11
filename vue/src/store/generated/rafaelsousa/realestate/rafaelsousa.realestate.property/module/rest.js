@@ -140,6 +140,48 @@ export class Api extends HttpClient {
          * No description
          *
          * @tags Query
+         * @name QueryAllProperties
+         * @summary Returns all properties from a specific owner
+         * @request GET:/rafaelsousa/realestate/property/listproperties/{ownerAddr}
+         */
+        this.queryAllProperties = (ownerAddr, params = {}) => this.request({
+            path: `/rafaelsousa/realestate/property/listproperties/${ownerAddr}`,
+            method: "GET",
+            format: "json",
+            ...params,
+        });
+        /**
+         * No description
+         *
+         * @tags Query
+         * @name QueryOwnerAll
+         * @request GET:/rafaelsousa/realestate/property/owner
+         */
+        this.queryOwnerAll = (query, params = {}) => this.request({
+            path: `/rafaelsousa/realestate/property/owner`,
+            method: "GET",
+            query: query,
+            format: "json",
+            ...params,
+        });
+        /**
+         * No description
+         *
+         * @tags Query
+         * @name QueryOwner
+         * @summary this line is used by starport scaffolding # 2
+         * @request GET:/rafaelsousa/realestate/property/owner/{id}
+         */
+        this.queryOwner = (id, params = {}) => this.request({
+            path: `/rafaelsousa/realestate/property/owner/${id}`,
+            method: "GET",
+            format: "json",
+            ...params,
+        });
+        /**
+         * No description
+         *
+         * @tags Query
          * @name QueryPropertyAll
          * @request GET:/rafaelsousa/realestate/property/property
          */
@@ -155,7 +197,6 @@ export class Api extends HttpClient {
          *
          * @tags Query
          * @name QueryProperty
-         * @summary this line is used by starport scaffolding # 2
          * @request GET:/rafaelsousa/realestate/property/property/{id}
          */
         this.queryProperty = (id, params = {}) => this.request({

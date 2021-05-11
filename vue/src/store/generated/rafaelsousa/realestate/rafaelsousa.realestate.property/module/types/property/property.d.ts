@@ -10,7 +10,10 @@ export interface Property {
     country: string;
     latitude: string;
     longitude: string;
-    ownerAddr: string;
+    owneraddr: string;
+}
+export interface PropertyCollection {
+    properties: Property[];
 }
 export declare const Property: {
     encode(message: Property, writer?: Writer): Writer;
@@ -18,6 +21,13 @@ export declare const Property: {
     fromJSON(object: any): Property;
     toJSON(message: Property): unknown;
     fromPartial(object: DeepPartial<Property>): Property;
+};
+export declare const PropertyCollection: {
+    encode(message: PropertyCollection, writer?: Writer): Writer;
+    decode(input: Reader | Uint8Array, length?: number): PropertyCollection;
+    fromJSON(object: any): PropertyCollection;
+    toJSON(message: PropertyCollection): unknown;
+    fromPartial(object: DeepPartial<PropertyCollection>): PropertyCollection;
 };
 declare type Builtin = Date | Function | Uint8Array | string | number | undefined;
 export declare type DeepPartial<T> = T extends Builtin ? T : T extends Array<infer U> ? Array<DeepPartial<U>> : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>> : T extends {} ? {

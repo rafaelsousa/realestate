@@ -2,6 +2,7 @@ syntax = "proto3";
 package rafaelsousa.realestate.property;
 
 // this line is used by starport scaffolding # genesis/proto/import
+import "property/owner.proto";
 import "property/property.proto";
 
 option go_package = "github.com/rafaelsousa/realestate/x/property/types";
@@ -9,6 +10,7 @@ option go_package = "github.com/rafaelsousa/realestate/x/property/types";
 // GenesisState defines the property module's genesis state.
 message GenesisState {
     // this line is used by starport scaffolding # genesis/proto/state
+		repeated Owner ownerList = 2; // this line is used by starport scaffolding # genesis/proto/stateField
 		repeated Property propertyList = 1; // this line is used by starport scaffolding # genesis/proto/stateField
     // this line is used by starport scaffolding # ibc/genesis/proto
 }

@@ -9,14 +9,32 @@
  * ---------------------------------------------------------------
  */
 
+export interface PropertyMsgCreateOwnerResponse {
+  /** @format uint64 */
+  id?: string;
+}
+
 export interface PropertyMsgCreatePropertyResponse {
   /** @format uint64 */
   id?: string;
 }
 
+export type PropertyMsgDeleteOwnerResponse = object;
+
 export type PropertyMsgDeletePropertyResponse = object;
 
+export type PropertyMsgUpdateOwnerResponse = object;
+
 export type PropertyMsgUpdatePropertyResponse = object;
+
+export interface PropertyOwner {
+  creator?: string;
+
+  /** @format uint64 */
+  id?: string;
+  address?: string;
+  property?: PropertyProperty[];
+}
 
 export interface PropertyProperty {
   creator?: string;
@@ -30,7 +48,22 @@ export interface PropertyProperty {
   country?: string;
   latitude?: string;
   longitude?: string;
-  ownerAddr?: string;
+  owneraddr?: string;
+}
+
+export interface PropertyQueryAllOwnerResponse {
+  Owner?: PropertyOwner[];
+
+  /**
+   * PageResponse is to be embedded in gRPC response messages where the
+   * corresponding request message has used PageRequest.
+   *
+   *  message SomeResponse {
+   *          repeated Bar results = 1;
+   *          PageResponse page = 2;
+   *  }
+   */
+  pagination?: V1Beta1PageResponse;
 }
 
 export interface PropertyQueryAllPropertyResponse {
@@ -48,8 +81,27 @@ export interface PropertyQueryAllPropertyResponse {
   pagination?: V1Beta1PageResponse;
 }
 
+export interface PropertyQueryGetOwnerResponse {
+  Owner?: PropertyOwner;
+}
+
 export interface PropertyQueryGetPropertyResponse {
   Property?: PropertyProperty;
+}
+
+export interface PropertyQueryListAllPropertiesResponse {
+  Property?: PropertyProperty[];
+
+  /**
+   * PageResponse is to be embedded in gRPC response messages where the
+   * corresponding request message has used PageRequest.
+   *
+   *  message SomeResponse {
+   *          repeated Bar results = 1;
+   *          PageResponse page = 2;
+   *  }
+   */
+  pagination?: V1Beta1PageResponse;
 }
 
 export interface ProtobufAny {
@@ -322,6 +374,62 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
    * No description
    *
    * @tags Query
+   * @name QueryAllProperties
+   * @summary Returns all properties from a specific owner
+   * @request GET:/rafaelsousa/realestate/property/listproperties/{ownerAddr}
+   */
+  queryAllProperties = (ownerAddr: string, params: RequestParams = {}) =>
+    this.request<PropertyQueryListAllPropertiesResponse, RpcStatus>({
+      path: `/rafaelsousa/realestate/property/listproperties/${ownerAddr}`,
+      method: "GET",
+      format: "json",
+      ...params,
+    });
+
+  /**
+   * No description
+   *
+   * @tags Query
+   * @name QueryOwnerAll
+   * @request GET:/rafaelsousa/realestate/property/owner
+   */
+  queryOwnerAll = (
+    query?: {
+      "pagination.key"?: string;
+      "pagination.offset"?: string;
+      "pagination.limit"?: string;
+      "pagination.countTotal"?: boolean;
+    },
+    params: RequestParams = {},
+  ) =>
+    this.request<PropertyQueryAllOwnerResponse, RpcStatus>({
+      path: `/rafaelsousa/realestate/property/owner`,
+      method: "GET",
+      query: query,
+      format: "json",
+      ...params,
+    });
+
+  /**
+   * No description
+   *
+   * @tags Query
+   * @name QueryOwner
+   * @summary this line is used by starport scaffolding # 2
+   * @request GET:/rafaelsousa/realestate/property/owner/{id}
+   */
+  queryOwner = (id: string, params: RequestParams = {}) =>
+    this.request<PropertyQueryGetOwnerResponse, RpcStatus>({
+      path: `/rafaelsousa/realestate/property/owner/${id}`,
+      method: "GET",
+      format: "json",
+      ...params,
+    });
+
+  /**
+   * No description
+   *
+   * @tags Query
    * @name QueryPropertyAll
    * @request GET:/rafaelsousa/realestate/property/property
    */
@@ -347,7 +455,6 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
    *
    * @tags Query
    * @name QueryProperty
-   * @summary this line is used by starport scaffolding # 2
    * @request GET:/rafaelsousa/realestate/property/property/{id}
    */
   queryProperty = (id: string, params: RequestParams = {}) =>

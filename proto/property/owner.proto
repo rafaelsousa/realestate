@@ -1,0 +1,14 @@
+syntax = "proto3";
+package rafaelsousa.realestate.property;
+
+option go_package = "github.com/rafaelsousa/realestate/x/property/types";
+
+import "gogoproto/gogo.proto";
+import "property/property.proto";
+
+message Owner {
+  string creator = 1;
+  uint64 id = 2;
+  string address = 3;
+  repeated Property property = 4;
+}

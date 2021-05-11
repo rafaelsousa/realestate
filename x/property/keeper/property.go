@@ -62,7 +62,7 @@ func (k Keeper) AppendProperty(
 		Country:    country,
 		Latitude:   latitude,
 		Longitude:  longitude,
-		Owner_addr: owner_addr,
+		Owneraddr: owner_addr,
 	}
 
 	store := prefix.NewStore(ctx.KVStore(k.storeKey), types.KeyPrefix(types.PropertyKey))

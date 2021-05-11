@@ -22,7 +22,7 @@ func (k msgServer) CreateProperty(goCtx context.Context, msg *types.MsgCreatePro
 		msg.Country,
 		msg.Latitude,
 		msg.Longitude,
-		msg.Owner_addr,
+		msg.OwnerAddr,
 	)
 
 	return &types.MsgCreatePropertyResponse{
@@ -43,7 +43,7 @@ func (k msgServer) UpdateProperty(goCtx context.Context, msg *types.MsgUpdatePro
 		Country:    msg.Country,
 		Latitude:   msg.Latitude,
 		Longitude:  msg.Longitude,
-		Owner_addr: msg.Owner_addr,
+		Owneraddr:  msg.OwnerAddr,
 	}
 
 	// Checks that the element exists

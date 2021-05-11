@@ -1,6 +1,7 @@
 package keeper
 
 import (
+	"context"
 	"fmt"
 
 	"github.com/tendermint/tendermint/libs/log"
@@ -19,6 +20,10 @@ type (
 		// this line is used by starport scaffolding # ibc/keeper/attribute
 	}
 )
+
+func (k Keeper) AllProperties(ctx context.Context, request *types.QueryListAllPropertiesRequest) (*types.QueryListAllPropertiesResponse, error) {
+	panic("implement me")
+}
 
 func NewKeeper(
 	cdc codec.Marshaler,

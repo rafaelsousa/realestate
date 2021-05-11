@@ -1,7 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="13bc7514-7664-4d78-946a-a2d2a1acb565" name="Default Changelist" comment="" />
+    <list default="true" id="b2708e10-d4ca-4d33-a15b-29e73dee13c9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proto/property/genesis.proto" beforeDir="false" afterPath="$PROJECT_DIR$/proto/property/genesis.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proto/property/property.proto" beforeDir="false" afterPath="$PROJECT_DIR$/proto/property/property.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proto/property/query.proto" beforeDir="false" afterPath="$PROJECT_DIR$/proto/property/query.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proto/property/tx.proto" beforeDir="false" afterPath="$PROJECT_DIR$/proto/property/tx.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/store/generated/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/store/generated/index.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/store/generated/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/store/generated/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/store/generated/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/store/generated/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/index.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/rest.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/rest.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/rest.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/rest.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/rest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/rest.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/types/property/genesis.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/types/property/genesis.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/types/property/genesis.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/types/property/genesis.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/types/property/genesis.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/types/property/genesis.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/types/property/property.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/types/property/property.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/types/property/property.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/types/property/property.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/types/property/property.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/types/property/property.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/types/property/query.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/types/property/query.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/types/property/query.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/types/property/query.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/types/property/query.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/types/property/query.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/types/property/tx.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/types/property/tx.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/types/property/tx.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/types/property/tx.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/types/property/tx.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/types/property/tx.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/views/Types.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/Types.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/x/property/client/cli/query.go" beforeDir="false" afterPath="$PROJECT_DIR$/x/property/client/cli/query.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/x/property/client/cli/tx.go" beforeDir="false" afterPath="$PROJECT_DIR$/x/property/client/cli/tx.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/x/property/client/rest/rest.go" beforeDir="false" afterPath="$PROJECT_DIR$/x/property/client/rest/rest.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/x/property/client/rest/txProperty.go" beforeDir="false" afterPath="$PROJECT_DIR$/x/property/client/rest/txProperty.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/x/property/genesis.go" beforeDir="false" afterPath="$PROJECT_DIR$/x/property/genesis.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/x/property/handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/x/property/handler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/x/property/keeper/keeper.go" beforeDir="false" afterPath="$PROJECT_DIR$/x/property/keeper/keeper.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/x/property/keeper/msg_server_property.go" beforeDir="false" afterPath="$PROJECT_DIR$/x/property/keeper/msg_server_property.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/x/property/keeper/property.go" beforeDir="false" afterPath="$PROJECT_DIR$/x/property/keeper/property.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/x/property/types/codec.go" beforeDir="false" afterPath="$PROJECT_DIR$/x/property/types/codec.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/x/property/types/genesis.go" beforeDir="false" afterPath="$PROJECT_DIR$/x/property/types/genesis.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/x/property/types/genesis.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/x/property/types/genesis.pb.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/x/property/types/keys.go" beforeDir="false" afterPath="$PROJECT_DIR$/x/property/types/keys.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/x/property/types/messages_property.go" beforeDir="false" afterPath="$PROJECT_DIR$/x/property/types/messages_property.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/x/property/types/property.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/x/property/types/property.pb.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/x/property/types/query.go" beforeDir="false" afterPath="$PROJECT_DIR$/x/property/types/query.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/x/property/types/query.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/x/property/types/query.pb.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/x/property/types/query.pb.gw.go" beforeDir="false" afterPath="$PROJECT_DIR$/x/property/types/query.pb.gw.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/x/property/types/tx.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/x/property/types/tx.pb.go" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,10 +73,7 @@
   <component name="GoLibraries">
     <option name="indexEntireGoPath" value="false" />
   </component>
-  <component name="ProjectId" id="1sEWusFxJBvlQ1OzApyRPJi31eb" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="1" id="Add" />
-  </component>
+  <component name="ProjectId" id="1sN3y9gxsMAAOXxiYBkivQToik2" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -37,424 +85,431 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/third_party/proto/cosmos" />
-    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="vue.rearranger.settings.migration" value="true" />
-  </component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/third_party/proto/cosmos" />
-      <recent name="$PROJECT_DIR$/proto/property" />
-      <recent name="$PROJECT_DIR$" />
-    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
     <option name="exactExcludedFiles">
       <list>
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.applications.transfer.v1/module/types/gogoproto/gogo.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.applications.transfer.v1/module/types/gogoproto/gogo.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.applications.transfer.v1/module/types/google/protobuf/any.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.applications.transfer.v1/module/types/google/protobuf/any.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.applications.transfer.v1/module/types/google/protobuf/descriptor.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.applications.transfer.v1/module/types/google/protobuf/descriptor.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.applications.transfer.v1/module/types/google/api/http.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.applications.transfer.v1/module/types/google/api/http.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.applications.transfer.v1/module/types/google/api/annotations.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.applications.transfer.v1/module/types/google/api/annotations.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.applications.transfer.v1/module/types/cosmos/base/v1beta1/coin.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.applications.transfer.v1/module/types/cosmos/base/v1beta1/coin.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.applications.transfer.v1/module/types/cosmos/base/query/v1beta1/pagination.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.applications.transfer.v1/module/types/cosmos/base/query/v1beta1/pagination.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.applications.transfer.v1/module/types/ibc/applications/transfer/v1/genesis.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.applications.transfer.v1/module/types/ibc/applications/transfer/v1/genesis.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.applications.transfer.v1/module/types/ibc/applications/transfer/v1/query.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.applications.transfer.v1/module/types/ibc/applications/transfer/v1/query.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.applications.transfer.v1/module/types/ibc/applications/transfer/v1/tx.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.applications.transfer.v1/module/types/ibc/applications/transfer/v1/tx.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.applications.transfer.v1/module/types/ibc/applications/transfer/v1/transfer.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.applications.transfer.v1/module/types/ibc/applications/transfer/v1/transfer.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.applications.transfer.v1/module/types/ibc/core/client/v1/client.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.applications.transfer.v1/module/types/ibc/core/client/v1/client.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.applications.transfer.v1/module/index.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.applications.transfer.v1/module/index.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.applications.transfer.v1/module/rest.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.applications.transfer.v1/module/rest.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.applications.transfer.v1/index.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.applications.transfer.v1/index.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.distribution.v1beta1/module/types/gogoproto/gogo.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.distribution.v1beta1/module/types/gogoproto/gogo.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.distribution.v1beta1/module/types/google/protobuf/descriptor.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.distribution.v1beta1/module/types/google/protobuf/descriptor.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.distribution.v1beta1/module/types/google/api/http.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.distribution.v1beta1/module/types/google/api/http.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.distribution.v1beta1/module/types/google/api/annotations.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.distribution.v1beta1/module/types/google/api/annotations.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.distribution.v1beta1/module/types/cosmos/distribution/v1beta1/genesis.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.distribution.v1beta1/module/types/cosmos/distribution/v1beta1/genesis.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.distribution.v1beta1/module/types/cosmos/distribution/v1beta1/query.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.distribution.v1beta1/module/types/cosmos/distribution/v1beta1/query.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.distribution.v1beta1/module/types/cosmos/distribution/v1beta1/tx.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.distribution.v1beta1/module/types/cosmos/distribution/v1beta1/tx.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.distribution.v1beta1/module/types/cosmos/distribution/v1beta1/distribution.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.distribution.v1beta1/module/types/cosmos/distribution/v1beta1/distribution.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.distribution.v1beta1/module/types/cosmos/base/v1beta1/coin.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.distribution.v1beta1/module/types/cosmos/base/v1beta1/coin.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.distribution.v1beta1/module/types/cosmos/base/query/v1beta1/pagination.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.distribution.v1beta1/module/types/cosmos/base/query/v1beta1/pagination.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.distribution.v1beta1/module/index.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.distribution.v1beta1/module/index.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.distribution.v1beta1/module/rest.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.distribution.v1beta1/module/rest.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.distribution.v1beta1/index.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.distribution.v1beta1/index.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.abci.v1beta1/module/types/tendermint/version/types.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.abci.v1beta1/module/types/tendermint/version/types.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.abci.v1beta1/module/types/tendermint/crypto/keys.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.abci.v1beta1/module/types/tendermint/crypto/keys.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.abci.v1beta1/module/types/tendermint/crypto/proof.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.abci.v1beta1/module/types/tendermint/crypto/proof.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.abci.v1beta1/module/types/tendermint/types/types.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.abci.v1beta1/module/types/tendermint/types/types.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.abci.v1beta1/module/types/tendermint/types/validator.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.abci.v1beta1/module/types/tendermint/types/validator.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.abci.v1beta1/module/types/tendermint/types/params.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.abci.v1beta1/module/types/tendermint/types/params.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.abci.v1beta1/module/types/tendermint/abci/types.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.abci.v1beta1/module/types/tendermint/abci/types.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.abci.v1beta1/module/types/gogoproto/gogo.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.abci.v1beta1/module/types/gogoproto/gogo.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.abci.v1beta1/module/types/google/protobuf/duration.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.abci.v1beta1/module/types/google/protobuf/duration.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.abci.v1beta1/module/types/google/protobuf/timestamp.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.abci.v1beta1/module/types/google/protobuf/timestamp.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.abci.v1beta1/module/types/google/protobuf/any.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.abci.v1beta1/module/types/google/protobuf/any.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.abci.v1beta1/module/types/google/protobuf/descriptor.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.abci.v1beta1/module/types/google/protobuf/descriptor.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.abci.v1beta1/module/types/cosmos/base/abci/v1beta1/abci.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.abci.v1beta1/module/types/cosmos/base/abci/v1beta1/abci.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.abci.v1beta1/module/index.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.abci.v1beta1/module/index.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.abci.v1beta1/module/rest.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.abci.v1beta1/module/rest.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.abci.v1beta1/index.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.abci.v1beta1/index.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.slashing.v1beta1/module/types/gogoproto/gogo.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.slashing.v1beta1/module/types/gogoproto/gogo.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.slashing.v1beta1/module/types/google/protobuf/duration.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.slashing.v1beta1/module/types/google/protobuf/duration.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.slashing.v1beta1/module/types/google/protobuf/descriptor.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.slashing.v1beta1/module/types/google/protobuf/descriptor.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.slashing.v1beta1/module/types/google/protobuf/timestamp.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.slashing.v1beta1/module/types/google/protobuf/timestamp.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.slashing.v1beta1/module/types/google/api/http.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.slashing.v1beta1/module/types/google/api/http.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.slashing.v1beta1/module/types/google/api/annotations.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.slashing.v1beta1/module/types/google/api/annotations.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.slashing.v1beta1/module/types/cosmos/slashing/v1beta1/genesis.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.slashing.v1beta1/module/types/cosmos/slashing/v1beta1/genesis.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.slashing.v1beta1/module/types/cosmos/slashing/v1beta1/slashing.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.slashing.v1beta1/module/types/cosmos/slashing/v1beta1/slashing.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.slashing.v1beta1/module/types/cosmos/slashing/v1beta1/query.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.slashing.v1beta1/module/types/cosmos/slashing/v1beta1/query.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.slashing.v1beta1/module/types/cosmos/slashing/v1beta1/tx.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.slashing.v1beta1/module/types/cosmos/slashing/v1beta1/tx.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.slashing.v1beta1/module/types/cosmos/base/query/v1beta1/pagination.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.slashing.v1beta1/module/types/cosmos/base/query/v1beta1/pagination.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.slashing.v1beta1/module/index.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.slashing.v1beta1/module/index.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.slashing.v1beta1/module/rest.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.slashing.v1beta1/module/rest.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.slashing.v1beta1/index.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.slashing.v1beta1/index.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.evidence.v1beta1/module/types/cosmos_proto/cosmos.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.evidence.v1beta1/module/types/cosmos_proto/cosmos.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.evidence.v1beta1/module/types/gogoproto/gogo.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.evidence.v1beta1/module/types/gogoproto/gogo.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.evidence.v1beta1/module/types/google/protobuf/any.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.evidence.v1beta1/module/types/google/protobuf/any.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.evidence.v1beta1/module/types/google/protobuf/descriptor.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.evidence.v1beta1/module/types/google/protobuf/descriptor.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.evidence.v1beta1/module/types/google/protobuf/timestamp.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.evidence.v1beta1/module/types/google/protobuf/timestamp.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.evidence.v1beta1/module/types/google/api/http.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.evidence.v1beta1/module/types/google/api/http.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.evidence.v1beta1/module/types/google/api/annotations.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.evidence.v1beta1/module/types/google/api/annotations.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.evidence.v1beta1/module/types/cosmos/evidence/v1beta1/genesis.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.evidence.v1beta1/module/types/cosmos/evidence/v1beta1/genesis.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.evidence.v1beta1/module/types/cosmos/evidence/v1beta1/evidence.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.evidence.v1beta1/module/types/cosmos/evidence/v1beta1/evidence.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.evidence.v1beta1/module/types/cosmos/evidence/v1beta1/query.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.evidence.v1beta1/module/types/cosmos/evidence/v1beta1/query.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.evidence.v1beta1/module/types/cosmos/evidence/v1beta1/tx.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.evidence.v1beta1/module/types/cosmos/evidence/v1beta1/tx.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.evidence.v1beta1/module/types/cosmos/base/query/v1beta1/pagination.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.evidence.v1beta1/module/types/cosmos/base/query/v1beta1/pagination.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.evidence.v1beta1/module/index.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.evidence.v1beta1/module/index.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.evidence.v1beta1/module/rest.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.evidence.v1beta1/module/rest.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.evidence.v1beta1/index.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.evidence.v1beta1/index.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.connection.v1/module/types/gogoproto/gogo.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.connection.v1/module/types/gogoproto/gogo.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.connection.v1/module/types/google/protobuf/any.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.connection.v1/module/types/google/protobuf/any.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.connection.v1/module/types/google/protobuf/descriptor.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.connection.v1/module/types/google/protobuf/descriptor.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.connection.v1/module/types/google/api/http.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.connection.v1/module/types/google/api/http.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.connection.v1/module/types/google/api/annotations.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.connection.v1/module/types/google/api/annotations.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.connection.v1/module/types/cosmos/base/query/v1beta1/pagination.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.connection.v1/module/types/cosmos/base/query/v1beta1/pagination.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.connection.v1/module/types/confio/proofs.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.connection.v1/module/types/confio/proofs.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.connection.v1/module/types/ibc/core/connection/v1/genesis.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.connection.v1/module/types/ibc/core/connection/v1/genesis.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.connection.v1/module/types/ibc/core/connection/v1/query.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.connection.v1/module/types/ibc/core/connection/v1/query.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.connection.v1/module/types/ibc/core/connection/v1/tx.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.connection.v1/module/types/ibc/core/connection/v1/tx.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.connection.v1/module/types/ibc/core/connection/v1/connection.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.connection.v1/module/types/ibc/core/connection/v1/connection.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.connection.v1/module/types/ibc/core/commitment/v1/commitment.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.connection.v1/module/types/ibc/core/commitment/v1/commitment.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.connection.v1/module/types/ibc/core/client/v1/client.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.connection.v1/module/types/ibc/core/client/v1/client.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.connection.v1/module/index.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.connection.v1/module/index.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.connection.v1/module/rest.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.connection.v1/module/rest.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.connection.v1/index.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.connection.v1/index.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.crisis.v1beta1/module/types/google/protobuf/descriptor.js" />
         <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.vesting.v1beta1/module/types/cosmos_proto/cosmos.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.vesting.v1beta1/module/types/cosmos_proto/cosmos.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.vesting.v1beta1/module/types/gogoproto/gogo.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.vesting.v1beta1/module/types/gogoproto/gogo.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.vesting.v1beta1/module/types/google/protobuf/any.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.vesting.v1beta1/module/types/google/protobuf/any.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.vesting.v1beta1/module/types/google/protobuf/descriptor.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.vesting.v1beta1/module/types/google/protobuf/descriptor.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.vesting.v1beta1/module/types/cosmos/vesting/v1beta1/vesting.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.vesting.v1beta1/module/types/cosmos/vesting/v1beta1/vesting.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.vesting.v1beta1/module/types/cosmos/vesting/v1beta1/tx.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.vesting.v1beta1/module/types/cosmos/vesting/v1beta1/tx.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.vesting.v1beta1/module/types/cosmos/base/v1beta1/coin.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.vesting.v1beta1/module/types/cosmos/base/v1beta1/coin.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.vesting.v1beta1/module/types/cosmos/auth/v1beta1/auth.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.vesting.v1beta1/module/types/cosmos/auth/v1beta1/auth.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.vesting.v1beta1/module/index.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.vesting.v1beta1/module/index.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.vesting.v1beta1/module/rest.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.vesting.v1beta1/module/rest.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.vesting.v1beta1/index.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.vesting.v1beta1/index.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/cosmos_proto/cosmos.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/cosmos_proto/cosmos.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/tendermint/version/types.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/tendermint/version/types.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/tendermint/crypto/keys.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/tendermint/crypto/keys.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/tendermint/crypto/proof.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/tendermint/crypto/proof.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/tendermint/types/types.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/tendermint/types/types.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/tendermint/types/validator.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/tendermint/types/validator.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/gogoproto/gogo.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/gogoproto/gogo.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/google/protobuf/duration.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/google/protobuf/duration.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/google/protobuf/timestamp.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.slashing.v1beta1/module/types/cosmos/slashing/v1beta1/slashing.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.v1beta1/module/index.js" />
         <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/google/protobuf/timestamp.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.slashing.v1beta1/module/types/cosmos/slashing/v1beta1/query.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.distribution.v1beta1/module/rest.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.slashing.v1beta1/module/types/google/protobuf/duration.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.vesting.v1beta1/module/types/google/protobuf/any.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.channel.v1/module/types/ibc/core/client/v1/client.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.connection.v1/module/types/ibc/core/commitment/v1/commitment.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.connection.v1/index.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.abci.v1beta1/module/rest.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.applications.transfer.v1/module/types/google/protobuf/descriptor.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.abci.v1beta1/module/types/tendermint/types/types.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.connection.v1/module/types/ibc/core/connection/v1/query.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.abci.v1beta1/module/types/google/protobuf/duration.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.slashing.v1beta1/module/types/google/protobuf/timestamp.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.distribution.v1beta1/module/types/google/api/annotations.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.connection.v1/module/types/google/api/http.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.gov.v1beta1/module/types/cosmos/gov/v1beta1/query.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.evidence.v1beta1/module/types/cosmos_proto/cosmos.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.distribution.v1beta1/module/types/cosmos/distribution/v1beta1/query.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.slashing.v1beta1/module/types/google/protobuf/descriptor.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/tendermint/crypto/proof.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.applications.transfer.v1/module/rest.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.abci.v1beta1/module/types/tendermint/types/validator.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.vesting.v1beta1/module/index.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/cosmos/staking/v1beta1/tx.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.gov.v1beta1/module/types/google/protobuf/descriptor.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.applications.transfer.v1/module/types/ibc/applications/transfer/v1/transfer.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.connection.v1/module/types/google/protobuf/any.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.channel.v1/module/types/google/protobuf/descriptor.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/google/api/annotations.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.bank.v1beta1/module/index.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.gov.v1beta1/module/types/gogoproto/gogo.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.connection.v1/index.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.crisis.v1beta1/module/index.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.bank.v1beta1/module/rest.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.applications.transfer.v1/module/types/ibc/applications/transfer/v1/genesis.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.connection.v1/module/types/google/protobuf/any.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.slashing.v1beta1/module/types/cosmos/base/query/v1beta1/pagination.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.abci.v1beta1/module/types/google/protobuf/timestamp.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.connection.v1/module/types/google/api/http.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.vesting.v1beta1/index.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.gov.v1beta1/module/types/cosmos/gov/v1beta1/query.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.gov.v1beta1/module/types/cosmos/gov/v1beta1/genesis.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.slashing.v1beta1/module/types/cosmos/slashing/v1beta1/slashing.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.applications.transfer.v1/module/types/cosmos/base/query/v1beta1/pagination.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.crisis.v1beta1/module/types/cosmos/base/v1beta1/coin.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.bank.v1beta1/module/types/cosmos/bank/v1beta1/tx.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.crisis.v1beta1/module/types/cosmos/crisis/v1beta1/tx.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.distribution.v1beta1/module/types/gogoproto/gogo.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.abci.v1beta1/module/types/gogoproto/gogo.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.connection.v1/module/types/google/protobuf/descriptor.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/cosmos/staking/v1beta1/query.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.crisis.v1beta1/index.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.gov.v1beta1/module/types/cosmos/base/query/v1beta1/pagination.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.client.v1/index.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.distribution.v1beta1/module/types/cosmos/distribution/v1beta1/genesis.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.evidence.v1beta1/module/types/google/protobuf/any.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.bank.v1beta1/module/types/gogoproto/gogo.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.vesting.v1beta1/module/types/gogoproto/gogo.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.connection.v1/module/types/cosmos/base/query/v1beta1/pagination.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/cosmos/staking/v1beta1/query.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.distribution.v1beta1/module/types/gogoproto/gogo.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.evidence.v1beta1/module/types/cosmos/evidence/v1beta1/tx.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.evidence.v1beta1/module/types/cosmos/evidence/v1beta1/query.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.channel.v1/module/types/ibc/core/client/v1/client.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.slashing.v1beta1/module/types/google/api/annotations.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.client.v1/module/types/ibc/core/client/v1/client.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.client.v1/module/types/google/protobuf/descriptor.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.applications.transfer.v1/module/rest.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.gov.v1beta1/module/types/google/protobuf/duration.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.vesting.v1beta1/module/rest.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/tendermint/types/types.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.gov.v1beta1/module/index.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.evidence.v1beta1/module/types/google/api/http.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.applications.transfer.v1/module/types/ibc/core/client/v1/client.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.channel.v1/module/types/cosmos/base/query/v1beta1/pagination.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.client.v1/module/index.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.client.v1/module/types/ibc/core/client/v1/client.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.distribution.v1beta1/module/types/cosmos/base/query/v1beta1/pagination.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/tendermint/types/validator.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.connection.v1/module/types/google/api/annotations.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.evidence.v1beta1/module/types/cosmos/evidence/v1beta1/genesis.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.applications.transfer.v1/module/types/cosmos/base/v1beta1/coin.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.applications.transfer.v1/module/types/google/api/http.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.bank.v1beta1/module/types/cosmos/bank/v1beta1/tx.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.distribution.v1beta1/index.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.vesting.v1beta1/module/types/cosmos/base/v1beta1/coin.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.crisis.v1beta1/module/types/google/protobuf/descriptor.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.abci.v1beta1/module/index.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.channel.v1/module/types/gogoproto/gogo.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.abci.v1beta1/module/types/tendermint/crypto/keys.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/cosmos_proto/cosmos.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.gov.v1beta1/module/types/google/protobuf/timestamp.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.bank.v1beta1/module/types/google/api/http.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.slashing.v1beta1/module/types/cosmos/slashing/v1beta1/tx.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.abci.v1beta1/module/types/google/protobuf/any.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.connection.v1/module/rest.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.slashing.v1beta1/module/types/cosmos/slashing/v1beta1/tx.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.slashing.v1beta1/module/types/google/protobuf/descriptor.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.distribution.v1beta1/module/types/cosmos/distribution/v1beta1/query.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.abci.v1beta1/module/types/tendermint/abci/types.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.applications.transfer.v1/module/types/google/protobuf/descriptor.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.slashing.v1beta1/module/types/cosmos/base/query/v1beta1/pagination.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.gov.v1beta1/module/types/google/api/annotations.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.crisis.v1beta1/module/types/cosmos/crisis/v1beta1/tx.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.client.v1/module/rest.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.connection.v1/module/types/ibc/core/connection/v1/genesis.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.vesting.v1beta1/module/types/cosmos_proto/cosmos.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.channel.v1/module/types/ibc/core/channel/v1/tx.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.slashing.v1beta1/module/types/cosmos/slashing/v1beta1/query.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.applications.transfer.v1/module/types/gogoproto/gogo.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.applications.transfer.v1/module/types/ibc/applications/transfer/v1/genesis.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.gov.v1beta1/module/index.js" />
         <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/google/protobuf/any.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/google/protobuf/any.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/google/protobuf/descriptor.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/google/protobuf/descriptor.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.channel.v1/module/types/ibc/core/channel/v1/channel.d.ts" />
         <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/google/api/http.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.crisis.v1beta1/module/types/cosmos/crisis/v1beta1/genesis.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.channel.v1/module/types/google/protobuf/descriptor.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.vesting.v1beta1/module/types/cosmos/vesting/v1beta1/tx.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.vesting.v1beta1/module/types/gogoproto/gogo.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.abci.v1beta1/module/rest.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.distribution.v1beta1/module/types/google/api/http.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.abci.v1beta1/module/types/google/protobuf/descriptor.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.bank.v1beta1/module/types/cosmos/bank/v1beta1/bank.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.channel.v1/module/types/google/api/annotations.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/cosmos_proto/cosmos.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.evidence.v1beta1/module/types/google/api/http.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.distribution.v1beta1/module/types/google/protobuf/descriptor.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.client.v1/module/types/ibc/core/client/v1/query.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.applications.transfer.v1/module/types/cosmos/base/query/v1beta1/pagination.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.channel.v1/module/types/ibc/core/channel/v1/query.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.abci.v1beta1/module/types/gogoproto/gogo.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/tendermint/crypto/keys.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.applications.transfer.v1/module/types/ibc/applications/transfer/v1/tx.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.connection.v1/module/types/google/api/annotations.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.connection.v1/module/types/ibc/core/connection/v1/tx.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.evidence.v1beta1/module/types/google/protobuf/timestamp.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.applications.transfer.v1/module/types/ibc/applications/transfer/v1/query.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/index.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.gov.v1beta1/module/types/cosmos_proto/cosmos.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.applications.transfer.v1/module/types/ibc/applications/transfer/v1/query.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.distribution.v1beta1/module/types/cosmos/distribution/v1beta1/distribution.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/index.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.v1beta1/module/types/gogoproto/gogo.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/index.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.v1beta1/module/types/google/protobuf/descriptor.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/index.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/tendermint/types/validator.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.slashing.v1beta1/module/rest.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.client.v1/module/types/ibc/core/client/v1/tx.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.distribution.v1beta1/module/types/cosmos/distribution/v1beta1/tx.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.channel.v1/module/index.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.channel.v1/module/types/ibc/core/channel/v1/tx.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.evidence.v1beta1/module/types/cosmos/base/query/v1beta1/pagination.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.client.v1/module/index.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.bank.v1beta1/module/types/cosmos_proto/cosmos.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.connection.v1/module/types/cosmos/base/query/v1beta1/pagination.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.connection.v1/module/types/gogoproto/gogo.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.gov.v1beta1/module/types/cosmos/gov/v1beta1/gov.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.bank.v1beta1/module/types/cosmos_proto/cosmos.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.bank.v1beta1/module/index.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.connection.v1/module/rest.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/cosmos/staking/v1beta1/genesis.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.evidence.v1beta1/module/types/cosmos/evidence/v1beta1/genesis.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.bank.v1beta1/module/rest.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.client.v1/module/types/google/protobuf/descriptor.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.slashing.v1beta1/module/types/gogoproto/gogo.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.channel.v1/module/types/google/protobuf/any.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.connection.v1/module/types/google/protobuf/descriptor.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.v1beta1/module/types/google/protobuf/descriptor.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.slashing.v1beta1/module/types/cosmos/slashing/v1beta1/genesis.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/cosmos/base/v1beta1/coin.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.channel.v1/module/types/ibc/core/channel/v1/query.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.gov.v1beta1/module/types/gogoproto/gogo.d.ts" />
         <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/google/api/http.d.ts" />
         <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/google/api/annotations.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/google/api/annotations.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/cosmos/staking/v1beta1/genesis.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/cosmos/staking/v1beta1/genesis.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/cosmos/staking/v1beta1/query.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/cosmos/staking/v1beta1/query.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/cosmos/staking/v1beta1/tx.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/cosmos/staking/v1beta1/tx.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/cosmos/staking/v1beta1/staking.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/cosmos/staking/v1beta1/staking.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/cosmos/base/v1beta1/coin.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/cosmos/base/v1beta1/coin.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/cosmos/base/query/v1beta1/pagination.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/cosmos/base/query/v1beta1/pagination.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/index.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/index.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/rest.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/rest.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/index.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/index.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.crisis.v1beta1/module/types/gogoproto/gogo.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.crisis.v1beta1/module/types/gogoproto/gogo.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.crisis.v1beta1/module/types/google/protobuf/descriptor.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.crisis.v1beta1/module/types/google/protobuf/descriptor.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.crisis.v1beta1/module/types/cosmos/crisis/v1beta1/genesis.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.crisis.v1beta1/module/types/cosmos/crisis/v1beta1/genesis.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.crisis.v1beta1/module/types/cosmos/crisis/v1beta1/tx.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.crisis.v1beta1/module/types/cosmos/crisis/v1beta1/tx.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.crisis.v1beta1/module/types/cosmos/base/v1beta1/coin.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.crisis.v1beta1/module/types/cosmos/base/v1beta1/coin.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.crisis.v1beta1/module/index.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.crisis.v1beta1/module/index.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.crisis.v1beta1/module/rest.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.crisis.v1beta1/module/rest.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.crisis.v1beta1/index.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.crisis.v1beta1/index.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.channel.v1/module/types/gogoproto/gogo.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.channel.v1/module/types/gogoproto/gogo.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.channel.v1/module/types/google/protobuf/any.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.gov.v1beta1/module/types/google/protobuf/duration.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.vesting.v1beta1/module/types/cosmos/vesting/v1beta1/vesting.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.vesting.v1beta1/index.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.connection.v1/module/types/confio/proofs.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.applications.transfer.v1/module/types/google/protobuf/any.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.slashing.v1beta1/module/types/google/api/annotations.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.distribution.v1beta1/module/types/cosmos/base/v1beta1/coin.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.bank.v1beta1/module/types/cosmos/bank/v1beta1/genesis.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.connection.v1/module/types/ibc/core/connection/v1/query.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.applications.transfer.v1/module/types/ibc/applications/transfer/v1/tx.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.abci.v1beta1/module/types/tendermint/types/validator.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.vesting.v1beta1/module/types/google/protobuf/descriptor.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.gov.v1beta1/module/types/google/protobuf/any.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.gov.v1beta1/module/rest.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.applications.transfer.v1/module/index.js" />
         <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.channel.v1/module/types/google/protobuf/any.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.channel.v1/module/types/google/protobuf/descriptor.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.channel.v1/module/types/google/protobuf/descriptor.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.channel.v1/module/types/google/api/http.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.channel.v1/module/types/google/api/http.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.applications.transfer.v1/module/types/google/api/http.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.evidence.v1beta1/module/types/cosmos_proto/cosmos.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.client.v1/module/types/gogoproto/gogo.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.vesting.v1beta1/module/index.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.v1beta1/module/index.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.vesting.v1beta1/module/rest.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.bank.v1beta1/index.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.bank.v1beta1/module/types/google/api/annotations.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/google/protobuf/duration.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.gov.v1beta1/module/types/google/protobuf/descriptor.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.v1beta1/module/types/gogoproto/gogo.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.client.v1/module/types/ibc/core/client/v1/query.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.vesting.v1beta1/module/types/cosmos/auth/v1beta1/auth.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.slashing.v1beta1/module/types/cosmos/slashing/v1beta1/genesis.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.slashing.v1beta1/module/types/google/api/http.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.bank.v1beta1/module/types/cosmos/bank/v1beta1/bank.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.v1beta1/module/rest.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.evidence.v1beta1/index.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.gov.v1beta1/module/types/cosmos/gov/v1beta1/tx.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.v1beta1/module/rest.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.connection.v1/module/index.d.ts" />
         <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.channel.v1/module/types/google/api/annotations.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.channel.v1/module/types/google/api/annotations.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.channel.v1/module/types/cosmos/base/query/v1beta1/pagination.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.channel.v1/module/types/cosmos/base/query/v1beta1/pagination.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.channel.v1/module/types/ibc/core/channel/v1/genesis.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.channel.v1/module/types/ibc/core/channel/v1/genesis.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.channel.v1/module/types/ibc/core/channel/v1/query.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.channel.v1/module/types/ibc/core/channel/v1/query.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.channel.v1/module/types/ibc/core/channel/v1/tx.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.channel.v1/module/types/ibc/core/channel/v1/tx.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.channel.v1/module/types/ibc/core/channel/v1/channel.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.channel.v1/module/types/ibc/core/channel/v1/channel.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.channel.v1/module/types/ibc/core/client/v1/client.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.channel.v1/module/types/ibc/core/client/v1/client.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.channel.v1/module/index.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.channel.v1/module/index.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.slashing.v1beta1/module/index.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/cosmos/staking/v1beta1/staking.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/tendermint/types/types.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.applications.transfer.v1/module/types/google/protobuf/any.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/google/protobuf/descriptor.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.gov.v1beta1/module/types/cosmos/gov/v1beta1/genesis.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.bank.v1beta1/module/types/google/api/annotations.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.v1beta1/module/types/cosmos/base/v1beta1/coin.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.crisis.v1beta1/module/types/gogoproto/gogo.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.gov.v1beta1/index.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/google/protobuf/descriptor.js" />
         <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.channel.v1/module/rest.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.gov.v1beta1/module/rest.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.abci.v1beta1/index.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/index.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.evidence.v1beta1/module/types/gogoproto/gogo.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/index.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/rest.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/cosmos/base/query/v1beta1/pagination.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/types/property/property.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.client.v1/module/types/ibc/core/client/v1/genesis.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/rest.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.channel.v1/module/types/cosmos/base/query/v1beta1/pagination.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/types/property/owner.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/types/property/genesis.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/types/property/tx.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/types/property/property.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/types/property/genesis.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.client.v1/module/types/cosmos/base/query/v1beta1/pagination.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/types/property/query.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.client.v1/module/types/google/protobuf/any.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/types/property/query.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.crisis.v1beta1/module/index.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/types/property/owner.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/types/gogoproto/gogo.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.abci.v1beta1/module/types/tendermint/version/types.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/types/property/tx.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.slashing.v1beta1/module/types/google/protobuf/timestamp.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/types/google/api/http.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.evidence.v1beta1/module/index.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/types/gogoproto/gogo.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.slashing.v1beta1/index.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/types/google/api/http.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.vesting.v1beta1/module/types/google/protobuf/any.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/types/google/api/annotations.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.crisis.v1beta1/module/types/gogoproto/gogo.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/types/google/protobuf/descriptor.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.client.v1/index.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/types/google/api/annotations.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/types/cosmos/base/query/v1beta1/pagination.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/types/google/protobuf/descriptor.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.bank.v1beta1/module/types/cosmos/base/v1beta1/coin.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/types/cosmos/base/query/v1beta1/pagination.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.bank.v1beta1/module/types/cosmos/base/query/v1beta1/pagination.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/index.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.vesting.v1beta1/module/types/google/protobuf/descriptor.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.bank.v1beta1/module/types/google/api/http.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.abci.v1beta1/module/types/tendermint/types/types.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.applications.transfer.v1/index.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.slashing.v1beta1/module/types/gogoproto/gogo.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.channel.v1/module/types/ibc/core/channel/v1/genesis.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.gov.v1beta1/module/types/cosmos/base/v1beta1/coin.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.channel.v1/module/types/google/api/http.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.connection.v1/module/types/ibc/core/connection/v1/genesis.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.evidence.v1beta1/module/types/cosmos/base/query/v1beta1/pagination.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.vesting.v1beta1/module/types/cosmos/base/v1beta1/coin.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.evidence.v1beta1/module/types/google/protobuf/timestamp.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.distribution.v1beta1/module/rest.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.distribution.v1beta1/index.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.crisis.v1beta1/module/rest.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.client.v1/module/types/google/api/annotations.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.evidence.v1beta1/module/types/cosmos/evidence/v1beta1/evidence.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.applications.transfer.v1/module/types/ibc/applications/transfer/v1/transfer.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.distribution.v1beta1/module/index.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.distribution.v1beta1/module/types/google/api/http.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.evidence.v1beta1/module/types/google/protobuf/descriptor.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/index.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.abci.v1beta1/module/types/cosmos/base/abci/v1beta1/abci.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/index.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.evidence.v1beta1/module/types/gogoproto/gogo.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/rest.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.channel.v1/module/types/gogoproto/gogo.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.slashing.v1beta1/module/types/google/api/http.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.applications.transfer.v1/module/types/google/api/annotations.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.distribution.v1beta1/module/types/cosmos/base/v1beta1/coin.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.abci.v1beta1/module/types/tendermint/crypto/proof.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.bank.v1beta1/module/types/cosmos/bank/v1beta1/query.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.connection.v1/module/types/gogoproto/gogo.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/cosmos/base/v1beta1/coin.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.distribution.v1beta1/module/types/cosmos/base/query/v1beta1/pagination.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.evidence.v1beta1/module/types/cosmos/evidence/v1beta1/query.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.abci.v1beta1/module/types/google/protobuf/descriptor.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.applications.transfer.v1/index.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/gogoproto/gogo.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.v1beta1/module/types/cosmos/base/v1beta1/coin.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/google/protobuf/any.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.distribution.v1beta1/module/index.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.client.v1/module/types/google/api/annotations.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.gov.v1beta1/module/types/cosmos/base/query/v1beta1/pagination.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.abci.v1beta1/module/types/tendermint/types/params.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/google/protobuf/timestamp.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.abci.v1beta1/module/types/tendermint/abci/types.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.abci.v1beta1/module/types/tendermint/crypto/proof.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/cosmos/staking/v1beta1/tx.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.crisis.v1beta1/index.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.evidence.v1beta1/module/index.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.client.v1/module/types/google/api/http.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.gov.v1beta1/module/types/google/api/http.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.gov.v1beta1/module/types/cosmos/base/v1beta1/coin.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.applications.transfer.v1/module/types/google/api/annotations.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.abci.v1beta1/module/types/google/protobuf/duration.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.client.v1/module/types/gogoproto/gogo.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.bank.v1beta1/module/types/google/protobuf/descriptor.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.applications.transfer.v1/module/index.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.bank.v1beta1/module/types/cosmos/base/v1beta1/coin.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.evidence.v1beta1/module/types/cosmos/evidence/v1beta1/tx.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.gov.v1beta1/module/types/google/protobuf/any.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.client.v1/module/types/ibc/core/client/v1/genesis.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/tendermint/version/types.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.evidence.v1beta1/module/rest.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.abci.v1beta1/module/types/tendermint/types/params.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.channel.v1/module/types/ibc/core/channel/v1/channel.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.slashing.v1beta1/module/rest.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.abci.v1beta1/module/types/tendermint/crypto/keys.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.applications.transfer.v1/module/types/cosmos/base/v1beta1/coin.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.bank.v1beta1/module/types/cosmos/bank/v1beta1/query.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/cosmos/staking/v1beta1/genesis.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.evidence.v1beta1/module/types/google/api/annotations.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.connection.v1/module/types/confio/proofs.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/rest.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.slashing.v1beta1/module/types/google/protobuf/duration.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.applications.transfer.v1/module/types/gogoproto/gogo.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.client.v1/module/types/google/protobuf/any.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/cosmos/base/query/v1beta1/pagination.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.gov.v1beta1/module/types/cosmos/gov/v1beta1/tx.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.connection.v1/module/types/ibc/core/client/v1/client.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.distribution.v1beta1/module/types/cosmos/distribution/v1beta1/genesis.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.channel.v1/module/types/ibc/core/channel/v1/genesis.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.client.v1/module/types/cosmos/base/query/v1beta1/pagination.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.crisis.v1beta1/module/types/cosmos/base/v1beta1/coin.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.connection.v1/module/index.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.evidence.v1beta1/module/types/google/protobuf/any.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.vesting.v1beta1/module/types/cosmos/vesting/v1beta1/vesting.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.bank.v1beta1/index.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.gov.v1beta1/module/types/google/protobuf/timestamp.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.evidence.v1beta1/module/types/google/api/annotations.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.gov.v1beta1/module/types/google/api/annotations.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.client.v1/module/types/google/api/http.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.bank.v1beta1/module/types/gogoproto/gogo.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.slashing.v1beta1/module/index.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.distribution.v1beta1/module/types/google/protobuf/descriptor.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.crisis.v1beta1/module/rest.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/gogoproto/gogo.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.gov.v1beta1/module/types/cosmos_proto/cosmos.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.applications.transfer.v1/module/types/ibc/core/client/v1/client.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.evidence.v1beta1/index.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.vesting.v1beta1/module/types/cosmos/auth/v1beta1/auth.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.vesting.v1beta1/module/types/cosmos/vesting/v1beta1/tx.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.abci.v1beta1/index.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/tendermint/crypto/keys.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.channel.v1/module/types/google/api/http.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.evidence.v1beta1/module/types/google/protobuf/descriptor.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.client.v1/module/types/ibc/core/client/v1/tx.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.v1beta1/index.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.distribution.v1beta1/module/types/cosmos/distribution/v1beta1/tx.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.connection.v1/module/types/ibc/core/connection/v1/tx.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.abci.v1beta1/module/index.js" />
         <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.channel.v1/module/rest.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.abci.v1beta1/module/types/cosmos/base/abci/v1beta1/abci.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/cosmos/staking/v1beta1/staking.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/google/protobuf/duration.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.distribution.v1beta1/module/types/cosmos/distribution/v1beta1/distribution.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.gov.v1beta1/module/types/google/api/http.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.abci.v1beta1/module/types/google/protobuf/timestamp.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.abci.v1beta1/module/types/tendermint/version/types.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.client.v1/module/rest.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.gov.v1beta1/module/types/cosmos/gov/v1beta1/gov.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.channel.v1/module/index.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/index.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/tendermint/crypto/proof.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.staking.v1beta1/module/types/tendermint/version/types.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.evidence.v1beta1/module/types/cosmos/evidence/v1beta1/evidence.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.connection.v1/module/types/ibc/core/connection/v1/connection.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.distribution.v1beta1/module/types/google/api/annotations.d.ts" />
         <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.channel.v1/index.js" />
         <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.channel.v1/index.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.v1beta1/module/types/gogoproto/gogo.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.v1beta1/module/types/gogoproto/gogo.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.v1beta1/module/types/google/protobuf/descriptor.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.v1beta1/module/types/google/protobuf/descriptor.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.v1beta1/module/types/cosmos/base/v1beta1/coin.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.v1beta1/module/types/cosmos/base/v1beta1/coin.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.v1beta1/module/index.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.v1beta1/module/index.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.v1beta1/module/rest.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.v1beta1/module/rest.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.v1beta1/index.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.v1beta1/index.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.bank.v1beta1/module/types/cosmos_proto/cosmos.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.bank.v1beta1/module/types/cosmos_proto/cosmos.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.bank.v1beta1/module/types/gogoproto/gogo.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.bank.v1beta1/module/types/gogoproto/gogo.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.bank.v1beta1/module/types/google/protobuf/descriptor.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.bank.v1beta1/module/types/google/protobuf/descriptor.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.bank.v1beta1/module/types/google/api/http.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.bank.v1beta1/module/types/google/api/http.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.bank.v1beta1/module/types/google/api/annotations.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.bank.v1beta1/module/types/google/api/annotations.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.bank.v1beta1/module/types/cosmos/base/v1beta1/coin.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.bank.v1beta1/module/types/cosmos/base/v1beta1/coin.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.bank.v1beta1/module/types/cosmos/base/query/v1beta1/pagination.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.bank.v1beta1/module/types/cosmos/base/query/v1beta1/pagination.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.bank.v1beta1/module/types/cosmos/bank/v1beta1/genesis.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.bank.v1beta1/module/types/cosmos/bank/v1beta1/genesis.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.bank.v1beta1/module/types/cosmos/bank/v1beta1/bank.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.bank.v1beta1/module/types/cosmos/bank/v1beta1/bank.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.bank.v1beta1/module/types/cosmos/bank/v1beta1/query.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.bank.v1beta1/module/types/cosmos/bank/v1beta1/query.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.bank.v1beta1/module/types/cosmos/bank/v1beta1/tx.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.bank.v1beta1/module/types/cosmos/bank/v1beta1/tx.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.bank.v1beta1/module/index.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.bank.v1beta1/module/index.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.bank.v1beta1/module/rest.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.bank.v1beta1/module/rest.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.bank.v1beta1/index.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.bank.v1beta1/index.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.client.v1/module/types/gogoproto/gogo.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.client.v1/module/types/gogoproto/gogo.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.client.v1/module/types/google/protobuf/any.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.client.v1/module/types/google/protobuf/any.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.client.v1/module/types/google/protobuf/descriptor.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.client.v1/module/types/google/protobuf/descriptor.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.client.v1/module/types/google/api/http.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.client.v1/module/types/google/api/http.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.client.v1/module/types/google/api/annotations.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.client.v1/module/types/google/api/annotations.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.client.v1/module/types/cosmos/base/query/v1beta1/pagination.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.client.v1/module/types/cosmos/base/query/v1beta1/pagination.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.client.v1/module/types/ibc/core/client/v1/genesis.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.client.v1/module/types/ibc/core/client/v1/genesis.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.client.v1/module/types/ibc/core/client/v1/query.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.client.v1/module/types/ibc/core/client/v1/query.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.client.v1/module/types/ibc/core/client/v1/tx.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.client.v1/module/types/ibc/core/client/v1/tx.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.client.v1/module/types/ibc/core/client/v1/client.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.client.v1/module/types/ibc/core/client/v1/client.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.client.v1/module/index.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.client.v1/module/index.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.client.v1/module/rest.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.client.v1/module/rest.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.client.v1/index.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.client.v1/index.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.gov.v1beta1/module/types/cosmos_proto/cosmos.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.gov.v1beta1/module/types/cosmos_proto/cosmos.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.gov.v1beta1/module/types/gogoproto/gogo.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.gov.v1beta1/module/types/gogoproto/gogo.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.gov.v1beta1/module/types/google/protobuf/duration.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.gov.v1beta1/module/types/google/protobuf/duration.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.gov.v1beta1/module/types/google/protobuf/timestamp.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.gov.v1beta1/module/types/google/protobuf/timestamp.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.gov.v1beta1/module/types/google/protobuf/any.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.gov.v1beta1/module/types/google/protobuf/any.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.gov.v1beta1/module/types/google/protobuf/descriptor.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.gov.v1beta1/module/types/google/protobuf/descriptor.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.gov.v1beta1/module/types/google/api/http.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.gov.v1beta1/module/types/google/api/http.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.gov.v1beta1/module/types/google/api/annotations.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.gov.v1beta1/module/types/google/api/annotations.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.gov.v1beta1/module/types/cosmos/base/v1beta1/coin.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.gov.v1beta1/module/types/cosmos/base/v1beta1/coin.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.gov.v1beta1/module/types/cosmos/base/query/v1beta1/pagination.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.gov.v1beta1/module/types/cosmos/base/query/v1beta1/pagination.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.gov.v1beta1/module/types/cosmos/gov/v1beta1/genesis.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.gov.v1beta1/module/types/cosmos/gov/v1beta1/genesis.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.gov.v1beta1/module/types/cosmos/gov/v1beta1/query.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.gov.v1beta1/module/types/cosmos/gov/v1beta1/query.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.gov.v1beta1/module/types/cosmos/gov/v1beta1/tx.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.gov.v1beta1/module/types/cosmos/gov/v1beta1/tx.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.gov.v1beta1/module/types/cosmos/gov/v1beta1/gov.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.gov.v1beta1/module/types/cosmos/gov/v1beta1/gov.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.gov.v1beta1/module/index.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.gov.v1beta1/module/index.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.gov.v1beta1/module/rest.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.gov.v1beta1/module/rest.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.gov.v1beta1/index.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.evidence.v1beta1/module/rest.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.crisis.v1beta1/module/types/cosmos/crisis/v1beta1/genesis.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.connection.v1/module/types/ibc/core/commitment/v1/commitment.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.abci.v1beta1/module/types/google/protobuf/any.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.connection.v1/module/types/ibc/core/client/v1/client.d.ts" />
         <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.gov.v1beta1/index.d.ts" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/index.js" />
-        <option value="$PROJECT_DIR$/vue/src/store/generated/index.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/ibc.core.connection.v1/module/types/ibc/core/connection/v1/connection.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.slashing.v1beta1/index.d.ts" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.bank.v1beta1/module/types/cosmos/base/query/v1beta1/pagination.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.bank.v1beta1/module/types/google/protobuf/descriptor.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.bank.v1beta1/module/types/cosmos/bank/v1beta1/genesis.js" />
+        <option value="$PROJECT_DIR$/vue/src/store/generated/cosmos/cosmos-sdk/cosmos.base.v1beta1/index.d.ts" />
       </list>
-    </option>
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
     </option>
   </component>
   <component name="VgoProject">

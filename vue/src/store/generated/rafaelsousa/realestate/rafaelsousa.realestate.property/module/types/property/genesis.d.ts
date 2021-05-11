@@ -1,9 +1,12 @@
+import { Owner } from "../property/owner";
 import { Property } from "../property/property";
 import { Writer, Reader } from "protobufjs/minimal";
 export declare const protobufPackage = "rafaelsousa.realestate.property";
 /** GenesisState defines the property module's genesis state. */
 export interface GenesisState {
     /** this line is used by starport scaffolding # genesis/proto/state */
+    ownerList: Owner[];
+    /** this line is used by starport scaffolding # genesis/proto/stateField */
     propertyList: Property[];
 }
 export declare const GenesisState: {

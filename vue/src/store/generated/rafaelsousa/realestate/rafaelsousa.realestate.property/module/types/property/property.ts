@@ -14,7 +14,11 @@ export interface Property {
   country: string;
   latitude: string;
   longitude: string;
-  ownerAddr: string;
+  owneraddr: string;
+}
+
+export interface PropertyCollection {
+  properties: Property[];
 }
 
 const baseProperty: object = {
@@ -27,7 +31,7 @@ const baseProperty: object = {
   country: "",
   latitude: "",
   longitude: "",
-  ownerAddr: "",
+  owneraddr: "",
 };
 
 export const Property = {
@@ -59,8 +63,8 @@ export const Property = {
     if (message.longitude !== "") {
       writer.uint32(74).string(message.longitude);
     }
-    if (message.ownerAddr !== "") {
-      writer.uint32(82).string(message.ownerAddr);
+    if (message.owneraddr !== "") {
+      writer.uint32(82).string(message.owneraddr);
     }
     return writer;
   },
@@ -100,7 +104,7 @@ export const Property = {
           message.longitude = reader.string();
           break;
         case 10:
-          message.ownerAddr = reader.string();
+          message.owneraddr = reader.string();
           break;
         default:
           reader.skipType(tag & 7);
@@ -157,10 +161,10 @@ export const Property = {
     } else {
       message.longitude = "";
     }
-    if (object.ownerAddr !== undefined && object.ownerAddr !== null) {
-      message.ownerAddr = String(object.ownerAddr);
+    if (object.owneraddr !== undefined && object.owneraddr !== null) {
+      message.owneraddr = String(object.owneraddr);
     } else {
-      message.ownerAddr = "";
+      message.owneraddr = "";
     }
     return message;
   },
@@ -176,7 +180,7 @@ export const Property = {
     message.country !== undefined && (obj.country = message.country);
     message.latitude !== undefined && (obj.latitude = message.latitude);
     message.longitude !== undefined && (obj.longitude = message.longitude);
-    message.ownerAddr !== undefined && (obj.ownerAddr = message.ownerAddr);
+    message.owneraddr !== undefined && (obj.owneraddr = message.owneraddr);
     return obj;
   },
 
@@ -227,10 +231,77 @@ export const Property = {
     } else {
       message.longitude = "";
     }
-    if (object.ownerAddr !== undefined && object.ownerAddr !== null) {
-      message.ownerAddr = object.ownerAddr;
+    if (object.owneraddr !== undefined && object.owneraddr !== null) {
+      message.owneraddr = object.owneraddr;
     } else {
-      message.ownerAddr = "";
+      message.owneraddr = "";
+    }
+    return message;
+  },
+};
+
+const basePropertyCollection: object = {};
+
+export const PropertyCollection = {
+  encode(
+    message: PropertyCollection,
+    writer: Writer = Writer.create()
+  ): Writer {
+    for (const v of message.properties) {
+      Property.encode(v!, writer.uint32(10).fork()).ldelim();
+    }
+    return writer;
+  },
+
+  decode(input: Reader | Uint8Array, length?: number): PropertyCollection {
+    const reader = input instanceof Uint8Array ? new Reader(input) : input;
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = { ...basePropertyCollection } as PropertyCollection;
+    message.properties = [];
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.properties.push(Property.decode(reader, reader.uint32()));
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): PropertyCollection {
+    const message = { ...basePropertyCollection } as PropertyCollection;
+    message.properties = [];
+    if (object.properties !== undefined && object.properties !== null) {
+      for (const e of object.properties) {
+        message.properties.push(Property.fromJSON(e));
+      }
+    }
+    return message;
+  },
+
+  toJSON(message: PropertyCollection): unknown {
+    const obj: any = {};
+    if (message.properties) {
+      obj.properties = message.properties.map((e) =>
+        e ? Property.toJSON(e) : undefined
+      );
+    } else {
+      obj.properties = [];
+    }
+    return obj;
+  },
+
+  fromPartial(object: DeepPartial<PropertyCollection>): PropertyCollection {
+    const message = { ...basePropertyCollection } as PropertyCollection;
+    message.properties = [];
+    if (object.properties !== undefined && object.properties !== null) {
+      for (const e of object.properties) {
+        message.properties.push(Property.fromPartial(e));
+      }
     }
     return message;
   },

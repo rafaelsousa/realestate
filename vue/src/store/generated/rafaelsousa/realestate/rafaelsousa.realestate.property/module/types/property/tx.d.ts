@@ -1,6 +1,26 @@
 import { Reader, Writer } from "protobufjs/minimal";
 export declare const protobufPackage = "rafaelsousa.realestate.property";
 /** this line is used by starport scaffolding # proto/tx/message */
+export interface MsgCreateOwner {
+    creator: string;
+    address: string;
+}
+export interface MsgCreateOwnerResponse {
+    id: number;
+}
+export interface MsgUpdateOwner {
+    creator: string;
+    id: number;
+    address: string;
+}
+export interface MsgUpdateOwnerResponse {
+}
+export interface MsgDeleteOwner {
+    creator: string;
+    id: number;
+}
+export interface MsgDeleteOwnerResponse {
+}
 export interface MsgCreateProperty {
     creator: string;
     address: string;
@@ -35,6 +55,48 @@ export interface MsgDeleteProperty {
 }
 export interface MsgDeletePropertyResponse {
 }
+export declare const MsgCreateOwner: {
+    encode(message: MsgCreateOwner, writer?: Writer): Writer;
+    decode(input: Reader | Uint8Array, length?: number): MsgCreateOwner;
+    fromJSON(object: any): MsgCreateOwner;
+    toJSON(message: MsgCreateOwner): unknown;
+    fromPartial(object: DeepPartial<MsgCreateOwner>): MsgCreateOwner;
+};
+export declare const MsgCreateOwnerResponse: {
+    encode(message: MsgCreateOwnerResponse, writer?: Writer): Writer;
+    decode(input: Reader | Uint8Array, length?: number): MsgCreateOwnerResponse;
+    fromJSON(object: any): MsgCreateOwnerResponse;
+    toJSON(message: MsgCreateOwnerResponse): unknown;
+    fromPartial(object: DeepPartial<MsgCreateOwnerResponse>): MsgCreateOwnerResponse;
+};
+export declare const MsgUpdateOwner: {
+    encode(message: MsgUpdateOwner, writer?: Writer): Writer;
+    decode(input: Reader | Uint8Array, length?: number): MsgUpdateOwner;
+    fromJSON(object: any): MsgUpdateOwner;
+    toJSON(message: MsgUpdateOwner): unknown;
+    fromPartial(object: DeepPartial<MsgUpdateOwner>): MsgUpdateOwner;
+};
+export declare const MsgUpdateOwnerResponse: {
+    encode(_: MsgUpdateOwnerResponse, writer?: Writer): Writer;
+    decode(input: Reader | Uint8Array, length?: number): MsgUpdateOwnerResponse;
+    fromJSON(_: any): MsgUpdateOwnerResponse;
+    toJSON(_: MsgUpdateOwnerResponse): unknown;
+    fromPartial(_: DeepPartial<MsgUpdateOwnerResponse>): MsgUpdateOwnerResponse;
+};
+export declare const MsgDeleteOwner: {
+    encode(message: MsgDeleteOwner, writer?: Writer): Writer;
+    decode(input: Reader | Uint8Array, length?: number): MsgDeleteOwner;
+    fromJSON(object: any): MsgDeleteOwner;
+    toJSON(message: MsgDeleteOwner): unknown;
+    fromPartial(object: DeepPartial<MsgDeleteOwner>): MsgDeleteOwner;
+};
+export declare const MsgDeleteOwnerResponse: {
+    encode(_: MsgDeleteOwnerResponse, writer?: Writer): Writer;
+    decode(input: Reader | Uint8Array, length?: number): MsgDeleteOwnerResponse;
+    fromJSON(_: any): MsgDeleteOwnerResponse;
+    toJSON(_: MsgDeleteOwnerResponse): unknown;
+    fromPartial(_: DeepPartial<MsgDeleteOwnerResponse>): MsgDeleteOwnerResponse;
+};
 export declare const MsgCreateProperty: {
     encode(message: MsgCreateProperty, writer?: Writer): Writer;
     decode(input: Reader | Uint8Array, length?: number): MsgCreateProperty;
@@ -80,6 +142,9 @@ export declare const MsgDeletePropertyResponse: {
 /** Msg defines the Msg service. */
 export interface Msg {
     /** this line is used by starport scaffolding # proto/tx/rpc */
+    CreateOwner(request: MsgCreateOwner): Promise<MsgCreateOwnerResponse>;
+    UpdateOwner(request: MsgUpdateOwner): Promise<MsgUpdateOwnerResponse>;
+    DeleteOwner(request: MsgDeleteOwner): Promise<MsgDeleteOwnerResponse>;
     CreateProperty(request: MsgCreateProperty): Promise<MsgCreatePropertyResponse>;
     UpdateProperty(request: MsgUpdateProperty): Promise<MsgUpdatePropertyResponse>;
     DeleteProperty(request: MsgDeleteProperty): Promise<MsgDeletePropertyResponse>;
@@ -87,6 +152,9 @@ export interface Msg {
 export declare class MsgClientImpl implements Msg {
     private readonly rpc;
     constructor(rpc: Rpc);
+    CreateOwner(request: MsgCreateOwner): Promise<MsgCreateOwnerResponse>;
+    UpdateOwner(request: MsgUpdateOwner): Promise<MsgUpdateOwnerResponse>;
+    DeleteOwner(request: MsgDeleteOwner): Promise<MsgDeleteOwnerResponse>;
     CreateProperty(request: MsgCreateProperty): Promise<MsgCreatePropertyResponse>;
     UpdateProperty(request: MsgUpdateProperty): Promise<MsgUpdatePropertyResponse>;
     DeleteProperty(request: MsgDeleteProperty): Promise<MsgDeletePropertyResponse>;

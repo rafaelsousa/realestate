@@ -15,5 +15,10 @@ message Property {
   string country = 7; 
   string latitude = 8; 
   string longitude = 9; 
-  string owner_addr = 10; 
+  string owneraddr = 10;
+}
+
+
+message PropertyCollection {
+  repeated Property properties = 1;
 }

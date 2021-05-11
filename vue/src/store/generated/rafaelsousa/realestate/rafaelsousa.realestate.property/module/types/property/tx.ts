@@ -5,6 +5,30 @@ import * as Long from "long";
 export const protobufPackage = "rafaelsousa.realestate.property";
 
 /** this line is used by starport scaffolding # proto/tx/message */
+export interface MsgCreateOwner {
+  creator: string;
+  address: string;
+}
+
+export interface MsgCreateOwnerResponse {
+  id: number;
+}
+
+export interface MsgUpdateOwner {
+  creator: string;
+  id: number;
+  address: string;
+}
+
+export interface MsgUpdateOwnerResponse {}
+
+export interface MsgDeleteOwner {
+  creator: string;
+  id: number;
+}
+
+export interface MsgDeleteOwnerResponse {}
+
 export interface MsgCreateProperty {
   creator: string;
   address: string;
@@ -42,6 +66,375 @@ export interface MsgDeleteProperty {
 }
 
 export interface MsgDeletePropertyResponse {}
+
+const baseMsgCreateOwner: object = { creator: "", address: "" };
+
+export const MsgCreateOwner = {
+  encode(message: MsgCreateOwner, writer: Writer = Writer.create()): Writer {
+    if (message.creator !== "") {
+      writer.uint32(10).string(message.creator);
+    }
+    if (message.address !== "") {
+      writer.uint32(18).string(message.address);
+    }
+    return writer;
+  },
+
+  decode(input: Reader | Uint8Array, length?: number): MsgCreateOwner {
+    const reader = input instanceof Uint8Array ? new Reader(input) : input;
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = { ...baseMsgCreateOwner } as MsgCreateOwner;
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.creator = reader.string();
+          break;
+        case 2:
+          message.address = reader.string();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): MsgCreateOwner {
+    const message = { ...baseMsgCreateOwner } as MsgCreateOwner;
+    if (object.creator !== undefined && object.creator !== null) {
+      message.creator = String(object.creator);
+    } else {
+      message.creator = "";
+    }
+    if (object.address !== undefined && object.address !== null) {
+      message.address = String(object.address);
+    } else {
+      message.address = "";
+    }
+    return message;
+  },
+
+  toJSON(message: MsgCreateOwner): unknown {
+    const obj: any = {};
+    message.creator !== undefined && (obj.creator = message.creator);
+    message.address !== undefined && (obj.address = message.address);
+    return obj;
+  },
+
+  fromPartial(object: DeepPartial<MsgCreateOwner>): MsgCreateOwner {
+    const message = { ...baseMsgCreateOwner } as MsgCreateOwner;
+    if (object.creator !== undefined && object.creator !== null) {
+      message.creator = object.creator;
+    } else {
+      message.creator = "";
+    }
+    if (object.address !== undefined && object.address !== null) {
+      message.address = object.address;
+    } else {
+      message.address = "";
+    }
+    return message;
+  },
+};
+
+const baseMsgCreateOwnerResponse: object = { id: 0 };
+
+export const MsgCreateOwnerResponse = {
+  encode(
+    message: MsgCreateOwnerResponse,
+    writer: Writer = Writer.create()
+  ): Writer {
+    if (message.id !== 0) {
+      writer.uint32(8).uint64(message.id);
+    }
+    return writer;
+  },
+
+  decode(input: Reader | Uint8Array, length?: number): MsgCreateOwnerResponse {
+    const reader = input instanceof Uint8Array ? new Reader(input) : input;
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = { ...baseMsgCreateOwnerResponse } as MsgCreateOwnerResponse;
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.id = longToNumber(reader.uint64() as Long);
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): MsgCreateOwnerResponse {
+    const message = { ...baseMsgCreateOwnerResponse } as MsgCreateOwnerResponse;
+    if (object.id !== undefined && object.id !== null) {
+      message.id = Number(object.id);
+    } else {
+      message.id = 0;
+    }
+    return message;
+  },
+
+  toJSON(message: MsgCreateOwnerResponse): unknown {
+    const obj: any = {};
+    message.id !== undefined && (obj.id = message.id);
+    return obj;
+  },
+
+  fromPartial(
+    object: DeepPartial<MsgCreateOwnerResponse>
+  ): MsgCreateOwnerResponse {
+    const message = { ...baseMsgCreateOwnerResponse } as MsgCreateOwnerResponse;
+    if (object.id !== undefined && object.id !== null) {
+      message.id = object.id;
+    } else {
+      message.id = 0;
+    }
+    return message;
+  },
+};
+
+const baseMsgUpdateOwner: object = { creator: "", id: 0, address: "" };
+
+export const MsgUpdateOwner = {
+  encode(message: MsgUpdateOwner, writer: Writer = Writer.create()): Writer {
+    if (message.creator !== "") {
+      writer.uint32(10).string(message.creator);
+    }
+    if (message.id !== 0) {
+      writer.uint32(16).uint64(message.id);
+    }
+    if (message.address !== "") {
+      writer.uint32(26).string(message.address);
+    }
+    return writer;
+  },
+
+  decode(input: Reader | Uint8Array, length?: number): MsgUpdateOwner {
+    const reader = input instanceof Uint8Array ? new Reader(input) : input;
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = { ...baseMsgUpdateOwner } as MsgUpdateOwner;
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.creator = reader.string();
+          break;
+        case 2:
+          message.id = longToNumber(reader.uint64() as Long);
+          break;
+        case 3:
+          message.address = reader.string();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): MsgUpdateOwner {
+    const message = { ...baseMsgUpdateOwner } as MsgUpdateOwner;
+    if (object.creator !== undefined && object.creator !== null) {
+      message.creator = String(object.creator);
+    } else {
+      message.creator = "";
+    }
+    if (object.id !== undefined && object.id !== null) {
+      message.id = Number(object.id);
+    } else {
+      message.id = 0;
+    }
+    if (object.address !== undefined && object.address !== null) {
+      message.address = String(object.address);
+    } else {
+      message.address = "";
+    }
+    return message;
+  },
+
+  toJSON(message: MsgUpdateOwner): unknown {
+    const obj: any = {};
+    message.creator !== undefined && (obj.creator = message.creator);
+    message.id !== undefined && (obj.id = message.id);
+    message.address !== undefined && (obj.address = message.address);
+    return obj;
+  },
+
+  fromPartial(object: DeepPartial<MsgUpdateOwner>): MsgUpdateOwner {
+    const message = { ...baseMsgUpdateOwner } as MsgUpdateOwner;
+    if (object.creator !== undefined && object.creator !== null) {
+      message.creator = object.creator;
+    } else {
+      message.creator = "";
+    }
+    if (object.id !== undefined && object.id !== null) {
+      message.id = object.id;
+    } else {
+      message.id = 0;
+    }
+    if (object.address !== undefined && object.address !== null) {
+      message.address = object.address;
+    } else {
+      message.address = "";
+    }
+    return message;
+  },
+};
+
+const baseMsgUpdateOwnerResponse: object = {};
+
+export const MsgUpdateOwnerResponse = {
+  encode(_: MsgUpdateOwnerResponse, writer: Writer = Writer.create()): Writer {
+    return writer;
+  },
+
+  decode(input: Reader | Uint8Array, length?: number): MsgUpdateOwnerResponse {
+    const reader = input instanceof Uint8Array ? new Reader(input) : input;
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = { ...baseMsgUpdateOwnerResponse } as MsgUpdateOwnerResponse;
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(_: any): MsgUpdateOwnerResponse {
+    const message = { ...baseMsgUpdateOwnerResponse } as MsgUpdateOwnerResponse;
+    return message;
+  },
+
+  toJSON(_: MsgUpdateOwnerResponse): unknown {
+    const obj: any = {};
+    return obj;
+  },
+
+  fromPartial(_: DeepPartial<MsgUpdateOwnerResponse>): MsgUpdateOwnerResponse {
+    const message = { ...baseMsgUpdateOwnerResponse } as MsgUpdateOwnerResponse;
+    return message;
+  },
+};
+
+const baseMsgDeleteOwner: object = { creator: "", id: 0 };
+
+export const MsgDeleteOwner = {
+  encode(message: MsgDeleteOwner, writer: Writer = Writer.create()): Writer {
+    if (message.creator !== "") {
+      writer.uint32(10).string(message.creator);
+    }
+    if (message.id !== 0) {
+      writer.uint32(16).uint64(message.id);
+    }
+    return writer;
+  },
+
+  decode(input: Reader | Uint8Array, length?: number): MsgDeleteOwner {
+    const reader = input instanceof Uint8Array ? new Reader(input) : input;
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = { ...baseMsgDeleteOwner } as MsgDeleteOwner;
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.creator = reader.string();
+          break;
+        case 2:
+          message.id = longToNumber(reader.uint64() as Long);
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): MsgDeleteOwner {
+    const message = { ...baseMsgDeleteOwner } as MsgDeleteOwner;
+    if (object.creator !== undefined && object.creator !== null) {
+      message.creator = String(object.creator);
+    } else {
+      message.creator = "";
+    }
+    if (object.id !== undefined && object.id !== null) {
+      message.id = Number(object.id);
+    } else {
+      message.id = 0;
+    }
+    return message;
+  },
+
+  toJSON(message: MsgDeleteOwner): unknown {
+    const obj: any = {};
+    message.creator !== undefined && (obj.creator = message.creator);
+    message.id !== undefined && (obj.id = message.id);
+    return obj;
+  },
+
+  fromPartial(object: DeepPartial<MsgDeleteOwner>): MsgDeleteOwner {
+    const message = { ...baseMsgDeleteOwner } as MsgDeleteOwner;
+    if (object.creator !== undefined && object.creator !== null) {
+      message.creator = object.creator;
+    } else {
+      message.creator = "";
+    }
+    if (object.id !== undefined && object.id !== null) {
+      message.id = object.id;
+    } else {
+      message.id = 0;
+    }
+    return message;
+  },
+};
+
+const baseMsgDeleteOwnerResponse: object = {};
+
+export const MsgDeleteOwnerResponse = {
+  encode(_: MsgDeleteOwnerResponse, writer: Writer = Writer.create()): Writer {
+    return writer;
+  },
+
+  decode(input: Reader | Uint8Array, length?: number): MsgDeleteOwnerResponse {
+    const reader = input instanceof Uint8Array ? new Reader(input) : input;
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = { ...baseMsgDeleteOwnerResponse } as MsgDeleteOwnerResponse;
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(_: any): MsgDeleteOwnerResponse {
+    const message = { ...baseMsgDeleteOwnerResponse } as MsgDeleteOwnerResponse;
+    return message;
+  },
+
+  toJSON(_: MsgDeleteOwnerResponse): unknown {
+    const obj: any = {};
+    return obj;
+  },
+
+  fromPartial(_: DeepPartial<MsgDeleteOwnerResponse>): MsgDeleteOwnerResponse {
+    const message = { ...baseMsgDeleteOwnerResponse } as MsgDeleteOwnerResponse;
+    return message;
+  },
+};
 
 const baseMsgCreateProperty: object = {
   creator: "",
@@ -711,6 +1104,9 @@ export const MsgDeletePropertyResponse = {
 /** Msg defines the Msg service. */
 export interface Msg {
   /** this line is used by starport scaffolding # proto/tx/rpc */
+  CreateOwner(request: MsgCreateOwner): Promise<MsgCreateOwnerResponse>;
+  UpdateOwner(request: MsgUpdateOwner): Promise<MsgUpdateOwnerResponse>;
+  DeleteOwner(request: MsgDeleteOwner): Promise<MsgDeleteOwnerResponse>;
   CreateProperty(
     request: MsgCreateProperty
   ): Promise<MsgCreatePropertyResponse>;
@@ -727,6 +1123,42 @@ export class MsgClientImpl implements Msg {
   constructor(rpc: Rpc) {
     this.rpc = rpc;
   }
+  CreateOwner(request: MsgCreateOwner): Promise<MsgCreateOwnerResponse> {
+    const data = MsgCreateOwner.encode(request).finish();
+    const promise = this.rpc.request(
+      "rafaelsousa.realestate.property.Msg",
+      "CreateOwner",
+      data
+    );
+    return promise.then((data) =>
+      MsgCreateOwnerResponse.decode(new Reader(data))
+    );
+  }
+
+  UpdateOwner(request: MsgUpdateOwner): Promise<MsgUpdateOwnerResponse> {
+    const data = MsgUpdateOwner.encode(request).finish();
+    const promise = this.rpc.request(
+      "rafaelsousa.realestate.property.Msg",
+      "UpdateOwner",
+      data
+    );
+    return promise.then((data) =>
+      MsgUpdateOwnerResponse.decode(new Reader(data))
+    );
+  }
+
+  DeleteOwner(request: MsgDeleteOwner): Promise<MsgDeleteOwnerResponse> {
+    const data = MsgDeleteOwner.encode(request).finish();
+    const promise = this.rpc.request(
+      "rafaelsousa.realestate.property.Msg",
+      "DeleteOwner",
+      data
+    );
+    return promise.then((data) =>
+      MsgDeleteOwnerResponse.decode(new Reader(data))
+    );
+  }
+
   CreateProperty(
     request: MsgCreateProperty
   ): Promise<MsgCreatePropertyResponse> {

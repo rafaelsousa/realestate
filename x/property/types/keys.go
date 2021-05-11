@@ -29,3 +29,8 @@ const (
 	PropertyKey      = "Property-value-"
 	PropertyCountKey = "Property-count-"
 )
+
+const (
+	OwnerKey      = "Owner-value-"
+	OwnerCountKey = "Owner-count-"
+)
