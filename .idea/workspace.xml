@@ -1,58 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b2708e10-d4ca-4d33-a15b-29e73dee13c9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proto/property/genesis.proto" beforeDir="false" afterPath="$PROJECT_DIR$/proto/property/genesis.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proto/property/property.proto" beforeDir="false" afterPath="$PROJECT_DIR$/proto/property/property.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proto/property/query.proto" beforeDir="false" afterPath="$PROJECT_DIR$/proto/property/query.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proto/property/tx.proto" beforeDir="false" afterPath="$PROJECT_DIR$/proto/property/tx.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/store/generated/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/store/generated/index.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/store/generated/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/store/generated/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/store/generated/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/store/generated/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/index.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/rest.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/rest.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/rest.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/rest.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/rest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/rest.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/types/property/genesis.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/types/property/genesis.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/types/property/genesis.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/types/property/genesis.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/types/property/genesis.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/types/property/genesis.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/types/property/property.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/types/property/property.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/types/property/property.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/types/property/property.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/types/property/property.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/types/property/property.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/types/property/query.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/types/property/query.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/types/property/query.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/types/property/query.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/types/property/query.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/types/property/query.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/types/property/tx.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/types/property/tx.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/types/property/tx.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/types/property/tx.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/types/property/tx.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/types/property/tx.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/views/Types.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/Types.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/x/property/client/cli/query.go" beforeDir="false" afterPath="$PROJECT_DIR$/x/property/client/cli/query.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/x/property/client/cli/tx.go" beforeDir="false" afterPath="$PROJECT_DIR$/x/property/client/cli/tx.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/x/property/client/rest/rest.go" beforeDir="false" afterPath="$PROJECT_DIR$/x/property/client/rest/rest.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/x/property/client/rest/txProperty.go" beforeDir="false" afterPath="$PROJECT_DIR$/x/property/client/rest/txProperty.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/x/property/genesis.go" beforeDir="false" afterPath="$PROJECT_DIR$/x/property/genesis.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/x/property/handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/x/property/handler.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/x/property/keeper/keeper.go" beforeDir="false" afterPath="$PROJECT_DIR$/x/property/keeper/keeper.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/x/property/keeper/msg_server_property.go" beforeDir="false" afterPath="$PROJECT_DIR$/x/property/keeper/msg_server_property.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/x/property/keeper/property.go" beforeDir="false" afterPath="$PROJECT_DIR$/x/property/keeper/property.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/x/property/types/codec.go" beforeDir="false" afterPath="$PROJECT_DIR$/x/property/types/codec.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/x/property/types/genesis.go" beforeDir="false" afterPath="$PROJECT_DIR$/x/property/types/genesis.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/x/property/types/genesis.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/x/property/types/genesis.pb.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/x/property/types/keys.go" beforeDir="false" afterPath="$PROJECT_DIR$/x/property/types/keys.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/x/property/types/messages_property.go" beforeDir="false" afterPath="$PROJECT_DIR$/x/property/types/messages_property.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/x/property/types/property.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/x/property/types/property.pb.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/x/property/types/query.go" beforeDir="false" afterPath="$PROJECT_DIR$/x/property/types/query.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/x/property/types/query.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/x/property/types/query.pb.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/x/property/types/query.pb.gw.go" beforeDir="false" afterPath="$PROJECT_DIR$/x/property/types/query.pb.gw.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/x/property/types/tx.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/x/property/types/tx.pb.go" afterDir="false" />
-    </list>
+    <list default="true" id="b2708e10-d4ca-4d33-a15b-29e73dee13c9" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
