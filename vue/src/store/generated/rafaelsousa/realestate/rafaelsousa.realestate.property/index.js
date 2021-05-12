@@ -1,9 +1,9 @@
 import { txClient, queryClient } from './module';
 // @ts-ignore
 import { SpVuexError } from '@starport/vuex';
-import { Owner } from "./module/types/property/owner";
 import { Property } from "./module/types/property/property";
 import { PropertyCollection } from "./module/types/property/property";
+import { Owner } from "./module/types/property/owner";
 async function initTxClient(vuexGetters) {
     return await txClient(vuexGetters['common/wallet/signer'], {
         addr: vuexGetters['common/env/apiTendermint']
@@ -32,9 +32,9 @@ const getDefaultState = () => {
         PropertyAll: {},
         AllProperties: {},
         _Structure: {
-            Owner: getStructure(Owner.fromPartial({})),
             Property: getStructure(Property.fromPartial({})),
             PropertyCollection: getStructure(PropertyCollection.fromPartial({})),
+            Owner: getStructure(Owner.fromPartial({})),
         },
         _Subscriptions: new Set(),
     };
@@ -200,70 +200,6 @@ export default {
                 return {};
             }
         },
-        async sendMsgDeleteOwner({ rootGetters }, { value, fee, memo }) {
-            try {
-                const msg = await (await initTxClient(rootGetters)).msgDeleteOwner(value);
-                const result = await (await initTxClient(rootGetters)).signAndBroadcast([msg], { fee: { amount: fee,
-                        gas: "200000" }, memo });
-                return result;
-            }
-            catch (e) {
-                if (e.toString() == 'wallet is required') {
-                    throw new SpVuexError('TxClient:MsgDeleteOwner:Init', 'Could not initialize signing client. Wallet is required.');
-                }
-                else {
-                    throw new SpVuexError('TxClient:MsgDeleteOwner:Send', 'Could not broadcast Tx.');
-                }
-            }
-        },
-        async sendMsgCreateProperty({ rootGetters }, { value, fee, memo }) {
-            try {
-                const msg = await (await initTxClient(rootGetters)).msgCreateProperty(value);
-                const result = await (await initTxClient(rootGetters)).signAndBroadcast([msg], { fee: { amount: fee,
-                        gas: "200000" }, memo });
-                return result;
-            }
-            catch (e) {
-                if (e.toString() == 'wallet is required') {
-                    throw new SpVuexError('TxClient:MsgCreateProperty:Init', 'Could not initialize signing client. Wallet is required.');
-                }
-                else {
-                    throw new SpVuexError('TxClient:MsgCreateProperty:Send', 'Could not broadcast Tx.');
-                }
-            }
-        },
-        async sendMsgCreateOwner({ rootGetters }, { value, fee, memo }) {
-            try {
-                const msg = await (await initTxClient(rootGetters)).msgCreateOwner(value);
-                const result = await (await initTxClient(rootGetters)).signAndBroadcast([msg], { fee: { amount: fee,
-                        gas: "200000" }, memo });
-                return result;
-            }
-            catch (e) {
-                if (e.toString() == 'wallet is required') {
-                    throw new SpVuexError('TxClient:MsgCreateOwner:Init', 'Could not initialize signing client. Wallet is required.');
-                }
-                else {
-                    throw new SpVuexError('TxClient:MsgCreateOwner:Send', 'Could not broadcast Tx.');
-                }
-            }
-        },
-        async sendMsgUpdateOwner({ rootGetters }, { value, fee, memo }) {
-            try {
-                const msg = await (await initTxClient(rootGetters)).msgUpdateOwner(value);
-                const result = await (await initTxClient(rootGetters)).signAndBroadcast([msg], { fee: { amount: fee,
-                        gas: "200000" }, memo });
-                return result;
-            }
-            catch (e) {
-                if (e.toString() == 'wallet is required') {
-                    throw new SpVuexError('TxClient:MsgUpdateOwner:Init', 'Could not initialize signing client. Wallet is required.');
-                }
-                else {
-                    throw new SpVuexError('TxClient:MsgUpdateOwner:Send', 'Could not broadcast Tx.');
-                }
-            }
-        },
         async sendMsgUpdateProperty({ rootGetters }, { value, fee, memo }) {
             try {
                 const msg = await (await initTxClient(rootGetters)).msgUpdateProperty(value);
@@ -296,59 +232,67 @@ export default {
                 }
             }
         },
-        async MsgDeleteOwner({ rootGetters }, { value }) {
-            try {
-                const msg = await (await initTxClient(rootGetters)).msgDeleteOwner(value);
-                return msg;
-            }
-            catch (e) {
-                if (e.toString() == 'wallet is required') {
-                    throw new SpVuexError('TxClient:MsgDeleteOwner:Init', 'Could not initialize signing client. Wallet is required.');
-                }
-                else {
-                    throw new SpVuexError('TxClient:MsgDeleteOwner:Create', 'Could not create message.');
-                }
-            }
-        },
-        async MsgCreateProperty({ rootGetters }, { value }) {
+        async sendMsgCreateProperty({ rootGetters }, { value, fee, memo }) {
             try {
                 const msg = await (await initTxClient(rootGetters)).msgCreateProperty(value);
-                return msg;
+                const result = await (await initTxClient(rootGetters)).signAndBroadcast([msg], { fee: { amount: fee,
+                        gas: "200000" }, memo });
+                return result;
             }
             catch (e) {
                 if (e.toString() == 'wallet is required') {
                     throw new SpVuexError('TxClient:MsgCreateProperty:Init', 'Could not initialize signing client. Wallet is required.');
                 }
                 else {
-                    throw new SpVuexError('TxClient:MsgCreateProperty:Create', 'Could not create message.');
+                    throw new SpVuexError('TxClient:MsgCreateProperty:Send', 'Could not broadcast Tx.');
                 }
             }
         },
-        async MsgCreateOwner({ rootGetters }, { value }) {
-            try {
-                const msg = await (await initTxClient(rootGetters)).msgCreateOwner(value);
-                return msg;
-            }
-            catch (e) {
-                if (e.toString() == 'wallet is required') {
-                    throw new SpVuexError('TxClient:MsgCreateOwner:Init', 'Could not initialize signing client. Wallet is required.');
-                }
-                else {
-                    throw new SpVuexError('TxClient:MsgCreateOwner:Create', 'Could not create message.');
-                }
-            }
-        },
-        async MsgUpdateOwner({ rootGetters }, { value }) {
+        async sendMsgUpdateOwner({ rootGetters }, { value, fee, memo }) {
             try {
                 const msg = await (await initTxClient(rootGetters)).msgUpdateOwner(value);
-                return msg;
+                const result = await (await initTxClient(rootGetters)).signAndBroadcast([msg], { fee: { amount: fee,
+                        gas: "200000" }, memo });
+                return result;
             }
             catch (e) {
                 if (e.toString() == 'wallet is required') {
                     throw new SpVuexError('TxClient:MsgUpdateOwner:Init', 'Could not initialize signing client. Wallet is required.');
                 }
                 else {
-                    throw new SpVuexError('TxClient:MsgUpdateOwner:Create', 'Could not create message.');
+                    throw new SpVuexError('TxClient:MsgUpdateOwner:Send', 'Could not broadcast Tx.');
+                }
+            }
+        },
+        async sendMsgCreateOwner({ rootGetters }, { value, fee, memo }) {
+            try {
+                const msg = await (await initTxClient(rootGetters)).msgCreateOwner(value);
+                const result = await (await initTxClient(rootGetters)).signAndBroadcast([msg], { fee: { amount: fee,
+                        gas: "200000" }, memo });
+                return result;
+            }
+            catch (e) {
+                if (e.toString() == 'wallet is required') {
+                    throw new SpVuexError('TxClient:MsgCreateOwner:Init', 'Could not initialize signing client. Wallet is required.');
+                }
+                else {
+                    throw new SpVuexError('TxClient:MsgCreateOwner:Send', 'Could not broadcast Tx.');
+                }
+            }
+        },
+        async sendMsgDeleteOwner({ rootGetters }, { value, fee, memo }) {
+            try {
+                const msg = await (await initTxClient(rootGetters)).msgDeleteOwner(value);
+                const result = await (await initTxClient(rootGetters)).signAndBroadcast([msg], { fee: { amount: fee,
+                        gas: "200000" }, memo });
+                return result;
+            }
+            catch (e) {
+                if (e.toString() == 'wallet is required') {
+                    throw new SpVuexError('TxClient:MsgDeleteOwner:Init', 'Could not initialize signing client. Wallet is required.');
+                }
+                else {
+                    throw new SpVuexError('TxClient:MsgDeleteOwner:Send', 'Could not broadcast Tx.');
                 }
             }
         },
@@ -377,6 +321,62 @@ export default {
                 }
                 else {
                     throw new SpVuexError('TxClient:MsgDeleteProperty:Create', 'Could not create message.');
+                }
+            }
+        },
+        async MsgCreateProperty({ rootGetters }, { value }) {
+            try {
+                const msg = await (await initTxClient(rootGetters)).msgCreateProperty(value);
+                return msg;
+            }
+            catch (e) {
+                if (e.toString() == 'wallet is required') {
+                    throw new SpVuexError('TxClient:MsgCreateProperty:Init', 'Could not initialize signing client. Wallet is required.');
+                }
+                else {
+                    throw new SpVuexError('TxClient:MsgCreateProperty:Create', 'Could not create message.');
+                }
+            }
+        },
+        async MsgUpdateOwner({ rootGetters }, { value }) {
+            try {
+                const msg = await (await initTxClient(rootGetters)).msgUpdateOwner(value);
+                return msg;
+            }
+            catch (e) {
+                if (e.toString() == 'wallet is required') {
+                    throw new SpVuexError('TxClient:MsgUpdateOwner:Init', 'Could not initialize signing client. Wallet is required.');
+                }
+                else {
+                    throw new SpVuexError('TxClient:MsgUpdateOwner:Create', 'Could not create message.');
+                }
+            }
+        },
+        async MsgCreateOwner({ rootGetters }, { value }) {
+            try {
+                const msg = await (await initTxClient(rootGetters)).msgCreateOwner(value);
+                return msg;
+            }
+            catch (e) {
+                if (e.toString() == 'wallet is required') {
+                    throw new SpVuexError('TxClient:MsgCreateOwner:Init', 'Could not initialize signing client. Wallet is required.');
+                }
+                else {
+                    throw new SpVuexError('TxClient:MsgCreateOwner:Create', 'Could not create message.');
+                }
+            }
+        },
+        async MsgDeleteOwner({ rootGetters }, { value }) {
+            try {
+                const msg = await (await initTxClient(rootGetters)).msgDeleteOwner(value);
+                return msg;
+            }
+            catch (e) {
+                if (e.toString() == 'wallet is required') {
+                    throw new SpVuexError('TxClient:MsgDeleteOwner:Init', 'Could not initialize signing client. Wallet is required.');
+                }
+                else {
+                    throw new SpVuexError('TxClient:MsgDeleteOwner:Create', 'Could not create message.');
                 }
             }
         },

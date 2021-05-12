@@ -4,21 +4,21 @@ import { StdFee } from "@cosmjs/launchpad";
 import { SigningStargateClient } from "@cosmjs/stargate";
 import { Registry, OfflineSigner, EncodeObject, DirectSecp256k1HdWallet } from "@cosmjs/proto-signing";
 import { Api } from "./rest";
-import { MsgDeleteOwner } from "./types/property/tx";
-import { MsgCreateProperty } from "./types/property/tx";
-import { MsgCreateOwner } from "./types/property/tx";
-import { MsgUpdateOwner } from "./types/property/tx";
 import { MsgUpdateProperty } from "./types/property/tx";
 import { MsgDeleteProperty } from "./types/property/tx";
+import { MsgCreateProperty } from "./types/property/tx";
+import { MsgUpdateOwner } from "./types/property/tx";
+import { MsgCreateOwner } from "./types/property/tx";
+import { MsgDeleteOwner } from "./types/property/tx";
 
 
 const types = [
-  ["/rafaelsousa.realestate.property.MsgDeleteOwner", MsgDeleteOwner],
-  ["/rafaelsousa.realestate.property.MsgCreateProperty", MsgCreateProperty],
-  ["/rafaelsousa.realestate.property.MsgCreateOwner", MsgCreateOwner],
-  ["/rafaelsousa.realestate.property.MsgUpdateOwner", MsgUpdateOwner],
   ["/rafaelsousa.realestate.property.MsgUpdateProperty", MsgUpdateProperty],
   ["/rafaelsousa.realestate.property.MsgDeleteProperty", MsgDeleteProperty],
+  ["/rafaelsousa.realestate.property.MsgCreateProperty", MsgCreateProperty],
+  ["/rafaelsousa.realestate.property.MsgUpdateOwner", MsgUpdateOwner],
+  ["/rafaelsousa.realestate.property.MsgCreateOwner", MsgCreateOwner],
+  ["/rafaelsousa.realestate.property.MsgDeleteOwner", MsgDeleteOwner],
   
 ];
 
@@ -46,12 +46,12 @@ const txClient = async (wallet: OfflineSigner, { addr: addr }: TxClientOptions =
 
   return {
     signAndBroadcast: (msgs: EncodeObject[], { fee=defaultFee, memo=null }: SignAndBroadcastOptions) => memo?client.signAndBroadcast(address, msgs, fee,memo):client.signAndBroadcast(address, msgs, fee),
-    msgDeleteOwner: (data: MsgDeleteOwner): EncodeObject => ({ typeUrl: "/rafaelsousa.realestate.property.MsgDeleteOwner", value: data }),
-    msgCreateProperty: (data: MsgCreateProperty): EncodeObject => ({ typeUrl: "/rafaelsousa.realestate.property.MsgCreateProperty", value: data }),
-    msgCreateOwner: (data: MsgCreateOwner): EncodeObject => ({ typeUrl: "/rafaelsousa.realestate.property.MsgCreateOwner", value: data }),
-    msgUpdateOwner: (data: MsgUpdateOwner): EncodeObject => ({ typeUrl: "/rafaelsousa.realestate.property.MsgUpdateOwner", value: data }),
     msgUpdateProperty: (data: MsgUpdateProperty): EncodeObject => ({ typeUrl: "/rafaelsousa.realestate.property.MsgUpdateProperty", value: data }),
     msgDeleteProperty: (data: MsgDeleteProperty): EncodeObject => ({ typeUrl: "/rafaelsousa.realestate.property.MsgDeleteProperty", value: data }),
+    msgCreateProperty: (data: MsgCreateProperty): EncodeObject => ({ typeUrl: "/rafaelsousa.realestate.property.MsgCreateProperty", value: data }),
+    msgUpdateOwner: (data: MsgUpdateOwner): EncodeObject => ({ typeUrl: "/rafaelsousa.realestate.property.MsgUpdateOwner", value: data }),
+    msgCreateOwner: (data: MsgCreateOwner): EncodeObject => ({ typeUrl: "/rafaelsousa.realestate.property.MsgCreateOwner", value: data }),
+    msgDeleteOwner: (data: MsgDeleteOwner): EncodeObject => ({ typeUrl: "/rafaelsousa.realestate.property.MsgDeleteOwner", value: data }),
     
   };
 };
