@@ -188,8 +188,8 @@ material-kit-react
         │       ├── ProductSection.js
         │       ├── TeamSection.js
         │       └── WorkSection.js
-        ├── LoginPage
-        │   └── LoginPage.js
+        ├── RegisterProperty
+        │   └── RegisterProperty.js
         └── ProfilePage
             └── ProfilePage.js
 ```

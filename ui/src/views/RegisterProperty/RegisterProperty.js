@@ -1,9 +1,7 @@
 import React from "react";
-// @material-ui/core components
 import {makeStyles} from "@material-ui/core/styles";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import Icon from "@material-ui/core/Icon";
-// @material-ui/icons
 import Email from "@material-ui/icons/Email";
 import People from "@material-ui/icons/People";
 // core components
@@ -19,13 +17,13 @@ import CardHeader from "components/Card/CardHeader.js";
 import CardFooter from "components/Card/CardFooter.js";
 import CustomInput from "components/CustomInput/CustomInput.js";
 
-import styles from "assets/jss/material-kit-react/views/loginPage.js";
+import styles from "assets/jss/material-kit-react/views/components.js";
 
-import image from "assets/img/bg7.jpg";
+import image from "assets/img/hill-house.jpg";
 
 const useStyles = makeStyles(styles);
 
-export default function LoginPage(props) {
+export default function RegisterProperty(props) {
     const [cardAnimaton, setCardAnimation] = React.useState("cardHidden");
     setTimeout(function () {
         setCardAnimation("");
@@ -37,7 +35,6 @@ export default function LoginPage(props) {
             <Header
                 absolute
                 color="transparent"
-                brand="Material Kit React"
                 rightLinks={<HeaderLinks/>}
                 {...rest}
             />
@@ -51,46 +48,16 @@ export default function LoginPage(props) {
             >
                 <div className={classes.container}>
                     <GridContainer justify="center">
-                        <GridItem xs={12} sm={12} md={4}>
+                        <GridItem>
                             <Card className={classes[cardAnimaton]}>
                                 <form className={classes.form}>
                                     <CardHeader color="primary" className={classes.cardHeader}>
-                                        <h4>Login</h4>
-                                        <div className={classes.socialLine}>
-                                            <Button
-                                                justIcon
-                                                href="#pablo"
-                                                target="_blank"
-                                                color="transparent"
-                                                onClick={(e) => e.preventDefault()}
-                                            >
-                                                <i className={"fab fa-twitter"}/>
-                                            </Button>
-                                            <Button
-                                                justIcon
-                                                href="#pablo"
-                                                target="_blank"
-                                                color="transparent"
-                                                onClick={(e) => e.preventDefault()}
-                                            >
-                                                <i className={"fab fa-facebook"}/>
-                                            </Button>
-                                            <Button
-                                                justIcon
-                                                href="#pablo"
-                                                target="_blank"
-                                                color="transparent"
-                                                onClick={(e) => e.preventDefault()}
-                                            >
-                                                <i className={"fab fa-google-plus-g"}/>
-                                            </Button>
-                                        </div>
+                                        <h4>Register a new property</h4>
                                     </CardHeader>
-                                    <p className={classes.divider}>Or Be Classical</p>
                                     <CardBody>
                                         <CustomInput
-                                            labelText="First Name..."
-                                            id="first"
+                                            labelText="Address..."
+                                            id="address"
                                             formControlProps={{
                                                 fullWidth: true,
                                             }}
@@ -104,8 +71,8 @@ export default function LoginPage(props) {
                                             }}
                                         />
                                         <CustomInput
-                                            labelText="Email..."
-                                            id="email"
+                                            labelText="City"
+                                            id="city"
                                             formControlProps={{
                                                 fullWidth: true,
                                             }}
@@ -119,8 +86,8 @@ export default function LoginPage(props) {
                                             }}
                                         />
                                         <CustomInput
-                                            labelText="Password"
-                                            id="pass"
+                                            labelText="Country"
+                                            id="country"
                                             formControlProps={{
                                                 fullWidth: true,
                                             }}
@@ -139,7 +106,10 @@ export default function LoginPage(props) {
                                     </CardBody>
                                     <CardFooter className={classes.cardFooter}>
                                         <Button simple color="primary" size="lg">
-                                            Get started
+                                            Save
+                                        </Button>
+                                        <Button simple color="primary" size="lg">
+                                            Cancel
                                         </Button>
                                     </CardFooter>
                                 </form>
