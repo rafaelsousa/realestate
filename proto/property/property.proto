@@ -3,18 +3,16 @@ package rafaelsousa.realestate.property;
 
 option go_package = "github.com/rafaelsousa/realestate/x/property/types";
 
-import "gogoproto/gogo.proto";
-
 message Property {
   string creator = 1;
   uint64 id = 2;
-  string address = 3; 
-  string city = 4; 
-  string state = 5; 
-  string zip = 6; 
-  string country = 7; 
-  string latitude = 8; 
-  string longitude = 9; 
+  string address = 3;
+  string city = 4;
+  string state = 5;
+  string zip = 6;
+  string country = 7;
+  string latitude = 8;
+  string longitude = 9;
   string owneraddr = 10;
 }
 

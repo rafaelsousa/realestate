@@ -3,7 +3,7 @@ package rafaelsousa.realestate.property;
 
 option go_package = "github.com/rafaelsousa/realestate/x/property/types";
 
-import "gogoproto/gogo.proto";
+
 import "property/property.proto";
 
 message Owner {
