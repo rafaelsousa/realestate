@@ -4,12 +4,36 @@ package rafaelsousa.realestate.property;
 import "google/api/annotations.proto";
 import "cosmos/base/query/v1beta1/pagination.proto";
 // this line is used by starport scaffolding # 1
+import "property/property.proto";
 
 option go_package = "github.com/rafaelsousa/realestate/x/property/types";
 
 // Query defines the gRPC querier service.
 service Query {
     // this line is used by starport scaffolding # 2
+	rpc Property(QueryGetPropertyRequest) returns (QueryGetPropertyResponse) {
+		option (google.api.http).get = "/rafaelsousa/realestate/property/property/{id}";
+	}
+	rpc PropertyAll(QueryAllPropertyRequest) returns (QueryAllPropertyResponse) {
+		option (google.api.http).get = "/rafaelsousa/realestate/property/property";
+	}
+
 }
 
 // this line is used by starport scaffolding # 3
+message QueryGetPropertyRequest {
+	uint64 id = 1;
+}
+
+message QueryGetPropertyResponse {
+	Property Property = 1;
+}
+
+message QueryAllPropertyRequest {
+	cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+message QueryAllPropertyResponse {
+	repeated Property Property = 1;
+	cosmos.base.query.v1beta1.PageResponse pagination = 2;
+}
