@@ -5,7 +5,7 @@
 				>
 					<template v-slot:default>
 						<SpLinkIcon link="/" text="Dashboard" icon="Dashboard" />
-						<SpLinkIcon link="/types" text="Custom Type" icon="Form" />
+						<SpLinkIcon link="/types" text="Create a new property" icon="Form" />
 						<div class="sp-dash"></div>
 						<SpLinkIcon href="https://github.com/tendermint/starport" target="_blank" text="Documentation" icon="Docs" />
 					</template>

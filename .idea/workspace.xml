@@ -2,30 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c2c0a73-8d4c-452b-b81f-3594e0b7c409" name="Default Changelist" comment="Update .gitignore">
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proto/property/genesis.proto" beforeDir="false" afterPath="$PROJECT_DIR$/proto/property/genesis.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proto/property/query.proto" beforeDir="false" afterPath="$PROJECT_DIR$/proto/property/query.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proto/property/tx.proto" beforeDir="false" afterPath="$PROJECT_DIR$/proto/property/tx.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/vue/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/x/property/handler_property.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/components/Sidebar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/components/Sidebar.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vue/src/store/generated/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/store/generated/index.d.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vue/src/store/generated/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/store/generated/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vue/src/store/generated/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/store/generated/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/views/Types.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/views/Types.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/index.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/x/property/client/cli/query.go" beforeDir="false" afterPath="$PROJECT_DIR$/x/property/client/cli/query.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/x/property/client/cli/tx.go" beforeDir="false" afterPath="$PROJECT_DIR$/x/property/client/cli/tx.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/x/property/client/rest/rest.go" beforeDir="false" afterPath="$PROJECT_DIR$/x/property/client/rest/rest.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/x/property/genesis.go" beforeDir="false" afterPath="$PROJECT_DIR$/x/property/genesis.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/x/property/handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/x/property/handler.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/x/property/keeper/query.go" beforeDir="false" afterPath="$PROJECT_DIR$/x/property/keeper/query.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/x/property/module.go" beforeDir="false" afterPath="$PROJECT_DIR$/x/property/module.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/x/property/types/codec.go" beforeDir="false" afterPath="$PROJECT_DIR$/x/property/types/codec.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/x/property/types/genesis.go" beforeDir="false" afterPath="$PROJECT_DIR$/x/property/types/genesis.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/x/property/types/genesis.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/x/property/types/genesis.pb.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/x/property/types/keys.go" beforeDir="false" afterPath="$PROJECT_DIR$/x/property/types/keys.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/x/property/types/query.go" beforeDir="false" afterPath="$PROJECT_DIR$/x/property/types/query.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/x/property/types/query.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/x/property/types/query.pb.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/x/property/types/tx.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/x/property/types/tx.pb.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/x/property/keeper/keeper.go" beforeDir="false" afterPath="$PROJECT_DIR$/x/property/keeper/keeper.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/x/property/keeper/msg_server.go" beforeDir="false" afterPath="$PROJECT_DIR$/x/property/keeper/msg_server.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +58,8 @@
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="TEXT" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/third_party/proto" />
+    <property name="last_opened_file_path" value="$USER_HOME$/.realestate" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">

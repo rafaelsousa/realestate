@@ -4,15 +4,15 @@ import { StdFee } from "@cosmjs/launchpad";
 import { SigningStargateClient } from "@cosmjs/stargate";
 import { Registry, OfflineSigner, EncodeObject, DirectSecp256k1HdWallet } from "@cosmjs/proto-signing";
 import { Api } from "./rest";
+import { MsgUpdateProperty } from "./types/property/tx";
 import { MsgCreateProperty } from "./types/property/tx";
 import { MsgDeleteProperty } from "./types/property/tx";
-import { MsgUpdateProperty } from "./types/property/tx";
 
 
 const types = [
+  ["/rafaelsousa.realestate.property.MsgUpdateProperty", MsgUpdateProperty],
   ["/rafaelsousa.realestate.property.MsgCreateProperty", MsgCreateProperty],
   ["/rafaelsousa.realestate.property.MsgDeleteProperty", MsgDeleteProperty],
-  ["/rafaelsousa.realestate.property.MsgUpdateProperty", MsgUpdateProperty],
   
 ];
 
@@ -40,9 +40,9 @@ const txClient = async (wallet: OfflineSigner, { addr: addr }: TxClientOptions =
 
   return {
     signAndBroadcast: (msgs: EncodeObject[], { fee=defaultFee, memo=null }: SignAndBroadcastOptions) => memo?client.signAndBroadcast(address, msgs, fee,memo):client.signAndBroadcast(address, msgs, fee),
+    msgUpdateProperty: (data: MsgUpdateProperty): EncodeObject => ({ typeUrl: "/rafaelsousa.realestate.property.MsgUpdateProperty", value: data }),
     msgCreateProperty: (data: MsgCreateProperty): EncodeObject => ({ typeUrl: "/rafaelsousa.realestate.property.MsgCreateProperty", value: data }),
     msgDeleteProperty: (data: MsgDeleteProperty): EncodeObject => ({ typeUrl: "/rafaelsousa.realestate.property.MsgDeleteProperty", value: data }),
-    msgUpdateProperty: (data: MsgUpdateProperty): EncodeObject => ({ typeUrl: "/rafaelsousa.realestate.property.MsgUpdateProperty", value: data }),
     
   };
 };

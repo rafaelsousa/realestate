@@ -1,9 +1,8 @@
 package rest
 
 import (
-	"github.com/gorilla/mux"
-
 	"github.com/cosmos/cosmos-sdk/client"
+	"github.com/gorilla/mux"
 	// this line is used by starport scaffolding # 1
 )
 
@@ -28,8 +27,8 @@ func registerQueryRoutes(clientCtx client.Context, r *mux.Router) {
 
 func registerTxHandlers(clientCtx client.Context, r *mux.Router) {
 	// this line is used by starport scaffolding # 4
-	r.HandleFunc("/property/properties", createPropertyHandler(clientCtx)).Methods("POST")
-	r.HandleFunc("/property/properties/{id}", updatePropertyHandler(clientCtx)).Methods("POST")
-	r.HandleFunc("/property/properties/{id}", deletePropertyHandler(clientCtx)).Methods("POST")
+	r.HandleFunc("/property/create", createPropertyHandler(clientCtx)).Methods("POST")
+	r.HandleFunc("/property/update/{id}", updatePropertyHandler(clientCtx)).Methods("POST")
+	r.HandleFunc("/property/delete/{id}", deletePropertyHandler(clientCtx)).Methods("POST")
 
 }
