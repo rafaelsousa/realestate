@@ -17,7 +17,7 @@ func (k Keeper) PropertyAll(c context.Context, req *types.QueryAllPropertyReques
 		return nil, status.Error(codes.InvalidArgument, "invalid request")
 	}
 
-	var propertys []*types.Property
+	var properties []*types.Property
 	ctx := sdk.UnwrapSDKContext(c)
 
 	store := ctx.KVStore(k.storeKey)
@@ -29,7 +29,7 @@ func (k Keeper) PropertyAll(c context.Context, req *types.QueryAllPropertyReques
 			return err
 		}
 
-		propertys = append(propertys, &property)
+		properties = append(properties, &property)
 		return nil
 	})
 
@@ -37,7 +37,7 @@ func (k Keeper) PropertyAll(c context.Context, req *types.QueryAllPropertyReques
 		return nil, status.Error(codes.Internal, err.Error())
 	}
 
-	return &types.QueryAllPropertyResponse{Property: propertys, Pagination: pageRes}, nil
+	return &types.QueryAllPropertyResponse{Property: properties, Pagination: pageRes}, nil
 }
 
 func (k Keeper) Property(c context.Context, req *types.QueryGetPropertyRequest) (*types.QueryGetPropertyResponse, error) {
