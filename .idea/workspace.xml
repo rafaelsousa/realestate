@@ -1,22 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2c2c0a73-8d4c-452b-b81f-3594e0b7c409" name="Default Changelist" comment="Update .gitignore">
-      <change afterPath="$PROJECT_DIR$/x/property/handler_property.go" afterDir="false" />
+    <list default="true" id="2c2c0a73-8d4c-452b-b81f-3594e0b7c409" name="Default Changelist" comment="Changing wallets names">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/components/Sidebar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/components/Sidebar.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vue/src/store/generated/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/store/generated/index.d.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vue/src/store/generated/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/store/generated/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vue/src/store/generated/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/store/generated/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/index.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/store/generated/rafaelsousa/realestate/rafaelsousa.realestate.property/module/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/x/property/client/cli/query.go" beforeDir="false" afterPath="$PROJECT_DIR$/x/property/client/cli/query.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/x/property/client/rest/rest.go" beforeDir="false" afterPath="$PROJECT_DIR$/x/property/client/rest/rest.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/x/property/keeper/keeper.go" beforeDir="false" afterPath="$PROJECT_DIR$/x/property/keeper/keeper.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/x/property/keeper/msg_server.go" beforeDir="false" afterPath="$PROJECT_DIR$/x/property/keeper/msg_server.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/x/property/keeper/grpc_query_property.go" beforeDir="false" afterPath="$PROJECT_DIR$/x/property/keeper/grpc_query_property.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -522,7 +513,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Update .gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update .gitignore" />
+    <MESSAGE value="Changing wallets names" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changing wallets names" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
