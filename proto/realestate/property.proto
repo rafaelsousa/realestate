@@ -1,0 +1,16 @@
+syntax = "proto3";
+package rafaelsousa.realestate.realestate;
+
+option go_package = "github.com/rafaelsousa/realestate/x/realestate/types";
+
+message Property {
+  uint64 id = 1;
+  string address = 2; 
+  string city = 3; 
+  string state = 4; 
+  string country = 5; 
+  string zipcode = 6; 
+  string latitude = 7; 
+  string longitude = 8; 
+  string creator = 9;
+}

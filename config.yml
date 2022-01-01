@@ -1,16 +1,30 @@
+genesis:
+  chain_id: "realestate"
+  app_state:
+    staking:
+      params:
+        bond_denom: "udomus"
+    crisis:
+      constant_fee:
+        denom: udomus
+    gov:
+      deposit_params:
+        min_deposit:
+          denom: udomus
+
 accounts:
-  - name: alice
-    coins: ["20000token", "200000000stake"]
-  - name: bob
-    coins: ["10000token", "100000000stake"]
+  - name: alpha
+    coins: ["3000000000udomus"]
+    mnemonic: "pitch potato lady search click tumble evoke reunion artwork debris alter panda journey hand elder whisper kick oblige number plastic adult junior enlist exercise"
+
 validator:
-  name: alice
-  staked: "100000000stake"
+  name: alpha
+  staked: "2000000000udomus"
 client:
-  openapi:
-    path: "docs/static/openapi.yml"
   vuex:
     path: "vue/src/store"
+  openapi:
+    path: "docs/static/openapi.yml"
 faucet:
-  name: bob
-  coins: ["5token", "100000stake"]
+  name: alpha
+  coins: ["100udomus"]
