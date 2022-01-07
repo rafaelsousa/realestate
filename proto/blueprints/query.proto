@@ -1,0 +1,58 @@
+syntax = "proto3";
+package rafaelsousa.realestate.blueprints;
+
+import "gogoproto/gogo.proto";
+import "google/api/annotations.proto";
+import "cosmos/base/query/v1beta1/pagination.proto";
+import "blueprints/params.proto";
+import "blueprints/house.proto";
+// this line is used by starport scaffolding # 1
+
+option go_package = "github.com/rafaelsousa/realestate/x/blueprints/types";
+
+// Query defines the gRPC querier service.
+service Query {
+  // Parameters queries the parameters of the module.
+  rpc Params(QueryParamsRequest) returns (QueryParamsResponse) {
+    option (google.api.http).get = "/rafaelsousa/realestate/blueprints/params";
+  }
+  // Queries a House by id.
+	rpc House(QueryGetHouseRequest) returns (QueryGetHouseResponse) {
+		option (google.api.http).get = "/rafaelsousa/realestate/blueprints/house/{id}";
+	}
+
+	// Queries a list of House items.
+	rpc HouseAll(QueryAllHouseRequest) returns (QueryAllHouseResponse) {
+		option (google.api.http).get = "/rafaelsousa/realestate/blueprints/house";
+	}
+
+// this line is used by starport scaffolding # 2
+}
+
+// QueryParamsRequest is request type for the Query/Params RPC method.
+message QueryParamsRequest {}
+
+// QueryParamsResponse is response type for the Query/Params RPC method.
+message QueryParamsResponse {
+  // params holds all the parameters of this module.
+  Params params = 1 [(gogoproto.nullable) = false];
+}
+
+message QueryGetHouseRequest {
+	uint64 id = 1;
+}
+
+message QueryGetHouseResponse {
+	House House = 1 [(gogoproto.nullable) = false];
+}
+
+message QueryAllHouseRequest {
+	cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+message QueryAllHouseResponse {
+	repeated House House = 1 [(gogoproto.nullable) = false];
+	cosmos.base.query.v1beta1.PageResponse pagination = 2;
+}
+
+// this line is used by starport scaffolding # 3

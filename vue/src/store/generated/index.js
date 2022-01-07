@@ -10,6 +10,7 @@ import CosmosCosmosSdkCosmosSlashingV1Beta1 from './cosmos/cosmos-sdk/cosmos.sla
 import CosmosCosmosSdkCosmosStakingV1Beta1 from './cosmos/cosmos-sdk/cosmos.staking.v1beta1';
 import CosmosCosmosSdkCosmosVestingV1Beta1 from './cosmos/cosmos-sdk/cosmos.vesting.v1beta1';
 import CosmosIbcGoIbcApplicationsTransferV1 from './cosmos/ibc-go/ibc.applications.transfer.v1';
+import RafaelsousaRealestateRafaelsousaRealestateBlueprints from './rafaelsousa/realestate/rafaelsousa.realestate.blueprints';
 import RafaelsousaRealestateRafaelsousaRealestateRealestate from './rafaelsousa/realestate/rafaelsousa.realestate.realestate';
 export default {
     CosmosCosmosSdkCosmosAuthzV1Beta1: load(CosmosCosmosSdkCosmosAuthzV1Beta1, 'cosmos.authz.v1beta1'),
@@ -23,6 +24,7 @@ export default {
     CosmosCosmosSdkCosmosStakingV1Beta1: load(CosmosCosmosSdkCosmosStakingV1Beta1, 'cosmos.staking.v1beta1'),
     CosmosCosmosSdkCosmosVestingV1Beta1: load(CosmosCosmosSdkCosmosVestingV1Beta1, 'cosmos.vesting.v1beta1'),
     CosmosIbcGoIbcApplicationsTransferV1: load(CosmosIbcGoIbcApplicationsTransferV1, 'ibc.applications.transfer.v1'),
+    RafaelsousaRealestateRafaelsousaRealestateBlueprints: load(RafaelsousaRealestateRafaelsousaRealestateBlueprints, 'rafaelsousa.realestate.blueprints'),
     RafaelsousaRealestateRafaelsousaRealestateRealestate: load(RafaelsousaRealestateRafaelsousaRealestateRealestate, 'rafaelsousa.realestate.realestate'),
 };
 function load(mod, fullns) {

@@ -13,4 +13,6 @@ message Property {
   string latitude = 7; 
   string longitude = 8; 
   string creator = 9;
+  string blueprint = 10;
+  string imgUrl = 11;
 }

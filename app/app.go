@@ -90,6 +90,9 @@ import (
 
 	"github.com/rafaelsousa/realestate/docs"
 
+	blueprintsmodule "github.com/rafaelsousa/realestate/x/blueprints"
+	blueprintsmodulekeeper "github.com/rafaelsousa/realestate/x/blueprints/keeper"
+	blueprintsmoduletypes "github.com/rafaelsousa/realestate/x/blueprints/types"
 	realestatemodule "github.com/rafaelsousa/realestate/x/realestate"
 	realestatemodulekeeper "github.com/rafaelsousa/realestate/x/realestate/keeper"
 	realestatemoduletypes "github.com/rafaelsousa/realestate/x/realestate/types"
@@ -144,6 +147,7 @@ var (
 		transfer.AppModuleBasic{},
 		vesting.AppModuleBasic{},
 		realestatemodule.AppModuleBasic{},
+		blueprintsmodule.AppModuleBasic{},
 		// this line is used by starport scaffolding # stargate/app/moduleBasic
 	)
 
@@ -214,6 +218,8 @@ type App struct {
 	ScopedTransferKeeper capabilitykeeper.ScopedKeeper
 
 	RealestateKeeper realestatemodulekeeper.Keeper
+
+	BlueprintsKeeper blueprintsmodulekeeper.Keeper
 	// this line is used by starport scaffolding # stargate/app/keeperDeclaration
 
 	// mm is the module manager
@@ -251,6 +257,7 @@ func New(
 		govtypes.StoreKey, paramstypes.StoreKey, ibchost.StoreKey, upgradetypes.StoreKey, feegrant.StoreKey,
 		evidencetypes.StoreKey, ibctransfertypes.StoreKey, capabilitytypes.StoreKey,
 		realestatemoduletypes.StoreKey,
+		blueprintsmoduletypes.StoreKey,
 		// this line is used by starport scaffolding # stargate/app/storeKey
 	)
 	tkeys := sdk.NewTransientStoreKeys(paramstypes.TStoreKey)
@@ -357,6 +364,14 @@ func New(
 	)
 	realestateModule := realestatemodule.NewAppModule(appCodec, app.RealestateKeeper, app.AccountKeeper, app.BankKeeper)
 
+	app.BlueprintsKeeper = *blueprintsmodulekeeper.NewKeeper(
+		appCodec,
+		keys[blueprintsmoduletypes.StoreKey],
+		keys[blueprintsmoduletypes.MemStoreKey],
+		app.GetSubspace(blueprintsmoduletypes.ModuleName),
+	)
+	blueprintsModule := blueprintsmodule.NewAppModule(appCodec, app.BlueprintsKeeper, app.AccountKeeper, app.BankKeeper)
+
 	// this line is used by starport scaffolding # stargate/app/keeperDefinition
 
 	// Create static IBC router, add transfer route, then set and seal it
@@ -396,6 +411,7 @@ func New(
 		params.NewAppModule(app.ParamsKeeper),
 		transferModule,
 		realestateModule,
+		blueprintsModule,
 		// this line is used by starport scaffolding # stargate/app/appModule
 	)
 
@@ -431,6 +447,7 @@ func New(
 		evidencetypes.ModuleName,
 		ibctransfertypes.ModuleName,
 		realestatemoduletypes.ModuleName,
+		blueprintsmoduletypes.ModuleName,
 		// this line is used by starport scaffolding # stargate/app/initGenesis
 	)
 
@@ -454,6 +471,7 @@ func New(
 		ibc.NewAppModule(app.IBCKeeper),
 		transferModule,
 		realestateModule,
+		blueprintsModule,
 		// this line is used by starport scaffolding # stargate/app/appModule
 	)
 	app.sm.RegisterStoreDecoders()
@@ -642,6 +660,7 @@ func initParamsKeeper(appCodec codec.BinaryCodec, legacyAmino *codec.LegacyAmino
 	paramsKeeper.Subspace(ibctransfertypes.ModuleName)
 	paramsKeeper.Subspace(ibchost.ModuleName)
 	paramsKeeper.Subspace(realestatemoduletypes.ModuleName)
+	paramsKeeper.Subspace(blueprintsmoduletypes.ModuleName)
 	// this line is used by starport scaffolding # stargate/app/paramSubspace
 
 	return paramsKeeper

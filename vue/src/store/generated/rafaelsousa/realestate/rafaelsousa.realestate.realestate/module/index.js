@@ -2,13 +2,13 @@
 import { SigningStargateClient } from "@cosmjs/stargate";
 import { Registry } from "@cosmjs/proto-signing";
 import { Api } from "./rest";
+import { MsgCreateProperty } from "./types/realestate/tx";
 import { MsgUpdateProperty } from "./types/realestate/tx";
 import { MsgDeleteProperty } from "./types/realestate/tx";
-import { MsgCreateProperty } from "./types/realestate/tx";
 const types = [
+    ["/rafaelsousa.realestate.realestate.MsgCreateProperty", MsgCreateProperty],
     ["/rafaelsousa.realestate.realestate.MsgUpdateProperty", MsgUpdateProperty],
     ["/rafaelsousa.realestate.realestate.MsgDeleteProperty", MsgDeleteProperty],
-    ["/rafaelsousa.realestate.realestate.MsgCreateProperty", MsgCreateProperty],
 ];
 export const MissingWalletError = new Error("wallet is required");
 export const registry = new Registry(types);
@@ -29,9 +29,9 @@ const txClient = async (wallet, { addr: addr } = { addr: "http://localhost:26657
     const { address } = (await wallet.getAccounts())[0];
     return {
         signAndBroadcast: (msgs, { fee, memo } = { fee: defaultFee, memo: "" }) => client.signAndBroadcast(address, msgs, fee, memo),
+        msgCreateProperty: (data) => ({ typeUrl: "/rafaelsousa.realestate.realestate.MsgCreateProperty", value: MsgCreateProperty.fromPartial(data) }),
         msgUpdateProperty: (data) => ({ typeUrl: "/rafaelsousa.realestate.realestate.MsgUpdateProperty", value: MsgUpdateProperty.fromPartial(data) }),
         msgDeleteProperty: (data) => ({ typeUrl: "/rafaelsousa.realestate.realestate.MsgDeleteProperty", value: MsgDeleteProperty.fromPartial(data) }),
-        msgCreateProperty: (data) => ({ typeUrl: "/rafaelsousa.realestate.realestate.MsgCreateProperty", value: MsgCreateProperty.fromPartial(data) }),
     };
 };
 const queryClient = async ({ addr: addr } = { addr: "http://localhost:1317" }) => {

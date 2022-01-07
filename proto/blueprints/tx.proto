@@ -1,0 +1,43 @@
+syntax = "proto3";
+package rafaelsousa.realestate.blueprints;
+
+import "blueprints/house.proto";
+// this line is used by starport scaffolding # proto/tx/import
+
+option go_package = "github.com/rafaelsousa/realestate/x/blueprints/types";
+
+// Msg defines the Msg service.
+service Msg {
+    rpc CreateHouse(MsgCreateHouse) returns (MsgCreateHouseResponse);
+  rpc UpdateHouse(MsgUpdateHouse) returns (MsgUpdateHouseResponse);
+  rpc DeleteHouse(MsgDeleteHouse) returns (MsgDeleteHouseResponse);
+// this line is used by starport scaffolding # proto/tx/rpc
+}
+
+message MsgCreateHouse {
+  string creator = 1;
+  string description = 2;
+  string image = 3;
+}
+
+message MsgCreateHouseResponse {
+  uint64 id = 1;
+}
+
+message MsgUpdateHouse {
+  string creator = 1;
+  uint64 id = 2;
+  string description = 3;
+  string image = 4;
+}
+
+message MsgUpdateHouseResponse {}
+
+message MsgDeleteHouse {
+  string creator = 1;
+  uint64 id = 2;
+}
+
+message MsgDeleteHouseResponse {}
+
+// this line is used by starport scaffolding # proto/tx/message
