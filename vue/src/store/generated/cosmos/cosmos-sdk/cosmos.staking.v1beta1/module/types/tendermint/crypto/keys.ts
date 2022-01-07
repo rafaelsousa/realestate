@@ -1,12 +1,12 @@
 /* eslint-disable */
-import { Writer, Reader } from 'protobufjs/minimal'
+import { Reader, Writer } from 'protobufjs/minimal'
 
 export const protobufPackage = 'tendermint.crypto'
 
 /** PublicKey defines the keys available for use with Tendermint Validators */
 export interface PublicKey {
-  ed25519: Uint8Array | undefined
-  secp256k1: Uint8Array | undefined
+  ed25519: Uint8Array | undefined;
+  secp256k1: Uint8Array | undefined;
 }
 
 const basePublicKey: object = {}
@@ -56,8 +56,16 @@ export const PublicKey = {
 
   toJSON(message: PublicKey): unknown {
     const obj: any = {}
-    message.ed25519 !== undefined && (obj.ed25519 = message.ed25519 !== undefined ? base64FromBytes(message.ed25519) : undefined)
-    message.secp256k1 !== undefined && (obj.secp256k1 = message.secp256k1 !== undefined ? base64FromBytes(message.secp256k1) : undefined)
+    message.ed25519 !== undefined &&
+    (obj.ed25519 =
+      message.ed25519 !== undefined
+        ? base64FromBytes(message.ed25519)
+        : undefined)
+    message.secp256k1 !== undefined &&
+    (obj.secp256k1 =
+      message.secp256k1 !== undefined
+        ? base64FromBytes(message.secp256k1)
+        : undefined)
     return obj
   },
 
@@ -74,8 +82,8 @@ export const PublicKey = {
       message.secp256k1 = undefined
     }
     return message
-  }
-}
+  },
+};
 
 declare var self: any | undefined
 declare var window: any | undefined
@@ -87,7 +95,9 @@ var globalThis: any = (() => {
   throw 'Unable to locate global object'
 })()
 
-const atob: (b64: string) => string = globalThis.atob || ((b64) => globalThis.Buffer.from(b64, 'base64').toString('binary'))
+const atob: (b64: string) => string =
+  globalThis.atob ||
+  ((b64) => globalThis.Buffer.from(b64, 'base64').toString('binary'))
 function bytesFromBase64(b64: string): Uint8Array {
   const bin = atob(b64)
   const arr = new Uint8Array(bin.length)
@@ -97,7 +107,9 @@ function bytesFromBase64(b64: string): Uint8Array {
   return arr
 }
 
-const btoa: (bin: string) => string = globalThis.btoa || ((bin) => globalThis.Buffer.from(bin, 'binary').toString('base64'))
+const btoa: (bin: string) => string =
+  globalThis.btoa ||
+  ((bin) => globalThis.Buffer.from(bin, 'binary').toString('base64'))
 function base64FromBytes(arr: Uint8Array): string {
   const bin: string[] = []
   for (let i = 0; i < arr.byteLength; ++i) {
@@ -106,13 +118,13 @@ function base64FromBytes(arr: Uint8Array): string {
   return btoa(bin.join(''))
 }
 
-type Builtin = Date | Function | Uint8Array | string | number | undefined
+type Builtin = Date | Function | Uint8Array | string | number | undefined;
 export type DeepPartial<T> = T extends Builtin
   ? T
   : T extends Array<infer U>
-  ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U>
-  ? ReadonlyArray<DeepPartial<U>>
-  : T extends {}
-  ? { [K in keyof T]?: DeepPartial<T[K]> }
-  : Partial<T>
+    ? Array<DeepPartial<U>>
+    : T extends ReadonlyArray<infer U>
+      ? ReadonlyArray<DeepPartial<U>>
+      : T extends {}
+        ? { [K in keyof T]?: DeepPartial<T[K]> }
+        : Partial<T>;

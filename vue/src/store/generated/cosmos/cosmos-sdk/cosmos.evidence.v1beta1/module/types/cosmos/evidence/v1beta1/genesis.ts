@@ -1,13 +1,13 @@
 /* eslint-disable */
 import { Any } from '../../../google/protobuf/any'
-import { Writer, Reader } from 'protobufjs/minimal'
+import { Reader, Writer } from 'protobufjs/minimal'
 
 export const protobufPackage = 'cosmos.evidence.v1beta1'
 
 /** GenesisState defines the evidence module's genesis state. */
 export interface GenesisState {
   /** evidence defines all the evidence at genesis. */
-  evidence: Any[]
+  evidence: Any[];
 }
 
 const baseGenesisState: object = {}
@@ -53,7 +53,9 @@ export const GenesisState = {
   toJSON(message: GenesisState): unknown {
     const obj: any = {}
     if (message.evidence) {
-      obj.evidence = message.evidence.map((e) => (e ? Any.toJSON(e) : undefined))
+      obj.evidence = message.evidence.map((e) =>
+        e ? Any.toJSON(e) : undefined,
+      )
     } else {
       obj.evidence = []
     }
@@ -69,16 +71,16 @@ export const GenesisState = {
       }
     }
     return message
-  }
-}
+  },
+};
 
-type Builtin = Date | Function | Uint8Array | string | number | undefined
+type Builtin = Date | Function | Uint8Array | string | number | undefined;
 export type DeepPartial<T> = T extends Builtin
   ? T
   : T extends Array<infer U>
-  ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U>
-  ? ReadonlyArray<DeepPartial<U>>
-  : T extends {}
-  ? { [K in keyof T]?: DeepPartial<T[K]> }
-  : Partial<T>
+    ? Array<DeepPartial<U>>
+    : T extends ReadonlyArray<infer U>
+      ? ReadonlyArray<DeepPartial<U>>
+      : T extends {}
+        ? { [K in keyof T]?: DeepPartial<T[K]> }
+        : Partial<T>;

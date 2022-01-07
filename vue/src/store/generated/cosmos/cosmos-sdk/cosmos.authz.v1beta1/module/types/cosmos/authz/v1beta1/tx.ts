@@ -5,19 +5,21 @@ import { Any } from '../../../google/protobuf/any'
 
 export const protobufPackage = 'cosmos.authz.v1beta1'
 
+/** Since: cosmos-sdk 0.43 */
+
 /**
  * MsgGrant is a request type for Grant method. It declares authorization to the grantee
  * on behalf of the granter with the provided expiration time.
  */
 export interface MsgGrant {
-  granter: string
-  grantee: string
-  grant: Grant | undefined
+  granter: string;
+  grantee: string;
+  grant: Grant | undefined;
 }
 
 /** MsgExecResponse defines the Msg/MsgExecResponse response type. */
 export interface MsgExecResponse {
-  results: Uint8Array[]
+  results: Uint8Array[];
 }
 
 /**
@@ -26,13 +28,13 @@ export interface MsgExecResponse {
  * one signer corresponding to the granter of the authorization.
  */
 export interface MsgExec {
-  grantee: string
+  grantee: string;
   /**
    * Authorization Msg requests to execute. Each msg must implement Authorization interface
    * The x/authz will try to find a grant matching (msg.signers[0], grantee, MsgTypeURL(msg))
    * triple and validate it.
    */
-  msgs: Any[]
+  msgs: Any[];
 }
 
 /** MsgGrantResponse defines the Msg/MsgGrant response type. */
@@ -43,9 +45,9 @@ export interface MsgGrantResponse {}
  * granter's account with that has been granted to the grantee.
  */
 export interface MsgRevoke {
-  granter: string
-  grantee: string
-  msgTypeUrl: string
+  granter: string;
+  grantee: string;
+  msgTypeUrl: string;
 }
 
 /** MsgRevokeResponse defines the Msg/MsgRevokeResponse response type. */
@@ -115,7 +117,8 @@ export const MsgGrant = {
     const obj: any = {}
     message.granter !== undefined && (obj.granter = message.granter)
     message.grantee !== undefined && (obj.grantee = message.grantee)
-    message.grant !== undefined && (obj.grant = message.grant ? Grant.toJSON(message.grant) : undefined)
+    message.grant !== undefined &&
+    (obj.grant = message.grant ? Grant.toJSON(message.grant) : undefined)
     return obj
   },
 
@@ -137,8 +140,8 @@ export const MsgGrant = {
       message.grant = undefined
     }
     return message
-  }
-}
+  },
+};
 
 const baseMsgExecResponse: object = {}
 
@@ -183,7 +186,9 @@ export const MsgExecResponse = {
   toJSON(message: MsgExecResponse): unknown {
     const obj: any = {}
     if (message.results) {
-      obj.results = message.results.map((e) => base64FromBytes(e !== undefined ? e : new Uint8Array()))
+      obj.results = message.results.map((e) =>
+        base64FromBytes(e !== undefined ? e : new Uint8Array()),
+      )
     } else {
       obj.results = []
     }
@@ -199,8 +204,8 @@ export const MsgExecResponse = {
       }
     }
     return message
-  }
-}
+  },
+};
 
 const baseMsgExec: object = { grantee: '' }
 
@@ -278,8 +283,8 @@ export const MsgExec = {
       }
     }
     return message
-  }
-}
+  },
+};
 
 const baseMsgGrantResponse: object = {}
 
@@ -316,8 +321,8 @@ export const MsgGrantResponse = {
   fromPartial(_: DeepPartial<MsgGrantResponse>): MsgGrantResponse {
     const message = { ...baseMsgGrantResponse } as MsgGrantResponse
     return message
-  }
-}
+  },
+};
 
 const baseMsgRevoke: object = { granter: '', grantee: '', msgTypeUrl: '' }
 
@@ -405,8 +410,8 @@ export const MsgRevoke = {
       message.msgTypeUrl = ''
     }
     return message
-  }
-}
+  },
+};
 
 const baseMsgRevokeResponse: object = {}
 
@@ -443,8 +448,8 @@ export const MsgRevokeResponse = {
   fromPartial(_: DeepPartial<MsgRevokeResponse>): MsgRevokeResponse {
     const message = { ...baseMsgRevokeResponse } as MsgRevokeResponse
     return message
-  }
-}
+  },
+};
 
 /** Msg defines the authz Msg service. */
 export interface Msg {
@@ -454,18 +459,20 @@ export interface Msg {
    * for the given (granter, grantee, Authorization) triple, then the grant
    * will be overwritten.
    */
-  Grant(request: MsgGrant): Promise<MsgGrantResponse>
+  Grant(request: MsgGrant): Promise<MsgGrantResponse>;
+
   /**
    * Exec attempts to execute the provided messages using
    * authorizations granted to the grantee. Each message should have only
    * one signer corresponding to the granter of the authorization.
    */
-  Exec(request: MsgExec): Promise<MsgExecResponse>
+  Exec(request: MsgExec): Promise<MsgExecResponse>;
+
   /**
    * Revoke revokes any authorization corresponding to the provided method name on the
    * granter's account that has been granted to the grantee.
    */
-  Revoke(request: MsgRevoke): Promise<MsgRevokeResponse>
+  Revoke(request: MsgRevoke): Promise<MsgRevokeResponse>;
 }
 
 export class MsgClientImpl implements Msg {
@@ -487,13 +494,21 @@ export class MsgClientImpl implements Msg {
 
   Revoke(request: MsgRevoke): Promise<MsgRevokeResponse> {
     const data = MsgRevoke.encode(request).finish()
-    const promise = this.rpc.request('cosmos.authz.v1beta1.Msg', 'Revoke', data)
+    const promise = this.rpc.request(
+      'cosmos.authz.v1beta1.Msg',
+      'Revoke',
+      data,
+    )
     return promise.then((data) => MsgRevokeResponse.decode(new Reader(data)))
   }
 }
 
 interface Rpc {
-  request(service: string, method: string, data: Uint8Array): Promise<Uint8Array>
+  request(
+    service: string,
+    method: string,
+    data: Uint8Array,
+  ): Promise<Uint8Array>;
 }
 
 declare var self: any | undefined
@@ -506,7 +521,9 @@ var globalThis: any = (() => {
   throw 'Unable to locate global object'
 })()
 
-const atob: (b64: string) => string = globalThis.atob || ((b64) => globalThis.Buffer.from(b64, 'base64').toString('binary'))
+const atob: (b64: string) => string =
+  globalThis.atob ||
+  ((b64) => globalThis.Buffer.from(b64, 'base64').toString('binary'))
 function bytesFromBase64(b64: string): Uint8Array {
   const bin = atob(b64)
   const arr = new Uint8Array(bin.length)
@@ -516,7 +533,9 @@ function bytesFromBase64(b64: string): Uint8Array {
   return arr
 }
 
-const btoa: (bin: string) => string = globalThis.btoa || ((bin) => globalThis.Buffer.from(bin, 'binary').toString('base64'))
+const btoa: (bin: string) => string =
+  globalThis.btoa ||
+  ((bin) => globalThis.Buffer.from(bin, 'binary').toString('base64'))
 function base64FromBytes(arr: Uint8Array): string {
   const bin: string[] = []
   for (let i = 0; i < arr.byteLength; ++i) {
@@ -525,13 +544,13 @@ function base64FromBytes(arr: Uint8Array): string {
   return btoa(bin.join(''))
 }
 
-type Builtin = Date | Function | Uint8Array | string | number | undefined
+type Builtin = Date | Function | Uint8Array | string | number | undefined;
 export type DeepPartial<T> = T extends Builtin
   ? T
   : T extends Array<infer U>
-  ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U>
-  ? ReadonlyArray<DeepPartial<U>>
-  : T extends {}
-  ? { [K in keyof T]?: DeepPartial<T[K]> }
-  : Partial<T>
+    ? Array<DeepPartial<U>>
+    : T extends ReadonlyArray<infer U>
+      ? ReadonlyArray<DeepPartial<U>>
+      : T extends {}
+        ? { [K in keyof T]?: DeepPartial<T[K]> }
+        : Partial<T>;

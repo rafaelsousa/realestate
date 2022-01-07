@@ -1,19 +1,19 @@
 // THIS FILE IS GENERATED AUTOMATICALLY. DO NOT MODIFY.
 
-import { StdFee } from "@cosmjs/launchpad";
-import { SigningStargateClient } from "@cosmjs/stargate";
-import { Registry, OfflineSigner, EncodeObject, DirectSecp256k1HdWallet } from "@cosmjs/proto-signing";
-import { Api } from "./rest";
-import { MsgVerifyInvariant } from "./types/cosmos/crisis/v1beta1/tx";
+import { StdFee } from '@cosmjs/launchpad'
+import { SigningStargateClient } from '@cosmjs/stargate'
+import { EncodeObject, OfflineSigner, Registry } from '@cosmjs/proto-signing'
+import { Api } from './rest'
+import { MsgVerifyInvariant } from './types/cosmos/crisis/v1beta1/tx'
 
 
 const types = [
-  ["/cosmos.crisis.v1beta1.MsgVerifyInvariant", MsgVerifyInvariant],
-  
-];
-export const MissingWalletError = new Error("wallet is required");
+  ['/cosmos.crisis.v1beta1.MsgVerifyInvariant', MsgVerifyInvariant],
 
-export const registry = new Registry(<any>types);
+]
+export const MissingWalletError = new Error('wallet is required')
+
+export const registry = new Registry(<any>types)
 
 const defaultFee = {
   amount: [],
@@ -40,9 +40,15 @@ const txClient = async (wallet: OfflineSigner, { addr: addr }: TxClientOptions =
   const { address } = (await wallet.getAccounts())[0];
 
   return {
-    signAndBroadcast: (msgs: EncodeObject[], { fee, memo }: SignAndBroadcastOptions = {fee: defaultFee, memo: ""}) => client.signAndBroadcast(address, msgs, fee,memo),
-    msgVerifyInvariant: (data: MsgVerifyInvariant): EncodeObject => ({ typeUrl: "/cosmos.crisis.v1beta1.MsgVerifyInvariant", value: data }),
-    
+    signAndBroadcast: (msgs: EncodeObject[], { fee, memo }: SignAndBroadcastOptions = {
+      fee: defaultFee,
+      memo: '',
+    }) => client.signAndBroadcast(address, msgs, fee, memo),
+    msgVerifyInvariant: (data: MsgVerifyInvariant): EncodeObject => ({
+      typeUrl: '/cosmos.crisis.v1beta1.MsgVerifyInvariant',
+      value: MsgVerifyInvariant.fromPartial(data),
+    }),
+
   };
 };
 

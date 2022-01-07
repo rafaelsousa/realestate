@@ -7,9 +7,9 @@ export const protobufPackage = 'cosmos.bank.v1beta1'
 
 /** MsgSend represents a message to send coins from one account to another. */
 export interface MsgSend {
-  fromAddress: string
-  toAddress: string
-  amount: Coin[]
+  fromAddress: string;
+  toAddress: string;
+  amount: Coin[];
 }
 
 /** MsgSendResponse defines the Msg/Send response type. */
@@ -17,8 +17,8 @@ export interface MsgSendResponse {}
 
 /** MsgMultiSend represents an arbitrary multi-in, multi-out send message. */
 export interface MsgMultiSend {
-  inputs: Input[]
-  outputs: Output[]
+  inputs: Input[];
+  outputs: Output[];
 }
 
 /** MsgMultiSendResponse defines the Msg/MultiSend response type. */
@@ -88,7 +88,8 @@ export const MsgSend = {
 
   toJSON(message: MsgSend): unknown {
     const obj: any = {}
-    message.fromAddress !== undefined && (obj.fromAddress = message.fromAddress)
+    message.fromAddress !== undefined &&
+    (obj.fromAddress = message.fromAddress)
     message.toAddress !== undefined && (obj.toAddress = message.toAddress)
     if (message.amount) {
       obj.amount = message.amount.map((e) => (e ? Coin.toJSON(e) : undefined))
@@ -117,8 +118,8 @@ export const MsgSend = {
       }
     }
     return message
-  }
-}
+  },
+};
 
 const baseMsgSendResponse: object = {}
 
@@ -155,8 +156,8 @@ export const MsgSendResponse = {
   fromPartial(_: DeepPartial<MsgSendResponse>): MsgSendResponse {
     const message = { ...baseMsgSendResponse } as MsgSendResponse
     return message
-  }
-}
+  },
+};
 
 const baseMsgMultiSend: object = {}
 
@@ -219,7 +220,9 @@ export const MsgMultiSend = {
       obj.inputs = []
     }
     if (message.outputs) {
-      obj.outputs = message.outputs.map((e) => (e ? Output.toJSON(e) : undefined))
+      obj.outputs = message.outputs.map((e) =>
+        e ? Output.toJSON(e) : undefined,
+      )
     } else {
       obj.outputs = []
     }
@@ -241,8 +244,8 @@ export const MsgMultiSend = {
       }
     }
     return message
-  }
-}
+  },
+};
 
 const baseMsgMultiSendResponse: object = {}
 
@@ -279,15 +282,16 @@ export const MsgMultiSendResponse = {
   fromPartial(_: DeepPartial<MsgMultiSendResponse>): MsgMultiSendResponse {
     const message = { ...baseMsgMultiSendResponse } as MsgMultiSendResponse
     return message
-  }
-}
+  },
+};
 
 /** Msg defines the bank Msg service. */
 export interface Msg {
   /** Send defines a method for sending coins from one account to another account. */
-  Send(request: MsgSend): Promise<MsgSendResponse>
+  Send(request: MsgSend): Promise<MsgSendResponse>;
+
   /** MultiSend defines a method for sending coins from some accounts to other accounts. */
-  MultiSend(request: MsgMultiSend): Promise<MsgMultiSendResponse>
+  MultiSend(request: MsgMultiSend): Promise<MsgMultiSendResponse>;
 }
 
 export class MsgClientImpl implements Msg {
@@ -303,22 +307,32 @@ export class MsgClientImpl implements Msg {
 
   MultiSend(request: MsgMultiSend): Promise<MsgMultiSendResponse> {
     const data = MsgMultiSend.encode(request).finish()
-    const promise = this.rpc.request('cosmos.bank.v1beta1.Msg', 'MultiSend', data)
-    return promise.then((data) => MsgMultiSendResponse.decode(new Reader(data)))
+    const promise = this.rpc.request(
+      'cosmos.bank.v1beta1.Msg',
+      'MultiSend',
+      data,
+    )
+    return promise.then((data) =>
+      MsgMultiSendResponse.decode(new Reader(data)),
+    )
   }
 }
 
 interface Rpc {
-  request(service: string, method: string, data: Uint8Array): Promise<Uint8Array>
+  request(
+    service: string,
+    method: string,
+    data: Uint8Array,
+  ): Promise<Uint8Array>;
 }
 
-type Builtin = Date | Function | Uint8Array | string | number | undefined
+type Builtin = Date | Function | Uint8Array | string | number | undefined;
 export type DeepPartial<T> = T extends Builtin
   ? T
   : T extends Array<infer U>
-  ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U>
-  ? ReadonlyArray<DeepPartial<U>>
-  : T extends {}
-  ? { [K in keyof T]?: DeepPartial<T[K]> }
-  : Partial<T>
+    ? Array<DeepPartial<U>>
+    : T extends ReadonlyArray<infer U>
+      ? ReadonlyArray<DeepPartial<U>>
+      : T extends {}
+        ? { [K in keyof T]?: DeepPartial<T[K]> }
+        : Partial<T>;

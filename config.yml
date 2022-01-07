@@ -21,10 +21,10 @@ validator:
   name: alpha
   staked: "2000000000udomus"
 client:
-  vuex:
-    path: "vue/src/store"
-  openapi:
-    path: "docs/static/openapi.yml"
+#  vuex:
+#    path: "vue/src/store"
+#  openapi:
+#    path: "docs/static/openapi.yml"
 faucet:
   name: alpha
   coins: ["100udomus"]

@@ -1,27 +1,27 @@
 /* eslint-disable */
 import * as Long from 'long'
-import { util, configure, Writer, Reader } from 'protobufjs/minimal'
+import { configure, Reader, util, Writer } from 'protobufjs/minimal'
 
 export const protobufPackage = 'tendermint.crypto'
 
 export interface Proof {
-  total: number
-  index: number
-  leafHash: Uint8Array
-  aunts: Uint8Array[]
+  total: number;
+  index: number;
+  leafHash: Uint8Array;
+  aunts: Uint8Array[];
 }
 
 export interface ValueOp {
   /** Encoded in ProofOp.Key. */
-  key: Uint8Array
+  key: Uint8Array;
   /** To encode in ProofOp.Data */
-  proof: Proof | undefined
+  proof: Proof | undefined;
 }
 
 export interface DominoOp {
-  key: string
-  input: string
-  output: string
+  key: string;
+  input: string;
+  output: string;
 }
 
 /**
@@ -30,14 +30,14 @@ export interface DominoOp {
  * for example neighbouring node hash
  */
 export interface ProofOp {
-  type: string
-  key: Uint8Array
-  data: Uint8Array
+  type: string;
+  key: Uint8Array;
+  data: Uint8Array;
 }
 
 /** ProofOps is Merkle proof defined by the list of ProofOps */
 export interface ProofOps {
-  ops: ProofOp[]
+  ops: ProofOp[];
 }
 
 const baseProof: object = { total: 0, index: 0 }
@@ -115,9 +115,14 @@ export const Proof = {
     const obj: any = {}
     message.total !== undefined && (obj.total = message.total)
     message.index !== undefined && (obj.index = message.index)
-    message.leafHash !== undefined && (obj.leafHash = base64FromBytes(message.leafHash !== undefined ? message.leafHash : new Uint8Array()))
+    message.leafHash !== undefined &&
+    (obj.leafHash = base64FromBytes(
+      message.leafHash !== undefined ? message.leafHash : new Uint8Array(),
+    ))
     if (message.aunts) {
-      obj.aunts = message.aunts.map((e) => base64FromBytes(e !== undefined ? e : new Uint8Array()))
+      obj.aunts = message.aunts.map((e) =>
+        base64FromBytes(e !== undefined ? e : new Uint8Array()),
+      )
     } else {
       obj.aunts = []
     }
@@ -148,8 +153,8 @@ export const Proof = {
       }
     }
     return message
-  }
-}
+  },
+};
 
 const baseValueOp: object = {}
 
@@ -200,8 +205,12 @@ export const ValueOp = {
 
   toJSON(message: ValueOp): unknown {
     const obj: any = {}
-    message.key !== undefined && (obj.key = base64FromBytes(message.key !== undefined ? message.key : new Uint8Array()))
-    message.proof !== undefined && (obj.proof = message.proof ? Proof.toJSON(message.proof) : undefined)
+    message.key !== undefined &&
+    (obj.key = base64FromBytes(
+      message.key !== undefined ? message.key : new Uint8Array(),
+    ))
+    message.proof !== undefined &&
+    (obj.proof = message.proof ? Proof.toJSON(message.proof) : undefined)
     return obj
   },
 
@@ -218,8 +227,8 @@ export const ValueOp = {
       message.proof = undefined
     }
     return message
-  }
-}
+  },
+};
 
 const baseDominoOp: object = { key: '', input: '', output: '' }
 
@@ -307,8 +316,8 @@ export const DominoOp = {
       message.output = ''
     }
     return message
-  }
-}
+  },
+};
 
 const baseProofOp: object = { type: '' }
 
@@ -369,8 +378,14 @@ export const ProofOp = {
   toJSON(message: ProofOp): unknown {
     const obj: any = {}
     message.type !== undefined && (obj.type = message.type)
-    message.key !== undefined && (obj.key = base64FromBytes(message.key !== undefined ? message.key : new Uint8Array()))
-    message.data !== undefined && (obj.data = base64FromBytes(message.data !== undefined ? message.data : new Uint8Array()))
+    message.key !== undefined &&
+    (obj.key = base64FromBytes(
+      message.key !== undefined ? message.key : new Uint8Array(),
+    ))
+    message.data !== undefined &&
+    (obj.data = base64FromBytes(
+      message.data !== undefined ? message.data : new Uint8Array(),
+    ))
     return obj
   },
 
@@ -392,8 +407,8 @@ export const ProofOp = {
       message.data = new Uint8Array()
     }
     return message
-  }
-}
+  },
+};
 
 const baseProofOps: object = {}
 
@@ -454,8 +469,8 @@ export const ProofOps = {
       }
     }
     return message
-  }
-}
+  },
+};
 
 declare var self: any | undefined
 declare var window: any | undefined
@@ -467,7 +482,9 @@ var globalThis: any = (() => {
   throw 'Unable to locate global object'
 })()
 
-const atob: (b64: string) => string = globalThis.atob || ((b64) => globalThis.Buffer.from(b64, 'base64').toString('binary'))
+const atob: (b64: string) => string =
+  globalThis.atob ||
+  ((b64) => globalThis.Buffer.from(b64, 'base64').toString('binary'))
 function bytesFromBase64(b64: string): Uint8Array {
   const bin = atob(b64)
   const arr = new Uint8Array(bin.length)
@@ -477,7 +494,9 @@ function bytesFromBase64(b64: string): Uint8Array {
   return arr
 }
 
-const btoa: (bin: string) => string = globalThis.btoa || ((bin) => globalThis.Buffer.from(bin, 'binary').toString('base64'))
+const btoa: (bin: string) => string =
+  globalThis.btoa ||
+  ((bin) => globalThis.Buffer.from(bin, 'binary').toString('base64'))
 function base64FromBytes(arr: Uint8Array): string {
   const bin: string[] = []
   for (let i = 0; i < arr.byteLength; ++i) {
@@ -486,16 +505,16 @@ function base64FromBytes(arr: Uint8Array): string {
   return btoa(bin.join(''))
 }
 
-type Builtin = Date | Function | Uint8Array | string | number | undefined
+type Builtin = Date | Function | Uint8Array | string | number | undefined;
 export type DeepPartial<T> = T extends Builtin
   ? T
   : T extends Array<infer U>
-  ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U>
-  ? ReadonlyArray<DeepPartial<U>>
-  : T extends {}
-  ? { [K in keyof T]?: DeepPartial<T[K]> }
-  : Partial<T>
+    ? Array<DeepPartial<U>>
+    : T extends ReadonlyArray<infer U>
+      ? ReadonlyArray<DeepPartial<U>>
+      : T extends {}
+        ? { [K in keyof T]?: DeepPartial<T[K]> }
+        : Partial<T>;
 
 function longToNumber(long: Long): number {
   if (long.gt(Number.MAX_SAFE_INTEGER)) {

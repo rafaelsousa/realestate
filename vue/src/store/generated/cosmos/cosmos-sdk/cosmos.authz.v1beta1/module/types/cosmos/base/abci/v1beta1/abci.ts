@@ -1,6 +1,6 @@
 /* eslint-disable */
 import * as Long from 'long'
-import { util, configure, Writer, Reader } from 'protobufjs/minimal'
+import { configure, Reader, util, Writer } from 'protobufjs/minimal'
 import { Any } from '../../../../google/protobuf/any'
 import { Event } from '../../../../tendermint/abci/types'
 
@@ -12,47 +12,56 @@ export const protobufPackage = 'cosmos.base.abci.v1beta1'
  */
 export interface TxResponse {
   /** The block height */
-  height: number
+  height: number;
   /** The transaction hash. */
-  txhash: string
+  txhash: string;
   /** Namespace for the Code */
-  codespace: string
+  codespace: string;
   /** Response code. */
-  code: number
+  code: number;
   /** Result bytes, if any. */
-  data: string
+  data: string;
   /**
    * The output of the application's logger (raw string). May be
    * non-deterministic.
    */
-  rawLog: string
+  rawLog: string;
   /** The output of the application's logger (typed). May be non-deterministic. */
-  logs: ABCIMessageLog[]
+  logs: ABCIMessageLog[];
   /** Additional information. May be non-deterministic. */
-  info: string
+  info: string;
   /** Amount of gas requested for transaction. */
-  gasWanted: number
+  gasWanted: number;
   /** Amount of gas consumed by transaction. */
-  gasUsed: number
+  gasUsed: number;
   /** The request transaction bytes. */
-  tx: Any | undefined
+  tx: Any | undefined;
   /**
    * Time of the previous block. For heights > 1, it's the weighted median of
    * the timestamps of the valid votes in the block.LastCommit. For height == 1,
    * it's genesis time.
    */
-  timestamp: string
+  timestamp: string;
+  /**
+   * Events defines all the events emitted by processing a transaction. Note,
+   * these events include those emitted by processing all the messages and those
+   * emitted from the ante handler. Whereas Logs contains the events, with
+   * additional metadata, emitted only by processing the messages.
+   *
+   * Since: cosmos-sdk 0.42.11, 0.44.5, 0.45
+   */
+  events: Event[];
 }
 
 /** ABCIMessageLog defines a structure containing an indexed tx ABCI message log. */
 export interface ABCIMessageLog {
-  msgIndex: number
-  log: string
+  msgIndex: number;
+  log: string;
   /**
    * Events contains a slice of Event objects that were emitted during some
    * execution.
    */
-  events: StringEvent[]
+  events: StringEvent[];
 }
 
 /**
@@ -60,8 +69,8 @@ export interface ABCIMessageLog {
  * contain key/value pairs that are strings instead of raw bytes.
  */
 export interface StringEvent {
-  type: string
-  attributes: Attribute[]
+  type: string;
+  attributes: Attribute[];
 }
 
 /**
@@ -69,16 +78,16 @@ export interface StringEvent {
  * strings instead of raw bytes.
  */
 export interface Attribute {
-  key: string
-  value: string
+  key: string;
+  value: string;
 }
 
 /** GasInfo defines tx execution gas context. */
 export interface GasInfo {
   /** GasWanted is the maximum units of work we allow this tx to perform. */
-  gasWanted: number
+  gasWanted: number;
   /** GasUsed is the amount of gas actually consumed. */
-  gasUsed: number
+  gasUsed: number;
 }
 
 /** Result is the union of ResponseFormat and ResponseCheckTx. */
@@ -87,14 +96,14 @@ export interface Result {
    * Data is any data returned from message or handler execution. It MUST be
    * length prefixed in order to separate data from multiple message executions.
    */
-  data: Uint8Array
+  data: Uint8Array;
   /** Log contains the log information from message or handler execution. */
-  log: string
+  log: string;
   /**
    * Events contains a slice of Event objects that were emitted during message
    * or handler execution.
    */
-  events: Event[]
+  events: Event[];
 }
 
 /**
@@ -102,8 +111,8 @@ export interface Result {
  * successfully simulated.
  */
 export interface SimulationResponse {
-  gasInfo: GasInfo | undefined
-  result: Result | undefined
+  gasInfo: GasInfo | undefined;
+  result: Result | undefined;
 }
 
 /**
@@ -111,8 +120,8 @@ export interface SimulationResponse {
  * execution.
  */
 export interface MsgData {
-  msgType: string
-  data: Uint8Array
+  msgType: string;
+  data: Uint8Array;
 }
 
 /**
@@ -120,26 +129,37 @@ export interface MsgData {
  * for each message.
  */
 export interface TxMsgData {
-  data: MsgData[]
+  data: MsgData[];
 }
 
 /** SearchTxsResult defines a structure for querying txs pageable */
 export interface SearchTxsResult {
   /** Count of all txs */
-  totalCount: number
+  totalCount: number;
   /** Count of txs in current page */
-  count: number
+  count: number;
   /** Index of current page, start from 1 */
-  pageNumber: number
+  pageNumber: number;
   /** Count of total pages */
-  pageTotal: number
+  pageTotal: number;
   /** Max count txs per page */
-  limit: number
+  limit: number;
   /** List of txs in current page */
-  txs: TxResponse[]
+  txs: TxResponse[];
 }
 
-const baseTxResponse: object = { height: 0, txhash: '', codespace: '', code: 0, data: '', rawLog: '', info: '', gasWanted: 0, gasUsed: 0, timestamp: '' }
+const baseTxResponse: object = {
+  height: 0,
+  txhash: '',
+  codespace: '',
+  code: 0,
+  data: '',
+  rawLog: '',
+  info: '',
+  gasWanted: 0,
+  gasUsed: 0,
+  timestamp: '',
+}
 
 export const TxResponse = {
   encode(message: TxResponse, writer: Writer = Writer.create()): Writer {
@@ -179,6 +199,9 @@ export const TxResponse = {
     if (message.timestamp !== '') {
       writer.uint32(98).string(message.timestamp)
     }
+    for (const v of message.events) {
+      Event.encode(v!, writer.uint32(106).fork()).ldelim()
+    }
     return writer
   },
 
@@ -187,6 +210,7 @@ export const TxResponse = {
     let end = length === undefined ? reader.len : reader.pos + length
     const message = { ...baseTxResponse } as TxResponse
     message.logs = []
+    message.events = []
     while (reader.pos < end) {
       const tag = reader.uint32()
       switch (tag >>> 3) {
@@ -226,6 +250,9 @@ export const TxResponse = {
         case 12:
           message.timestamp = reader.string()
           break
+        case 13:
+          message.events.push(Event.decode(reader, reader.uint32()))
+          break
         default:
           reader.skipType(tag & 7)
           break
@@ -237,6 +264,7 @@ export const TxResponse = {
   fromJSON(object: any): TxResponse {
     const message = { ...baseTxResponse } as TxResponse
     message.logs = []
+    message.events = []
     if (object.height !== undefined && object.height !== null) {
       message.height = Number(object.height)
     } else {
@@ -297,6 +325,11 @@ export const TxResponse = {
     } else {
       message.timestamp = ''
     }
+    if (object.events !== undefined && object.events !== null) {
+      for (const e of object.events) {
+        message.events.push(Event.fromJSON(e))
+      }
+    }
     return message
   },
 
@@ -309,21 +342,30 @@ export const TxResponse = {
     message.data !== undefined && (obj.data = message.data)
     message.rawLog !== undefined && (obj.rawLog = message.rawLog)
     if (message.logs) {
-      obj.logs = message.logs.map((e) => (e ? ABCIMessageLog.toJSON(e) : undefined))
+      obj.logs = message.logs.map((e) =>
+        e ? ABCIMessageLog.toJSON(e) : undefined,
+      )
     } else {
       obj.logs = []
     }
     message.info !== undefined && (obj.info = message.info)
     message.gasWanted !== undefined && (obj.gasWanted = message.gasWanted)
     message.gasUsed !== undefined && (obj.gasUsed = message.gasUsed)
-    message.tx !== undefined && (obj.tx = message.tx ? Any.toJSON(message.tx) : undefined)
+    message.tx !== undefined &&
+    (obj.tx = message.tx ? Any.toJSON(message.tx) : undefined)
     message.timestamp !== undefined && (obj.timestamp = message.timestamp)
+    if (message.events) {
+      obj.events = message.events.map((e) => (e ? Event.toJSON(e) : undefined))
+    } else {
+      obj.events = []
+    }
     return obj
   },
 
   fromPartial(object: DeepPartial<TxResponse>): TxResponse {
     const message = { ...baseTxResponse } as TxResponse
     message.logs = []
+    message.events = []
     if (object.height !== undefined && object.height !== null) {
       message.height = object.height
     } else {
@@ -384,9 +426,14 @@ export const TxResponse = {
     } else {
       message.timestamp = ''
     }
+    if (object.events !== undefined && object.events !== null) {
+      for (const e of object.events) {
+        message.events.push(Event.fromPartial(e))
+      }
+    }
     return message
-  }
-}
+  },
+};
 
 const baseABCIMessageLog: object = { msgIndex: 0, log: '' }
 
@@ -455,7 +502,9 @@ export const ABCIMessageLog = {
     message.msgIndex !== undefined && (obj.msgIndex = message.msgIndex)
     message.log !== undefined && (obj.log = message.log)
     if (message.events) {
-      obj.events = message.events.map((e) => (e ? StringEvent.toJSON(e) : undefined))
+      obj.events = message.events.map((e) =>
+        e ? StringEvent.toJSON(e) : undefined,
+      )
     } else {
       obj.events = []
     }
@@ -481,8 +530,8 @@ export const ABCIMessageLog = {
       }
     }
     return message
-  }
-}
+  },
+};
 
 const baseStringEvent: object = { type: '' }
 
@@ -539,7 +588,9 @@ export const StringEvent = {
     const obj: any = {}
     message.type !== undefined && (obj.type = message.type)
     if (message.attributes) {
-      obj.attributes = message.attributes.map((e) => (e ? Attribute.toJSON(e) : undefined))
+      obj.attributes = message.attributes.map((e) =>
+        e ? Attribute.toJSON(e) : undefined,
+      )
     } else {
       obj.attributes = []
     }
@@ -560,8 +611,8 @@ export const StringEvent = {
       }
     }
     return message
-  }
-}
+  },
+};
 
 const baseAttribute: object = { key: '', value: '' }
 
@@ -632,8 +683,8 @@ export const Attribute = {
       message.value = ''
     }
     return message
-  }
-}
+  },
+};
 
 const baseGasInfo: object = { gasWanted: 0, gasUsed: 0 }
 
@@ -704,8 +755,8 @@ export const GasInfo = {
       message.gasUsed = 0
     }
     return message
-  }
-}
+  },
+};
 
 const baseResult: object = { log: '' }
 
@@ -769,7 +820,10 @@ export const Result = {
 
   toJSON(message: Result): unknown {
     const obj: any = {}
-    message.data !== undefined && (obj.data = base64FromBytes(message.data !== undefined ? message.data : new Uint8Array()))
+    message.data !== undefined &&
+    (obj.data = base64FromBytes(
+      message.data !== undefined ? message.data : new Uint8Array(),
+    ))
     message.log !== undefined && (obj.log = message.log)
     if (message.events) {
       obj.events = message.events.map((e) => (e ? Event.toJSON(e) : undefined))
@@ -798,13 +852,16 @@ export const Result = {
       }
     }
     return message
-  }
-}
+  },
+};
 
 const baseSimulationResponse: object = {}
 
 export const SimulationResponse = {
-  encode(message: SimulationResponse, writer: Writer = Writer.create()): Writer {
+  encode(
+    message: SimulationResponse,
+    writer: Writer = Writer.create(),
+  ): Writer {
     if (message.gasInfo !== undefined) {
       GasInfo.encode(message.gasInfo, writer.uint32(10).fork()).ldelim()
     }
@@ -852,8 +909,12 @@ export const SimulationResponse = {
 
   toJSON(message: SimulationResponse): unknown {
     const obj: any = {}
-    message.gasInfo !== undefined && (obj.gasInfo = message.gasInfo ? GasInfo.toJSON(message.gasInfo) : undefined)
-    message.result !== undefined && (obj.result = message.result ? Result.toJSON(message.result) : undefined)
+    message.gasInfo !== undefined &&
+    (obj.gasInfo = message.gasInfo
+      ? GasInfo.toJSON(message.gasInfo)
+      : undefined)
+    message.result !== undefined &&
+    (obj.result = message.result ? Result.toJSON(message.result) : undefined)
     return obj
   },
 
@@ -870,8 +931,8 @@ export const SimulationResponse = {
       message.result = undefined
     }
     return message
-  }
-}
+  },
+};
 
 const baseMsgData: object = { msgType: '' }
 
@@ -923,7 +984,10 @@ export const MsgData = {
   toJSON(message: MsgData): unknown {
     const obj: any = {}
     message.msgType !== undefined && (obj.msgType = message.msgType)
-    message.data !== undefined && (obj.data = base64FromBytes(message.data !== undefined ? message.data : new Uint8Array()))
+    message.data !== undefined &&
+    (obj.data = base64FromBytes(
+      message.data !== undefined ? message.data : new Uint8Array(),
+    ))
     return obj
   },
 
@@ -940,8 +1004,8 @@ export const MsgData = {
       message.data = new Uint8Array()
     }
     return message
-  }
-}
+  },
+};
 
 const baseTxMsgData: object = {}
 
@@ -1002,10 +1066,16 @@ export const TxMsgData = {
       }
     }
     return message
-  }
-}
+  },
+};
 
-const baseSearchTxsResult: object = { totalCount: 0, count: 0, pageNumber: 0, pageTotal: 0, limit: 0 }
+const baseSearchTxsResult: object = {
+  totalCount: 0,
+  count: 0,
+  pageNumber: 0,
+  pageTotal: 0,
+  limit: 0,
+}
 
 export const SearchTxsResult = {
   encode(message: SearchTxsResult, writer: Writer = Writer.create()): Writer {
@@ -1149,8 +1219,8 @@ export const SearchTxsResult = {
       }
     }
     return message
-  }
-}
+  },
+};
 
 declare var self: any | undefined
 declare var window: any | undefined
@@ -1162,7 +1232,9 @@ var globalThis: any = (() => {
   throw 'Unable to locate global object'
 })()
 
-const atob: (b64: string) => string = globalThis.atob || ((b64) => globalThis.Buffer.from(b64, 'base64').toString('binary'))
+const atob: (b64: string) => string =
+  globalThis.atob ||
+  ((b64) => globalThis.Buffer.from(b64, 'base64').toString('binary'))
 function bytesFromBase64(b64: string): Uint8Array {
   const bin = atob(b64)
   const arr = new Uint8Array(bin.length)
@@ -1172,7 +1244,9 @@ function bytesFromBase64(b64: string): Uint8Array {
   return arr
 }
 
-const btoa: (bin: string) => string = globalThis.btoa || ((bin) => globalThis.Buffer.from(bin, 'binary').toString('base64'))
+const btoa: (bin: string) => string =
+  globalThis.btoa ||
+  ((bin) => globalThis.Buffer.from(bin, 'binary').toString('base64'))
 function base64FromBytes(arr: Uint8Array): string {
   const bin: string[] = []
   for (let i = 0; i < arr.byteLength; ++i) {
@@ -1181,16 +1255,16 @@ function base64FromBytes(arr: Uint8Array): string {
   return btoa(bin.join(''))
 }
 
-type Builtin = Date | Function | Uint8Array | string | number | undefined
+type Builtin = Date | Function | Uint8Array | string | number | undefined;
 export type DeepPartial<T> = T extends Builtin
   ? T
   : T extends Array<infer U>
-  ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U>
-  ? ReadonlyArray<DeepPartial<U>>
-  : T extends {}
-  ? { [K in keyof T]?: DeepPartial<T[K]> }
-  : Partial<T>
+    ? Array<DeepPartial<U>>
+    : T extends ReadonlyArray<infer U>
+      ? ReadonlyArray<DeepPartial<U>>
+      : T extends {}
+        ? { [K in keyof T]?: DeepPartial<T[K]> }
+        : Partial<T>;
 
 function longToNumber(long: Long): number {
   if (long.gt(Number.MAX_SAFE_INTEGER)) {

@@ -1,9 +1,11 @@
 /* eslint-disable */
 import { Timestamp } from '../../../google/protobuf/timestamp'
 import { Any } from '../../../google/protobuf/any'
-import { Writer, Reader } from 'protobufjs/minimal'
+import { Reader, Writer } from 'protobufjs/minimal'
 
 export const protobufPackage = 'cosmos.authz.v1beta1'
+
+/** Since: cosmos-sdk 0.43 */
 
 /**
  * GenericAuthorization gives the grantee unrestricted permissions to execute
@@ -11,7 +13,7 @@ export const protobufPackage = 'cosmos.authz.v1beta1'
  */
 export interface GenericAuthorization {
   /** Msg, identified by it's type URL, to grant unrestricted permissions to execute */
-  msg: string
+  msg: string;
 }
 
 /**
@@ -19,14 +21,17 @@ export interface GenericAuthorization {
  * the provide method with expiration time.
  */
 export interface Grant {
-  authorization: Any | undefined
-  expiration: Date | undefined
+  authorization: Any | undefined;
+  expiration: Date | undefined;
 }
 
 const baseGenericAuthorization: object = { msg: '' }
 
 export const GenericAuthorization = {
-  encode(message: GenericAuthorization, writer: Writer = Writer.create()): Writer {
+  encode(
+    message: GenericAuthorization,
+    writer: Writer = Writer.create(),
+  ): Writer {
     if (message.msg !== '') {
       writer.uint32(10).string(message.msg)
     }
@@ -75,8 +80,8 @@ export const GenericAuthorization = {
       message.msg = ''
     }
     return message
-  }
-}
+  },
+};
 
 const baseGrant: object = {}
 
@@ -86,7 +91,10 @@ export const Grant = {
       Any.encode(message.authorization, writer.uint32(10).fork()).ldelim()
     }
     if (message.expiration !== undefined) {
-      Timestamp.encode(toTimestamp(message.expiration), writer.uint32(18).fork()).ldelim()
+      Timestamp.encode(
+        toTimestamp(message.expiration),
+        writer.uint32(18).fork(),
+      ).ldelim()
     }
     return writer
   },
@@ -102,7 +110,9 @@ export const Grant = {
           message.authorization = Any.decode(reader, reader.uint32())
           break
         case 2:
-          message.expiration = fromTimestamp(Timestamp.decode(reader, reader.uint32()))
+          message.expiration = fromTimestamp(
+            Timestamp.decode(reader, reader.uint32()),
+          )
           break
         default:
           reader.skipType(tag & 7)
@@ -129,8 +139,15 @@ export const Grant = {
 
   toJSON(message: Grant): unknown {
     const obj: any = {}
-    message.authorization !== undefined && (obj.authorization = message.authorization ? Any.toJSON(message.authorization) : undefined)
-    message.expiration !== undefined && (obj.expiration = message.expiration !== undefined ? message.expiration.toISOString() : null)
+    message.authorization !== undefined &&
+    (obj.authorization = message.authorization
+      ? Any.toJSON(message.authorization)
+      : undefined)
+    message.expiration !== undefined &&
+    (obj.expiration =
+      message.expiration !== undefined
+        ? message.expiration.toISOString()
+        : null)
     return obj
   },
 
@@ -147,19 +164,19 @@ export const Grant = {
       message.expiration = undefined
     }
     return message
-  }
-}
+  },
+};
 
-type Builtin = Date | Function | Uint8Array | string | number | undefined
+type Builtin = Date | Function | Uint8Array | string | number | undefined;
 export type DeepPartial<T> = T extends Builtin
   ? T
   : T extends Array<infer U>
-  ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U>
-  ? ReadonlyArray<DeepPartial<U>>
-  : T extends {}
-  ? { [K in keyof T]?: DeepPartial<T[K]> }
-  : Partial<T>
+    ? Array<DeepPartial<U>>
+    : T extends ReadonlyArray<infer U>
+      ? ReadonlyArray<DeepPartial<U>>
+      : T extends {}
+        ? { [K in keyof T]?: DeepPartial<T[K]> }
+        : Partial<T>;
 
 function toTimestamp(date: Date): Timestamp {
   const seconds = date.getTime() / 1_000

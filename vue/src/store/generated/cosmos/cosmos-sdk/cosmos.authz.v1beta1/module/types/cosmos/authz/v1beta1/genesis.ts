@@ -1,21 +1,23 @@
 /* eslint-disable */
 import { Timestamp } from '../../../google/protobuf/timestamp'
 import { Any } from '../../../google/protobuf/any'
-import { Writer, Reader } from 'protobufjs/minimal'
+import { Reader, Writer } from 'protobufjs/minimal'
 
 export const protobufPackage = 'cosmos.authz.v1beta1'
 
+/** Since: cosmos-sdk 0.43 */
+
 /** GenesisState defines the authz module's genesis state. */
 export interface GenesisState {
-  authorization: GrantAuthorization[]
+  authorization: GrantAuthorization[];
 }
 
 /** GrantAuthorization defines the GenesisState/GrantAuthorization type. */
 export interface GrantAuthorization {
-  granter: string
-  grantee: string
-  authorization: Any | undefined
-  expiration: Date | undefined
+  granter: string;
+  grantee: string;
+  authorization: Any | undefined;
+  expiration: Date | undefined;
 }
 
 const baseGenesisState: object = {}
@@ -37,7 +39,9 @@ export const GenesisState = {
       const tag = reader.uint32()
       switch (tag >>> 3) {
         case 1:
-          message.authorization.push(GrantAuthorization.decode(reader, reader.uint32()))
+          message.authorization.push(
+            GrantAuthorization.decode(reader, reader.uint32()),
+          )
           break
         default:
           reader.skipType(tag & 7)
@@ -61,7 +65,9 @@ export const GenesisState = {
   toJSON(message: GenesisState): unknown {
     const obj: any = {}
     if (message.authorization) {
-      obj.authorization = message.authorization.map((e) => (e ? GrantAuthorization.toJSON(e) : undefined))
+      obj.authorization = message.authorization.map((e) =>
+        e ? GrantAuthorization.toJSON(e) : undefined,
+      )
     } else {
       obj.authorization = []
     }
@@ -77,13 +83,16 @@ export const GenesisState = {
       }
     }
     return message
-  }
-}
+  },
+};
 
 const baseGrantAuthorization: object = { granter: '', grantee: '' }
 
 export const GrantAuthorization = {
-  encode(message: GrantAuthorization, writer: Writer = Writer.create()): Writer {
+  encode(
+    message: GrantAuthorization,
+    writer: Writer = Writer.create(),
+  ): Writer {
     if (message.granter !== '') {
       writer.uint32(10).string(message.granter)
     }
@@ -94,7 +103,10 @@ export const GrantAuthorization = {
       Any.encode(message.authorization, writer.uint32(26).fork()).ldelim()
     }
     if (message.expiration !== undefined) {
-      Timestamp.encode(toTimestamp(message.expiration), writer.uint32(34).fork()).ldelim()
+      Timestamp.encode(
+        toTimestamp(message.expiration),
+        writer.uint32(34).fork(),
+      ).ldelim()
     }
     return writer
   },
@@ -116,7 +128,9 @@ export const GrantAuthorization = {
           message.authorization = Any.decode(reader, reader.uint32())
           break
         case 4:
-          message.expiration = fromTimestamp(Timestamp.decode(reader, reader.uint32()))
+          message.expiration = fromTimestamp(
+            Timestamp.decode(reader, reader.uint32()),
+          )
           break
         default:
           reader.skipType(tag & 7)
@@ -155,8 +169,15 @@ export const GrantAuthorization = {
     const obj: any = {}
     message.granter !== undefined && (obj.granter = message.granter)
     message.grantee !== undefined && (obj.grantee = message.grantee)
-    message.authorization !== undefined && (obj.authorization = message.authorization ? Any.toJSON(message.authorization) : undefined)
-    message.expiration !== undefined && (obj.expiration = message.expiration !== undefined ? message.expiration.toISOString() : null)
+    message.authorization !== undefined &&
+    (obj.authorization = message.authorization
+      ? Any.toJSON(message.authorization)
+      : undefined)
+    message.expiration !== undefined &&
+    (obj.expiration =
+      message.expiration !== undefined
+        ? message.expiration.toISOString()
+        : null)
     return obj
   },
 
@@ -183,19 +204,19 @@ export const GrantAuthorization = {
       message.expiration = undefined
     }
     return message
-  }
-}
+  },
+};
 
-type Builtin = Date | Function | Uint8Array | string | number | undefined
+type Builtin = Date | Function | Uint8Array | string | number | undefined;
 export type DeepPartial<T> = T extends Builtin
   ? T
   : T extends Array<infer U>
-  ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U>
-  ? ReadonlyArray<DeepPartial<U>>
-  : T extends {}
-  ? { [K in keyof T]?: DeepPartial<T[K]> }
-  : Partial<T>
+    ? Array<DeepPartial<U>>
+    : T extends ReadonlyArray<infer U>
+      ? ReadonlyArray<DeepPartial<U>>
+      : T extends {}
+        ? { [K in keyof T]?: DeepPartial<T[K]> }
+        : Partial<T>;
 
 function toTimestamp(date: Date): Timestamp {
   const seconds = date.getTime() / 1_000

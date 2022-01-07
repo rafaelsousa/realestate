@@ -5,28 +5,37 @@ import { Grant } from '../../../cosmos/authz/v1beta1/authz'
 
 export const protobufPackage = 'cosmos.authz.v1beta1'
 
+/** Since: cosmos-sdk 0.43 */
+
 /** QueryGrantsRequest is the request type for the Query/Grants RPC method. */
 export interface QueryGrantsRequest {
-  granter: string
-  grantee: string
+  granter: string;
+  grantee: string;
   /** Optional, msg_type_url, when set, will query only grants matching given msg type. */
-  msgTypeUrl: string
+  msgTypeUrl: string;
   /** pagination defines an pagination for the request. */
-  pagination: PageRequest | undefined
+  pagination: PageRequest | undefined;
 }
 
 /** QueryGrantsResponse is the response type for the Query/Authorizations RPC method. */
 export interface QueryGrantsResponse {
   /** authorizations is a list of grants granted for grantee by granter. */
-  grants: Grant[]
+  grants: Grant[];
   /** pagination defines an pagination for the response. */
-  pagination: PageResponse | undefined
+  pagination: PageResponse | undefined;
 }
 
-const baseQueryGrantsRequest: object = { granter: '', grantee: '', msgTypeUrl: '' }
+const baseQueryGrantsRequest: object = {
+  granter: '',
+  grantee: '',
+  msgTypeUrl: '',
+}
 
 export const QueryGrantsRequest = {
-  encode(message: QueryGrantsRequest, writer: Writer = Writer.create()): Writer {
+  encode(
+    message: QueryGrantsRequest,
+    writer: Writer = Writer.create(),
+  ): Writer {
     if (message.granter !== '') {
       writer.uint32(10).string(message.granter)
     }
@@ -99,7 +108,10 @@ export const QueryGrantsRequest = {
     message.granter !== undefined && (obj.granter = message.granter)
     message.grantee !== undefined && (obj.grantee = message.grantee)
     message.msgTypeUrl !== undefined && (obj.msgTypeUrl = message.msgTypeUrl)
-    message.pagination !== undefined && (obj.pagination = message.pagination ? PageRequest.toJSON(message.pagination) : undefined)
+    message.pagination !== undefined &&
+    (obj.pagination = message.pagination
+      ? PageRequest.toJSON(message.pagination)
+      : undefined)
     return obj
   },
 
@@ -126,18 +138,24 @@ export const QueryGrantsRequest = {
       message.pagination = undefined
     }
     return message
-  }
-}
+  },
+};
 
 const baseQueryGrantsResponse: object = {}
 
 export const QueryGrantsResponse = {
-  encode(message: QueryGrantsResponse, writer: Writer = Writer.create()): Writer {
+  encode(
+    message: QueryGrantsResponse,
+    writer: Writer = Writer.create(),
+  ): Writer {
     for (const v of message.grants) {
       Grant.encode(v!, writer.uint32(10).fork()).ldelim()
     }
     if (message.pagination !== undefined) {
-      PageResponse.encode(message.pagination, writer.uint32(18).fork()).ldelim()
+      PageResponse.encode(
+        message.pagination,
+        writer.uint32(18).fork(),
+      ).ldelim()
     }
     return writer
   },
@@ -187,7 +205,10 @@ export const QueryGrantsResponse = {
     } else {
       obj.grants = []
     }
-    message.pagination !== undefined && (obj.pagination = message.pagination ? PageResponse.toJSON(message.pagination) : undefined)
+    message.pagination !== undefined &&
+    (obj.pagination = message.pagination
+      ? PageResponse.toJSON(message.pagination)
+      : undefined)
     return obj
   },
 
@@ -205,13 +226,13 @@ export const QueryGrantsResponse = {
       message.pagination = undefined
     }
     return message
-  }
-}
+  },
+};
 
 /** Query defines the gRPC querier service. */
 export interface Query {
   /** Returns list of `Authorization`, granted to the grantee by the granter. */
-  Grants(request: QueryGrantsRequest): Promise<QueryGrantsResponse>
+  Grants(request: QueryGrantsRequest): Promise<QueryGrantsResponse>;
 }
 
 export class QueryClientImpl implements Query {
@@ -221,22 +242,30 @@ export class QueryClientImpl implements Query {
   }
   Grants(request: QueryGrantsRequest): Promise<QueryGrantsResponse> {
     const data = QueryGrantsRequest.encode(request).finish()
-    const promise = this.rpc.request('cosmos.authz.v1beta1.Query', 'Grants', data)
+    const promise = this.rpc.request(
+      'cosmos.authz.v1beta1.Query',
+      'Grants',
+      data,
+    )
     return promise.then((data) => QueryGrantsResponse.decode(new Reader(data)))
   }
 }
 
 interface Rpc {
-  request(service: string, method: string, data: Uint8Array): Promise<Uint8Array>
+  request(
+    service: string,
+    method: string,
+    data: Uint8Array,
+  ): Promise<Uint8Array>;
 }
 
-type Builtin = Date | Function | Uint8Array | string | number | undefined
+type Builtin = Date | Function | Uint8Array | string | number | undefined;
 export type DeepPartial<T> = T extends Builtin
   ? T
   : T extends Array<infer U>
-  ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U>
-  ? ReadonlyArray<DeepPartial<U>>
-  : T extends {}
-  ? { [K in keyof T]?: DeepPartial<T[K]> }
-  : Partial<T>
+    ? Array<DeepPartial<U>>
+    : T extends ReadonlyArray<infer U>
+      ? ReadonlyArray<DeepPartial<U>>
+      : T extends {}
+        ? { [K in keyof T]?: DeepPartial<T[K]> }
+        : Partial<T>;

@@ -1,17 +1,17 @@
 /* eslint-disable */
 import {
-  ProposalStatus,
+  Deposit,
+  DepositParams,
   Proposal,
+  ProposalStatus,
+  proposalStatusFromJSON,
+  proposalStatusToJSON,
+  TallyParams,
+  TallyResult,
   Vote,
   VotingParams,
-  DepositParams,
-  TallyParams,
-  Deposit,
-  TallyResult,
-  proposalStatusFromJSON,
-  proposalStatusToJSON
 } from '../../../cosmos/gov/v1beta1/gov'
-import { Reader, util, configure, Writer } from 'protobufjs/minimal'
+import { configure, Reader, util, Writer } from 'protobufjs/minimal'
 import * as Long from 'long'
 import { PageRequest, PageResponse } from '../../../cosmos/base/query/v1beta1/pagination'
 
@@ -20,24 +20,24 @@ export const protobufPackage = 'cosmos.gov.v1beta1'
 /** QueryProposalRequest is the request type for the Query/Proposal RPC method. */
 export interface QueryProposalRequest {
   /** proposal_id defines the unique id of the proposal. */
-  proposalId: number
+  proposalId: number;
 }
 
 /** QueryProposalResponse is the response type for the Query/Proposal RPC method. */
 export interface QueryProposalResponse {
-  proposal: Proposal | undefined
+  proposal: Proposal | undefined;
 }
 
 /** QueryProposalsRequest is the request type for the Query/Proposals RPC method. */
 export interface QueryProposalsRequest {
   /** proposal_status defines the status of the proposals. */
-  proposalStatus: ProposalStatus
+  proposalStatus: ProposalStatus;
   /** voter defines the voter address for the proposals. */
-  voter: string
+  voter: string;
   /** depositor defines the deposit addresses from the proposals. */
-  depositor: string
+  depositor: string;
   /** pagination defines an optional pagination for the request. */
-  pagination: PageRequest | undefined
+  pagination: PageRequest | undefined;
 }
 
 /**
@@ -45,39 +45,39 @@ export interface QueryProposalsRequest {
  * method.
  */
 export interface QueryProposalsResponse {
-  proposals: Proposal[]
+  proposals: Proposal[];
   /** pagination defines the pagination in the response. */
-  pagination: PageResponse | undefined
+  pagination: PageResponse | undefined;
 }
 
 /** QueryVoteRequest is the request type for the Query/Vote RPC method. */
 export interface QueryVoteRequest {
   /** proposal_id defines the unique id of the proposal. */
-  proposalId: number
+  proposalId: number;
   /** voter defines the oter address for the proposals. */
-  voter: string
+  voter: string;
 }
 
 /** QueryVoteResponse is the response type for the Query/Vote RPC method. */
 export interface QueryVoteResponse {
   /** vote defined the queried vote. */
-  vote: Vote | undefined
+  vote: Vote | undefined;
 }
 
 /** QueryVotesRequest is the request type for the Query/Votes RPC method. */
 export interface QueryVotesRequest {
   /** proposal_id defines the unique id of the proposal. */
-  proposalId: number
+  proposalId: number;
   /** pagination defines an optional pagination for the request. */
-  pagination: PageRequest | undefined
+  pagination: PageRequest | undefined;
 }
 
 /** QueryVotesResponse is the response type for the Query/Votes RPC method. */
 export interface QueryVotesResponse {
   /** votes defined the queried votes. */
-  votes: Vote[]
+  votes: Vote[];
   /** pagination defines the pagination in the response. */
-  pagination: PageResponse | undefined
+  pagination: PageResponse | undefined;
 }
 
 /** QueryParamsRequest is the request type for the Query/Params RPC method. */
@@ -86,64 +86,67 @@ export interface QueryParamsRequest {
    * params_type defines which parameters to query for, can be one of "voting",
    * "tallying" or "deposit".
    */
-  paramsType: string
+  paramsType: string;
 }
 
 /** QueryParamsResponse is the response type for the Query/Params RPC method. */
 export interface QueryParamsResponse {
   /** voting_params defines the parameters related to voting. */
-  votingParams: VotingParams | undefined
+  votingParams: VotingParams | undefined;
   /** deposit_params defines the parameters related to deposit. */
-  depositParams: DepositParams | undefined
+  depositParams: DepositParams | undefined;
   /** tally_params defines the parameters related to tally. */
-  tallyParams: TallyParams | undefined
+  tallyParams: TallyParams | undefined;
 }
 
 /** QueryDepositRequest is the request type for the Query/Deposit RPC method. */
 export interface QueryDepositRequest {
   /** proposal_id defines the unique id of the proposal. */
-  proposalId: number
+  proposalId: number;
   /** depositor defines the deposit addresses from the proposals. */
-  depositor: string
+  depositor: string;
 }
 
 /** QueryDepositResponse is the response type for the Query/Deposit RPC method. */
 export interface QueryDepositResponse {
   /** deposit defines the requested deposit. */
-  deposit: Deposit | undefined
+  deposit: Deposit | undefined;
 }
 
 /** QueryDepositsRequest is the request type for the Query/Deposits RPC method. */
 export interface QueryDepositsRequest {
   /** proposal_id defines the unique id of the proposal. */
-  proposalId: number
+  proposalId: number;
   /** pagination defines an optional pagination for the request. */
-  pagination: PageRequest | undefined
+  pagination: PageRequest | undefined;
 }
 
 /** QueryDepositsResponse is the response type for the Query/Deposits RPC method. */
 export interface QueryDepositsResponse {
-  deposits: Deposit[]
+  deposits: Deposit[];
   /** pagination defines the pagination in the response. */
-  pagination: PageResponse | undefined
+  pagination: PageResponse | undefined;
 }
 
 /** QueryTallyResultRequest is the request type for the Query/Tally RPC method. */
 export interface QueryTallyResultRequest {
   /** proposal_id defines the unique id of the proposal. */
-  proposalId: number
+  proposalId: number;
 }
 
 /** QueryTallyResultResponse is the response type for the Query/Tally RPC method. */
 export interface QueryTallyResultResponse {
   /** tally defines the requested tally. */
-  tally: TallyResult | undefined
+  tally: TallyResult | undefined;
 }
 
 const baseQueryProposalRequest: object = { proposalId: 0 }
 
 export const QueryProposalRequest = {
-  encode(message: QueryProposalRequest, writer: Writer = Writer.create()): Writer {
+  encode(
+    message: QueryProposalRequest,
+    writer: Writer = Writer.create(),
+  ): Writer {
     if (message.proposalId !== 0) {
       writer.uint32(8).uint64(message.proposalId)
     }
@@ -192,13 +195,16 @@ export const QueryProposalRequest = {
       message.proposalId = 0
     }
     return message
-  }
-}
+  },
+};
 
 const baseQueryProposalResponse: object = {}
 
 export const QueryProposalResponse = {
-  encode(message: QueryProposalResponse, writer: Writer = Writer.create()): Writer {
+  encode(
+    message: QueryProposalResponse,
+    writer: Writer = Writer.create(),
+  ): Writer {
     if (message.proposal !== undefined) {
       Proposal.encode(message.proposal, writer.uint32(10).fork()).ldelim()
     }
@@ -235,11 +241,16 @@ export const QueryProposalResponse = {
 
   toJSON(message: QueryProposalResponse): unknown {
     const obj: any = {}
-    message.proposal !== undefined && (obj.proposal = message.proposal ? Proposal.toJSON(message.proposal) : undefined)
+    message.proposal !== undefined &&
+    (obj.proposal = message.proposal
+      ? Proposal.toJSON(message.proposal)
+      : undefined)
     return obj
   },
 
-  fromPartial(object: DeepPartial<QueryProposalResponse>): QueryProposalResponse {
+  fromPartial(
+    object: DeepPartial<QueryProposalResponse>,
+  ): QueryProposalResponse {
     const message = { ...baseQueryProposalResponse } as QueryProposalResponse
     if (object.proposal !== undefined && object.proposal !== null) {
       message.proposal = Proposal.fromPartial(object.proposal)
@@ -247,13 +258,20 @@ export const QueryProposalResponse = {
       message.proposal = undefined
     }
     return message
-  }
+  },
+};
+
+const baseQueryProposalsRequest: object = {
+  proposalStatus: 0,
+  voter: '',
+  depositor: '',
 }
 
-const baseQueryProposalsRequest: object = { proposalStatus: 0, voter: '', depositor: '' }
-
 export const QueryProposalsRequest = {
-  encode(message: QueryProposalsRequest, writer: Writer = Writer.create()): Writer {
+  encode(
+    message: QueryProposalsRequest,
+    writer: Writer = Writer.create(),
+  ): Writer {
     if (message.proposalStatus !== 0) {
       writer.uint32(8).int32(message.proposalStatus)
     }
@@ -323,14 +341,20 @@ export const QueryProposalsRequest = {
 
   toJSON(message: QueryProposalsRequest): unknown {
     const obj: any = {}
-    message.proposalStatus !== undefined && (obj.proposalStatus = proposalStatusToJSON(message.proposalStatus))
+    message.proposalStatus !== undefined &&
+    (obj.proposalStatus = proposalStatusToJSON(message.proposalStatus))
     message.voter !== undefined && (obj.voter = message.voter)
     message.depositor !== undefined && (obj.depositor = message.depositor)
-    message.pagination !== undefined && (obj.pagination = message.pagination ? PageRequest.toJSON(message.pagination) : undefined)
+    message.pagination !== undefined &&
+    (obj.pagination = message.pagination
+      ? PageRequest.toJSON(message.pagination)
+      : undefined)
     return obj
   },
 
-  fromPartial(object: DeepPartial<QueryProposalsRequest>): QueryProposalsRequest {
+  fromPartial(
+    object: DeepPartial<QueryProposalsRequest>,
+  ): QueryProposalsRequest {
     const message = { ...baseQueryProposalsRequest } as QueryProposalsRequest
     if (object.proposalStatus !== undefined && object.proposalStatus !== null) {
       message.proposalStatus = object.proposalStatus
@@ -353,18 +377,24 @@ export const QueryProposalsRequest = {
       message.pagination = undefined
     }
     return message
-  }
-}
+  },
+};
 
 const baseQueryProposalsResponse: object = {}
 
 export const QueryProposalsResponse = {
-  encode(message: QueryProposalsResponse, writer: Writer = Writer.create()): Writer {
+  encode(
+    message: QueryProposalsResponse,
+    writer: Writer = Writer.create(),
+  ): Writer {
     for (const v of message.proposals) {
       Proposal.encode(v!, writer.uint32(10).fork()).ldelim()
     }
     if (message.pagination !== undefined) {
-      PageResponse.encode(message.pagination, writer.uint32(18).fork()).ldelim()
+      PageResponse.encode(
+        message.pagination,
+        writer.uint32(18).fork(),
+      ).ldelim()
     }
     return writer
   },
@@ -410,15 +440,22 @@ export const QueryProposalsResponse = {
   toJSON(message: QueryProposalsResponse): unknown {
     const obj: any = {}
     if (message.proposals) {
-      obj.proposals = message.proposals.map((e) => (e ? Proposal.toJSON(e) : undefined))
+      obj.proposals = message.proposals.map((e) =>
+        e ? Proposal.toJSON(e) : undefined,
+      )
     } else {
       obj.proposals = []
     }
-    message.pagination !== undefined && (obj.pagination = message.pagination ? PageResponse.toJSON(message.pagination) : undefined)
+    message.pagination !== undefined &&
+    (obj.pagination = message.pagination
+      ? PageResponse.toJSON(message.pagination)
+      : undefined)
     return obj
   },
 
-  fromPartial(object: DeepPartial<QueryProposalsResponse>): QueryProposalsResponse {
+  fromPartial(
+    object: DeepPartial<QueryProposalsResponse>,
+  ): QueryProposalsResponse {
     const message = { ...baseQueryProposalsResponse } as QueryProposalsResponse
     message.proposals = []
     if (object.proposals !== undefined && object.proposals !== null) {
@@ -432,8 +469,8 @@ export const QueryProposalsResponse = {
       message.pagination = undefined
     }
     return message
-  }
-}
+  },
+};
 
 const baseQueryVoteRequest: object = { proposalId: 0, voter: '' }
 
@@ -504,8 +541,8 @@ export const QueryVoteRequest = {
       message.voter = ''
     }
     return message
-  }
-}
+  },
+};
 
 const baseQueryVoteResponse: object = {}
 
@@ -547,7 +584,8 @@ export const QueryVoteResponse = {
 
   toJSON(message: QueryVoteResponse): unknown {
     const obj: any = {}
-    message.vote !== undefined && (obj.vote = message.vote ? Vote.toJSON(message.vote) : undefined)
+    message.vote !== undefined &&
+    (obj.vote = message.vote ? Vote.toJSON(message.vote) : undefined)
     return obj
   },
 
@@ -559,8 +597,8 @@ export const QueryVoteResponse = {
       message.vote = undefined
     }
     return message
-  }
-}
+  },
+};
 
 const baseQueryVotesRequest: object = { proposalId: 0 }
 
@@ -614,7 +652,10 @@ export const QueryVotesRequest = {
   toJSON(message: QueryVotesRequest): unknown {
     const obj: any = {}
     message.proposalId !== undefined && (obj.proposalId = message.proposalId)
-    message.pagination !== undefined && (obj.pagination = message.pagination ? PageRequest.toJSON(message.pagination) : undefined)
+    message.pagination !== undefined &&
+    (obj.pagination = message.pagination
+      ? PageRequest.toJSON(message.pagination)
+      : undefined)
     return obj
   },
 
@@ -631,18 +672,24 @@ export const QueryVotesRequest = {
       message.pagination = undefined
     }
     return message
-  }
-}
+  },
+};
 
 const baseQueryVotesResponse: object = {}
 
 export const QueryVotesResponse = {
-  encode(message: QueryVotesResponse, writer: Writer = Writer.create()): Writer {
+  encode(
+    message: QueryVotesResponse,
+    writer: Writer = Writer.create(),
+  ): Writer {
     for (const v of message.votes) {
       Vote.encode(v!, writer.uint32(10).fork()).ldelim()
     }
     if (message.pagination !== undefined) {
-      PageResponse.encode(message.pagination, writer.uint32(18).fork()).ldelim()
+      PageResponse.encode(
+        message.pagination,
+        writer.uint32(18).fork(),
+      ).ldelim()
     }
     return writer
   },
@@ -692,7 +739,10 @@ export const QueryVotesResponse = {
     } else {
       obj.votes = []
     }
-    message.pagination !== undefined && (obj.pagination = message.pagination ? PageResponse.toJSON(message.pagination) : undefined)
+    message.pagination !== undefined &&
+    (obj.pagination = message.pagination
+      ? PageResponse.toJSON(message.pagination)
+      : undefined)
     return obj
   },
 
@@ -710,13 +760,16 @@ export const QueryVotesResponse = {
       message.pagination = undefined
     }
     return message
-  }
-}
+  },
+};
 
 const baseQueryParamsRequest: object = { paramsType: '' }
 
 export const QueryParamsRequest = {
-  encode(message: QueryParamsRequest, writer: Writer = Writer.create()): Writer {
+  encode(
+    message: QueryParamsRequest,
+    writer: Writer = Writer.create(),
+  ): Writer {
     if (message.paramsType !== '') {
       writer.uint32(10).string(message.paramsType)
     }
@@ -765,21 +818,33 @@ export const QueryParamsRequest = {
       message.paramsType = ''
     }
     return message
-  }
-}
+  },
+};
 
 const baseQueryParamsResponse: object = {}
 
 export const QueryParamsResponse = {
-  encode(message: QueryParamsResponse, writer: Writer = Writer.create()): Writer {
+  encode(
+    message: QueryParamsResponse,
+    writer: Writer = Writer.create(),
+  ): Writer {
     if (message.votingParams !== undefined) {
-      VotingParams.encode(message.votingParams, writer.uint32(10).fork()).ldelim()
+      VotingParams.encode(
+        message.votingParams,
+        writer.uint32(10).fork(),
+      ).ldelim()
     }
     if (message.depositParams !== undefined) {
-      DepositParams.encode(message.depositParams, writer.uint32(18).fork()).ldelim()
+      DepositParams.encode(
+        message.depositParams,
+        writer.uint32(18).fork(),
+      ).ldelim()
     }
     if (message.tallyParams !== undefined) {
-      TallyParams.encode(message.tallyParams, writer.uint32(26).fork()).ldelim()
+      TallyParams.encode(
+        message.tallyParams,
+        writer.uint32(26).fork(),
+      ).ldelim()
     }
     return writer
   },
@@ -830,9 +895,18 @@ export const QueryParamsResponse = {
 
   toJSON(message: QueryParamsResponse): unknown {
     const obj: any = {}
-    message.votingParams !== undefined && (obj.votingParams = message.votingParams ? VotingParams.toJSON(message.votingParams) : undefined)
-    message.depositParams !== undefined && (obj.depositParams = message.depositParams ? DepositParams.toJSON(message.depositParams) : undefined)
-    message.tallyParams !== undefined && (obj.tallyParams = message.tallyParams ? TallyParams.toJSON(message.tallyParams) : undefined)
+    message.votingParams !== undefined &&
+    (obj.votingParams = message.votingParams
+      ? VotingParams.toJSON(message.votingParams)
+      : undefined)
+    message.depositParams !== undefined &&
+    (obj.depositParams = message.depositParams
+      ? DepositParams.toJSON(message.depositParams)
+      : undefined)
+    message.tallyParams !== undefined &&
+    (obj.tallyParams = message.tallyParams
+      ? TallyParams.toJSON(message.tallyParams)
+      : undefined)
     return obj
   },
 
@@ -854,13 +928,16 @@ export const QueryParamsResponse = {
       message.tallyParams = undefined
     }
     return message
-  }
-}
+  },
+};
 
 const baseQueryDepositRequest: object = { proposalId: 0, depositor: '' }
 
 export const QueryDepositRequest = {
-  encode(message: QueryDepositRequest, writer: Writer = Writer.create()): Writer {
+  encode(
+    message: QueryDepositRequest,
+    writer: Writer = Writer.create(),
+  ): Writer {
     if (message.proposalId !== 0) {
       writer.uint32(8).uint64(message.proposalId)
     }
@@ -926,13 +1003,16 @@ export const QueryDepositRequest = {
       message.depositor = ''
     }
     return message
-  }
-}
+  },
+};
 
 const baseQueryDepositResponse: object = {}
 
 export const QueryDepositResponse = {
-  encode(message: QueryDepositResponse, writer: Writer = Writer.create()): Writer {
+  encode(
+    message: QueryDepositResponse,
+    writer: Writer = Writer.create(),
+  ): Writer {
     if (message.deposit !== undefined) {
       Deposit.encode(message.deposit, writer.uint32(10).fork()).ldelim()
     }
@@ -969,7 +1049,10 @@ export const QueryDepositResponse = {
 
   toJSON(message: QueryDepositResponse): unknown {
     const obj: any = {}
-    message.deposit !== undefined && (obj.deposit = message.deposit ? Deposit.toJSON(message.deposit) : undefined)
+    message.deposit !== undefined &&
+    (obj.deposit = message.deposit
+      ? Deposit.toJSON(message.deposit)
+      : undefined)
     return obj
   },
 
@@ -981,13 +1064,16 @@ export const QueryDepositResponse = {
       message.deposit = undefined
     }
     return message
-  }
-}
+  },
+};
 
 const baseQueryDepositsRequest: object = { proposalId: 0 }
 
 export const QueryDepositsRequest = {
-  encode(message: QueryDepositsRequest, writer: Writer = Writer.create()): Writer {
+  encode(
+    message: QueryDepositsRequest,
+    writer: Writer = Writer.create(),
+  ): Writer {
     if (message.proposalId !== 0) {
       writer.uint32(8).uint64(message.proposalId)
     }
@@ -1036,7 +1122,10 @@ export const QueryDepositsRequest = {
   toJSON(message: QueryDepositsRequest): unknown {
     const obj: any = {}
     message.proposalId !== undefined && (obj.proposalId = message.proposalId)
-    message.pagination !== undefined && (obj.pagination = message.pagination ? PageRequest.toJSON(message.pagination) : undefined)
+    message.pagination !== undefined &&
+    (obj.pagination = message.pagination
+      ? PageRequest.toJSON(message.pagination)
+      : undefined)
     return obj
   },
 
@@ -1053,18 +1142,24 @@ export const QueryDepositsRequest = {
       message.pagination = undefined
     }
     return message
-  }
-}
+  },
+};
 
 const baseQueryDepositsResponse: object = {}
 
 export const QueryDepositsResponse = {
-  encode(message: QueryDepositsResponse, writer: Writer = Writer.create()): Writer {
+  encode(
+    message: QueryDepositsResponse,
+    writer: Writer = Writer.create(),
+  ): Writer {
     for (const v of message.deposits) {
       Deposit.encode(v!, writer.uint32(10).fork()).ldelim()
     }
     if (message.pagination !== undefined) {
-      PageResponse.encode(message.pagination, writer.uint32(18).fork()).ldelim()
+      PageResponse.encode(
+        message.pagination,
+        writer.uint32(18).fork(),
+      ).ldelim()
     }
     return writer
   },
@@ -1110,15 +1205,22 @@ export const QueryDepositsResponse = {
   toJSON(message: QueryDepositsResponse): unknown {
     const obj: any = {}
     if (message.deposits) {
-      obj.deposits = message.deposits.map((e) => (e ? Deposit.toJSON(e) : undefined))
+      obj.deposits = message.deposits.map((e) =>
+        e ? Deposit.toJSON(e) : undefined,
+      )
     } else {
       obj.deposits = []
     }
-    message.pagination !== undefined && (obj.pagination = message.pagination ? PageResponse.toJSON(message.pagination) : undefined)
+    message.pagination !== undefined &&
+    (obj.pagination = message.pagination
+      ? PageResponse.toJSON(message.pagination)
+      : undefined)
     return obj
   },
 
-  fromPartial(object: DeepPartial<QueryDepositsResponse>): QueryDepositsResponse {
+  fromPartial(
+    object: DeepPartial<QueryDepositsResponse>,
+  ): QueryDepositsResponse {
     const message = { ...baseQueryDepositsResponse } as QueryDepositsResponse
     message.deposits = []
     if (object.deposits !== undefined && object.deposits !== null) {
@@ -1132,13 +1234,16 @@ export const QueryDepositsResponse = {
       message.pagination = undefined
     }
     return message
-  }
-}
+  },
+};
 
 const baseQueryTallyResultRequest: object = { proposalId: 0 }
 
 export const QueryTallyResultRequest = {
-  encode(message: QueryTallyResultRequest, writer: Writer = Writer.create()): Writer {
+  encode(
+    message: QueryTallyResultRequest,
+    writer: Writer = Writer.create(),
+  ): Writer {
     if (message.proposalId !== 0) {
       writer.uint32(8).uint64(message.proposalId)
     }
@@ -1148,7 +1253,9 @@ export const QueryTallyResultRequest = {
   decode(input: Reader | Uint8Array, length?: number): QueryTallyResultRequest {
     const reader = input instanceof Uint8Array ? new Reader(input) : input
     let end = length === undefined ? reader.len : reader.pos + length
-    const message = { ...baseQueryTallyResultRequest } as QueryTallyResultRequest
+    const message = {
+      ...baseQueryTallyResultRequest,
+    } as QueryTallyResultRequest
     while (reader.pos < end) {
       const tag = reader.uint32()
       switch (tag >>> 3) {
@@ -1164,7 +1271,9 @@ export const QueryTallyResultRequest = {
   },
 
   fromJSON(object: any): QueryTallyResultRequest {
-    const message = { ...baseQueryTallyResultRequest } as QueryTallyResultRequest
+    const message = {
+      ...baseQueryTallyResultRequest,
+    } as QueryTallyResultRequest
     if (object.proposalId !== undefined && object.proposalId !== null) {
       message.proposalId = Number(object.proposalId)
     } else {
@@ -1179,31 +1288,43 @@ export const QueryTallyResultRequest = {
     return obj
   },
 
-  fromPartial(object: DeepPartial<QueryTallyResultRequest>): QueryTallyResultRequest {
-    const message = { ...baseQueryTallyResultRequest } as QueryTallyResultRequest
+  fromPartial(
+    object: DeepPartial<QueryTallyResultRequest>,
+  ): QueryTallyResultRequest {
+    const message = {
+      ...baseQueryTallyResultRequest,
+    } as QueryTallyResultRequest
     if (object.proposalId !== undefined && object.proposalId !== null) {
       message.proposalId = object.proposalId
     } else {
       message.proposalId = 0
     }
     return message
-  }
-}
+  },
+};
 
 const baseQueryTallyResultResponse: object = {}
 
 export const QueryTallyResultResponse = {
-  encode(message: QueryTallyResultResponse, writer: Writer = Writer.create()): Writer {
+  encode(
+    message: QueryTallyResultResponse,
+    writer: Writer = Writer.create(),
+  ): Writer {
     if (message.tally !== undefined) {
       TallyResult.encode(message.tally, writer.uint32(10).fork()).ldelim()
     }
     return writer
   },
 
-  decode(input: Reader | Uint8Array, length?: number): QueryTallyResultResponse {
+  decode(
+    input: Reader | Uint8Array,
+    length?: number,
+  ): QueryTallyResultResponse {
     const reader = input instanceof Uint8Array ? new Reader(input) : input
     let end = length === undefined ? reader.len : reader.pos + length
-    const message = { ...baseQueryTallyResultResponse } as QueryTallyResultResponse
+    const message = {
+      ...baseQueryTallyResultResponse,
+    } as QueryTallyResultResponse
     while (reader.pos < end) {
       const tag = reader.uint32()
       switch (tag >>> 3) {
@@ -1219,7 +1340,9 @@ export const QueryTallyResultResponse = {
   },
 
   fromJSON(object: any): QueryTallyResultResponse {
-    const message = { ...baseQueryTallyResultResponse } as QueryTallyResultResponse
+    const message = {
+      ...baseQueryTallyResultResponse,
+    } as QueryTallyResultResponse
     if (object.tally !== undefined && object.tally !== null) {
       message.tally = TallyResult.fromJSON(object.tally)
     } else {
@@ -1230,39 +1353,55 @@ export const QueryTallyResultResponse = {
 
   toJSON(message: QueryTallyResultResponse): unknown {
     const obj: any = {}
-    message.tally !== undefined && (obj.tally = message.tally ? TallyResult.toJSON(message.tally) : undefined)
+    message.tally !== undefined &&
+    (obj.tally = message.tally
+      ? TallyResult.toJSON(message.tally)
+      : undefined)
     return obj
   },
 
-  fromPartial(object: DeepPartial<QueryTallyResultResponse>): QueryTallyResultResponse {
-    const message = { ...baseQueryTallyResultResponse } as QueryTallyResultResponse
+  fromPartial(
+    object: DeepPartial<QueryTallyResultResponse>,
+  ): QueryTallyResultResponse {
+    const message = {
+      ...baseQueryTallyResultResponse,
+    } as QueryTallyResultResponse
     if (object.tally !== undefined && object.tally !== null) {
       message.tally = TallyResult.fromPartial(object.tally)
     } else {
       message.tally = undefined
     }
     return message
-  }
-}
+  },
+};
 
 /** Query defines the gRPC querier service for gov module */
 export interface Query {
   /** Proposal queries proposal details based on ProposalID. */
-  Proposal(request: QueryProposalRequest): Promise<QueryProposalResponse>
+  Proposal(request: QueryProposalRequest): Promise<QueryProposalResponse>;
+
   /** Proposals queries all proposals based on given status. */
-  Proposals(request: QueryProposalsRequest): Promise<QueryProposalsResponse>
+  Proposals(request: QueryProposalsRequest): Promise<QueryProposalsResponse>;
+
   /** Vote queries voted information based on proposalID, voterAddr. */
-  Vote(request: QueryVoteRequest): Promise<QueryVoteResponse>
+  Vote(request: QueryVoteRequest): Promise<QueryVoteResponse>;
+
   /** Votes queries votes of a given proposal. */
-  Votes(request: QueryVotesRequest): Promise<QueryVotesResponse>
+  Votes(request: QueryVotesRequest): Promise<QueryVotesResponse>;
+
   /** Params queries all parameters of the gov module. */
-  Params(request: QueryParamsRequest): Promise<QueryParamsResponse>
+  Params(request: QueryParamsRequest): Promise<QueryParamsResponse>;
+
   /** Deposit queries single deposit information based proposalID, depositAddr. */
-  Deposit(request: QueryDepositRequest): Promise<QueryDepositResponse>
+  Deposit(request: QueryDepositRequest): Promise<QueryDepositResponse>;
+
   /** Deposits queries all deposits of a single proposal. */
-  Deposits(request: QueryDepositsRequest): Promise<QueryDepositsResponse>
+  Deposits(request: QueryDepositsRequest): Promise<QueryDepositsResponse>;
+
   /** TallyResult queries the tally of a proposal vote. */
-  TallyResult(request: QueryTallyResultRequest): Promise<QueryTallyResultResponse>
+  TallyResult(
+    request: QueryTallyResultRequest,
+  ): Promise<QueryTallyResultResponse>;
 }
 
 export class QueryClientImpl implements Query {
@@ -1272,14 +1411,26 @@ export class QueryClientImpl implements Query {
   }
   Proposal(request: QueryProposalRequest): Promise<QueryProposalResponse> {
     const data = QueryProposalRequest.encode(request).finish()
-    const promise = this.rpc.request('cosmos.gov.v1beta1.Query', 'Proposal', data)
-    return promise.then((data) => QueryProposalResponse.decode(new Reader(data)))
+    const promise = this.rpc.request(
+      'cosmos.gov.v1beta1.Query',
+      'Proposal',
+      data,
+    )
+    return promise.then((data) =>
+      QueryProposalResponse.decode(new Reader(data)),
+    )
   }
 
   Proposals(request: QueryProposalsRequest): Promise<QueryProposalsResponse> {
     const data = QueryProposalsRequest.encode(request).finish()
-    const promise = this.rpc.request('cosmos.gov.v1beta1.Query', 'Proposals', data)
-    return promise.then((data) => QueryProposalsResponse.decode(new Reader(data)))
+    const promise = this.rpc.request(
+      'cosmos.gov.v1beta1.Query',
+      'Proposals',
+      data,
+    )
+    return promise.then((data) =>
+      QueryProposalsResponse.decode(new Reader(data)),
+    )
   }
 
   Vote(request: QueryVoteRequest): Promise<QueryVoteResponse> {
@@ -1296,31 +1447,59 @@ export class QueryClientImpl implements Query {
 
   Params(request: QueryParamsRequest): Promise<QueryParamsResponse> {
     const data = QueryParamsRequest.encode(request).finish()
-    const promise = this.rpc.request('cosmos.gov.v1beta1.Query', 'Params', data)
+    const promise = this.rpc.request(
+      'cosmos.gov.v1beta1.Query',
+      'Params',
+      data,
+    )
     return promise.then((data) => QueryParamsResponse.decode(new Reader(data)))
   }
 
   Deposit(request: QueryDepositRequest): Promise<QueryDepositResponse> {
     const data = QueryDepositRequest.encode(request).finish()
-    const promise = this.rpc.request('cosmos.gov.v1beta1.Query', 'Deposit', data)
-    return promise.then((data) => QueryDepositResponse.decode(new Reader(data)))
+    const promise = this.rpc.request(
+      'cosmos.gov.v1beta1.Query',
+      'Deposit',
+      data,
+    )
+    return promise.then((data) =>
+      QueryDepositResponse.decode(new Reader(data)),
+    )
   }
 
   Deposits(request: QueryDepositsRequest): Promise<QueryDepositsResponse> {
     const data = QueryDepositsRequest.encode(request).finish()
-    const promise = this.rpc.request('cosmos.gov.v1beta1.Query', 'Deposits', data)
-    return promise.then((data) => QueryDepositsResponse.decode(new Reader(data)))
+    const promise = this.rpc.request(
+      'cosmos.gov.v1beta1.Query',
+      'Deposits',
+      data,
+    )
+    return promise.then((data) =>
+      QueryDepositsResponse.decode(new Reader(data)),
+    )
   }
 
-  TallyResult(request: QueryTallyResultRequest): Promise<QueryTallyResultResponse> {
+  TallyResult(
+    request: QueryTallyResultRequest,
+  ): Promise<QueryTallyResultResponse> {
     const data = QueryTallyResultRequest.encode(request).finish()
-    const promise = this.rpc.request('cosmos.gov.v1beta1.Query', 'TallyResult', data)
-    return promise.then((data) => QueryTallyResultResponse.decode(new Reader(data)))
+    const promise = this.rpc.request(
+      'cosmos.gov.v1beta1.Query',
+      'TallyResult',
+      data,
+    )
+    return promise.then((data) =>
+      QueryTallyResultResponse.decode(new Reader(data)),
+    )
   }
 }
 
 interface Rpc {
-  request(service: string, method: string, data: Uint8Array): Promise<Uint8Array>
+  request(
+    service: string,
+    method: string,
+    data: Uint8Array,
+  ): Promise<Uint8Array>;
 }
 
 declare var self: any | undefined
@@ -1333,16 +1512,16 @@ var globalThis: any = (() => {
   throw 'Unable to locate global object'
 })()
 
-type Builtin = Date | Function | Uint8Array | string | number | undefined
+type Builtin = Date | Function | Uint8Array | string | number | undefined;
 export type DeepPartial<T> = T extends Builtin
   ? T
   : T extends Array<infer U>
-  ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U>
-  ? ReadonlyArray<DeepPartial<U>>
-  : T extends {}
-  ? { [K in keyof T]?: DeepPartial<T[K]> }
-  : Partial<T>
+    ? Array<DeepPartial<U>>
+    : T extends ReadonlyArray<infer U>
+      ? ReadonlyArray<DeepPartial<U>>
+      : T extends {}
+        ? { [K in keyof T]?: DeepPartial<T[K]> }
+        : Partial<T>;
 
 function longToNumber(long: Long): number {
   if (long.gt(Number.MAX_SAFE_INTEGER)) {

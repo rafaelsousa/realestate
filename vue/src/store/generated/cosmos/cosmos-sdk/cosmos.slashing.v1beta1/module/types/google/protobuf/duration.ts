@@ -1,6 +1,6 @@
 /* eslint-disable */
 import * as Long from 'long'
-import { util, configure, Writer, Reader } from 'protobufjs/minimal'
+import { configure, Reader, util, Writer } from 'protobufjs/minimal'
 
 export const protobufPackage = 'google.protobuf'
 
@@ -70,7 +70,7 @@ export interface Duration {
    * to +315,576,000,000 inclusive. Note: these bounds are computed from:
    * 60 sec/min * 60 min/hr * 24 hr/day * 365.25 days/year * 10000 years
    */
-  seconds: number
+  seconds: number;
   /**
    * Signed fractions of a second at nanosecond resolution of the span
    * of time. Durations less than one second are represented with a 0
@@ -79,7 +79,7 @@ export interface Duration {
    * of the same sign as the `seconds` field. Must be from -999,999,999
    * to +999,999,999 inclusive.
    */
-  nanos: number
+  nanos: number;
 }
 
 const baseDuration: object = { seconds: 0, nanos: 0 }
@@ -151,8 +151,8 @@ export const Duration = {
       message.nanos = 0
     }
     return message
-  }
-}
+  },
+};
 
 declare var self: any | undefined
 declare var window: any | undefined
@@ -164,16 +164,16 @@ var globalThis: any = (() => {
   throw 'Unable to locate global object'
 })()
 
-type Builtin = Date | Function | Uint8Array | string | number | undefined
+type Builtin = Date | Function | Uint8Array | string | number | undefined;
 export type DeepPartial<T> = T extends Builtin
   ? T
   : T extends Array<infer U>
-  ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U>
-  ? ReadonlyArray<DeepPartial<U>>
-  : T extends {}
-  ? { [K in keyof T]?: DeepPartial<T[K]> }
-  : Partial<T>
+    ? Array<DeepPartial<U>>
+    : T extends ReadonlyArray<infer U>
+      ? ReadonlyArray<DeepPartial<U>>
+      : T extends {}
+        ? { [K in keyof T]?: DeepPartial<T[K]> }
+        : Partial<T>;
 
 function longToNumber(long: Long): number {
   if (long.gt(Number.MAX_SAFE_INTEGER)) {

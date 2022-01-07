@@ -1,6 +1,6 @@
 /* eslint-disable */
 import * as Long from 'long'
-import { util, configure, Writer, Reader } from 'protobufjs/minimal'
+import { configure, Reader, util, Writer } from 'protobufjs/minimal'
 
 export const protobufPackage = 'cosmos.base.query.v1beta1'
 
@@ -19,25 +19,25 @@ export interface PageRequest {
    * querying the next page most efficiently. Only one of offset or key
    * should be set.
    */
-  key: Uint8Array
+  key: Uint8Array;
   /**
    * offset is a numeric offset that can be used when key is unavailable.
    * It is less efficient than using key. Only one of offset or key should
    * be set.
    */
-  offset: number
+  offset: number;
   /**
    * limit is the total number of results to be returned in the result page.
    * If left empty it will default to a value to be set by each app.
    */
-  limit: number
+  limit: number;
   /**
    * count_total is set to true  to indicate that the result set should include
    * a count of the total number of items available for pagination in UIs.
    * count_total is only respected when offset is used. It is ignored when key
    * is set.
    */
-  countTotal: boolean
+  countTotal: boolean;
 }
 
 /**
@@ -54,12 +54,12 @@ export interface PageResponse {
    * next_key is the key to be passed to PageRequest.key to
    * query the next page most efficiently
    */
-  nextKey: Uint8Array
+  nextKey: Uint8Array;
   /**
    * total is total number of results available if PageRequest.count_total
    * was set, its value is undefined otherwise
    */
-  total: number
+  total: number;
 }
 
 const basePageRequest: object = { offset: 0, limit: 0, countTotal: false }
@@ -133,7 +133,10 @@ export const PageRequest = {
 
   toJSON(message: PageRequest): unknown {
     const obj: any = {}
-    message.key !== undefined && (obj.key = base64FromBytes(message.key !== undefined ? message.key : new Uint8Array()))
+    message.key !== undefined &&
+    (obj.key = base64FromBytes(
+      message.key !== undefined ? message.key : new Uint8Array(),
+    ))
     message.offset !== undefined && (obj.offset = message.offset)
     message.limit !== undefined && (obj.limit = message.limit)
     message.countTotal !== undefined && (obj.countTotal = message.countTotal)
@@ -163,8 +166,8 @@ export const PageRequest = {
       message.countTotal = false
     }
     return message
-  }
-}
+  },
+};
 
 const basePageResponse: object = { total: 0 }
 
@@ -215,7 +218,10 @@ export const PageResponse = {
 
   toJSON(message: PageResponse): unknown {
     const obj: any = {}
-    message.nextKey !== undefined && (obj.nextKey = base64FromBytes(message.nextKey !== undefined ? message.nextKey : new Uint8Array()))
+    message.nextKey !== undefined &&
+    (obj.nextKey = base64FromBytes(
+      message.nextKey !== undefined ? message.nextKey : new Uint8Array(),
+    ))
     message.total !== undefined && (obj.total = message.total)
     return obj
   },
@@ -233,8 +239,8 @@ export const PageResponse = {
       message.total = 0
     }
     return message
-  }
-}
+  },
+};
 
 declare var self: any | undefined
 declare var window: any | undefined
@@ -246,7 +252,9 @@ var globalThis: any = (() => {
   throw 'Unable to locate global object'
 })()
 
-const atob: (b64: string) => string = globalThis.atob || ((b64) => globalThis.Buffer.from(b64, 'base64').toString('binary'))
+const atob: (b64: string) => string =
+  globalThis.atob ||
+  ((b64) => globalThis.Buffer.from(b64, 'base64').toString('binary'))
 function bytesFromBase64(b64: string): Uint8Array {
   const bin = atob(b64)
   const arr = new Uint8Array(bin.length)
@@ -256,7 +264,9 @@ function bytesFromBase64(b64: string): Uint8Array {
   return arr
 }
 
-const btoa: (bin: string) => string = globalThis.btoa || ((bin) => globalThis.Buffer.from(bin, 'binary').toString('base64'))
+const btoa: (bin: string) => string =
+  globalThis.btoa ||
+  ((bin) => globalThis.Buffer.from(bin, 'binary').toString('base64'))
 function base64FromBytes(arr: Uint8Array): string {
   const bin: string[] = []
   for (let i = 0; i < arr.byteLength; ++i) {
@@ -265,16 +275,16 @@ function base64FromBytes(arr: Uint8Array): string {
   return btoa(bin.join(''))
 }
 
-type Builtin = Date | Function | Uint8Array | string | number | undefined
+type Builtin = Date | Function | Uint8Array | string | number | undefined;
 export type DeepPartial<T> = T extends Builtin
   ? T
   : T extends Array<infer U>
-  ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U>
-  ? ReadonlyArray<DeepPartial<U>>
-  : T extends {}
-  ? { [K in keyof T]?: DeepPartial<T[K]> }
-  : Partial<T>
+    ? Array<DeepPartial<U>>
+    : T extends ReadonlyArray<infer U>
+      ? ReadonlyArray<DeepPartial<U>>
+      : T extends {}
+        ? { [K in keyof T]?: DeepPartial<T[K]> }
+        : Partial<T>;
 
 function longToNumber(long: Long): number {
   if (long.gt(Number.MAX_SAFE_INTEGER)) {

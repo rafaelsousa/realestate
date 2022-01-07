@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { Writer, Reader } from 'protobufjs/minimal'
+import { Reader, Writer } from 'protobufjs/minimal'
 
 export const protobufPackage = 'google.api'
 
@@ -14,7 +14,7 @@ export interface Http {
    *
    * **NOTE:** All service configuration rules follow "last one wins" order.
    */
-  rules: HttpRule[]
+  rules: HttpRule[];
   /**
    * When set to true, URL path parmeters will be fully URI-decoded except in
    * cases of single segment matches in reserved expansion, where "%2F" will be
@@ -23,7 +23,7 @@ export interface Http {
    * The default behavior is to not decode RFC 6570 reserved characters in multi
    * segment matches.
    */
-  fullyDecodeReservedExpansion: boolean
+  fullyDecodeReservedExpansion: boolean;
 }
 
 /**
@@ -251,51 +251,51 @@ export interface HttpRule {
    *
    * Refer to [selector][google.api.DocumentationRule.selector] for syntax details.
    */
-  selector: string
+  selector: string;
   /** Used for listing and getting information about resources. */
-  get: string | undefined
+  get: string | undefined;
   /** Used for updating a resource. */
-  put: string | undefined
+  put: string | undefined;
   /** Used for creating a resource. */
-  post: string | undefined
+  post: string | undefined;
   /** Used for deleting a resource. */
-  delete: string | undefined
+  delete: string | undefined;
   /** Used for updating a resource. */
-  patch: string | undefined
+  patch: string | undefined;
   /**
    * The custom pattern is used for specifying an HTTP method that is not
    * included in the `pattern` field, such as HEAD, or "*" to leave the
    * HTTP method unspecified for this rule. The wild-card rule is useful
    * for services that provide content to Web (HTML) clients.
    */
-  custom: CustomHttpPattern | undefined
+  custom: CustomHttpPattern | undefined;
   /**
    * The name of the request field whose value is mapped to the HTTP body, or
    * `*` for mapping all fields not captured by the path pattern to the HTTP
    * body. NOTE: the referred field must not be a repeated field and must be
    * present at the top-level of request message type.
    */
-  body: string
+  body: string;
   /**
    * Optional. The name of the response field whose value is mapped to the HTTP
    * body of response. Other response fields are ignored. When
    * not set, the response message will be used as HTTP body of response.
    */
-  responseBody: string
+  responseBody: string;
   /**
    * Additional HTTP bindings for the selector. Nested bindings must
    * not contain an `additional_bindings` field themselves (that is,
    * the nesting may only be one level deep).
    */
-  additionalBindings: HttpRule[]
+  additionalBindings: HttpRule[];
 }
 
 /** A custom pattern is used for defining custom HTTP verb. */
 export interface CustomHttpPattern {
   /** The name of this custom HTTP verb. */
-  kind: string
+  kind: string;
   /** The path matched by this custom verb. */
-  path: string
+  path: string;
 }
 
 const baseHttp: object = { fullyDecodeReservedExpansion: false }
@@ -341,8 +341,13 @@ export const Http = {
         message.rules.push(HttpRule.fromJSON(e))
       }
     }
-    if (object.fullyDecodeReservedExpansion !== undefined && object.fullyDecodeReservedExpansion !== null) {
-      message.fullyDecodeReservedExpansion = Boolean(object.fullyDecodeReservedExpansion)
+    if (
+      object.fullyDecodeReservedExpansion !== undefined &&
+      object.fullyDecodeReservedExpansion !== null
+    ) {
+      message.fullyDecodeReservedExpansion = Boolean(
+        object.fullyDecodeReservedExpansion,
+      )
     } else {
       message.fullyDecodeReservedExpansion = false
     }
@@ -352,11 +357,14 @@ export const Http = {
   toJSON(message: Http): unknown {
     const obj: any = {}
     if (message.rules) {
-      obj.rules = message.rules.map((e) => (e ? HttpRule.toJSON(e) : undefined))
+      obj.rules = message.rules.map((e) =>
+        e ? HttpRule.toJSON(e) : undefined,
+      )
     } else {
       obj.rules = []
     }
-    message.fullyDecodeReservedExpansion !== undefined && (obj.fullyDecodeReservedExpansion = message.fullyDecodeReservedExpansion)
+    message.fullyDecodeReservedExpansion !== undefined &&
+    (obj.fullyDecodeReservedExpansion = message.fullyDecodeReservedExpansion)
     return obj
   },
 
@@ -368,14 +376,18 @@ export const Http = {
         message.rules.push(HttpRule.fromPartial(e))
       }
     }
-    if (object.fullyDecodeReservedExpansion !== undefined && object.fullyDecodeReservedExpansion !== null) {
-      message.fullyDecodeReservedExpansion = object.fullyDecodeReservedExpansion
+    if (
+      object.fullyDecodeReservedExpansion !== undefined &&
+      object.fullyDecodeReservedExpansion !== null
+    ) {
+      message.fullyDecodeReservedExpansion =
+        object.fullyDecodeReservedExpansion
     } else {
       message.fullyDecodeReservedExpansion = false
     }
     return message
-  }
-}
+  },
+};
 
 const baseHttpRule: object = { selector: '', body: '', responseBody: '' }
 
@@ -400,7 +412,10 @@ export const HttpRule = {
       writer.uint32(50).string(message.patch)
     }
     if (message.custom !== undefined) {
-      CustomHttpPattern.encode(message.custom, writer.uint32(66).fork()).ldelim()
+      CustomHttpPattern.encode(
+        message.custom,
+        writer.uint32(66).fork(),
+      ).ldelim()
     }
     if (message.body !== '') {
       writer.uint32(58).string(message.body)
@@ -450,7 +465,9 @@ export const HttpRule = {
           message.responseBody = reader.string()
           break
         case 11:
-          message.additionalBindings.push(HttpRule.decode(reader, reader.uint32()))
+          message.additionalBindings.push(
+            HttpRule.decode(reader, reader.uint32()),
+          )
           break
         default:
           reader.skipType(tag & 7)
@@ -508,7 +525,10 @@ export const HttpRule = {
     } else {
       message.responseBody = ''
     }
-    if (object.additionalBindings !== undefined && object.additionalBindings !== null) {
+    if (
+      object.additionalBindings !== undefined &&
+      object.additionalBindings !== null
+    ) {
       for (const e of object.additionalBindings) {
         message.additionalBindings.push(HttpRule.fromJSON(e))
       }
@@ -524,11 +544,17 @@ export const HttpRule = {
     message.post !== undefined && (obj.post = message.post)
     message.delete !== undefined && (obj.delete = message.delete)
     message.patch !== undefined && (obj.patch = message.patch)
-    message.custom !== undefined && (obj.custom = message.custom ? CustomHttpPattern.toJSON(message.custom) : undefined)
+    message.custom !== undefined &&
+    (obj.custom = message.custom
+      ? CustomHttpPattern.toJSON(message.custom)
+      : undefined)
     message.body !== undefined && (obj.body = message.body)
-    message.responseBody !== undefined && (obj.responseBody = message.responseBody)
+    message.responseBody !== undefined &&
+    (obj.responseBody = message.responseBody)
     if (message.additionalBindings) {
-      obj.additionalBindings = message.additionalBindings.map((e) => (e ? HttpRule.toJSON(e) : undefined))
+      obj.additionalBindings = message.additionalBindings.map((e) =>
+        e ? HttpRule.toJSON(e) : undefined,
+      )
     } else {
       obj.additionalBindings = []
     }
@@ -583,14 +609,17 @@ export const HttpRule = {
     } else {
       message.responseBody = ''
     }
-    if (object.additionalBindings !== undefined && object.additionalBindings !== null) {
+    if (
+      object.additionalBindings !== undefined &&
+      object.additionalBindings !== null
+    ) {
       for (const e of object.additionalBindings) {
         message.additionalBindings.push(HttpRule.fromPartial(e))
       }
     }
     return message
-  }
-}
+  },
+};
 
 const baseCustomHttpPattern: object = { kind: '', path: '' }
 
@@ -661,16 +690,16 @@ export const CustomHttpPattern = {
       message.path = ''
     }
     return message
-  }
-}
+  },
+};
 
-type Builtin = Date | Function | Uint8Array | string | number | undefined
+type Builtin = Date | Function | Uint8Array | string | number | undefined;
 export type DeepPartial<T> = T extends Builtin
   ? T
   : T extends Array<infer U>
-  ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U>
-  ? ReadonlyArray<DeepPartial<U>>
-  : T extends {}
-  ? { [K in keyof T]?: DeepPartial<T[K]> }
-  : Partial<T>
+    ? Array<DeepPartial<U>>
+    : T extends ReadonlyArray<infer U>
+      ? ReadonlyArray<DeepPartial<U>>
+      : T extends {}
+        ? { [K in keyof T]?: DeepPartial<T[K]> }
+        : Partial<T>;

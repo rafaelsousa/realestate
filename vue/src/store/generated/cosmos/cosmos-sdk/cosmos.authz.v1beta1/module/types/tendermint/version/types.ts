@@ -1,6 +1,6 @@
 /* eslint-disable */
 import * as Long from 'long'
-import { util, configure, Writer, Reader } from 'protobufjs/minimal'
+import { configure, Reader, util, Writer } from 'protobufjs/minimal'
 
 export const protobufPackage = 'tendermint.version'
 
@@ -10,8 +10,8 @@ export const protobufPackage = 'tendermint.version'
  * updated in ResponseEndBlock.
  */
 export interface App {
-  protocol: number
-  software: string
+  protocol: number;
+  software: string;
 }
 
 /**
@@ -20,8 +20,8 @@ export interface App {
  * state transition machine.
  */
 export interface Consensus {
-  block: number
-  app: number
+  block: number;
+  app: number;
 }
 
 const baseApp: object = { protocol: 0, software: '' }
@@ -93,8 +93,8 @@ export const App = {
       message.software = ''
     }
     return message
-  }
-}
+  },
+};
 
 const baseConsensus: object = { block: 0, app: 0 }
 
@@ -165,8 +165,8 @@ export const Consensus = {
       message.app = 0
     }
     return message
-  }
-}
+  },
+};
 
 declare var self: any | undefined
 declare var window: any | undefined
@@ -178,16 +178,16 @@ var globalThis: any = (() => {
   throw 'Unable to locate global object'
 })()
 
-type Builtin = Date | Function | Uint8Array | string | number | undefined
+type Builtin = Date | Function | Uint8Array | string | number | undefined;
 export type DeepPartial<T> = T extends Builtin
   ? T
   : T extends Array<infer U>
-  ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U>
-  ? ReadonlyArray<DeepPartial<U>>
-  : T extends {}
-  ? { [K in keyof T]?: DeepPartial<T[K]> }
-  : Partial<T>
+    ? Array<DeepPartial<U>>
+    : T extends ReadonlyArray<infer U>
+      ? ReadonlyArray<DeepPartial<U>>
+      : T extends {}
+        ? { [K in keyof T]?: DeepPartial<T[K]> }
+        : Partial<T>;
 
 function longToNumber(long: Long): number {
   if (long.gt(Number.MAX_SAFE_INTEGER)) {

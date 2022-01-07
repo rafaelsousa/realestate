@@ -1,6 +1,6 @@
 /* eslint-disable */
 import * as Long from 'long'
-import { util, configure, Writer, Reader } from 'protobufjs/minimal'
+import { configure, Reader, util, Writer } from 'protobufjs/minimal'
 
 export const protobufPackage = 'ibc.applications.transfer.v1'
 
@@ -11,13 +11,13 @@ export const protobufPackage = 'ibc.applications.transfer.v1'
  */
 export interface FungibleTokenPacketData {
   /** the token denomination to be transferred */
-  denom: string
+  denom: string;
   /** the token amount to be transferred */
-  amount: number
+  amount: number;
   /** the sender address */
-  sender: string
+  sender: string;
   /** the recipient address on the destination chain */
-  receiver: string
+  receiver: string;
 }
 
 /**
@@ -29,9 +29,9 @@ export interface DenomTrace {
    * path defines the chain of port/channel identifiers used for tracing the
    * source of the fungible token.
    */
-  path: string
+  path: string;
   /** base denomination of the relayed fungible token. */
-  baseDenom: string
+  baseDenom: string;
 }
 
 /**
@@ -45,18 +45,26 @@ export interface Params {
    * send_enabled enables or disables all cross-chain token transfers from this
    * chain.
    */
-  sendEnabled: boolean
+  sendEnabled: boolean;
   /**
    * receive_enabled enables or disables all cross-chain token transfers to this
    * chain.
    */
-  receiveEnabled: boolean
+  receiveEnabled: boolean;
 }
 
-const baseFungibleTokenPacketData: object = { denom: '', amount: 0, sender: '', receiver: '' }
+const baseFungibleTokenPacketData: object = {
+  denom: '',
+  amount: 0,
+  sender: '',
+  receiver: '',
+}
 
 export const FungibleTokenPacketData = {
-  encode(message: FungibleTokenPacketData, writer: Writer = Writer.create()): Writer {
+  encode(
+    message: FungibleTokenPacketData,
+    writer: Writer = Writer.create(),
+  ): Writer {
     if (message.denom !== '') {
       writer.uint32(10).string(message.denom)
     }
@@ -75,7 +83,9 @@ export const FungibleTokenPacketData = {
   decode(input: Reader | Uint8Array, length?: number): FungibleTokenPacketData {
     const reader = input instanceof Uint8Array ? new Reader(input) : input
     let end = length === undefined ? reader.len : reader.pos + length
-    const message = { ...baseFungibleTokenPacketData } as FungibleTokenPacketData
+    const message = {
+      ...baseFungibleTokenPacketData,
+    } as FungibleTokenPacketData
     while (reader.pos < end) {
       const tag = reader.uint32()
       switch (tag >>> 3) {
@@ -100,7 +110,9 @@ export const FungibleTokenPacketData = {
   },
 
   fromJSON(object: any): FungibleTokenPacketData {
-    const message = { ...baseFungibleTokenPacketData } as FungibleTokenPacketData
+    const message = {
+      ...baseFungibleTokenPacketData,
+    } as FungibleTokenPacketData
     if (object.denom !== undefined && object.denom !== null) {
       message.denom = String(object.denom)
     } else {
@@ -133,8 +145,12 @@ export const FungibleTokenPacketData = {
     return obj
   },
 
-  fromPartial(object: DeepPartial<FungibleTokenPacketData>): FungibleTokenPacketData {
-    const message = { ...baseFungibleTokenPacketData } as FungibleTokenPacketData
+  fromPartial(
+    object: DeepPartial<FungibleTokenPacketData>,
+  ): FungibleTokenPacketData {
+    const message = {
+      ...baseFungibleTokenPacketData,
+    } as FungibleTokenPacketData
     if (object.denom !== undefined && object.denom !== null) {
       message.denom = object.denom
     } else {
@@ -156,8 +172,8 @@ export const FungibleTokenPacketData = {
       message.receiver = ''
     }
     return message
-  }
-}
+  },
+};
 
 const baseDenomTrace: object = { path: '', baseDenom: '' }
 
@@ -228,8 +244,8 @@ export const DenomTrace = {
       message.baseDenom = ''
     }
     return message
-  }
-}
+  },
+};
 
 const baseParams: object = { sendEnabled: false, receiveEnabled: false }
 
@@ -282,8 +298,10 @@ export const Params = {
 
   toJSON(message: Params): unknown {
     const obj: any = {}
-    message.sendEnabled !== undefined && (obj.sendEnabled = message.sendEnabled)
-    message.receiveEnabled !== undefined && (obj.receiveEnabled = message.receiveEnabled)
+    message.sendEnabled !== undefined &&
+    (obj.sendEnabled = message.sendEnabled)
+    message.receiveEnabled !== undefined &&
+    (obj.receiveEnabled = message.receiveEnabled)
     return obj
   },
 
@@ -300,8 +318,8 @@ export const Params = {
       message.receiveEnabled = false
     }
     return message
-  }
-}
+  },
+};
 
 declare var self: any | undefined
 declare var window: any | undefined
@@ -313,16 +331,16 @@ var globalThis: any = (() => {
   throw 'Unable to locate global object'
 })()
 
-type Builtin = Date | Function | Uint8Array | string | number | undefined
+type Builtin = Date | Function | Uint8Array | string | number | undefined;
 export type DeepPartial<T> = T extends Builtin
   ? T
   : T extends Array<infer U>
-  ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U>
-  ? ReadonlyArray<DeepPartial<U>>
-  : T extends {}
-  ? { [K in keyof T]?: DeepPartial<T[K]> }
-  : Partial<T>
+    ? Array<DeepPartial<U>>
+    : T extends ReadonlyArray<infer U>
+      ? ReadonlyArray<DeepPartial<U>>
+      : T extends {}
+        ? { [K in keyof T]?: DeepPartial<T[K]> }
+        : Partial<T>;
 
 function longToNumber(long: Long): number {
   if (long.gt(Number.MAX_SAFE_INTEGER)) {

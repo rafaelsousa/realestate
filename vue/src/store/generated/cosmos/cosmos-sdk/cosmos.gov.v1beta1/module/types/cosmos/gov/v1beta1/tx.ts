@@ -1,6 +1,6 @@
 /* eslint-disable */
-import { VoteOption, WeightedVoteOption, voteOptionFromJSON, voteOptionToJSON } from '../../../cosmos/gov/v1beta1/gov'
-import { Reader, util, configure, Writer } from 'protobufjs/minimal'
+import { VoteOption, voteOptionFromJSON, voteOptionToJSON, WeightedVoteOption } from '../../../cosmos/gov/v1beta1/gov'
+import { configure, Reader, util, Writer } from 'protobufjs/minimal'
 import * as Long from 'long'
 import { Any } from '../../../google/protobuf/any'
 import { Coin } from '../../../cosmos/base/v1beta1/coin'
@@ -12,41 +12,49 @@ export const protobufPackage = 'cosmos.gov.v1beta1'
  * proposal Content.
  */
 export interface MsgSubmitProposal {
-  content: Any | undefined
-  initialDeposit: Coin[]
-  proposer: string
+  content: Any | undefined;
+  initialDeposit: Coin[];
+  proposer: string;
 }
 
 /** MsgSubmitProposalResponse defines the Msg/SubmitProposal response type. */
 export interface MsgSubmitProposalResponse {
-  proposalId: number
+  proposalId: number;
 }
 
 /** MsgVote defines a message to cast a vote. */
 export interface MsgVote {
-  proposalId: number
-  voter: string
-  option: VoteOption
+  proposalId: number;
+  voter: string;
+  option: VoteOption;
 }
 
 /** MsgVoteResponse defines the Msg/Vote response type. */
 export interface MsgVoteResponse {}
 
-/** MsgVoteWeighted defines a message to cast a vote. */
+/**
+ * MsgVoteWeighted defines a message to cast a vote.
+ *
+ * Since: cosmos-sdk 0.43
+ */
 export interface MsgVoteWeighted {
-  proposalId: number
-  voter: string
-  options: WeightedVoteOption[]
+  proposalId: number;
+  voter: string;
+  options: WeightedVoteOption[];
 }
 
-/** MsgVoteWeightedResponse defines the Msg/VoteWeighted response type. */
+/**
+ * MsgVoteWeightedResponse defines the Msg/VoteWeighted response type.
+ *
+ * Since: cosmos-sdk 0.43
+ */
 export interface MsgVoteWeightedResponse {}
 
 /** MsgDeposit defines a message to submit a deposit to an existing proposal. */
 export interface MsgDeposit {
-  proposalId: number
-  depositor: string
-  amount: Coin[]
+  proposalId: number;
+  depositor: string;
+  amount: Coin[];
 }
 
 /** MsgDepositResponse defines the Msg/Deposit response type. */
@@ -116,9 +124,12 @@ export const MsgSubmitProposal = {
 
   toJSON(message: MsgSubmitProposal): unknown {
     const obj: any = {}
-    message.content !== undefined && (obj.content = message.content ? Any.toJSON(message.content) : undefined)
+    message.content !== undefined &&
+    (obj.content = message.content ? Any.toJSON(message.content) : undefined)
     if (message.initialDeposit) {
-      obj.initialDeposit = message.initialDeposit.map((e) => (e ? Coin.toJSON(e) : undefined))
+      obj.initialDeposit = message.initialDeposit.map((e) =>
+        e ? Coin.toJSON(e) : undefined,
+      )
     } else {
       obj.initialDeposit = []
     }
@@ -145,23 +156,31 @@ export const MsgSubmitProposal = {
       message.proposer = ''
     }
     return message
-  }
-}
+  },
+};
 
 const baseMsgSubmitProposalResponse: object = { proposalId: 0 }
 
 export const MsgSubmitProposalResponse = {
-  encode(message: MsgSubmitProposalResponse, writer: Writer = Writer.create()): Writer {
+  encode(
+    message: MsgSubmitProposalResponse,
+    writer: Writer = Writer.create(),
+  ): Writer {
     if (message.proposalId !== 0) {
       writer.uint32(8).uint64(message.proposalId)
     }
     return writer
   },
 
-  decode(input: Reader | Uint8Array, length?: number): MsgSubmitProposalResponse {
+  decode(
+    input: Reader | Uint8Array,
+    length?: number,
+  ): MsgSubmitProposalResponse {
     const reader = input instanceof Uint8Array ? new Reader(input) : input
     let end = length === undefined ? reader.len : reader.pos + length
-    const message = { ...baseMsgSubmitProposalResponse } as MsgSubmitProposalResponse
+    const message = {
+      ...baseMsgSubmitProposalResponse,
+    } as MsgSubmitProposalResponse
     while (reader.pos < end) {
       const tag = reader.uint32()
       switch (tag >>> 3) {
@@ -177,7 +196,9 @@ export const MsgSubmitProposalResponse = {
   },
 
   fromJSON(object: any): MsgSubmitProposalResponse {
-    const message = { ...baseMsgSubmitProposalResponse } as MsgSubmitProposalResponse
+    const message = {
+      ...baseMsgSubmitProposalResponse,
+    } as MsgSubmitProposalResponse
     if (object.proposalId !== undefined && object.proposalId !== null) {
       message.proposalId = Number(object.proposalId)
     } else {
@@ -192,16 +213,20 @@ export const MsgSubmitProposalResponse = {
     return obj
   },
 
-  fromPartial(object: DeepPartial<MsgSubmitProposalResponse>): MsgSubmitProposalResponse {
-    const message = { ...baseMsgSubmitProposalResponse } as MsgSubmitProposalResponse
+  fromPartial(
+    object: DeepPartial<MsgSubmitProposalResponse>,
+  ): MsgSubmitProposalResponse {
+    const message = {
+      ...baseMsgSubmitProposalResponse,
+    } as MsgSubmitProposalResponse
     if (object.proposalId !== undefined && object.proposalId !== null) {
       message.proposalId = object.proposalId
     } else {
       message.proposalId = 0
     }
     return message
-  }
-}
+  },
+};
 
 const baseMsgVote: object = { proposalId: 0, voter: '', option: 0 }
 
@@ -267,7 +292,8 @@ export const MsgVote = {
     const obj: any = {}
     message.proposalId !== undefined && (obj.proposalId = message.proposalId)
     message.voter !== undefined && (obj.voter = message.voter)
-    message.option !== undefined && (obj.option = voteOptionToJSON(message.option))
+    message.option !== undefined &&
+    (obj.option = voteOptionToJSON(message.option))
     return obj
   },
 
@@ -289,8 +315,8 @@ export const MsgVote = {
       message.option = 0
     }
     return message
-  }
-}
+  },
+};
 
 const baseMsgVoteResponse: object = {}
 
@@ -327,8 +353,8 @@ export const MsgVoteResponse = {
   fromPartial(_: DeepPartial<MsgVoteResponse>): MsgVoteResponse {
     const message = { ...baseMsgVoteResponse } as MsgVoteResponse
     return message
-  }
-}
+  },
+};
 
 const baseMsgVoteWeighted: object = { proposalId: 0, voter: '' }
 
@@ -361,7 +387,9 @@ export const MsgVoteWeighted = {
           message.voter = reader.string()
           break
         case 3:
-          message.options.push(WeightedVoteOption.decode(reader, reader.uint32()))
+          message.options.push(
+            WeightedVoteOption.decode(reader, reader.uint32()),
+          )
           break
         default:
           reader.skipType(tag & 7)
@@ -397,7 +425,9 @@ export const MsgVoteWeighted = {
     message.proposalId !== undefined && (obj.proposalId = message.proposalId)
     message.voter !== undefined && (obj.voter = message.voter)
     if (message.options) {
-      obj.options = message.options.map((e) => (e ? WeightedVoteOption.toJSON(e) : undefined))
+      obj.options = message.options.map((e) =>
+        e ? WeightedVoteOption.toJSON(e) : undefined,
+      )
     } else {
       obj.options = []
     }
@@ -423,8 +453,8 @@ export const MsgVoteWeighted = {
       }
     }
     return message
-  }
-}
+  },
+};
 
 const baseMsgVoteWeightedResponse: object = {}
 
@@ -436,7 +466,9 @@ export const MsgVoteWeightedResponse = {
   decode(input: Reader | Uint8Array, length?: number): MsgVoteWeightedResponse {
     const reader = input instanceof Uint8Array ? new Reader(input) : input
     let end = length === undefined ? reader.len : reader.pos + length
-    const message = { ...baseMsgVoteWeightedResponse } as MsgVoteWeightedResponse
+    const message = {
+      ...baseMsgVoteWeightedResponse,
+    } as MsgVoteWeightedResponse
     while (reader.pos < end) {
       const tag = reader.uint32()
       switch (tag >>> 3) {
@@ -449,7 +481,9 @@ export const MsgVoteWeightedResponse = {
   },
 
   fromJSON(_: any): MsgVoteWeightedResponse {
-    const message = { ...baseMsgVoteWeightedResponse } as MsgVoteWeightedResponse
+    const message = {
+      ...baseMsgVoteWeightedResponse,
+    } as MsgVoteWeightedResponse
     return message
   },
 
@@ -458,11 +492,15 @@ export const MsgVoteWeightedResponse = {
     return obj
   },
 
-  fromPartial(_: DeepPartial<MsgVoteWeightedResponse>): MsgVoteWeightedResponse {
-    const message = { ...baseMsgVoteWeightedResponse } as MsgVoteWeightedResponse
+  fromPartial(
+    _: DeepPartial<MsgVoteWeightedResponse>,
+  ): MsgVoteWeightedResponse {
+    const message = {
+      ...baseMsgVoteWeightedResponse,
+    } as MsgVoteWeightedResponse
     return message
-  }
-}
+  },
+};
 
 const baseMsgDeposit: object = { proposalId: 0, depositor: '' }
 
@@ -557,8 +595,8 @@ export const MsgDeposit = {
       }
     }
     return message
-  }
-}
+  },
+};
 
 const baseMsgDepositResponse: object = {}
 
@@ -595,30 +633,49 @@ export const MsgDepositResponse = {
   fromPartial(_: DeepPartial<MsgDepositResponse>): MsgDepositResponse {
     const message = { ...baseMsgDepositResponse } as MsgDepositResponse
     return message
-  }
-}
+  },
+};
 
 /** Msg defines the bank Msg service. */
 export interface Msg {
   /** SubmitProposal defines a method to create new proposal given a content. */
-  SubmitProposal(request: MsgSubmitProposal): Promise<MsgSubmitProposalResponse>
+  SubmitProposal(
+    request: MsgSubmitProposal,
+  ): Promise<MsgSubmitProposalResponse>;
+
   /** Vote defines a method to add a vote on a specific proposal. */
-  Vote(request: MsgVote): Promise<MsgVoteResponse>
-  /** VoteWeighted defines a method to add a weighted vote on a specific proposal. */
-  VoteWeighted(request: MsgVoteWeighted): Promise<MsgVoteWeightedResponse>
+  Vote(request: MsgVote): Promise<MsgVoteResponse>;
+
+  /**
+   * VoteWeighted defines a method to add a weighted vote on a specific proposal.
+   *
+   * Since: cosmos-sdk 0.43
+   */
+  VoteWeighted(request: MsgVoteWeighted): Promise<MsgVoteWeightedResponse>;
+
   /** Deposit defines a method to add deposit on a specific proposal. */
-  Deposit(request: MsgDeposit): Promise<MsgDepositResponse>
+  Deposit(request: MsgDeposit): Promise<MsgDepositResponse>;
 }
 
 export class MsgClientImpl implements Msg {
   private readonly rpc: Rpc
+
   constructor(rpc: Rpc) {
     this.rpc = rpc
   }
-  SubmitProposal(request: MsgSubmitProposal): Promise<MsgSubmitProposalResponse> {
+
+  SubmitProposal(
+    request: MsgSubmitProposal,
+  ): Promise<MsgSubmitProposalResponse> {
     const data = MsgSubmitProposal.encode(request).finish()
-    const promise = this.rpc.request('cosmos.gov.v1beta1.Msg', 'SubmitProposal', data)
-    return promise.then((data) => MsgSubmitProposalResponse.decode(new Reader(data)))
+    const promise = this.rpc.request(
+      'cosmos.gov.v1beta1.Msg',
+      'SubmitProposal',
+      data,
+    )
+    return promise.then((data) =>
+      MsgSubmitProposalResponse.decode(new Reader(data)),
+    )
   }
 
   Vote(request: MsgVote): Promise<MsgVoteResponse> {
@@ -629,8 +686,14 @@ export class MsgClientImpl implements Msg {
 
   VoteWeighted(request: MsgVoteWeighted): Promise<MsgVoteWeightedResponse> {
     const data = MsgVoteWeighted.encode(request).finish()
-    const promise = this.rpc.request('cosmos.gov.v1beta1.Msg', 'VoteWeighted', data)
-    return promise.then((data) => MsgVoteWeightedResponse.decode(new Reader(data)))
+    const promise = this.rpc.request(
+      'cosmos.gov.v1beta1.Msg',
+      'VoteWeighted',
+      data,
+    )
+    return promise.then((data) =>
+      MsgVoteWeightedResponse.decode(new Reader(data)),
+    )
   }
 
   Deposit(request: MsgDeposit): Promise<MsgDepositResponse> {
@@ -641,7 +704,11 @@ export class MsgClientImpl implements Msg {
 }
 
 interface Rpc {
-  request(service: string, method: string, data: Uint8Array): Promise<Uint8Array>
+  request(
+    service: string,
+    method: string,
+    data: Uint8Array,
+  ): Promise<Uint8Array>;
 }
 
 declare var self: any | undefined
@@ -654,16 +721,16 @@ var globalThis: any = (() => {
   throw 'Unable to locate global object'
 })()
 
-type Builtin = Date | Function | Uint8Array | string | number | undefined
+type Builtin = Date | Function | Uint8Array | string | number | undefined;
 export type DeepPartial<T> = T extends Builtin
   ? T
   : T extends Array<infer U>
-  ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U>
-  ? ReadonlyArray<DeepPartial<U>>
-  : T extends {}
-  ? { [K in keyof T]?: DeepPartial<T[K]> }
-  : Partial<T>
+    ? Array<DeepPartial<U>>
+    : T extends ReadonlyArray<infer U>
+      ? ReadonlyArray<DeepPartial<U>>
+      : T extends {}
+        ? { [K in keyof T]?: DeepPartial<T[K]> }
+        : Partial<T>;
 
 function longToNumber(long: Long): number {
   if (long.gt(Number.MAX_SAFE_INTEGER)) {

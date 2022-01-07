@@ -1,15 +1,17 @@
 /* eslint-disable */
 import { Coin } from '../../../cosmos/base/v1beta1/coin'
-import { Writer, Reader } from 'protobufjs/minimal'
+import { Reader, Writer } from 'protobufjs/minimal'
 
 export const protobufPackage = 'cosmos.bank.v1beta1'
 
 /**
  * SendAuthorization allows the grantee to spend up to spend_limit coins from
  * the granter's account.
+ *
+ * Since: cosmos-sdk 0.43
  */
 export interface SendAuthorization {
-  spendLimit: Coin[]
+  spendLimit: Coin[];
 }
 
 const baseSendAuthorization: object = {}
@@ -55,7 +57,9 @@ export const SendAuthorization = {
   toJSON(message: SendAuthorization): unknown {
     const obj: any = {}
     if (message.spendLimit) {
-      obj.spendLimit = message.spendLimit.map((e) => (e ? Coin.toJSON(e) : undefined))
+      obj.spendLimit = message.spendLimit.map((e) =>
+        e ? Coin.toJSON(e) : undefined,
+      )
     } else {
       obj.spendLimit = []
     }
@@ -71,16 +75,16 @@ export const SendAuthorization = {
       }
     }
     return message
-  }
-}
+  },
+};
 
-type Builtin = Date | Function | Uint8Array | string | number | undefined
+type Builtin = Date | Function | Uint8Array | string | number | undefined;
 export type DeepPartial<T> = T extends Builtin
   ? T
   : T extends Array<infer U>
-  ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U>
-  ? ReadonlyArray<DeepPartial<U>>
-  : T extends {}
-  ? { [K in keyof T]?: DeepPartial<T[K]> }
-  : Partial<T>
+    ? Array<DeepPartial<U>>
+    : T extends ReadonlyArray<infer U>
+      ? ReadonlyArray<DeepPartial<U>>
+      : T extends {}
+        ? { [K in keyof T]?: DeepPartial<T[K]> }
+        : Partial<T>;

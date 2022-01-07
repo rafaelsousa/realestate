@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { Writer, Reader } from 'protobufjs/minimal'
+import { Reader, Writer } from 'protobufjs/minimal'
 
 export const protobufPackage = 'cosmos.base.v1beta1'
 
@@ -10,8 +10,8 @@ export const protobufPackage = 'cosmos.base.v1beta1'
  * signatures required by gogoproto.
  */
 export interface Coin {
-  denom: string
-  amount: string
+  denom: string;
+  amount: string;
 }
 
 /**
@@ -21,18 +21,18 @@ export interface Coin {
  * signatures required by gogoproto.
  */
 export interface DecCoin {
-  denom: string
-  amount: string
+  denom: string;
+  amount: string;
 }
 
 /** IntProto defines a Protobuf wrapper around an Int object. */
 export interface IntProto {
-  int: string
+  int: string;
 }
 
 /** DecProto defines a Protobuf wrapper around a Dec object. */
 export interface DecProto {
-  dec: string
+  dec: string;
 }
 
 const baseCoin: object = { denom: '', amount: '' }
@@ -104,8 +104,8 @@ export const Coin = {
       message.amount = ''
     }
     return message
-  }
-}
+  },
+};
 
 const baseDecCoin: object = { denom: '', amount: '' }
 
@@ -176,8 +176,8 @@ export const DecCoin = {
       message.amount = ''
     }
     return message
-  }
-}
+  },
+};
 
 const baseIntProto: object = { int: '' }
 
@@ -231,8 +231,8 @@ export const IntProto = {
       message.int = ''
     }
     return message
-  }
-}
+  },
+};
 
 const baseDecProto: object = { dec: '' }
 
@@ -286,16 +286,16 @@ export const DecProto = {
       message.dec = ''
     }
     return message
-  }
-}
+  },
+};
 
-type Builtin = Date | Function | Uint8Array | string | number | undefined
+type Builtin = Date | Function | Uint8Array | string | number | undefined;
 export type DeepPartial<T> = T extends Builtin
   ? T
   : T extends Array<infer U>
-  ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U>
-  ? ReadonlyArray<DeepPartial<U>>
-  : T extends {}
-  ? { [K in keyof T]?: DeepPartial<T[K]> }
-  : Partial<T>
+    ? Array<DeepPartial<U>>
+    : T extends ReadonlyArray<infer U>
+      ? ReadonlyArray<DeepPartial<U>>
+      : T extends {}
+        ? { [K in keyof T]?: DeepPartial<T[K]> }
+        : Partial<T>;

@@ -1,14 +1,14 @@
 /* eslint-disable */
 import { DenomTrace, Params } from '../../../../ibc/applications/transfer/v1/transfer'
-import { Writer, Reader } from 'protobufjs/minimal'
+import { Reader, Writer } from 'protobufjs/minimal'
 
 export const protobufPackage = 'ibc.applications.transfer.v1'
 
 /** GenesisState defines the ibc-transfer genesis state */
 export interface GenesisState {
-  portId: string
-  denomTraces: DenomTrace[]
-  params: Params | undefined
+  portId: string;
+  denomTraces: DenomTrace[];
+  params: Params | undefined;
 }
 
 const baseGenesisState: object = { portId: '' }
@@ -77,11 +77,14 @@ export const GenesisState = {
     const obj: any = {}
     message.portId !== undefined && (obj.portId = message.portId)
     if (message.denomTraces) {
-      obj.denomTraces = message.denomTraces.map((e) => (e ? DenomTrace.toJSON(e) : undefined))
+      obj.denomTraces = message.denomTraces.map((e) =>
+        e ? DenomTrace.toJSON(e) : undefined,
+      )
     } else {
       obj.denomTraces = []
     }
-    message.params !== undefined && (obj.params = message.params ? Params.toJSON(message.params) : undefined)
+    message.params !== undefined &&
+    (obj.params = message.params ? Params.toJSON(message.params) : undefined)
     return obj
   },
 
@@ -104,16 +107,16 @@ export const GenesisState = {
       message.params = undefined
     }
     return message
-  }
-}
+  },
+};
 
-type Builtin = Date | Function | Uint8Array | string | number | undefined
+type Builtin = Date | Function | Uint8Array | string | number | undefined;
 export type DeepPartial<T> = T extends Builtin
   ? T
   : T extends Array<infer U>
-  ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U>
-  ? ReadonlyArray<DeepPartial<U>>
-  : T extends {}
-  ? { [K in keyof T]?: DeepPartial<T[K]> }
-  : Partial<T>
+    ? Array<DeepPartial<U>>
+    : T extends ReadonlyArray<infer U>
+      ? ReadonlyArray<DeepPartial<U>>
+      : T extends {}
+        ? { [K in keyof T]?: DeepPartial<T[K]> }
+        : Partial<T>;

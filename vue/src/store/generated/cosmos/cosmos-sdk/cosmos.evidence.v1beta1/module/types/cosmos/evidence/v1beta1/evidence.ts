@@ -1,7 +1,7 @@
 /* eslint-disable */
 import { Timestamp } from '../../../google/protobuf/timestamp'
 import * as Long from 'long'
-import { util, configure, Writer, Reader } from 'protobufjs/minimal'
+import { configure, Reader, util, Writer } from 'protobufjs/minimal'
 
 export const protobufPackage = 'cosmos.evidence.v1beta1'
 
@@ -10,10 +10,10 @@ export const protobufPackage = 'cosmos.evidence.v1beta1'
  * signing misbehavior.
  */
 export interface Equivocation {
-  height: number
-  time: Date | undefined
-  power: number
-  consensusAddress: string
+  height: number;
+  time: Date | undefined;
+  power: number;
+  consensusAddress: string;
 }
 
 const baseEquivocation: object = { height: 0, power: 0, consensusAddress: '' }
@@ -24,7 +24,10 @@ export const Equivocation = {
       writer.uint32(8).int64(message.height)
     }
     if (message.time !== undefined) {
-      Timestamp.encode(toTimestamp(message.time), writer.uint32(18).fork()).ldelim()
+      Timestamp.encode(
+        toTimestamp(message.time),
+        writer.uint32(18).fork(),
+      ).ldelim()
     }
     if (message.power !== 0) {
       writer.uint32(24).int64(message.power)
@@ -46,7 +49,9 @@ export const Equivocation = {
           message.height = longToNumber(reader.int64() as Long)
           break
         case 2:
-          message.time = fromTimestamp(Timestamp.decode(reader, reader.uint32()))
+          message.time = fromTimestamp(
+            Timestamp.decode(reader, reader.uint32()),
+          )
           break
         case 3:
           message.power = longToNumber(reader.int64() as Long)
@@ -79,7 +84,10 @@ export const Equivocation = {
     } else {
       message.power = 0
     }
-    if (object.consensusAddress !== undefined && object.consensusAddress !== null) {
+    if (
+      object.consensusAddress !== undefined &&
+      object.consensusAddress !== null
+    ) {
       message.consensusAddress = String(object.consensusAddress)
     } else {
       message.consensusAddress = ''
@@ -90,9 +98,12 @@ export const Equivocation = {
   toJSON(message: Equivocation): unknown {
     const obj: any = {}
     message.height !== undefined && (obj.height = message.height)
-    message.time !== undefined && (obj.time = message.time !== undefined ? message.time.toISOString() : null)
+    message.time !== undefined &&
+    (obj.time =
+      message.time !== undefined ? message.time.toISOString() : null)
     message.power !== undefined && (obj.power = message.power)
-    message.consensusAddress !== undefined && (obj.consensusAddress = message.consensusAddress)
+    message.consensusAddress !== undefined &&
+    (obj.consensusAddress = message.consensusAddress)
     return obj
   },
 
@@ -113,14 +124,17 @@ export const Equivocation = {
     } else {
       message.power = 0
     }
-    if (object.consensusAddress !== undefined && object.consensusAddress !== null) {
+    if (
+      object.consensusAddress !== undefined &&
+      object.consensusAddress !== null
+    ) {
       message.consensusAddress = object.consensusAddress
     } else {
       message.consensusAddress = ''
     }
     return message
-  }
-}
+  },
+};
 
 declare var self: any | undefined
 declare var window: any | undefined
@@ -132,16 +146,16 @@ var globalThis: any = (() => {
   throw 'Unable to locate global object'
 })()
 
-type Builtin = Date | Function | Uint8Array | string | number | undefined
+type Builtin = Date | Function | Uint8Array | string | number | undefined;
 export type DeepPartial<T> = T extends Builtin
   ? T
   : T extends Array<infer U>
-  ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U>
-  ? ReadonlyArray<DeepPartial<U>>
-  : T extends {}
-  ? { [K in keyof T]?: DeepPartial<T[K]> }
-  : Partial<T>
+    ? Array<DeepPartial<U>>
+    : T extends ReadonlyArray<infer U>
+      ? ReadonlyArray<DeepPartial<U>>
+      : T extends {}
+        ? { [K in keyof T]?: DeepPartial<T[K]> }
+        : Partial<T>;
 
 function toTimestamp(date: Date): Timestamp {
   const seconds = date.getTime() / 1_000

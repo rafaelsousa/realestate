@@ -1,6 +1,6 @@
 /* eslint-disable */
 import * as Long from 'long'
-import { util, configure, Writer, Reader } from 'protobufjs/minimal'
+import { configure, Reader, util, Writer } from 'protobufjs/minimal'
 import { Duration } from '../../google/protobuf/duration'
 
 export const protobufPackage = 'tendermint.types'
@@ -10,10 +10,10 @@ export const protobufPackage = 'tendermint.types'
  * validity of blocks.
  */
 export interface ConsensusParams {
-  block: BlockParams | undefined
-  evidence: EvidenceParams | undefined
-  validator: ValidatorParams | undefined
-  version: VersionParams | undefined
+  block: BlockParams | undefined;
+  evidence: EvidenceParams | undefined;
+  validator: ValidatorParams | undefined;
+  version: VersionParams | undefined;
 }
 
 /** BlockParams contains limits on the block size. */
@@ -22,19 +22,19 @@ export interface BlockParams {
    * Max block size, in bytes.
    * Note: must be greater than 0
    */
-  maxBytes: number
+  maxBytes: number;
   /**
    * Max gas per block.
    * Note: must be greater or equal to -1
    */
-  maxGas: number
+  maxGas: number;
   /**
    * Minimum time increment between consecutive blocks (in milliseconds) If the
    * block header timestamp is ahead of the system clock, decrease this value.
    *
    * Not exposed to the application.
    */
-  timeIotaMs: number
+  timeIotaMs: number;
 }
 
 /** EvidenceParams determine how we handle evidence of malfeasance. */
@@ -45,7 +45,7 @@ export interface EvidenceParams {
    * The basic formula for calculating this is: MaxAgeDuration / {average block
    * time}.
    */
-  maxAgeNumBlocks: number
+  maxAgeNumBlocks: number;
   /**
    * Max age of evidence, in time.
    *
@@ -53,13 +53,13 @@ export interface EvidenceParams {
    * mechanism for handling [Nothing-At-Stake
    * attacks](https://github.com/ethereum/wiki/wiki/Proof-of-Stake-FAQ#what-is-the-nothing-at-stake-problem-and-how-can-it-be-fixed).
    */
-  maxAgeDuration: Duration | undefined
+  maxAgeDuration: Duration | undefined;
   /**
    * This sets the maximum size of total evidence in bytes that can be committed in a single block.
    * and should fall comfortably under the max block bytes.
    * Default is 1048576 or 1MB
    */
-  maxBytes: number
+  maxBytes: number;
 }
 
 /**
@@ -67,12 +67,12 @@ export interface EvidenceParams {
  * NOTE: uses ABCI pubkey naming, not Amino names.
  */
 export interface ValidatorParams {
-  pubKeyTypes: string[]
+  pubKeyTypes: string[];
 }
 
 /** VersionParams contains the ABCI application version. */
 export interface VersionParams {
-  appVersion: number
+  appVersion: number;
 }
 
 /**
@@ -81,8 +81,8 @@ export interface VersionParams {
  * It is hashed into the Header.ConsensusHash.
  */
 export interface HashedParams {
-  blockMaxBytes: number
-  blockMaxGas: number
+  blockMaxBytes: number;
+  blockMaxGas: number;
 }
 
 const baseConsensusParams: object = {}
@@ -93,10 +93,16 @@ export const ConsensusParams = {
       BlockParams.encode(message.block, writer.uint32(10).fork()).ldelim()
     }
     if (message.evidence !== undefined) {
-      EvidenceParams.encode(message.evidence, writer.uint32(18).fork()).ldelim()
+      EvidenceParams.encode(
+        message.evidence,
+        writer.uint32(18).fork(),
+      ).ldelim()
     }
     if (message.validator !== undefined) {
-      ValidatorParams.encode(message.validator, writer.uint32(26).fork()).ldelim()
+      ValidatorParams.encode(
+        message.validator,
+        writer.uint32(26).fork(),
+      ).ldelim()
     }
     if (message.version !== undefined) {
       VersionParams.encode(message.version, writer.uint32(34).fork()).ldelim()
@@ -158,10 +164,22 @@ export const ConsensusParams = {
 
   toJSON(message: ConsensusParams): unknown {
     const obj: any = {}
-    message.block !== undefined && (obj.block = message.block ? BlockParams.toJSON(message.block) : undefined)
-    message.evidence !== undefined && (obj.evidence = message.evidence ? EvidenceParams.toJSON(message.evidence) : undefined)
-    message.validator !== undefined && (obj.validator = message.validator ? ValidatorParams.toJSON(message.validator) : undefined)
-    message.version !== undefined && (obj.version = message.version ? VersionParams.toJSON(message.version) : undefined)
+    message.block !== undefined &&
+    (obj.block = message.block
+      ? BlockParams.toJSON(message.block)
+      : undefined)
+    message.evidence !== undefined &&
+    (obj.evidence = message.evidence
+      ? EvidenceParams.toJSON(message.evidence)
+      : undefined)
+    message.validator !== undefined &&
+    (obj.validator = message.validator
+      ? ValidatorParams.toJSON(message.validator)
+      : undefined)
+    message.version !== undefined &&
+    (obj.version = message.version
+      ? VersionParams.toJSON(message.version)
+      : undefined)
     return obj
   },
 
@@ -188,8 +206,8 @@ export const ConsensusParams = {
       message.version = undefined
     }
     return message
-  }
-}
+  },
+};
 
 const baseBlockParams: object = { maxBytes: 0, maxGas: 0, timeIotaMs: 0 }
 
@@ -277,8 +295,8 @@ export const BlockParams = {
       message.timeIotaMs = 0
     }
     return message
-  }
-}
+  },
+};
 
 const baseEvidenceParams: object = { maxAgeNumBlocks: 0, maxBytes: 0 }
 
@@ -288,7 +306,10 @@ export const EvidenceParams = {
       writer.uint32(8).int64(message.maxAgeNumBlocks)
     }
     if (message.maxAgeDuration !== undefined) {
-      Duration.encode(message.maxAgeDuration, writer.uint32(18).fork()).ldelim()
+      Duration.encode(
+        message.maxAgeDuration,
+        writer.uint32(18).fork(),
+      ).ldelim()
     }
     if (message.maxBytes !== 0) {
       writer.uint32(24).int64(message.maxBytes)
@@ -322,7 +343,10 @@ export const EvidenceParams = {
 
   fromJSON(object: any): EvidenceParams {
     const message = { ...baseEvidenceParams } as EvidenceParams
-    if (object.maxAgeNumBlocks !== undefined && object.maxAgeNumBlocks !== null) {
+    if (
+      object.maxAgeNumBlocks !== undefined &&
+      object.maxAgeNumBlocks !== null
+    ) {
       message.maxAgeNumBlocks = Number(object.maxAgeNumBlocks)
     } else {
       message.maxAgeNumBlocks = 0
@@ -342,15 +366,22 @@ export const EvidenceParams = {
 
   toJSON(message: EvidenceParams): unknown {
     const obj: any = {}
-    message.maxAgeNumBlocks !== undefined && (obj.maxAgeNumBlocks = message.maxAgeNumBlocks)
-    message.maxAgeDuration !== undefined && (obj.maxAgeDuration = message.maxAgeDuration ? Duration.toJSON(message.maxAgeDuration) : undefined)
+    message.maxAgeNumBlocks !== undefined &&
+    (obj.maxAgeNumBlocks = message.maxAgeNumBlocks)
+    message.maxAgeDuration !== undefined &&
+    (obj.maxAgeDuration = message.maxAgeDuration
+      ? Duration.toJSON(message.maxAgeDuration)
+      : undefined)
     message.maxBytes !== undefined && (obj.maxBytes = message.maxBytes)
     return obj
   },
 
   fromPartial(object: DeepPartial<EvidenceParams>): EvidenceParams {
     const message = { ...baseEvidenceParams } as EvidenceParams
-    if (object.maxAgeNumBlocks !== undefined && object.maxAgeNumBlocks !== null) {
+    if (
+      object.maxAgeNumBlocks !== undefined &&
+      object.maxAgeNumBlocks !== null
+    ) {
       message.maxAgeNumBlocks = object.maxAgeNumBlocks
     } else {
       message.maxAgeNumBlocks = 0
@@ -366,8 +397,8 @@ export const EvidenceParams = {
       message.maxBytes = 0
     }
     return message
-  }
-}
+  },
+};
 
 const baseValidatorParams: object = { pubKeyTypes: '' }
 
@@ -428,8 +459,8 @@ export const ValidatorParams = {
       }
     }
     return message
-  }
-}
+  },
+};
 
 const baseVersionParams: object = { appVersion: 0 }
 
@@ -483,8 +514,8 @@ export const VersionParams = {
       message.appVersion = 0
     }
     return message
-  }
-}
+  },
+};
 
 const baseHashedParams: object = { blockMaxBytes: 0, blockMaxGas: 0 }
 
@@ -537,8 +568,10 @@ export const HashedParams = {
 
   toJSON(message: HashedParams): unknown {
     const obj: any = {}
-    message.blockMaxBytes !== undefined && (obj.blockMaxBytes = message.blockMaxBytes)
-    message.blockMaxGas !== undefined && (obj.blockMaxGas = message.blockMaxGas)
+    message.blockMaxBytes !== undefined &&
+    (obj.blockMaxBytes = message.blockMaxBytes)
+    message.blockMaxGas !== undefined &&
+    (obj.blockMaxGas = message.blockMaxGas)
     return obj
   },
 
@@ -555,8 +588,8 @@ export const HashedParams = {
       message.blockMaxGas = 0
     }
     return message
-  }
-}
+  },
+};
 
 declare var self: any | undefined
 declare var window: any | undefined
@@ -568,16 +601,16 @@ var globalThis: any = (() => {
   throw 'Unable to locate global object'
 })()
 
-type Builtin = Date | Function | Uint8Array | string | number | undefined
+type Builtin = Date | Function | Uint8Array | string | number | undefined;
 export type DeepPartial<T> = T extends Builtin
   ? T
   : T extends Array<infer U>
-  ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U>
-  ? ReadonlyArray<DeepPartial<U>>
-  : T extends {}
-  ? { [K in keyof T]?: DeepPartial<T[K]> }
-  : Partial<T>
+    ? Array<DeepPartial<U>>
+    : T extends ReadonlyArray<infer U>
+      ? ReadonlyArray<DeepPartial<U>>
+      : T extends {}
+        ? { [K in keyof T]?: DeepPartial<T[K]> }
+        : Partial<T>;
 
 function longToNumber(long: Long): number {
   if (long.gt(Number.MAX_SAFE_INTEGER)) {

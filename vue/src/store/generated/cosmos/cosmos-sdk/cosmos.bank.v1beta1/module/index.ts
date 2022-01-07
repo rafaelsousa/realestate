@@ -1,21 +1,20 @@
 // THIS FILE IS GENERATED AUTOMATICALLY. DO NOT MODIFY.
 
-import { StdFee } from "@cosmjs/launchpad";
-import { SigningStargateClient } from "@cosmjs/stargate";
-import { Registry, OfflineSigner, EncodeObject, DirectSecp256k1HdWallet } from "@cosmjs/proto-signing";
-import { Api } from "./rest";
-import { MsgMultiSend } from "./types/cosmos/bank/v1beta1/tx";
-import { MsgSend } from "./types/cosmos/bank/v1beta1/tx";
+import { StdFee } from '@cosmjs/launchpad'
+import { SigningStargateClient } from '@cosmjs/stargate'
+import { EncodeObject, OfflineSigner, Registry } from '@cosmjs/proto-signing'
+import { Api } from './rest'
+import { MsgMultiSend, MsgSend } from './types/cosmos/bank/v1beta1/tx'
 
 
 const types = [
-  ["/cosmos.bank.v1beta1.MsgMultiSend", MsgMultiSend],
-  ["/cosmos.bank.v1beta1.MsgSend", MsgSend],
-  
-];
-export const MissingWalletError = new Error("wallet is required");
+  ['/cosmos.bank.v1beta1.MsgSend', MsgSend],
+  ['/cosmos.bank.v1beta1.MsgMultiSend', MsgMultiSend],
 
-export const registry = new Registry(<any>types);
+]
+export const MissingWalletError = new Error('wallet is required')
+
+export const registry = new Registry(<any>types)
 
 const defaultFee = {
   amount: [],
@@ -42,10 +41,19 @@ const txClient = async (wallet: OfflineSigner, { addr: addr }: TxClientOptions =
   const { address } = (await wallet.getAccounts())[0];
 
   return {
-    signAndBroadcast: (msgs: EncodeObject[], { fee, memo }: SignAndBroadcastOptions = {fee: defaultFee, memo: ""}) => client.signAndBroadcast(address, msgs, fee,memo),
-    msgMultiSend: (data: MsgMultiSend): EncodeObject => ({ typeUrl: "/cosmos.bank.v1beta1.MsgMultiSend", value: data }),
-    msgSend: (data: MsgSend): EncodeObject => ({ typeUrl: "/cosmos.bank.v1beta1.MsgSend", value: data }),
-    
+    signAndBroadcast: (msgs: EncodeObject[], { fee, memo }: SignAndBroadcastOptions = {
+      fee: defaultFee,
+      memo: '',
+    }) => client.signAndBroadcast(address, msgs, fee, memo),
+    msgSend: (data: MsgSend): EncodeObject => ({
+      typeUrl: '/cosmos.bank.v1beta1.MsgSend',
+      value: MsgSend.fromPartial(data),
+    }),
+    msgMultiSend: (data: MsgMultiSend): EncodeObject => ({
+      typeUrl: '/cosmos.bank.v1beta1.MsgMultiSend',
+      value: MsgMultiSend.fromPartial(data),
+    }),
+
   };
 };
 

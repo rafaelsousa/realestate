@@ -1,26 +1,28 @@
 /* eslint-disable */
-import { Writer, Reader } from 'protobufjs/minimal'
+import { Reader, Writer } from 'protobufjs/minimal'
 
 export const protobufPackage = 'cosmos.authz.v1beta1'
+
+/** Since: cosmos-sdk 0.43 */
 
 /** EventGrant is emitted on Msg/Grant */
 export interface EventGrant {
   /** Msg type URL for which an autorization is granted */
-  msgTypeUrl: string
+  msgTypeUrl: string;
   /** Granter account address */
-  granter: string
+  granter: string;
   /** Grantee account address */
-  grantee: string
+  grantee: string;
 }
 
 /** EventRevoke is emitted on Msg/Revoke */
 export interface EventRevoke {
   /** Msg type URL for which an autorization is revoked */
-  msgTypeUrl: string
+  msgTypeUrl: string;
   /** Granter account address */
-  granter: string
+  granter: string;
   /** Grantee account address */
-  grantee: string
+  grantee: string;
 }
 
 const baseEventGrant: object = { msgTypeUrl: '', granter: '', grantee: '' }
@@ -109,8 +111,8 @@ export const EventGrant = {
       message.grantee = ''
     }
     return message
-  }
-}
+  },
+};
 
 const baseEventRevoke: object = { msgTypeUrl: '', granter: '', grantee: '' }
 
@@ -198,16 +200,16 @@ export const EventRevoke = {
       message.grantee = ''
     }
     return message
-  }
-}
+  },
+};
 
-type Builtin = Date | Function | Uint8Array | string | number | undefined
+type Builtin = Date | Function | Uint8Array | string | number | undefined;
 export type DeepPartial<T> = T extends Builtin
   ? T
   : T extends Array<infer U>
-  ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U>
-  ? ReadonlyArray<DeepPartial<U>>
-  : T extends {}
-  ? { [K in keyof T]?: DeepPartial<T[K]> }
-  : Partial<T>
+    ? Array<DeepPartial<U>>
+    : T extends ReadonlyArray<infer U>
+      ? ReadonlyArray<DeepPartial<U>>
+      : T extends {}
+        ? { [K in keyof T]?: DeepPartial<T[K]> }
+        : Partial<T>;

@@ -1,7 +1,6 @@
-import { txClient, queryClient, MissingWalletError , registry} from './module'
+import { MissingWalletError, queryClient, registry, txClient } from './module'
 // @ts-ignore
 import { SpVuexError } from '@starport/vuex'
-
 
 
 export {  };
@@ -65,10 +64,10 @@ export default {
 			state[query][JSON.stringify(key)] = value
 		},
 		SUBSCRIBE(state, subscription) {
-			state._Subscriptions.add(subscription)
+      state._Subscriptions.add(JSON.stringify(subscription))
 		},
 		UNSUBSCRIBE(state, subscription) {
-			state._Subscriptions.delete(subscription)
+      state._Subscriptions.delete(JSON.stringify(subscription))
 		}
 	},
 	getters: {
@@ -97,11 +96,12 @@ export default {
 		},
 		async StoreUpdate({ state, dispatch }) {
 			state._Subscriptions.forEach(async (subscription) => {
-				try {
-					await dispatch(subscription.action, subscription.payload)
-				}catch(e) {
-					throw new SpVuexError('Subscriptions: ' + e.message)
-				}
+        try {
+          const sub = JSON.parse(subscription)
+          await dispatch(sub.action, sub.payload)
+        } catch (e) {
+          throw new SpVuexError('Subscriptions: ' + e.message)
+        }
 			})
 		},
 		

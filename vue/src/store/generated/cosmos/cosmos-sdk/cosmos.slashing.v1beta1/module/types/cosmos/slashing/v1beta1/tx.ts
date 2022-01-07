@@ -5,7 +5,7 @@ export const protobufPackage = 'cosmos.slashing.v1beta1'
 
 /** MsgUnjail defines the Msg/Unjail request type */
 export interface MsgUnjail {
-  validatorAddr: string
+  validatorAddr: string;
 }
 
 /** MsgUnjailResponse defines the Msg/Unjail response type */
@@ -51,7 +51,8 @@ export const MsgUnjail = {
 
   toJSON(message: MsgUnjail): unknown {
     const obj: any = {}
-    message.validatorAddr !== undefined && (obj.validatorAddr = message.validatorAddr)
+    message.validatorAddr !== undefined &&
+    (obj.validatorAddr = message.validatorAddr)
     return obj
   },
 
@@ -63,8 +64,8 @@ export const MsgUnjail = {
       message.validatorAddr = ''
     }
     return message
-  }
-}
+  },
+};
 
 const baseMsgUnjailResponse: object = {}
 
@@ -101,8 +102,8 @@ export const MsgUnjailResponse = {
   fromPartial(_: DeepPartial<MsgUnjailResponse>): MsgUnjailResponse {
     const message = { ...baseMsgUnjailResponse } as MsgUnjailResponse
     return message
-  }
-}
+  },
+};
 
 /** Msg defines the slashing Msg service. */
 export interface Msg {
@@ -111,7 +112,7 @@ export interface Msg {
    * them into the bonded validator set, so they can begin receiving provisions
    * and rewards again.
    */
-  Unjail(request: MsgUnjail): Promise<MsgUnjailResponse>
+  Unjail(request: MsgUnjail): Promise<MsgUnjailResponse>;
 }
 
 export class MsgClientImpl implements Msg {
@@ -121,22 +122,30 @@ export class MsgClientImpl implements Msg {
   }
   Unjail(request: MsgUnjail): Promise<MsgUnjailResponse> {
     const data = MsgUnjail.encode(request).finish()
-    const promise = this.rpc.request('cosmos.slashing.v1beta1.Msg', 'Unjail', data)
+    const promise = this.rpc.request(
+      'cosmos.slashing.v1beta1.Msg',
+      'Unjail',
+      data,
+    )
     return promise.then((data) => MsgUnjailResponse.decode(new Reader(data)))
   }
 }
 
 interface Rpc {
-  request(service: string, method: string, data: Uint8Array): Promise<Uint8Array>
+  request(
+    service: string,
+    method: string,
+    data: Uint8Array,
+  ): Promise<Uint8Array>;
 }
 
-type Builtin = Date | Function | Uint8Array | string | number | undefined
+type Builtin = Date | Function | Uint8Array | string | number | undefined;
 export type DeepPartial<T> = T extends Builtin
   ? T
   : T extends Array<infer U>
-  ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U>
-  ? ReadonlyArray<DeepPartial<U>>
-  : T extends {}
-  ? { [K in keyof T]?: DeepPartial<T[K]> }
-  : Partial<T>
+    ? Array<DeepPartial<U>>
+    : T extends ReadonlyArray<infer U>
+      ? ReadonlyArray<DeepPartial<U>>
+      : T extends {}
+        ? { [K in keyof T]?: DeepPartial<T[K]> }
+        : Partial<T>;

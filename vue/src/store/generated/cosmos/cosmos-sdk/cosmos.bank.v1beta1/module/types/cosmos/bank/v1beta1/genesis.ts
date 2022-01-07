@@ -1,23 +1,23 @@
 /* eslint-disable */
-import { Params, Metadata } from '../../../cosmos/bank/v1beta1/bank'
+import { Metadata, Params } from '../../../cosmos/bank/v1beta1/bank'
 import { Coin } from '../../../cosmos/base/v1beta1/coin'
-import { Writer, Reader } from 'protobufjs/minimal'
+import { Reader, Writer } from 'protobufjs/minimal'
 
 export const protobufPackage = 'cosmos.bank.v1beta1'
 
 /** GenesisState defines the bank module's genesis state. */
 export interface GenesisState {
   /** params defines all the paramaters of the module. */
-  params: Params | undefined
+  params: Params | undefined;
   /** balances is an array containing the balances of all the accounts. */
-  balances: Balance[]
+  balances: Balance[];
   /**
    * supply represents the total supply. If it is left empty, then supply will be calculated based on the provided
    * balances. Otherwise, it will be used to validate that the sum of the balances equals this amount.
    */
-  supply: Coin[]
+  supply: Coin[];
   /** denom_metadata defines the metadata of the differents coins. */
-  denomMetadata: Metadata[]
+  denomMetadata: Metadata[];
 }
 
 /**
@@ -26,9 +26,9 @@ export interface GenesisState {
  */
 export interface Balance {
   /** address is the address of the balance holder. */
-  address: string
+  address: string;
   /** coins defines the different coins this balance holds. */
-  coins: Coin[]
+  coins: Coin[];
 }
 
 const baseGenesisState: object = {}
@@ -110,9 +110,12 @@ export const GenesisState = {
 
   toJSON(message: GenesisState): unknown {
     const obj: any = {}
-    message.params !== undefined && (obj.params = message.params ? Params.toJSON(message.params) : undefined)
+    message.params !== undefined &&
+    (obj.params = message.params ? Params.toJSON(message.params) : undefined)
     if (message.balances) {
-      obj.balances = message.balances.map((e) => (e ? Balance.toJSON(e) : undefined))
+      obj.balances = message.balances.map((e) =>
+        e ? Balance.toJSON(e) : undefined,
+      )
     } else {
       obj.balances = []
     }
@@ -122,7 +125,9 @@ export const GenesisState = {
       obj.supply = []
     }
     if (message.denomMetadata) {
-      obj.denomMetadata = message.denomMetadata.map((e) => (e ? Metadata.toJSON(e) : undefined))
+      obj.denomMetadata = message.denomMetadata.map((e) =>
+        e ? Metadata.toJSON(e) : undefined,
+      )
     } else {
       obj.denomMetadata = []
     }
@@ -155,8 +160,8 @@ export const GenesisState = {
       }
     }
     return message
-  }
-}
+  },
+};
 
 const baseBalance: object = { address: '' }
 
@@ -234,16 +239,16 @@ export const Balance = {
       }
     }
     return message
-  }
-}
+  },
+};
 
-type Builtin = Date | Function | Uint8Array | string | number | undefined
+type Builtin = Date | Function | Uint8Array | string | number | undefined;
 export type DeepPartial<T> = T extends Builtin
   ? T
   : T extends Array<infer U>
-  ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U>
-  ? ReadonlyArray<DeepPartial<U>>
-  : T extends {}
-  ? { [K in keyof T]?: DeepPartial<T[K]> }
-  : Partial<T>
+    ? Array<DeepPartial<U>>
+    : T extends ReadonlyArray<infer U>
+      ? ReadonlyArray<DeepPartial<U>>
+      : T extends {}
+        ? { [K in keyof T]?: DeepPartial<T[K]> }
+        : Partial<T>;

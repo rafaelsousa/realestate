@@ -1,6 +1,6 @@
 /* eslint-disable */
 import { Coin } from '../../../cosmos/base/v1beta1/coin'
-import { Writer, Reader } from 'protobufjs/minimal'
+import { Reader, Writer } from 'protobufjs/minimal'
 
 export const protobufPackage = 'cosmos.crisis.v1beta1'
 
@@ -10,7 +10,7 @@ export interface GenesisState {
    * constant_fee is the fee used to verify the invariant in the crisis
    * module.
    */
-  constantFee: Coin | undefined
+  constantFee: Coin | undefined;
 }
 
 const baseGenesisState: object = {}
@@ -53,7 +53,10 @@ export const GenesisState = {
 
   toJSON(message: GenesisState): unknown {
     const obj: any = {}
-    message.constantFee !== undefined && (obj.constantFee = message.constantFee ? Coin.toJSON(message.constantFee) : undefined)
+    message.constantFee !== undefined &&
+    (obj.constantFee = message.constantFee
+      ? Coin.toJSON(message.constantFee)
+      : undefined)
     return obj
   },
 
@@ -65,16 +68,16 @@ export const GenesisState = {
       message.constantFee = undefined
     }
     return message
-  }
-}
+  },
+};
 
-type Builtin = Date | Function | Uint8Array | string | number | undefined
+type Builtin = Date | Function | Uint8Array | string | number | undefined;
 export type DeepPartial<T> = T extends Builtin
   ? T
   : T extends Array<infer U>
-  ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U>
-  ? ReadonlyArray<DeepPartial<U>>
-  : T extends {}
-  ? { [K in keyof T]?: DeepPartial<T[K]> }
-  : Partial<T>
+    ? Array<DeepPartial<U>>
+    : T extends ReadonlyArray<infer U>
+      ? ReadonlyArray<DeepPartial<U>>
+      : T extends {}
+        ? { [K in keyof T]?: DeepPartial<T[K]> }
+        : Partial<T>;

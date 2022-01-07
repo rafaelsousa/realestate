@@ -1,26 +1,26 @@
 /* eslint-disable */
 import * as Long from 'long'
-import { util, configure, Writer, Reader } from 'protobufjs/minimal'
+import { configure, Reader, util, Writer } from 'protobufjs/minimal'
 import { PublicKey } from '../../tendermint/crypto/keys'
 
 export const protobufPackage = 'tendermint.types'
 
 export interface ValidatorSet {
-  validators: Validator[]
-  proposer: Validator | undefined
-  totalVotingPower: number
+  validators: Validator[];
+  proposer: Validator | undefined;
+  totalVotingPower: number;
 }
 
 export interface Validator {
-  address: Uint8Array
-  pubKey: PublicKey | undefined
-  votingPower: number
-  proposerPriority: number
+  address: Uint8Array;
+  pubKey: PublicKey | undefined;
+  votingPower: number;
+  proposerPriority: number;
 }
 
 export interface SimpleValidator {
-  pubKey: PublicKey | undefined
-  votingPower: number
+  pubKey: PublicKey | undefined;
+  votingPower: number;
 }
 
 const baseValidatorSet: object = { totalVotingPower: 0 }
@@ -77,7 +77,10 @@ export const ValidatorSet = {
     } else {
       message.proposer = undefined
     }
-    if (object.totalVotingPower !== undefined && object.totalVotingPower !== null) {
+    if (
+      object.totalVotingPower !== undefined &&
+      object.totalVotingPower !== null
+    ) {
       message.totalVotingPower = Number(object.totalVotingPower)
     } else {
       message.totalVotingPower = 0
@@ -88,12 +91,18 @@ export const ValidatorSet = {
   toJSON(message: ValidatorSet): unknown {
     const obj: any = {}
     if (message.validators) {
-      obj.validators = message.validators.map((e) => (e ? Validator.toJSON(e) : undefined))
+      obj.validators = message.validators.map((e) =>
+        e ? Validator.toJSON(e) : undefined,
+      )
     } else {
       obj.validators = []
     }
-    message.proposer !== undefined && (obj.proposer = message.proposer ? Validator.toJSON(message.proposer) : undefined)
-    message.totalVotingPower !== undefined && (obj.totalVotingPower = message.totalVotingPower)
+    message.proposer !== undefined &&
+    (obj.proposer = message.proposer
+      ? Validator.toJSON(message.proposer)
+      : undefined)
+    message.totalVotingPower !== undefined &&
+    (obj.totalVotingPower = message.totalVotingPower)
     return obj
   },
 
@@ -110,14 +119,17 @@ export const ValidatorSet = {
     } else {
       message.proposer = undefined
     }
-    if (object.totalVotingPower !== undefined && object.totalVotingPower !== null) {
+    if (
+      object.totalVotingPower !== undefined &&
+      object.totalVotingPower !== null
+    ) {
       message.totalVotingPower = object.totalVotingPower
     } else {
       message.totalVotingPower = 0
     }
     return message
-  }
-}
+  },
+};
 
 const baseValidator: object = { votingPower: 0, proposerPriority: 0 }
 
@@ -180,7 +192,10 @@ export const Validator = {
     } else {
       message.votingPower = 0
     }
-    if (object.proposerPriority !== undefined && object.proposerPriority !== null) {
+    if (
+      object.proposerPriority !== undefined &&
+      object.proposerPriority !== null
+    ) {
       message.proposerPriority = Number(object.proposerPriority)
     } else {
       message.proposerPriority = 0
@@ -190,10 +205,18 @@ export const Validator = {
 
   toJSON(message: Validator): unknown {
     const obj: any = {}
-    message.address !== undefined && (obj.address = base64FromBytes(message.address !== undefined ? message.address : new Uint8Array()))
-    message.pubKey !== undefined && (obj.pubKey = message.pubKey ? PublicKey.toJSON(message.pubKey) : undefined)
-    message.votingPower !== undefined && (obj.votingPower = message.votingPower)
-    message.proposerPriority !== undefined && (obj.proposerPriority = message.proposerPriority)
+    message.address !== undefined &&
+    (obj.address = base64FromBytes(
+      message.address !== undefined ? message.address : new Uint8Array(),
+    ))
+    message.pubKey !== undefined &&
+    (obj.pubKey = message.pubKey
+      ? PublicKey.toJSON(message.pubKey)
+      : undefined)
+    message.votingPower !== undefined &&
+    (obj.votingPower = message.votingPower)
+    message.proposerPriority !== undefined &&
+    (obj.proposerPriority = message.proposerPriority)
     return obj
   },
 
@@ -214,14 +237,17 @@ export const Validator = {
     } else {
       message.votingPower = 0
     }
-    if (object.proposerPriority !== undefined && object.proposerPriority !== null) {
+    if (
+      object.proposerPriority !== undefined &&
+      object.proposerPriority !== null
+    ) {
       message.proposerPriority = object.proposerPriority
     } else {
       message.proposerPriority = 0
     }
     return message
-  }
-}
+  },
+};
 
 const baseSimpleValidator: object = { votingPower: 0 }
 
@@ -274,8 +300,12 @@ export const SimpleValidator = {
 
   toJSON(message: SimpleValidator): unknown {
     const obj: any = {}
-    message.pubKey !== undefined && (obj.pubKey = message.pubKey ? PublicKey.toJSON(message.pubKey) : undefined)
-    message.votingPower !== undefined && (obj.votingPower = message.votingPower)
+    message.pubKey !== undefined &&
+    (obj.pubKey = message.pubKey
+      ? PublicKey.toJSON(message.pubKey)
+      : undefined)
+    message.votingPower !== undefined &&
+    (obj.votingPower = message.votingPower)
     return obj
   },
 
@@ -292,8 +322,8 @@ export const SimpleValidator = {
       message.votingPower = 0
     }
     return message
-  }
-}
+  },
+};
 
 declare var self: any | undefined
 declare var window: any | undefined
@@ -305,7 +335,9 @@ var globalThis: any = (() => {
   throw 'Unable to locate global object'
 })()
 
-const atob: (b64: string) => string = globalThis.atob || ((b64) => globalThis.Buffer.from(b64, 'base64').toString('binary'))
+const atob: (b64: string) => string =
+  globalThis.atob ||
+  ((b64) => globalThis.Buffer.from(b64, 'base64').toString('binary'))
 function bytesFromBase64(b64: string): Uint8Array {
   const bin = atob(b64)
   const arr = new Uint8Array(bin.length)
@@ -315,7 +347,9 @@ function bytesFromBase64(b64: string): Uint8Array {
   return arr
 }
 
-const btoa: (bin: string) => string = globalThis.btoa || ((bin) => globalThis.Buffer.from(bin, 'binary').toString('base64'))
+const btoa: (bin: string) => string =
+  globalThis.btoa ||
+  ((bin) => globalThis.Buffer.from(bin, 'binary').toString('base64'))
 function base64FromBytes(arr: Uint8Array): string {
   const bin: string[] = []
   for (let i = 0; i < arr.byteLength; ++i) {
@@ -324,16 +358,16 @@ function base64FromBytes(arr: Uint8Array): string {
   return btoa(bin.join(''))
 }
 
-type Builtin = Date | Function | Uint8Array | string | number | undefined
+type Builtin = Date | Function | Uint8Array | string | number | undefined;
 export type DeepPartial<T> = T extends Builtin
   ? T
   : T extends Array<infer U>
-  ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U>
-  ? ReadonlyArray<DeepPartial<U>>
-  : T extends {}
-  ? { [K in keyof T]?: DeepPartial<T[K]> }
-  : Partial<T>
+    ? Array<DeepPartial<U>>
+    : T extends ReadonlyArray<infer U>
+      ? ReadonlyArray<DeepPartial<U>>
+      : T extends {}
+        ? { [K in keyof T]?: DeepPartial<T[K]> }
+        : Partial<T>;
 
 function longToNumber(long: Long): number {
   if (long.gt(Number.MAX_SAFE_INTEGER)) {

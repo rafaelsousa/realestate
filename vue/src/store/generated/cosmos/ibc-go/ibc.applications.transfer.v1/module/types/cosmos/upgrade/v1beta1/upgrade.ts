@@ -1,7 +1,7 @@
 /* eslint-disable */
 import { Timestamp } from '../../../google/protobuf/timestamp'
 import * as Long from 'long'
-import { util, configure, Writer, Reader } from 'protobufjs/minimal'
+import { configure, Reader, util, Writer } from 'protobufjs/minimal'
 
 export const protobufPackage = 'cosmos.upgrade.v1beta1'
 
@@ -16,22 +16,22 @@ export interface Plan {
    * assumed that the software is out-of-date when the upgrade Time or Height is
    * reached and the software will exit.
    */
-  name: string
+  name: string;
   /**
    * The time after which the upgrade must be performed.
    * Leave set to its zero value to use a pre-defined Height instead.
    */
-  time: Date | undefined
+  time: Date | undefined;
   /**
    * The height at which the upgrade must be performed.
    * Only used if Time is not set.
    */
-  height: number
+  height: number;
   /**
    * Any application specific upgrade info to be included on-chain
    * such as a git commit that validators could automatically upgrade to
    */
-  info: string
+  info: string;
 }
 
 /**
@@ -39,9 +39,9 @@ export interface Plan {
  * upgrade.
  */
 export interface SoftwareUpgradeProposal {
-  title: string
-  description: string
-  plan: Plan | undefined
+  title: string;
+  description: string;
+  plan: Plan | undefined;
 }
 
 /**
@@ -49,8 +49,8 @@ export interface SoftwareUpgradeProposal {
  * upgrade.
  */
 export interface CancelSoftwareUpgradeProposal {
-  title: string
-  description: string
+  title: string;
+  description: string;
 }
 
 const basePlan: object = { name: '', height: 0, info: '' }
@@ -61,7 +61,10 @@ export const Plan = {
       writer.uint32(10).string(message.name)
     }
     if (message.time !== undefined) {
-      Timestamp.encode(toTimestamp(message.time), writer.uint32(18).fork()).ldelim()
+      Timestamp.encode(
+        toTimestamp(message.time),
+        writer.uint32(18).fork(),
+      ).ldelim()
     }
     if (message.height !== 0) {
       writer.uint32(24).int64(message.height)
@@ -83,7 +86,9 @@ export const Plan = {
           message.name = reader.string()
           break
         case 2:
-          message.time = fromTimestamp(Timestamp.decode(reader, reader.uint32()))
+          message.time = fromTimestamp(
+            Timestamp.decode(reader, reader.uint32()),
+          )
           break
         case 3:
           message.height = longToNumber(reader.int64() as Long)
@@ -127,7 +132,9 @@ export const Plan = {
   toJSON(message: Plan): unknown {
     const obj: any = {}
     message.name !== undefined && (obj.name = message.name)
-    message.time !== undefined && (obj.time = message.time !== undefined ? message.time.toISOString() : null)
+    message.time !== undefined &&
+    (obj.time =
+      message.time !== undefined ? message.time.toISOString() : null)
     message.height !== undefined && (obj.height = message.height)
     message.info !== undefined && (obj.info = message.info)
     return obj
@@ -156,13 +163,16 @@ export const Plan = {
       message.info = ''
     }
     return message
-  }
-}
+  },
+};
 
 const baseSoftwareUpgradeProposal: object = { title: '', description: '' }
 
 export const SoftwareUpgradeProposal = {
-  encode(message: SoftwareUpgradeProposal, writer: Writer = Writer.create()): Writer {
+  encode(
+    message: SoftwareUpgradeProposal,
+    writer: Writer = Writer.create(),
+  ): Writer {
     if (message.title !== '') {
       writer.uint32(10).string(message.title)
     }
@@ -178,7 +188,9 @@ export const SoftwareUpgradeProposal = {
   decode(input: Reader | Uint8Array, length?: number): SoftwareUpgradeProposal {
     const reader = input instanceof Uint8Array ? new Reader(input) : input
     let end = length === undefined ? reader.len : reader.pos + length
-    const message = { ...baseSoftwareUpgradeProposal } as SoftwareUpgradeProposal
+    const message = {
+      ...baseSoftwareUpgradeProposal,
+    } as SoftwareUpgradeProposal
     while (reader.pos < end) {
       const tag = reader.uint32()
       switch (tag >>> 3) {
@@ -200,7 +212,9 @@ export const SoftwareUpgradeProposal = {
   },
 
   fromJSON(object: any): SoftwareUpgradeProposal {
-    const message = { ...baseSoftwareUpgradeProposal } as SoftwareUpgradeProposal
+    const message = {
+      ...baseSoftwareUpgradeProposal,
+    } as SoftwareUpgradeProposal
     if (object.title !== undefined && object.title !== null) {
       message.title = String(object.title)
     } else {
@@ -222,13 +236,19 @@ export const SoftwareUpgradeProposal = {
   toJSON(message: SoftwareUpgradeProposal): unknown {
     const obj: any = {}
     message.title !== undefined && (obj.title = message.title)
-    message.description !== undefined && (obj.description = message.description)
-    message.plan !== undefined && (obj.plan = message.plan ? Plan.toJSON(message.plan) : undefined)
+    message.description !== undefined &&
+    (obj.description = message.description)
+    message.plan !== undefined &&
+    (obj.plan = message.plan ? Plan.toJSON(message.plan) : undefined)
     return obj
   },
 
-  fromPartial(object: DeepPartial<SoftwareUpgradeProposal>): SoftwareUpgradeProposal {
-    const message = { ...baseSoftwareUpgradeProposal } as SoftwareUpgradeProposal
+  fromPartial(
+    object: DeepPartial<SoftwareUpgradeProposal>,
+  ): SoftwareUpgradeProposal {
+    const message = {
+      ...baseSoftwareUpgradeProposal,
+    } as SoftwareUpgradeProposal
     if (object.title !== undefined && object.title !== null) {
       message.title = object.title
     } else {
@@ -245,13 +265,19 @@ export const SoftwareUpgradeProposal = {
       message.plan = undefined
     }
     return message
-  }
+  },
+};
+
+const baseCancelSoftwareUpgradeProposal: object = {
+  title: '',
+  description: '',
 }
 
-const baseCancelSoftwareUpgradeProposal: object = { title: '', description: '' }
-
 export const CancelSoftwareUpgradeProposal = {
-  encode(message: CancelSoftwareUpgradeProposal, writer: Writer = Writer.create()): Writer {
+  encode(
+    message: CancelSoftwareUpgradeProposal,
+    writer: Writer = Writer.create(),
+  ): Writer {
     if (message.title !== '') {
       writer.uint32(10).string(message.title)
     }
@@ -261,10 +287,15 @@ export const CancelSoftwareUpgradeProposal = {
     return writer
   },
 
-  decode(input: Reader | Uint8Array, length?: number): CancelSoftwareUpgradeProposal {
+  decode(
+    input: Reader | Uint8Array,
+    length?: number,
+  ): CancelSoftwareUpgradeProposal {
     const reader = input instanceof Uint8Array ? new Reader(input) : input
     let end = length === undefined ? reader.len : reader.pos + length
-    const message = { ...baseCancelSoftwareUpgradeProposal } as CancelSoftwareUpgradeProposal
+    const message = {
+      ...baseCancelSoftwareUpgradeProposal,
+    } as CancelSoftwareUpgradeProposal
     while (reader.pos < end) {
       const tag = reader.uint32()
       switch (tag >>> 3) {
@@ -283,7 +314,9 @@ export const CancelSoftwareUpgradeProposal = {
   },
 
   fromJSON(object: any): CancelSoftwareUpgradeProposal {
-    const message = { ...baseCancelSoftwareUpgradeProposal } as CancelSoftwareUpgradeProposal
+    const message = {
+      ...baseCancelSoftwareUpgradeProposal,
+    } as CancelSoftwareUpgradeProposal
     if (object.title !== undefined && object.title !== null) {
       message.title = String(object.title)
     } else {
@@ -300,12 +333,17 @@ export const CancelSoftwareUpgradeProposal = {
   toJSON(message: CancelSoftwareUpgradeProposal): unknown {
     const obj: any = {}
     message.title !== undefined && (obj.title = message.title)
-    message.description !== undefined && (obj.description = message.description)
+    message.description !== undefined &&
+    (obj.description = message.description)
     return obj
   },
 
-  fromPartial(object: DeepPartial<CancelSoftwareUpgradeProposal>): CancelSoftwareUpgradeProposal {
-    const message = { ...baseCancelSoftwareUpgradeProposal } as CancelSoftwareUpgradeProposal
+  fromPartial(
+    object: DeepPartial<CancelSoftwareUpgradeProposal>,
+  ): CancelSoftwareUpgradeProposal {
+    const message = {
+      ...baseCancelSoftwareUpgradeProposal,
+    } as CancelSoftwareUpgradeProposal
     if (object.title !== undefined && object.title !== null) {
       message.title = object.title
     } else {
@@ -317,8 +355,8 @@ export const CancelSoftwareUpgradeProposal = {
       message.description = ''
     }
     return message
-  }
-}
+  },
+};
 
 declare var self: any | undefined
 declare var window: any | undefined
@@ -330,16 +368,16 @@ var globalThis: any = (() => {
   throw 'Unable to locate global object'
 })()
 
-type Builtin = Date | Function | Uint8Array | string | number | undefined
+type Builtin = Date | Function | Uint8Array | string | number | undefined;
 export type DeepPartial<T> = T extends Builtin
   ? T
   : T extends Array<infer U>
-  ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U>
-  ? ReadonlyArray<DeepPartial<U>>
-  : T extends {}
-  ? { [K in keyof T]?: DeepPartial<T[K]> }
-  : Partial<T>
+    ? Array<DeepPartial<U>>
+    : T extends ReadonlyArray<infer U>
+      ? ReadonlyArray<DeepPartial<U>>
+      : T extends {}
+        ? { [K in keyof T]?: DeepPartial<T[K]> }
+        : Partial<T>;
 
 function toTimestamp(date: Date): Timestamp {
   const seconds = date.getTime() / 1_000

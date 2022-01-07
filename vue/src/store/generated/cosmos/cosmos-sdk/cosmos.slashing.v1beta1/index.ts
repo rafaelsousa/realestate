@@ -1,20 +1,17 @@
-import { txClient, queryClient, MissingWalletError , registry} from './module'
+import { MissingWalletError, queryClient, registry, txClient } from './module'
 // @ts-ignore
 import { SpVuexError } from '@starport/vuex'
 
-import { SigningInfo } from "./module/types/cosmos/slashing/v1beta1/genesis"
-import { ValidatorMissedBlocks } from "./module/types/cosmos/slashing/v1beta1/genesis"
-import { MissedBlock } from "./module/types/cosmos/slashing/v1beta1/genesis"
-import { ValidatorSigningInfo } from "./module/types/cosmos/slashing/v1beta1/slashing"
-import { Params } from "./module/types/cosmos/slashing/v1beta1/slashing"
+import { MissedBlock, SigningInfo, ValidatorMissedBlocks } from './module/types/cosmos/slashing/v1beta1/genesis'
+import { Params, ValidatorSigningInfo } from './module/types/cosmos/slashing/v1beta1/slashing'
 
 
-export { SigningInfo, ValidatorMissedBlocks, MissedBlock, ValidatorSigningInfo, Params };
+export { SigningInfo, ValidatorMissedBlocks, MissedBlock, ValidatorSigningInfo, Params }
 
 async function initTxClient(vuexGetters) {
-	return await txClient(vuexGetters['common/wallet/signer'], {
-		addr: vuexGetters['common/env/apiTendermint']
-	})
+  return await txClient(vuexGetters['common/wallet/signer'], {
+    addr: vuexGetters['common/env/apiTendermint'],
+  })
 }
 
 async function initQueryClient(vuexGetters) {
@@ -78,10 +75,10 @@ export default {
 			state[query][JSON.stringify(key)] = value
 		},
 		SUBSCRIBE(state, subscription) {
-			state._Subscriptions.add(subscription)
+      state._Subscriptions.add(JSON.stringify(subscription))
 		},
 		UNSUBSCRIBE(state, subscription) {
-			state._Subscriptions.delete(subscription)
+      state._Subscriptions.delete(JSON.stringify(subscription))
 		}
 	},
 	getters: {
@@ -126,87 +123,104 @@ export default {
 		unsubscribe({ commit }, subscription) {
 			commit('UNSUBSCRIBE', subscription)
 		},
-		async StoreUpdate({ state, dispatch }) {
-			state._Subscriptions.forEach(async (subscription) => {
-				try {
-					await dispatch(subscription.action, subscription.payload)
-				}catch(e) {
-					throw new SpVuexError('Subscriptions: ' + e.message)
-				}
-			})
-		},
-		
-		
-		
-		 		
-		
-		
-		async QueryParams({ commit, rootGetters, getters }, { options: { subscribe, all} = { subscribe:false, all:false}, params: {...key}, query=null }) {
-			try {
-				const queryClient=await initQueryClient(rootGetters)
-				let value= (await queryClient.queryParams()).data
-				
-					
-				commit('QUERY', { query: 'Params', key: { params: {...key}, query}, value })
-				if (subscribe) commit('SUBSCRIBE', { action: 'QueryParams', payload: { options: { all }, params: {...key},query }})
-				return getters['getParams']( { params: {...key}, query}) ?? {}
-			} catch (e) {
-				throw new SpVuexError('QueryClient:QueryParams', 'API Node Unavailable. Could not perform query: ' + e.message)
-				
-			}
-		},
-		
-		
-		
-		
-		 		
-		
-		
-		async QuerySigningInfo({ commit, rootGetters, getters }, { options: { subscribe, all} = { subscribe:false, all:false}, params: {...key}, query=null }) {
-			try {
-				const queryClient=await initQueryClient(rootGetters)
-				let value= (await queryClient.querySigningInfo( key.cons_address)).data
-				
-					
-				commit('QUERY', { query: 'SigningInfo', key: { params: {...key}, query}, value })
-				if (subscribe) commit('SUBSCRIBE', { action: 'QuerySigningInfo', payload: { options: { all }, params: {...key},query }})
-				return getters['getSigningInfo']( { params: {...key}, query}) ?? {}
-			} catch (e) {
-				throw new SpVuexError('QueryClient:QuerySigningInfo', 'API Node Unavailable. Could not perform query: ' + e.message)
-				
-			}
-		},
-		
-		
-		
-		
-		 		
-		
-		
-		async QuerySigningInfos({ commit, rootGetters, getters }, { options: { subscribe, all} = { subscribe:false, all:false}, params: {...key}, query=null }) {
-			try {
-				const queryClient=await initQueryClient(rootGetters)
-				let value= (await queryClient.querySigningInfos(query)).data
-				
-					
-				while (all && (<any> value).pagination && (<any> value).pagination.nextKey!=null) {
-					let next_values=(await queryClient.querySigningInfos({...query, 'pagination.key':(<any> value).pagination.nextKey})).data
-					value = mergeResults(value, next_values);
-				}
-				commit('QUERY', { query: 'SigningInfos', key: { params: {...key}, query}, value })
-				if (subscribe) commit('SUBSCRIBE', { action: 'QuerySigningInfos', payload: { options: { all }, params: {...key},query }})
-				return getters['getSigningInfos']( { params: {...key}, query}) ?? {}
-			} catch (e) {
-				throw new SpVuexError('QueryClient:QuerySigningInfos', 'API Node Unavailable. Could not perform query: ' + e.message)
-				
-			}
-		},
-		
-		
-		async sendMsgUnjail({ rootGetters }, { value, fee = [], memo = '' }) {
-			try {
-				const txClient=await initTxClient(rootGetters)
-				const msg = await txClient.msgUnjail(value)
+    async StoreUpdate({ state, dispatch }) {
+      state._Subscriptions.forEach(async (subscription) => {
+        try {
+          const sub = JSON.parse(subscription)
+          await dispatch(sub.action, sub.payload)
+        } catch (e) {
+          throw new SpVuexError('Subscriptions: ' + e.message)
+        }
+      })
+    },
+
+
+    async QueryParams({ commit, rootGetters, getters }, {
+      options: { subscribe, all } = {
+        subscribe: false,
+        all: false,
+      }, params, query = null,
+    }) {
+      try {
+        const key = params ?? {}
+        const queryClient = await initQueryClient(rootGetters)
+        let value = (await queryClient.queryParams()).data
+
+
+        commit('QUERY', { query: 'Params', key: { params: { ...key }, query }, value })
+        if (subscribe) commit('SUBSCRIBE', {
+          action: 'QueryParams',
+          payload: { options: { all }, params: { ...key }, query },
+        })
+        return getters['getParams']({ params: { ...key }, query }) ?? {}
+      } catch (e) {
+        throw new SpVuexError('QueryClient:QueryParams', 'API Node Unavailable. Could not perform query: ' + e.message)
+
+      }
+    },
+
+
+    async QuerySigningInfo({ commit, rootGetters, getters }, {
+      options: { subscribe, all } = {
+        subscribe: false,
+        all: false,
+      }, params, query = null,
+    }) {
+      try {
+        const key = params ?? {}
+        const queryClient = await initQueryClient(rootGetters)
+        let value = (await queryClient.querySigningInfo(key.cons_address)).data
+
+
+        commit('QUERY', { query: 'SigningInfo', key: { params: { ...key }, query }, value })
+        if (subscribe) commit('SUBSCRIBE', {
+          action: 'QuerySigningInfo',
+          payload: { options: { all }, params: { ...key }, query },
+        })
+        return getters['getSigningInfo']({ params: { ...key }, query }) ?? {}
+      } catch (e) {
+        throw new SpVuexError('QueryClient:QuerySigningInfo', 'API Node Unavailable. Could not perform query: ' + e.message)
+
+      }
+    },
+
+
+    async QuerySigningInfos({ commit, rootGetters, getters }, {
+      options: { subscribe, all } = {
+        subscribe: false,
+        all: false,
+      }, params, query = null,
+    }) {
+      try {
+        const key = params ?? {}
+        const queryClient = await initQueryClient(rootGetters)
+        let value = (await queryClient.querySigningInfos(query)).data
+
+
+        while (all && (<any>value).pagination && (<any>value).pagination.next_key != null) {
+          let next_values = (await queryClient.querySigningInfos({
+            ...query,
+            'pagination.key': (<any>value).pagination.next_key,
+          })).data
+          value = mergeResults(value, next_values)
+        }
+        commit('QUERY', { query: 'SigningInfos', key: { params: { ...key }, query }, value })
+        if (subscribe) commit('SUBSCRIBE', {
+          action: 'QuerySigningInfos',
+          payload: { options: { all }, params: { ...key }, query },
+        })
+        return getters['getSigningInfos']({ params: { ...key }, query }) ?? {}
+      } catch (e) {
+        throw new SpVuexError('QueryClient:QuerySigningInfos', 'API Node Unavailable. Could not perform query: ' + e.message)
+
+      }
+    },
+
+
+    async sendMsgUnjail({ rootGetters }, { value, fee = [], memo = '' }) {
+      try {
+        const txClient = await initTxClient(rootGetters)
+        const msg = await txClient.msgUnjail(value)
 				const result = await txClient.signAndBroadcast([msg], {fee: { amount: fee, 
 	gas: "200000" }, memo})
 				return result

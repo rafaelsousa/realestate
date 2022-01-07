@@ -1,7 +1,7 @@
 /* eslint-disable */
 import { Timestamp } from '../../../google/protobuf/timestamp'
 import * as Long from 'long'
-import { util, configure, Writer, Reader } from 'protobufjs/minimal'
+import { configure, Reader, util, Writer } from 'protobufjs/minimal'
 import { Header } from '../../../tendermint/types/types'
 import { Any } from '../../../google/protobuf/any'
 import { Duration } from '../../../google/protobuf/duration'
@@ -19,7 +19,7 @@ export enum BondStatus {
   BOND_STATUS_UNBONDING = 2,
   /** BOND_STATUS_BONDED - BONDED defines a validator that is bonded. */
   BOND_STATUS_BONDED = 3,
-  UNRECOGNIZED = -1
+  UNRECOGNIZED = -1,
 }
 
 export function bondStatusFromJSON(object: any): BondStatus {
@@ -65,8 +65,8 @@ export function bondStatusToJSON(object: BondStatus): string {
  * (`n` is set by the staking module's `historical_entries` parameter).
  */
 export interface HistoricalInfo {
-  header: Header | undefined
-  valset: Validator[]
+  header: Header | undefined;
+  valset: Validator[];
 }
 
 /**
@@ -75,33 +75,33 @@ export interface HistoricalInfo {
  */
 export interface CommissionRates {
   /** rate is the commission rate charged to delegators, as a fraction. */
-  rate: string
+  rate: string;
   /** max_rate defines the maximum commission rate which validator can ever charge, as a fraction. */
-  maxRate: string
+  maxRate: string;
   /** max_change_rate defines the maximum daily increase of the validator commission, as a fraction. */
-  maxChangeRate: string
+  maxChangeRate: string;
 }
 
 /** Commission defines commission parameters for a given validator. */
 export interface Commission {
   /** commission_rates defines the initial commission rates to be used for creating a validator. */
-  commissionRates: CommissionRates | undefined
+  commissionRates: CommissionRates | undefined;
   /** update_time is the last time the commission rate was changed. */
-  updateTime: Date | undefined
+  updateTime: Date | undefined;
 }
 
 /** Description defines a validator description. */
 export interface Description {
   /** moniker defines a human-readable name for the validator. */
-  moniker: string
+  moniker: string;
   /** identity defines an optional identity signature (ex. UPort or Keybase). */
-  identity: string
+  identity: string;
   /** website defines an optional website link. */
-  website: string
+  website: string;
   /** security_contact defines an optional email for security contact. */
-  securityContact: string
+  securityContact: string;
   /** details define other optional details. */
-  details: string
+  details: string;
 }
 
 /**
@@ -116,32 +116,32 @@ export interface Description {
  */
 export interface Validator {
   /** operator_address defines the address of the validator's operator; bech encoded in JSON. */
-  operatorAddress: string
+  operatorAddress: string;
   /** consensus_pubkey is the consensus public key of the validator, as a Protobuf Any. */
-  consensusPubkey: Any | undefined
+  consensusPubkey: Any | undefined;
   /** jailed defined whether the validator has been jailed from bonded status or not. */
-  jailed: boolean
+  jailed: boolean;
   /** status is the validator status (bonded/unbonding/unbonded). */
-  status: BondStatus
+  status: BondStatus;
   /** tokens define the delegated tokens (incl. self-delegation). */
-  tokens: string
+  tokens: string;
   /** delegator_shares defines total shares issued to a validator's delegators. */
-  delegatorShares: string
+  delegatorShares: string;
   /** description defines the description terms for the validator. */
-  description: Description | undefined
+  description: Description | undefined;
   /** unbonding_height defines, if unbonding, the height at which this validator has begun unbonding. */
-  unbondingHeight: number
+  unbondingHeight: number;
   /** unbonding_time defines, if unbonding, the min time for the validator to complete unbonding. */
-  unbondingTime: Date | undefined
+  unbondingTime: Date | undefined;
   /** commission defines the commission parameters. */
-  commission: Commission | undefined
+  commission: Commission | undefined;
   /** min_self_delegation is the validator's self declared minimum self delegation. */
-  minSelfDelegation: string
+  minSelfDelegation: string;
 }
 
 /** ValAddresses defines a repeated set of validator addresses. */
 export interface ValAddresses {
-  addresses: string[]
+  addresses: string[];
 }
 
 /**
@@ -150,13 +150,13 @@ export interface ValAddresses {
  * be used to construct the key to getting an UnbondingDelegation from state.
  */
 export interface DVPair {
-  delegatorAddress: string
-  validatorAddress: string
+  delegatorAddress: string;
+  validatorAddress: string;
 }
 
 /** DVPairs defines an array of DVPair objects. */
 export interface DVPairs {
-  pairs: DVPair[]
+  pairs: DVPair[];
 }
 
 /**
@@ -166,14 +166,14 @@ export interface DVPairs {
  * Redelegation from state.
  */
 export interface DVVTriplet {
-  delegatorAddress: string
-  validatorSrcAddress: string
-  validatorDstAddress: string
+  delegatorAddress: string;
+  validatorSrcAddress: string;
+  validatorDstAddress: string;
 }
 
 /** DVVTriplets defines an array of DVVTriplet objects. */
 export interface DVVTriplets {
-  triplets: DVVTriplet[]
+  triplets: DVVTriplet[];
 }
 
 /**
@@ -183,11 +183,11 @@ export interface DVVTriplets {
  */
 export interface Delegation {
   /** delegator_address is the bech32-encoded address of the delegator. */
-  delegatorAddress: string
+  delegatorAddress: string;
   /** validator_address is the bech32-encoded address of the validator. */
-  validatorAddress: string
+  validatorAddress: string;
   /** shares define the delegation shares received. */
-  shares: string
+  shares: string;
 }
 
 /**
@@ -196,35 +196,35 @@ export interface Delegation {
  */
 export interface UnbondingDelegation {
   /** delegator_address is the bech32-encoded address of the delegator. */
-  delegatorAddress: string
+  delegatorAddress: string;
   /** validator_address is the bech32-encoded address of the validator. */
-  validatorAddress: string
+  validatorAddress: string;
   /** entries are the unbonding delegation entries. */
-  entries: UnbondingDelegationEntry[]
+  entries: UnbondingDelegationEntry[];
 }
 
 /** UnbondingDelegationEntry defines an unbonding object with relevant metadata. */
 export interface UnbondingDelegationEntry {
   /** creation_height is the height which the unbonding took place. */
-  creationHeight: number
+  creationHeight: number;
   /** completion_time is the unix time for unbonding completion. */
-  completionTime: Date | undefined
+  completionTime: Date | undefined;
   /** initial_balance defines the tokens initially scheduled to receive at completion. */
-  initialBalance: string
+  initialBalance: string;
   /** balance defines the tokens to receive at completion. */
-  balance: string
+  balance: string;
 }
 
 /** RedelegationEntry defines a redelegation object with relevant metadata. */
 export interface RedelegationEntry {
   /** creation_height  defines the height which the redelegation took place. */
-  creationHeight: number
+  creationHeight: number;
   /** completion_time defines the unix time for redelegation completion. */
-  completionTime: Date | undefined
+  completionTime: Date | undefined;
   /** initial_balance defines the initial balance when redelegation started. */
-  initialBalance: string
+  initialBalance: string;
   /** shares_dst is the amount of destination-validator shares created by redelegation. */
-  sharesDst: string
+  sharesDst: string;
 }
 
 /**
@@ -233,27 +233,27 @@ export interface RedelegationEntry {
  */
 export interface Redelegation {
   /** delegator_address is the bech32-encoded address of the delegator. */
-  delegatorAddress: string
+  delegatorAddress: string;
   /** validator_src_address is the validator redelegation source operator address. */
-  validatorSrcAddress: string
+  validatorSrcAddress: string;
   /** validator_dst_address is the validator redelegation destination operator address. */
-  validatorDstAddress: string
+  validatorDstAddress: string;
   /** entries are the redelegation entries. */
-  entries: RedelegationEntry[]
+  entries: RedelegationEntry[];
 }
 
 /** Params defines the parameters for the staking module. */
 export interface Params {
   /** unbonding_time is the time duration of unbonding. */
-  unbondingTime: Duration | undefined
+  unbondingTime: Duration | undefined;
   /** max_validators is the maximum number of validators. */
-  maxValidators: number
+  maxValidators: number;
   /** max_entries is the max entries for either unbonding delegation or redelegation (per pair/trio). */
-  maxEntries: number
+  maxEntries: number;
   /** historical_entries is the number of historical entries to persist. */
-  historicalEntries: number
+  historicalEntries: number;
   /** bond_denom defines the bondable coin denomination. */
-  bondDenom: string
+  bondDenom: string;
 }
 
 /**
@@ -261,8 +261,8 @@ export interface Params {
  * balance in addition to shares which is more suitable for client responses.
  */
 export interface DelegationResponse {
-  delegation: Delegation | undefined
-  balance: Coin | undefined
+  delegation: Delegation | undefined;
+  balance: Coin | undefined;
 }
 
 /**
@@ -271,8 +271,8 @@ export interface DelegationResponse {
  * responses.
  */
 export interface RedelegationEntryResponse {
-  redelegationEntry: RedelegationEntry | undefined
-  balance: string
+  redelegationEntry: RedelegationEntry | undefined;
+  balance: string;
 }
 
 /**
@@ -281,8 +281,8 @@ export interface RedelegationEntryResponse {
  * responses.
  */
 export interface RedelegationResponse {
-  redelegation: Redelegation | undefined
-  entries: RedelegationEntryResponse[]
+  redelegation: Redelegation | undefined;
+  entries: RedelegationEntryResponse[];
 }
 
 /**
@@ -290,8 +290,8 @@ export interface RedelegationResponse {
  * denomination.
  */
 export interface Pool {
-  notBondedTokens: string
-  bondedTokens: string
+  notBondedTokens: string;
+  bondedTokens: string;
 }
 
 const baseHistoricalInfo: object = {}
@@ -347,9 +347,12 @@ export const HistoricalInfo = {
 
   toJSON(message: HistoricalInfo): unknown {
     const obj: any = {}
-    message.header !== undefined && (obj.header = message.header ? Header.toJSON(message.header) : undefined)
+    message.header !== undefined &&
+    (obj.header = message.header ? Header.toJSON(message.header) : undefined)
     if (message.valset) {
-      obj.valset = message.valset.map((e) => (e ? Validator.toJSON(e) : undefined))
+      obj.valset = message.valset.map((e) =>
+        e ? Validator.toJSON(e) : undefined,
+      )
     } else {
       obj.valset = []
     }
@@ -370,10 +373,14 @@ export const HistoricalInfo = {
       }
     }
     return message
-  }
-}
+  },
+};
 
-const baseCommissionRates: object = { rate: '', maxRate: '', maxChangeRate: '' }
+const baseCommissionRates: object = {
+  rate: '',
+  maxRate: '',
+  maxChangeRate: '',
+}
 
 export const CommissionRates = {
   encode(message: CommissionRates, writer: Writer = Writer.create()): Writer {
@@ -437,7 +444,8 @@ export const CommissionRates = {
     const obj: any = {}
     message.rate !== undefined && (obj.rate = message.rate)
     message.maxRate !== undefined && (obj.maxRate = message.maxRate)
-    message.maxChangeRate !== undefined && (obj.maxChangeRate = message.maxChangeRate)
+    message.maxChangeRate !== undefined &&
+    (obj.maxChangeRate = message.maxChangeRate)
     return obj
   },
 
@@ -459,18 +467,24 @@ export const CommissionRates = {
       message.maxChangeRate = ''
     }
     return message
-  }
-}
+  },
+};
 
 const baseCommission: object = {}
 
 export const Commission = {
   encode(message: Commission, writer: Writer = Writer.create()): Writer {
     if (message.commissionRates !== undefined) {
-      CommissionRates.encode(message.commissionRates, writer.uint32(10).fork()).ldelim()
+      CommissionRates.encode(
+        message.commissionRates,
+        writer.uint32(10).fork(),
+      ).ldelim()
     }
     if (message.updateTime !== undefined) {
-      Timestamp.encode(toTimestamp(message.updateTime), writer.uint32(18).fork()).ldelim()
+      Timestamp.encode(
+        toTimestamp(message.updateTime),
+        writer.uint32(18).fork(),
+      ).ldelim()
     }
     return writer
   },
@@ -483,10 +497,15 @@ export const Commission = {
       const tag = reader.uint32()
       switch (tag >>> 3) {
         case 1:
-          message.commissionRates = CommissionRates.decode(reader, reader.uint32())
+          message.commissionRates = CommissionRates.decode(
+            reader,
+            reader.uint32(),
+          )
           break
         case 2:
-          message.updateTime = fromTimestamp(Timestamp.decode(reader, reader.uint32()))
+          message.updateTime = fromTimestamp(
+            Timestamp.decode(reader, reader.uint32()),
+          )
           break
         default:
           reader.skipType(tag & 7)
@@ -498,8 +517,13 @@ export const Commission = {
 
   fromJSON(object: any): Commission {
     const message = { ...baseCommission } as Commission
-    if (object.commissionRates !== undefined && object.commissionRates !== null) {
-      message.commissionRates = CommissionRates.fromJSON(object.commissionRates)
+    if (
+      object.commissionRates !== undefined &&
+      object.commissionRates !== null
+    ) {
+      message.commissionRates = CommissionRates.fromJSON(
+        object.commissionRates,
+      )
     } else {
       message.commissionRates = undefined
     }
@@ -513,15 +537,27 @@ export const Commission = {
 
   toJSON(message: Commission): unknown {
     const obj: any = {}
-    message.commissionRates !== undefined && (obj.commissionRates = message.commissionRates ? CommissionRates.toJSON(message.commissionRates) : undefined)
-    message.updateTime !== undefined && (obj.updateTime = message.updateTime !== undefined ? message.updateTime.toISOString() : null)
+    message.commissionRates !== undefined &&
+    (obj.commissionRates = message.commissionRates
+      ? CommissionRates.toJSON(message.commissionRates)
+      : undefined)
+    message.updateTime !== undefined &&
+    (obj.updateTime =
+      message.updateTime !== undefined
+        ? message.updateTime.toISOString()
+        : null)
     return obj
   },
 
   fromPartial(object: DeepPartial<Commission>): Commission {
     const message = { ...baseCommission } as Commission
-    if (object.commissionRates !== undefined && object.commissionRates !== null) {
-      message.commissionRates = CommissionRates.fromPartial(object.commissionRates)
+    if (
+      object.commissionRates !== undefined &&
+      object.commissionRates !== null
+    ) {
+      message.commissionRates = CommissionRates.fromPartial(
+        object.commissionRates,
+      )
     } else {
       message.commissionRates = undefined
     }
@@ -531,10 +567,16 @@ export const Commission = {
       message.updateTime = undefined
     }
     return message
-  }
-}
+  },
+};
 
-const baseDescription: object = { moniker: '', identity: '', website: '', securityContact: '', details: '' }
+const baseDescription: object = {
+  moniker: '',
+  identity: '',
+  website: '',
+  securityContact: '',
+  details: '',
+}
 
 export const Description = {
   encode(message: Description, writer: Writer = Writer.create()): Writer {
@@ -603,7 +645,10 @@ export const Description = {
     } else {
       message.website = ''
     }
-    if (object.securityContact !== undefined && object.securityContact !== null) {
+    if (
+      object.securityContact !== undefined &&
+      object.securityContact !== null
+    ) {
       message.securityContact = String(object.securityContact)
     } else {
       message.securityContact = ''
@@ -621,7 +666,8 @@ export const Description = {
     message.moniker !== undefined && (obj.moniker = message.moniker)
     message.identity !== undefined && (obj.identity = message.identity)
     message.website !== undefined && (obj.website = message.website)
-    message.securityContact !== undefined && (obj.securityContact = message.securityContact)
+    message.securityContact !== undefined &&
+    (obj.securityContact = message.securityContact)
     message.details !== undefined && (obj.details = message.details)
     return obj
   },
@@ -643,7 +689,10 @@ export const Description = {
     } else {
       message.website = ''
     }
-    if (object.securityContact !== undefined && object.securityContact !== null) {
+    if (
+      object.securityContact !== undefined &&
+      object.securityContact !== null
+    ) {
       message.securityContact = object.securityContact
     } else {
       message.securityContact = ''
@@ -654,10 +703,18 @@ export const Description = {
       message.details = ''
     }
     return message
-  }
-}
+  },
+};
 
-const baseValidator: object = { operatorAddress: '', jailed: false, status: 0, tokens: '', delegatorShares: '', unbondingHeight: 0, minSelfDelegation: '' }
+const baseValidator: object = {
+  operatorAddress: '',
+  jailed: false,
+  status: 0,
+  tokens: '',
+  delegatorShares: '',
+  unbondingHeight: 0,
+  minSelfDelegation: '',
+}
 
 export const Validator = {
   encode(message: Validator, writer: Writer = Writer.create()): Writer {
@@ -680,13 +737,19 @@ export const Validator = {
       writer.uint32(50).string(message.delegatorShares)
     }
     if (message.description !== undefined) {
-      Description.encode(message.description, writer.uint32(58).fork()).ldelim()
+      Description.encode(
+        message.description,
+        writer.uint32(58).fork(),
+      ).ldelim()
     }
     if (message.unbondingHeight !== 0) {
       writer.uint32(64).int64(message.unbondingHeight)
     }
     if (message.unbondingTime !== undefined) {
-      Timestamp.encode(toTimestamp(message.unbondingTime), writer.uint32(74).fork()).ldelim()
+      Timestamp.encode(
+        toTimestamp(message.unbondingTime),
+        writer.uint32(74).fork(),
+      ).ldelim()
     }
     if (message.commission !== undefined) {
       Commission.encode(message.commission, writer.uint32(82).fork()).ldelim()
@@ -729,7 +792,9 @@ export const Validator = {
           message.unbondingHeight = longToNumber(reader.int64() as Long)
           break
         case 9:
-          message.unbondingTime = fromTimestamp(Timestamp.decode(reader, reader.uint32()))
+          message.unbondingTime = fromTimestamp(
+            Timestamp.decode(reader, reader.uint32()),
+          )
           break
         case 10:
           message.commission = Commission.decode(reader, reader.uint32())
@@ -747,12 +812,18 @@ export const Validator = {
 
   fromJSON(object: any): Validator {
     const message = { ...baseValidator } as Validator
-    if (object.operatorAddress !== undefined && object.operatorAddress !== null) {
+    if (
+      object.operatorAddress !== undefined &&
+      object.operatorAddress !== null
+    ) {
       message.operatorAddress = String(object.operatorAddress)
     } else {
       message.operatorAddress = ''
     }
-    if (object.consensusPubkey !== undefined && object.consensusPubkey !== null) {
+    if (
+      object.consensusPubkey !== undefined &&
+      object.consensusPubkey !== null
+    ) {
       message.consensusPubkey = Any.fromJSON(object.consensusPubkey)
     } else {
       message.consensusPubkey = undefined
@@ -772,7 +843,10 @@ export const Validator = {
     } else {
       message.tokens = ''
     }
-    if (object.delegatorShares !== undefined && object.delegatorShares !== null) {
+    if (
+      object.delegatorShares !== undefined &&
+      object.delegatorShares !== null
+    ) {
       message.delegatorShares = String(object.delegatorShares)
     } else {
       message.delegatorShares = ''
@@ -782,7 +856,10 @@ export const Validator = {
     } else {
       message.description = undefined
     }
-    if (object.unbondingHeight !== undefined && object.unbondingHeight !== null) {
+    if (
+      object.unbondingHeight !== undefined &&
+      object.unbondingHeight !== null
+    ) {
       message.unbondingHeight = Number(object.unbondingHeight)
     } else {
       message.unbondingHeight = 0
@@ -797,7 +874,10 @@ export const Validator = {
     } else {
       message.commission = undefined
     }
-    if (object.minSelfDelegation !== undefined && object.minSelfDelegation !== null) {
+    if (
+      object.minSelfDelegation !== undefined &&
+      object.minSelfDelegation !== null
+    ) {
       message.minSelfDelegation = String(object.minSelfDelegation)
     } else {
       message.minSelfDelegation = ''
@@ -807,28 +887,52 @@ export const Validator = {
 
   toJSON(message: Validator): unknown {
     const obj: any = {}
-    message.operatorAddress !== undefined && (obj.operatorAddress = message.operatorAddress)
-    message.consensusPubkey !== undefined && (obj.consensusPubkey = message.consensusPubkey ? Any.toJSON(message.consensusPubkey) : undefined)
+    message.operatorAddress !== undefined &&
+    (obj.operatorAddress = message.operatorAddress)
+    message.consensusPubkey !== undefined &&
+    (obj.consensusPubkey = message.consensusPubkey
+      ? Any.toJSON(message.consensusPubkey)
+      : undefined)
     message.jailed !== undefined && (obj.jailed = message.jailed)
-    message.status !== undefined && (obj.status = bondStatusToJSON(message.status))
+    message.status !== undefined &&
+    (obj.status = bondStatusToJSON(message.status))
     message.tokens !== undefined && (obj.tokens = message.tokens)
-    message.delegatorShares !== undefined && (obj.delegatorShares = message.delegatorShares)
-    message.description !== undefined && (obj.description = message.description ? Description.toJSON(message.description) : undefined)
-    message.unbondingHeight !== undefined && (obj.unbondingHeight = message.unbondingHeight)
-    message.unbondingTime !== undefined && (obj.unbondingTime = message.unbondingTime !== undefined ? message.unbondingTime.toISOString() : null)
-    message.commission !== undefined && (obj.commission = message.commission ? Commission.toJSON(message.commission) : undefined)
-    message.minSelfDelegation !== undefined && (obj.minSelfDelegation = message.minSelfDelegation)
+    message.delegatorShares !== undefined &&
+    (obj.delegatorShares = message.delegatorShares)
+    message.description !== undefined &&
+    (obj.description = message.description
+      ? Description.toJSON(message.description)
+      : undefined)
+    message.unbondingHeight !== undefined &&
+    (obj.unbondingHeight = message.unbondingHeight)
+    message.unbondingTime !== undefined &&
+    (obj.unbondingTime =
+      message.unbondingTime !== undefined
+        ? message.unbondingTime.toISOString()
+        : null)
+    message.commission !== undefined &&
+    (obj.commission = message.commission
+      ? Commission.toJSON(message.commission)
+      : undefined)
+    message.minSelfDelegation !== undefined &&
+    (obj.minSelfDelegation = message.minSelfDelegation)
     return obj
   },
 
   fromPartial(object: DeepPartial<Validator>): Validator {
     const message = { ...baseValidator } as Validator
-    if (object.operatorAddress !== undefined && object.operatorAddress !== null) {
+    if (
+      object.operatorAddress !== undefined &&
+      object.operatorAddress !== null
+    ) {
       message.operatorAddress = object.operatorAddress
     } else {
       message.operatorAddress = ''
     }
-    if (object.consensusPubkey !== undefined && object.consensusPubkey !== null) {
+    if (
+      object.consensusPubkey !== undefined &&
+      object.consensusPubkey !== null
+    ) {
       message.consensusPubkey = Any.fromPartial(object.consensusPubkey)
     } else {
       message.consensusPubkey = undefined
@@ -848,7 +952,10 @@ export const Validator = {
     } else {
       message.tokens = ''
     }
-    if (object.delegatorShares !== undefined && object.delegatorShares !== null) {
+    if (
+      object.delegatorShares !== undefined &&
+      object.delegatorShares !== null
+    ) {
       message.delegatorShares = object.delegatorShares
     } else {
       message.delegatorShares = ''
@@ -858,7 +965,10 @@ export const Validator = {
     } else {
       message.description = undefined
     }
-    if (object.unbondingHeight !== undefined && object.unbondingHeight !== null) {
+    if (
+      object.unbondingHeight !== undefined &&
+      object.unbondingHeight !== null
+    ) {
       message.unbondingHeight = object.unbondingHeight
     } else {
       message.unbondingHeight = 0
@@ -873,14 +983,17 @@ export const Validator = {
     } else {
       message.commission = undefined
     }
-    if (object.minSelfDelegation !== undefined && object.minSelfDelegation !== null) {
+    if (
+      object.minSelfDelegation !== undefined &&
+      object.minSelfDelegation !== null
+    ) {
       message.minSelfDelegation = object.minSelfDelegation
     } else {
       message.minSelfDelegation = ''
     }
     return message
-  }
-}
+  },
+};
 
 const baseValAddresses: object = { addresses: '' }
 
@@ -941,8 +1054,8 @@ export const ValAddresses = {
       }
     }
     return message
-  }
-}
+  },
+};
 
 const baseDVPair: object = { delegatorAddress: '', validatorAddress: '' }
 
@@ -980,12 +1093,18 @@ export const DVPair = {
 
   fromJSON(object: any): DVPair {
     const message = { ...baseDVPair } as DVPair
-    if (object.delegatorAddress !== undefined && object.delegatorAddress !== null) {
+    if (
+      object.delegatorAddress !== undefined &&
+      object.delegatorAddress !== null
+    ) {
       message.delegatorAddress = String(object.delegatorAddress)
     } else {
       message.delegatorAddress = ''
     }
-    if (object.validatorAddress !== undefined && object.validatorAddress !== null) {
+    if (
+      object.validatorAddress !== undefined &&
+      object.validatorAddress !== null
+    ) {
       message.validatorAddress = String(object.validatorAddress)
     } else {
       message.validatorAddress = ''
@@ -995,26 +1114,34 @@ export const DVPair = {
 
   toJSON(message: DVPair): unknown {
     const obj: any = {}
-    message.delegatorAddress !== undefined && (obj.delegatorAddress = message.delegatorAddress)
-    message.validatorAddress !== undefined && (obj.validatorAddress = message.validatorAddress)
+    message.delegatorAddress !== undefined &&
+    (obj.delegatorAddress = message.delegatorAddress)
+    message.validatorAddress !== undefined &&
+    (obj.validatorAddress = message.validatorAddress)
     return obj
   },
 
   fromPartial(object: DeepPartial<DVPair>): DVPair {
     const message = { ...baseDVPair } as DVPair
-    if (object.delegatorAddress !== undefined && object.delegatorAddress !== null) {
+    if (
+      object.delegatorAddress !== undefined &&
+      object.delegatorAddress !== null
+    ) {
       message.delegatorAddress = object.delegatorAddress
     } else {
       message.delegatorAddress = ''
     }
-    if (object.validatorAddress !== undefined && object.validatorAddress !== null) {
+    if (
+      object.validatorAddress !== undefined &&
+      object.validatorAddress !== null
+    ) {
       message.validatorAddress = object.validatorAddress
     } else {
       message.validatorAddress = ''
     }
     return message
-  }
-}
+  },
+};
 
 const baseDVPairs: object = {}
 
@@ -1075,10 +1202,14 @@ export const DVPairs = {
       }
     }
     return message
-  }
-}
+  },
+};
 
-const baseDVVTriplet: object = { delegatorAddress: '', validatorSrcAddress: '', validatorDstAddress: '' }
+const baseDVVTriplet: object = {
+  delegatorAddress: '',
+  validatorSrcAddress: '',
+  validatorDstAddress: '',
+}
 
 export const DVVTriplet = {
   encode(message: DVVTriplet, writer: Writer = Writer.create()): Writer {
@@ -1120,17 +1251,26 @@ export const DVVTriplet = {
 
   fromJSON(object: any): DVVTriplet {
     const message = { ...baseDVVTriplet } as DVVTriplet
-    if (object.delegatorAddress !== undefined && object.delegatorAddress !== null) {
+    if (
+      object.delegatorAddress !== undefined &&
+      object.delegatorAddress !== null
+    ) {
       message.delegatorAddress = String(object.delegatorAddress)
     } else {
       message.delegatorAddress = ''
     }
-    if (object.validatorSrcAddress !== undefined && object.validatorSrcAddress !== null) {
+    if (
+      object.validatorSrcAddress !== undefined &&
+      object.validatorSrcAddress !== null
+    ) {
       message.validatorSrcAddress = String(object.validatorSrcAddress)
     } else {
       message.validatorSrcAddress = ''
     }
-    if (object.validatorDstAddress !== undefined && object.validatorDstAddress !== null) {
+    if (
+      object.validatorDstAddress !== undefined &&
+      object.validatorDstAddress !== null
+    ) {
       message.validatorDstAddress = String(object.validatorDstAddress)
     } else {
       message.validatorDstAddress = ''
@@ -1140,32 +1280,44 @@ export const DVVTriplet = {
 
   toJSON(message: DVVTriplet): unknown {
     const obj: any = {}
-    message.delegatorAddress !== undefined && (obj.delegatorAddress = message.delegatorAddress)
-    message.validatorSrcAddress !== undefined && (obj.validatorSrcAddress = message.validatorSrcAddress)
-    message.validatorDstAddress !== undefined && (obj.validatorDstAddress = message.validatorDstAddress)
+    message.delegatorAddress !== undefined &&
+    (obj.delegatorAddress = message.delegatorAddress)
+    message.validatorSrcAddress !== undefined &&
+    (obj.validatorSrcAddress = message.validatorSrcAddress)
+    message.validatorDstAddress !== undefined &&
+    (obj.validatorDstAddress = message.validatorDstAddress)
     return obj
   },
 
   fromPartial(object: DeepPartial<DVVTriplet>): DVVTriplet {
     const message = { ...baseDVVTriplet } as DVVTriplet
-    if (object.delegatorAddress !== undefined && object.delegatorAddress !== null) {
+    if (
+      object.delegatorAddress !== undefined &&
+      object.delegatorAddress !== null
+    ) {
       message.delegatorAddress = object.delegatorAddress
     } else {
       message.delegatorAddress = ''
     }
-    if (object.validatorSrcAddress !== undefined && object.validatorSrcAddress !== null) {
+    if (
+      object.validatorSrcAddress !== undefined &&
+      object.validatorSrcAddress !== null
+    ) {
       message.validatorSrcAddress = object.validatorSrcAddress
     } else {
       message.validatorSrcAddress = ''
     }
-    if (object.validatorDstAddress !== undefined && object.validatorDstAddress !== null) {
+    if (
+      object.validatorDstAddress !== undefined &&
+      object.validatorDstAddress !== null
+    ) {
       message.validatorDstAddress = object.validatorDstAddress
     } else {
       message.validatorDstAddress = ''
     }
     return message
-  }
-}
+  },
+};
 
 const baseDVVTriplets: object = {}
 
@@ -1210,7 +1362,9 @@ export const DVVTriplets = {
   toJSON(message: DVVTriplets): unknown {
     const obj: any = {}
     if (message.triplets) {
-      obj.triplets = message.triplets.map((e) => (e ? DVVTriplet.toJSON(e) : undefined))
+      obj.triplets = message.triplets.map((e) =>
+        e ? DVVTriplet.toJSON(e) : undefined,
+      )
     } else {
       obj.triplets = []
     }
@@ -1226,10 +1380,14 @@ export const DVVTriplets = {
       }
     }
     return message
-  }
-}
+  },
+};
 
-const baseDelegation: object = { delegatorAddress: '', validatorAddress: '', shares: '' }
+const baseDelegation: object = {
+  delegatorAddress: '',
+  validatorAddress: '',
+  shares: '',
+}
 
 export const Delegation = {
   encode(message: Delegation, writer: Writer = Writer.create()): Writer {
@@ -1271,12 +1429,18 @@ export const Delegation = {
 
   fromJSON(object: any): Delegation {
     const message = { ...baseDelegation } as Delegation
-    if (object.delegatorAddress !== undefined && object.delegatorAddress !== null) {
+    if (
+      object.delegatorAddress !== undefined &&
+      object.delegatorAddress !== null
+    ) {
       message.delegatorAddress = String(object.delegatorAddress)
     } else {
       message.delegatorAddress = ''
     }
-    if (object.validatorAddress !== undefined && object.validatorAddress !== null) {
+    if (
+      object.validatorAddress !== undefined &&
+      object.validatorAddress !== null
+    ) {
       message.validatorAddress = String(object.validatorAddress)
     } else {
       message.validatorAddress = ''
@@ -1291,20 +1455,28 @@ export const Delegation = {
 
   toJSON(message: Delegation): unknown {
     const obj: any = {}
-    message.delegatorAddress !== undefined && (obj.delegatorAddress = message.delegatorAddress)
-    message.validatorAddress !== undefined && (obj.validatorAddress = message.validatorAddress)
+    message.delegatorAddress !== undefined &&
+    (obj.delegatorAddress = message.delegatorAddress)
+    message.validatorAddress !== undefined &&
+    (obj.validatorAddress = message.validatorAddress)
     message.shares !== undefined && (obj.shares = message.shares)
     return obj
   },
 
   fromPartial(object: DeepPartial<Delegation>): Delegation {
     const message = { ...baseDelegation } as Delegation
-    if (object.delegatorAddress !== undefined && object.delegatorAddress !== null) {
+    if (
+      object.delegatorAddress !== undefined &&
+      object.delegatorAddress !== null
+    ) {
       message.delegatorAddress = object.delegatorAddress
     } else {
       message.delegatorAddress = ''
     }
-    if (object.validatorAddress !== undefined && object.validatorAddress !== null) {
+    if (
+      object.validatorAddress !== undefined &&
+      object.validatorAddress !== null
+    ) {
       message.validatorAddress = object.validatorAddress
     } else {
       message.validatorAddress = ''
@@ -1315,13 +1487,19 @@ export const Delegation = {
       message.shares = ''
     }
     return message
-  }
+  },
+};
+
+const baseUnbondingDelegation: object = {
+  delegatorAddress: '',
+  validatorAddress: '',
 }
 
-const baseUnbondingDelegation: object = { delegatorAddress: '', validatorAddress: '' }
-
 export const UnbondingDelegation = {
-  encode(message: UnbondingDelegation, writer: Writer = Writer.create()): Writer {
+  encode(
+    message: UnbondingDelegation,
+    writer: Writer = Writer.create(),
+  ): Writer {
     if (message.delegatorAddress !== '') {
       writer.uint32(10).string(message.delegatorAddress)
     }
@@ -1349,7 +1527,9 @@ export const UnbondingDelegation = {
           message.validatorAddress = reader.string()
           break
         case 3:
-          message.entries.push(UnbondingDelegationEntry.decode(reader, reader.uint32()))
+          message.entries.push(
+            UnbondingDelegationEntry.decode(reader, reader.uint32()),
+          )
           break
         default:
           reader.skipType(tag & 7)
@@ -1362,12 +1542,18 @@ export const UnbondingDelegation = {
   fromJSON(object: any): UnbondingDelegation {
     const message = { ...baseUnbondingDelegation } as UnbondingDelegation
     message.entries = []
-    if (object.delegatorAddress !== undefined && object.delegatorAddress !== null) {
+    if (
+      object.delegatorAddress !== undefined &&
+      object.delegatorAddress !== null
+    ) {
       message.delegatorAddress = String(object.delegatorAddress)
     } else {
       message.delegatorAddress = ''
     }
-    if (object.validatorAddress !== undefined && object.validatorAddress !== null) {
+    if (
+      object.validatorAddress !== undefined &&
+      object.validatorAddress !== null
+    ) {
       message.validatorAddress = String(object.validatorAddress)
     } else {
       message.validatorAddress = ''
@@ -1382,10 +1568,14 @@ export const UnbondingDelegation = {
 
   toJSON(message: UnbondingDelegation): unknown {
     const obj: any = {}
-    message.delegatorAddress !== undefined && (obj.delegatorAddress = message.delegatorAddress)
-    message.validatorAddress !== undefined && (obj.validatorAddress = message.validatorAddress)
+    message.delegatorAddress !== undefined &&
+    (obj.delegatorAddress = message.delegatorAddress)
+    message.validatorAddress !== undefined &&
+    (obj.validatorAddress = message.validatorAddress)
     if (message.entries) {
-      obj.entries = message.entries.map((e) => (e ? UnbondingDelegationEntry.toJSON(e) : undefined))
+      obj.entries = message.entries.map((e) =>
+        e ? UnbondingDelegationEntry.toJSON(e) : undefined,
+      )
     } else {
       obj.entries = []
     }
@@ -1395,12 +1585,18 @@ export const UnbondingDelegation = {
   fromPartial(object: DeepPartial<UnbondingDelegation>): UnbondingDelegation {
     const message = { ...baseUnbondingDelegation } as UnbondingDelegation
     message.entries = []
-    if (object.delegatorAddress !== undefined && object.delegatorAddress !== null) {
+    if (
+      object.delegatorAddress !== undefined &&
+      object.delegatorAddress !== null
+    ) {
       message.delegatorAddress = object.delegatorAddress
     } else {
       message.delegatorAddress = ''
     }
-    if (object.validatorAddress !== undefined && object.validatorAddress !== null) {
+    if (
+      object.validatorAddress !== undefined &&
+      object.validatorAddress !== null
+    ) {
       message.validatorAddress = object.validatorAddress
     } else {
       message.validatorAddress = ''
@@ -1411,18 +1607,28 @@ export const UnbondingDelegation = {
       }
     }
     return message
-  }
+  },
+};
+
+const baseUnbondingDelegationEntry: object = {
+  creationHeight: 0,
+  initialBalance: '',
+  balance: '',
 }
 
-const baseUnbondingDelegationEntry: object = { creationHeight: 0, initialBalance: '', balance: '' }
-
 export const UnbondingDelegationEntry = {
-  encode(message: UnbondingDelegationEntry, writer: Writer = Writer.create()): Writer {
+  encode(
+    message: UnbondingDelegationEntry,
+    writer: Writer = Writer.create(),
+  ): Writer {
     if (message.creationHeight !== 0) {
       writer.uint32(8).int64(message.creationHeight)
     }
     if (message.completionTime !== undefined) {
-      Timestamp.encode(toTimestamp(message.completionTime), writer.uint32(18).fork()).ldelim()
+      Timestamp.encode(
+        toTimestamp(message.completionTime),
+        writer.uint32(18).fork(),
+      ).ldelim()
     }
     if (message.initialBalance !== '') {
       writer.uint32(26).string(message.initialBalance)
@@ -1433,10 +1639,15 @@ export const UnbondingDelegationEntry = {
     return writer
   },
 
-  decode(input: Reader | Uint8Array, length?: number): UnbondingDelegationEntry {
+  decode(
+    input: Reader | Uint8Array,
+    length?: number,
+  ): UnbondingDelegationEntry {
     const reader = input instanceof Uint8Array ? new Reader(input) : input
     let end = length === undefined ? reader.len : reader.pos + length
-    const message = { ...baseUnbondingDelegationEntry } as UnbondingDelegationEntry
+    const message = {
+      ...baseUnbondingDelegationEntry,
+    } as UnbondingDelegationEntry
     while (reader.pos < end) {
       const tag = reader.uint32()
       switch (tag >>> 3) {
@@ -1444,7 +1655,9 @@ export const UnbondingDelegationEntry = {
           message.creationHeight = longToNumber(reader.int64() as Long)
           break
         case 2:
-          message.completionTime = fromTimestamp(Timestamp.decode(reader, reader.uint32()))
+          message.completionTime = fromTimestamp(
+            Timestamp.decode(reader, reader.uint32()),
+          )
           break
         case 3:
           message.initialBalance = reader.string()
@@ -1461,7 +1674,9 @@ export const UnbondingDelegationEntry = {
   },
 
   fromJSON(object: any): UnbondingDelegationEntry {
-    const message = { ...baseUnbondingDelegationEntry } as UnbondingDelegationEntry
+    const message = {
+      ...baseUnbondingDelegationEntry,
+    } as UnbondingDelegationEntry
     if (object.creationHeight !== undefined && object.creationHeight !== null) {
       message.creationHeight = Number(object.creationHeight)
     } else {
@@ -1487,15 +1702,25 @@ export const UnbondingDelegationEntry = {
 
   toJSON(message: UnbondingDelegationEntry): unknown {
     const obj: any = {}
-    message.creationHeight !== undefined && (obj.creationHeight = message.creationHeight)
-    message.completionTime !== undefined && (obj.completionTime = message.completionTime !== undefined ? message.completionTime.toISOString() : null)
-    message.initialBalance !== undefined && (obj.initialBalance = message.initialBalance)
+    message.creationHeight !== undefined &&
+    (obj.creationHeight = message.creationHeight)
+    message.completionTime !== undefined &&
+    (obj.completionTime =
+      message.completionTime !== undefined
+        ? message.completionTime.toISOString()
+        : null)
+    message.initialBalance !== undefined &&
+    (obj.initialBalance = message.initialBalance)
     message.balance !== undefined && (obj.balance = message.balance)
     return obj
   },
 
-  fromPartial(object: DeepPartial<UnbondingDelegationEntry>): UnbondingDelegationEntry {
-    const message = { ...baseUnbondingDelegationEntry } as UnbondingDelegationEntry
+  fromPartial(
+    object: DeepPartial<UnbondingDelegationEntry>,
+  ): UnbondingDelegationEntry {
+    const message = {
+      ...baseUnbondingDelegationEntry,
+    } as UnbondingDelegationEntry
     if (object.creationHeight !== undefined && object.creationHeight !== null) {
       message.creationHeight = object.creationHeight
     } else {
@@ -1517,10 +1742,14 @@ export const UnbondingDelegationEntry = {
       message.balance = ''
     }
     return message
-  }
-}
+  },
+};
 
-const baseRedelegationEntry: object = { creationHeight: 0, initialBalance: '', sharesDst: '' }
+const baseRedelegationEntry: object = {
+  creationHeight: 0,
+  initialBalance: '',
+  sharesDst: '',
+}
 
 export const RedelegationEntry = {
   encode(message: RedelegationEntry, writer: Writer = Writer.create()): Writer {
@@ -1528,7 +1757,10 @@ export const RedelegationEntry = {
       writer.uint32(8).int64(message.creationHeight)
     }
     if (message.completionTime !== undefined) {
-      Timestamp.encode(toTimestamp(message.completionTime), writer.uint32(18).fork()).ldelim()
+      Timestamp.encode(
+        toTimestamp(message.completionTime),
+        writer.uint32(18).fork(),
+      ).ldelim()
     }
     if (message.initialBalance !== '') {
       writer.uint32(26).string(message.initialBalance)
@@ -1550,7 +1782,9 @@ export const RedelegationEntry = {
           message.creationHeight = longToNumber(reader.int64() as Long)
           break
         case 2:
-          message.completionTime = fromTimestamp(Timestamp.decode(reader, reader.uint32()))
+          message.completionTime = fromTimestamp(
+            Timestamp.decode(reader, reader.uint32()),
+          )
           break
         case 3:
           message.initialBalance = reader.string()
@@ -1593,9 +1827,15 @@ export const RedelegationEntry = {
 
   toJSON(message: RedelegationEntry): unknown {
     const obj: any = {}
-    message.creationHeight !== undefined && (obj.creationHeight = message.creationHeight)
-    message.completionTime !== undefined && (obj.completionTime = message.completionTime !== undefined ? message.completionTime.toISOString() : null)
-    message.initialBalance !== undefined && (obj.initialBalance = message.initialBalance)
+    message.creationHeight !== undefined &&
+    (obj.creationHeight = message.creationHeight)
+    message.completionTime !== undefined &&
+    (obj.completionTime =
+      message.completionTime !== undefined
+        ? message.completionTime.toISOString()
+        : null)
+    message.initialBalance !== undefined &&
+    (obj.initialBalance = message.initialBalance)
     message.sharesDst !== undefined && (obj.sharesDst = message.sharesDst)
     return obj
   },
@@ -1623,10 +1863,14 @@ export const RedelegationEntry = {
       message.sharesDst = ''
     }
     return message
-  }
-}
+  },
+};
 
-const baseRedelegation: object = { delegatorAddress: '', validatorSrcAddress: '', validatorDstAddress: '' }
+const baseRedelegation: object = {
+  delegatorAddress: '',
+  validatorSrcAddress: '',
+  validatorDstAddress: '',
+}
 
 export const Redelegation = {
   encode(message: Redelegation, writer: Writer = Writer.create()): Writer {
@@ -1663,7 +1907,9 @@ export const Redelegation = {
           message.validatorDstAddress = reader.string()
           break
         case 4:
-          message.entries.push(RedelegationEntry.decode(reader, reader.uint32()))
+          message.entries.push(
+            RedelegationEntry.decode(reader, reader.uint32()),
+          )
           break
         default:
           reader.skipType(tag & 7)
@@ -1676,17 +1922,26 @@ export const Redelegation = {
   fromJSON(object: any): Redelegation {
     const message = { ...baseRedelegation } as Redelegation
     message.entries = []
-    if (object.delegatorAddress !== undefined && object.delegatorAddress !== null) {
+    if (
+      object.delegatorAddress !== undefined &&
+      object.delegatorAddress !== null
+    ) {
       message.delegatorAddress = String(object.delegatorAddress)
     } else {
       message.delegatorAddress = ''
     }
-    if (object.validatorSrcAddress !== undefined && object.validatorSrcAddress !== null) {
+    if (
+      object.validatorSrcAddress !== undefined &&
+      object.validatorSrcAddress !== null
+    ) {
       message.validatorSrcAddress = String(object.validatorSrcAddress)
     } else {
       message.validatorSrcAddress = ''
     }
-    if (object.validatorDstAddress !== undefined && object.validatorDstAddress !== null) {
+    if (
+      object.validatorDstAddress !== undefined &&
+      object.validatorDstAddress !== null
+    ) {
       message.validatorDstAddress = String(object.validatorDstAddress)
     } else {
       message.validatorDstAddress = ''
@@ -1701,11 +1956,16 @@ export const Redelegation = {
 
   toJSON(message: Redelegation): unknown {
     const obj: any = {}
-    message.delegatorAddress !== undefined && (obj.delegatorAddress = message.delegatorAddress)
-    message.validatorSrcAddress !== undefined && (obj.validatorSrcAddress = message.validatorSrcAddress)
-    message.validatorDstAddress !== undefined && (obj.validatorDstAddress = message.validatorDstAddress)
+    message.delegatorAddress !== undefined &&
+    (obj.delegatorAddress = message.delegatorAddress)
+    message.validatorSrcAddress !== undefined &&
+    (obj.validatorSrcAddress = message.validatorSrcAddress)
+    message.validatorDstAddress !== undefined &&
+    (obj.validatorDstAddress = message.validatorDstAddress)
     if (message.entries) {
-      obj.entries = message.entries.map((e) => (e ? RedelegationEntry.toJSON(e) : undefined))
+      obj.entries = message.entries.map((e) =>
+        e ? RedelegationEntry.toJSON(e) : undefined,
+      )
     } else {
       obj.entries = []
     }
@@ -1715,17 +1975,26 @@ export const Redelegation = {
   fromPartial(object: DeepPartial<Redelegation>): Redelegation {
     const message = { ...baseRedelegation } as Redelegation
     message.entries = []
-    if (object.delegatorAddress !== undefined && object.delegatorAddress !== null) {
+    if (
+      object.delegatorAddress !== undefined &&
+      object.delegatorAddress !== null
+    ) {
       message.delegatorAddress = object.delegatorAddress
     } else {
       message.delegatorAddress = ''
     }
-    if (object.validatorSrcAddress !== undefined && object.validatorSrcAddress !== null) {
+    if (
+      object.validatorSrcAddress !== undefined &&
+      object.validatorSrcAddress !== null
+    ) {
       message.validatorSrcAddress = object.validatorSrcAddress
     } else {
       message.validatorSrcAddress = ''
     }
-    if (object.validatorDstAddress !== undefined && object.validatorDstAddress !== null) {
+    if (
+      object.validatorDstAddress !== undefined &&
+      object.validatorDstAddress !== null
+    ) {
       message.validatorDstAddress = object.validatorDstAddress
     } else {
       message.validatorDstAddress = ''
@@ -1736,10 +2005,15 @@ export const Redelegation = {
       }
     }
     return message
-  }
-}
+  },
+};
 
-const baseParams: object = { maxValidators: 0, maxEntries: 0, historicalEntries: 0, bondDenom: '' }
+const baseParams: object = {
+  maxValidators: 0,
+  maxEntries: 0,
+  historicalEntries: 0,
+  bondDenom: '',
+}
 
 export const Params = {
   encode(message: Params, writer: Writer = Writer.create()): Writer {
@@ -1808,7 +2082,10 @@ export const Params = {
     } else {
       message.maxEntries = 0
     }
-    if (object.historicalEntries !== undefined && object.historicalEntries !== null) {
+    if (
+      object.historicalEntries !== undefined &&
+      object.historicalEntries !== null
+    ) {
       message.historicalEntries = Number(object.historicalEntries)
     } else {
       message.historicalEntries = 0
@@ -1823,10 +2100,15 @@ export const Params = {
 
   toJSON(message: Params): unknown {
     const obj: any = {}
-    message.unbondingTime !== undefined && (obj.unbondingTime = message.unbondingTime ? Duration.toJSON(message.unbondingTime) : undefined)
-    message.maxValidators !== undefined && (obj.maxValidators = message.maxValidators)
+    message.unbondingTime !== undefined &&
+    (obj.unbondingTime = message.unbondingTime
+      ? Duration.toJSON(message.unbondingTime)
+      : undefined)
+    message.maxValidators !== undefined &&
+    (obj.maxValidators = message.maxValidators)
     message.maxEntries !== undefined && (obj.maxEntries = message.maxEntries)
-    message.historicalEntries !== undefined && (obj.historicalEntries = message.historicalEntries)
+    message.historicalEntries !== undefined &&
+    (obj.historicalEntries = message.historicalEntries)
     message.bondDenom !== undefined && (obj.bondDenom = message.bondDenom)
     return obj
   },
@@ -1848,7 +2130,10 @@ export const Params = {
     } else {
       message.maxEntries = 0
     }
-    if (object.historicalEntries !== undefined && object.historicalEntries !== null) {
+    if (
+      object.historicalEntries !== undefined &&
+      object.historicalEntries !== null
+    ) {
       message.historicalEntries = object.historicalEntries
     } else {
       message.historicalEntries = 0
@@ -1859,13 +2144,16 @@ export const Params = {
       message.bondDenom = ''
     }
     return message
-  }
-}
+  },
+};
 
 const baseDelegationResponse: object = {}
 
 export const DelegationResponse = {
-  encode(message: DelegationResponse, writer: Writer = Writer.create()): Writer {
+  encode(
+    message: DelegationResponse,
+    writer: Writer = Writer.create(),
+  ): Writer {
     if (message.delegation !== undefined) {
       Delegation.encode(message.delegation, writer.uint32(10).fork()).ldelim()
     }
@@ -1913,8 +2201,14 @@ export const DelegationResponse = {
 
   toJSON(message: DelegationResponse): unknown {
     const obj: any = {}
-    message.delegation !== undefined && (obj.delegation = message.delegation ? Delegation.toJSON(message.delegation) : undefined)
-    message.balance !== undefined && (obj.balance = message.balance ? Coin.toJSON(message.balance) : undefined)
+    message.delegation !== undefined &&
+    (obj.delegation = message.delegation
+      ? Delegation.toJSON(message.delegation)
+      : undefined)
+    message.balance !== undefined &&
+    (obj.balance = message.balance
+      ? Coin.toJSON(message.balance)
+      : undefined)
     return obj
   },
 
@@ -1931,15 +2225,21 @@ export const DelegationResponse = {
       message.balance = undefined
     }
     return message
-  }
-}
+  },
+};
 
 const baseRedelegationEntryResponse: object = { balance: '' }
 
 export const RedelegationEntryResponse = {
-  encode(message: RedelegationEntryResponse, writer: Writer = Writer.create()): Writer {
+  encode(
+    message: RedelegationEntryResponse,
+    writer: Writer = Writer.create(),
+  ): Writer {
     if (message.redelegationEntry !== undefined) {
-      RedelegationEntry.encode(message.redelegationEntry, writer.uint32(10).fork()).ldelim()
+      RedelegationEntry.encode(
+        message.redelegationEntry,
+        writer.uint32(10).fork(),
+      ).ldelim()
     }
     if (message.balance !== '') {
       writer.uint32(34).string(message.balance)
@@ -1947,15 +2247,23 @@ export const RedelegationEntryResponse = {
     return writer
   },
 
-  decode(input: Reader | Uint8Array, length?: number): RedelegationEntryResponse {
+  decode(
+    input: Reader | Uint8Array,
+    length?: number,
+  ): RedelegationEntryResponse {
     const reader = input instanceof Uint8Array ? new Reader(input) : input
     let end = length === undefined ? reader.len : reader.pos + length
-    const message = { ...baseRedelegationEntryResponse } as RedelegationEntryResponse
+    const message = {
+      ...baseRedelegationEntryResponse,
+    } as RedelegationEntryResponse
     while (reader.pos < end) {
       const tag = reader.uint32()
       switch (tag >>> 3) {
         case 1:
-          message.redelegationEntry = RedelegationEntry.decode(reader, reader.uint32())
+          message.redelegationEntry = RedelegationEntry.decode(
+            reader,
+            reader.uint32(),
+          )
           break
         case 4:
           message.balance = reader.string()
@@ -1969,9 +2277,16 @@ export const RedelegationEntryResponse = {
   },
 
   fromJSON(object: any): RedelegationEntryResponse {
-    const message = { ...baseRedelegationEntryResponse } as RedelegationEntryResponse
-    if (object.redelegationEntry !== undefined && object.redelegationEntry !== null) {
-      message.redelegationEntry = RedelegationEntry.fromJSON(object.redelegationEntry)
+    const message = {
+      ...baseRedelegationEntryResponse,
+    } as RedelegationEntryResponse
+    if (
+      object.redelegationEntry !== undefined &&
+      object.redelegationEntry !== null
+    ) {
+      message.redelegationEntry = RedelegationEntry.fromJSON(
+        object.redelegationEntry,
+      )
     } else {
       message.redelegationEntry = undefined
     }
@@ -1986,15 +2301,26 @@ export const RedelegationEntryResponse = {
   toJSON(message: RedelegationEntryResponse): unknown {
     const obj: any = {}
     message.redelegationEntry !== undefined &&
-      (obj.redelegationEntry = message.redelegationEntry ? RedelegationEntry.toJSON(message.redelegationEntry) : undefined)
+    (obj.redelegationEntry = message.redelegationEntry
+      ? RedelegationEntry.toJSON(message.redelegationEntry)
+      : undefined)
     message.balance !== undefined && (obj.balance = message.balance)
     return obj
   },
 
-  fromPartial(object: DeepPartial<RedelegationEntryResponse>): RedelegationEntryResponse {
-    const message = { ...baseRedelegationEntryResponse } as RedelegationEntryResponse
-    if (object.redelegationEntry !== undefined && object.redelegationEntry !== null) {
-      message.redelegationEntry = RedelegationEntry.fromPartial(object.redelegationEntry)
+  fromPartial(
+    object: DeepPartial<RedelegationEntryResponse>,
+  ): RedelegationEntryResponse {
+    const message = {
+      ...baseRedelegationEntryResponse,
+    } as RedelegationEntryResponse
+    if (
+      object.redelegationEntry !== undefined &&
+      object.redelegationEntry !== null
+    ) {
+      message.redelegationEntry = RedelegationEntry.fromPartial(
+        object.redelegationEntry,
+      )
     } else {
       message.redelegationEntry = undefined
     }
@@ -2004,15 +2330,21 @@ export const RedelegationEntryResponse = {
       message.balance = ''
     }
     return message
-  }
-}
+  },
+};
 
 const baseRedelegationResponse: object = {}
 
 export const RedelegationResponse = {
-  encode(message: RedelegationResponse, writer: Writer = Writer.create()): Writer {
+  encode(
+    message: RedelegationResponse,
+    writer: Writer = Writer.create(),
+  ): Writer {
     if (message.redelegation !== undefined) {
-      Redelegation.encode(message.redelegation, writer.uint32(10).fork()).ldelim()
+      Redelegation.encode(
+        message.redelegation,
+        writer.uint32(10).fork(),
+      ).ldelim()
     }
     for (const v of message.entries) {
       RedelegationEntryResponse.encode(v!, writer.uint32(18).fork()).ldelim()
@@ -2032,7 +2364,9 @@ export const RedelegationResponse = {
           message.redelegation = Redelegation.decode(reader, reader.uint32())
           break
         case 2:
-          message.entries.push(RedelegationEntryResponse.decode(reader, reader.uint32()))
+          message.entries.push(
+            RedelegationEntryResponse.decode(reader, reader.uint32()),
+          )
           break
         default:
           reader.skipType(tag & 7)
@@ -2060,9 +2394,14 @@ export const RedelegationResponse = {
 
   toJSON(message: RedelegationResponse): unknown {
     const obj: any = {}
-    message.redelegation !== undefined && (obj.redelegation = message.redelegation ? Redelegation.toJSON(message.redelegation) : undefined)
+    message.redelegation !== undefined &&
+    (obj.redelegation = message.redelegation
+      ? Redelegation.toJSON(message.redelegation)
+      : undefined)
     if (message.entries) {
-      obj.entries = message.entries.map((e) => (e ? RedelegationEntryResponse.toJSON(e) : undefined))
+      obj.entries = message.entries.map((e) =>
+        e ? RedelegationEntryResponse.toJSON(e) : undefined,
+      )
     } else {
       obj.entries = []
     }
@@ -2083,8 +2422,8 @@ export const RedelegationResponse = {
       }
     }
     return message
-  }
-}
+  },
+};
 
 const basePool: object = { notBondedTokens: '', bondedTokens: '' }
 
@@ -2122,7 +2461,10 @@ export const Pool = {
 
   fromJSON(object: any): Pool {
     const message = { ...basePool } as Pool
-    if (object.notBondedTokens !== undefined && object.notBondedTokens !== null) {
+    if (
+      object.notBondedTokens !== undefined &&
+      object.notBondedTokens !== null
+    ) {
       message.notBondedTokens = String(object.notBondedTokens)
     } else {
       message.notBondedTokens = ''
@@ -2137,14 +2479,19 @@ export const Pool = {
 
   toJSON(message: Pool): unknown {
     const obj: any = {}
-    message.notBondedTokens !== undefined && (obj.notBondedTokens = message.notBondedTokens)
-    message.bondedTokens !== undefined && (obj.bondedTokens = message.bondedTokens)
+    message.notBondedTokens !== undefined &&
+    (obj.notBondedTokens = message.notBondedTokens)
+    message.bondedTokens !== undefined &&
+    (obj.bondedTokens = message.bondedTokens)
     return obj
   },
 
   fromPartial(object: DeepPartial<Pool>): Pool {
     const message = { ...basePool } as Pool
-    if (object.notBondedTokens !== undefined && object.notBondedTokens !== null) {
+    if (
+      object.notBondedTokens !== undefined &&
+      object.notBondedTokens !== null
+    ) {
       message.notBondedTokens = object.notBondedTokens
     } else {
       message.notBondedTokens = ''
@@ -2155,8 +2502,8 @@ export const Pool = {
       message.bondedTokens = ''
     }
     return message
-  }
-}
+  },
+};
 
 declare var self: any | undefined
 declare var window: any | undefined
@@ -2168,16 +2515,16 @@ var globalThis: any = (() => {
   throw 'Unable to locate global object'
 })()
 
-type Builtin = Date | Function | Uint8Array | string | number | undefined
+type Builtin = Date | Function | Uint8Array | string | number | undefined;
 export type DeepPartial<T> = T extends Builtin
   ? T
   : T extends Array<infer U>
-  ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U>
-  ? ReadonlyArray<DeepPartial<U>>
-  : T extends {}
-  ? { [K in keyof T]?: DeepPartial<T[K]> }
-  : Partial<T>
+    ? Array<DeepPartial<U>>
+    : T extends ReadonlyArray<infer U>
+      ? ReadonlyArray<DeepPartial<U>>
+      : T extends {}
+        ? { [K in keyof T]?: DeepPartial<T[K]> }
+        : Partial<T>;
 
 function toTimestamp(date: Date): Timestamp {
   const seconds = date.getTime() / 1_000

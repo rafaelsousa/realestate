@@ -1,13 +1,13 @@
 /* eslint-disable */
 import { Coin } from '../../../cosmos/base/v1beta1/coin'
-import { Writer, Reader } from 'protobufjs/minimal'
+import { Reader, Writer } from 'protobufjs/minimal'
 
 export const protobufPackage = 'cosmos.bank.v1beta1'
 
 /** Params defines the parameters for the bank module. */
 export interface Params {
-  sendEnabled: SendEnabled[]
-  defaultSendEnabled: boolean
+  sendEnabled: SendEnabled[];
+  defaultSendEnabled: boolean;
 }
 
 /**
@@ -15,20 +15,20 @@ export interface Params {
  * sendable).
  */
 export interface SendEnabled {
-  denom: string
-  enabled: boolean
+  denom: string;
+  enabled: boolean;
 }
 
 /** Input models transaction input. */
 export interface Input {
-  address: string
-  coins: Coin[]
+  address: string;
+  coins: Coin[];
 }
 
 /** Output models transaction outputs. */
 export interface Output {
-  address: string
-  coins: Coin[]
+  address: string;
+  coins: Coin[];
 }
 
 /**
@@ -39,7 +39,7 @@ export interface Output {
  * @deprecated
  */
 export interface Supply {
-  total: Coin[]
+  total: Coin[];
 }
 
 /**
@@ -48,7 +48,7 @@ export interface Supply {
  */
 export interface DenomUnit {
   /** denom represents the string name of the given denom unit (e.g uatom). */
-  denom: string
+  denom: string;
   /**
    * exponent represents power of 10 exponent that one must
    * raise the base_denom to in order to equal the given DenomUnit's denom
@@ -56,9 +56,9 @@ export interface DenomUnit {
    * (e.g. with a base_denom of uatom, one can create a DenomUnit of 'atom' with
    * exponent = 6, thus: 1 atom = 10^6 uatom).
    */
-  exponent: number
+  exponent: number;
   /** aliases is a list of string aliases for the given denom */
-  aliases: string[]
+  aliases: string[];
 }
 
 /**
@@ -66,23 +66,29 @@ export interface DenomUnit {
  * a basic token.
  */
 export interface Metadata {
-  description: string
+  description: string;
   /** denom_units represents the list of DenomUnit's for a given coin */
-  denomUnits: DenomUnit[]
+  denomUnits: DenomUnit[];
   /** base represents the base denom (should be the DenomUnit with exponent = 0). */
-  base: string
+  base: string;
   /**
    * display indicates the suggested denom that should be
    * displayed in clients.
    */
-  display: string
-  /** name defines the name of the token (eg: Cosmos Atom) */
-  name: string
+  display: string;
+  /**
+   * name defines the name of the token (eg: Cosmos Atom)
+   *
+   * Since: cosmos-sdk 0.43
+   */
+  name: string;
   /**
    * symbol is the token symbol usually shown on exchanges (eg: ATOM). This can
    * be the same as the display.
+   *
+   * Since: cosmos-sdk 0.43
    */
-  symbol: string
+  symbol: string;
 }
 
 const baseParams: object = { defaultSendEnabled: false }
@@ -128,7 +134,10 @@ export const Params = {
         message.sendEnabled.push(SendEnabled.fromJSON(e))
       }
     }
-    if (object.defaultSendEnabled !== undefined && object.defaultSendEnabled !== null) {
+    if (
+      object.defaultSendEnabled !== undefined &&
+      object.defaultSendEnabled !== null
+    ) {
       message.defaultSendEnabled = Boolean(object.defaultSendEnabled)
     } else {
       message.defaultSendEnabled = false
@@ -139,11 +148,14 @@ export const Params = {
   toJSON(message: Params): unknown {
     const obj: any = {}
     if (message.sendEnabled) {
-      obj.sendEnabled = message.sendEnabled.map((e) => (e ? SendEnabled.toJSON(e) : undefined))
+      obj.sendEnabled = message.sendEnabled.map((e) =>
+        e ? SendEnabled.toJSON(e) : undefined,
+      )
     } else {
       obj.sendEnabled = []
     }
-    message.defaultSendEnabled !== undefined && (obj.defaultSendEnabled = message.defaultSendEnabled)
+    message.defaultSendEnabled !== undefined &&
+    (obj.defaultSendEnabled = message.defaultSendEnabled)
     return obj
   },
 
@@ -155,14 +167,17 @@ export const Params = {
         message.sendEnabled.push(SendEnabled.fromPartial(e))
       }
     }
-    if (object.defaultSendEnabled !== undefined && object.defaultSendEnabled !== null) {
+    if (
+      object.defaultSendEnabled !== undefined &&
+      object.defaultSendEnabled !== null
+    ) {
       message.defaultSendEnabled = object.defaultSendEnabled
     } else {
       message.defaultSendEnabled = false
     }
     return message
-  }
-}
+  },
+};
 
 const baseSendEnabled: object = { denom: '', enabled: false }
 
@@ -233,8 +248,8 @@ export const SendEnabled = {
       message.enabled = false
     }
     return message
-  }
-}
+  },
+};
 
 const baseInput: object = { address: '' }
 
@@ -312,8 +327,8 @@ export const Input = {
       }
     }
     return message
-  }
-}
+  },
+};
 
 const baseOutput: object = { address: '' }
 
@@ -391,8 +406,8 @@ export const Output = {
       }
     }
     return message
-  }
-}
+  },
+};
 
 const baseSupply: object = {}
 
@@ -453,8 +468,8 @@ export const Supply = {
       }
     }
     return message
-  }
-}
+  },
+};
 
 const baseDenomUnit: object = { denom: '', exponent: 0, aliases: '' }
 
@@ -549,10 +564,16 @@ export const DenomUnit = {
       }
     }
     return message
-  }
-}
+  },
+};
 
-const baseMetadata: object = { description: '', base: '', display: '', name: '', symbol: '' }
+const baseMetadata: object = {
+  description: '',
+  base: '',
+  display: '',
+  name: '',
+  symbol: '',
+}
 
 export const Metadata = {
   encode(message: Metadata, writer: Writer = Writer.create()): Writer {
@@ -649,9 +670,12 @@ export const Metadata = {
 
   toJSON(message: Metadata): unknown {
     const obj: any = {}
-    message.description !== undefined && (obj.description = message.description)
+    message.description !== undefined &&
+    (obj.description = message.description)
     if (message.denomUnits) {
-      obj.denomUnits = message.denomUnits.map((e) => (e ? DenomUnit.toJSON(e) : undefined))
+      obj.denomUnits = message.denomUnits.map((e) =>
+        e ? DenomUnit.toJSON(e) : undefined,
+      )
     } else {
       obj.denomUnits = []
     }
@@ -696,16 +720,16 @@ export const Metadata = {
       message.symbol = ''
     }
     return message
-  }
-}
+  },
+};
 
-type Builtin = Date | Function | Uint8Array | string | number | undefined
+type Builtin = Date | Function | Uint8Array | string | number | undefined;
 export type DeepPartial<T> = T extends Builtin
   ? T
   : T extends Array<infer U>
-  ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U>
-  ? ReadonlyArray<DeepPartial<U>>
-  : T extends {}
-  ? { [K in keyof T]?: DeepPartial<T[K]> }
-  : Partial<T>
+    ? Array<DeepPartial<U>>
+    : T extends ReadonlyArray<infer U>
+      ? ReadonlyArray<DeepPartial<U>>
+      : T extends {}
+        ? { [K in keyof T]?: DeepPartial<T[K]> }
+        : Partial<T>;
