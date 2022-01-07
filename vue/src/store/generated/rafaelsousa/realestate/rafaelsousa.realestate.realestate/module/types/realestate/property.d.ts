@@ -10,6 +10,8 @@ export interface Property {
     latitude: string;
     longitude: string;
     creator: string;
+    blueprint: string;
+    imgUrl: string;
 }
 export declare const Property: {
     encode(message: Property, writer?: Writer): Writer;

@@ -12856,6 +12856,10 @@ paths:
                       type: string
                     creator:
                       type: string
+                    blueprint:
+                      type: string
+                    imgUrl:
+                      type: string
               pagination:
                 type: object
                 properties:
@@ -12991,6 +12995,10 @@ paths:
                   longitude:
                     type: string
                   creator:
+                    type: string
+                  blueprint:
+                    type: string
+                  imgUrl:
                     type: string
         default:
           description: An unexpected error response.
@@ -20492,6 +20500,10 @@ definitions:
         type: string
       creator:
         type: string
+      blueprint:
+        type: string
+      imgUrl:
+        type: string
   rafaelsousa.realestate.realestate.QueryAllPropertyResponse:
     type: object
     properties:
@@ -20518,6 +20530,10 @@ definitions:
             longitude:
               type: string
             creator:
+              type: string
+            blueprint:
+              type: string
+            imgUrl:
               type: string
       pagination:
         type: object
@@ -20568,6 +20584,10 @@ definitions:
           longitude:
             type: string
           creator:
+            type: string
+          blueprint:
+            type: string
+          imgUrl:
             type: string
   rafaelsousa.realestate.realestate.QueryParamsResponse:
     type: object

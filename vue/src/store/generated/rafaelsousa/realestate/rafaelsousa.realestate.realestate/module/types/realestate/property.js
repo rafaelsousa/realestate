@@ -12,6 +12,8 @@ const baseProperty = {
     latitude: "",
     longitude: "",
     creator: "",
+    blueprint: "",
+    imgUrl: "",
 };
 export const Property = {
     encode(message, writer = Writer.create()) {
@@ -41,6 +43,12 @@ export const Property = {
         }
         if (message.creator !== "") {
             writer.uint32(74).string(message.creator);
+        }
+        if (message.blueprint !== "") {
+            writer.uint32(82).string(message.blueprint);
+        }
+        if (message.imgUrl !== "") {
+            writer.uint32(90).string(message.imgUrl);
         }
         return writer;
     },
@@ -77,6 +85,12 @@ export const Property = {
                     break;
                 case 9:
                     message.creator = reader.string();
+                    break;
+                case 10:
+                    message.blueprint = reader.string();
+                    break;
+                case 11:
+                    message.imgUrl = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -141,6 +155,18 @@ export const Property = {
         else {
             message.creator = "";
         }
+        if (object.blueprint !== undefined && object.blueprint !== null) {
+            message.blueprint = String(object.blueprint);
+        }
+        else {
+            message.blueprint = "";
+        }
+        if (object.imgUrl !== undefined && object.imgUrl !== null) {
+            message.imgUrl = String(object.imgUrl);
+        }
+        else {
+            message.imgUrl = "";
+        }
         return message;
     },
     toJSON(message) {
@@ -154,6 +180,8 @@ export const Property = {
         message.latitude !== undefined && (obj.latitude = message.latitude);
         message.longitude !== undefined && (obj.longitude = message.longitude);
         message.creator !== undefined && (obj.creator = message.creator);
+        message.blueprint !== undefined && (obj.blueprint = message.blueprint);
+        message.imgUrl !== undefined && (obj.imgUrl = message.imgUrl);
         return obj;
     },
     fromPartial(object) {
@@ -211,6 +239,18 @@ export const Property = {
         }
         else {
             message.creator = "";
+        }
+        if (object.blueprint !== undefined && object.blueprint !== null) {
+            message.blueprint = object.blueprint;
+        }
+        else {
+            message.blueprint = "";
+        }
+        if (object.imgUrl !== undefined && object.imgUrl !== null) {
+            message.imgUrl = object.imgUrl;
+        }
+        else {
+            message.imgUrl = "";
         }
         return message;
     },

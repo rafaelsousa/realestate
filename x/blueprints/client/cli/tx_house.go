@@ -1,6 +1,8 @@
 package cli
 
 import (
+	"encoding/json"
+	"os"
 	"strconv"
 
 	"github.com/cosmos/cosmos-sdk/client"
@@ -19,12 +21,20 @@ func CmdCreateHouse() *cobra.Command {
 			argDescription := args[0]
 			argImage := args[1]
 
+			imageContents, err := os.ReadFile(argImage)
+			if err != nil {
+				panic("Error when trying to open the file : ")
+			}
+			byteImage, err := json.Marshal(imageContents)
+
+			strImage := string(byteImage)
+
 			clientCtx, err := client.GetClientTxContext(cmd)
 			if err != nil {
 				return err
 			}
 
-			msg := types.NewMsgCreateHouse(clientCtx.GetFromAddress().String(), argDescription, argImage)
+			msg := types.NewMsgCreateHouse(clientCtx.GetFromAddress().String(), argDescription, strImage)
 			if err := msg.ValidateBasic(); err != nil {
 				return err
 			}

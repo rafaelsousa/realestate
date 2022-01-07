@@ -38,6 +38,8 @@ export interface RealestateProperty {
   latitude?: string;
   longitude?: string;
   creator?: string;
+  blueprint?: string;
+  imgUrl?: string;
 }
 
 export interface RealestateQueryAllPropertyResponse {

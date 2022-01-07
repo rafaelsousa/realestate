@@ -2,13 +2,13 @@
 import { SigningStargateClient } from "@cosmjs/stargate";
 import { Registry } from "@cosmjs/proto-signing";
 import { Api } from "./rest";
-import { MsgDeleteHouse } from "./types/blueprints/tx";
 import { MsgCreateHouse } from "./types/blueprints/tx";
 import { MsgUpdateHouse } from "./types/blueprints/tx";
+import { MsgDeleteHouse } from "./types/blueprints/tx";
 const types = [
-    ["/rafaelsousa.realestate.blueprints.MsgDeleteHouse", MsgDeleteHouse],
     ["/rafaelsousa.realestate.blueprints.MsgCreateHouse", MsgCreateHouse],
     ["/rafaelsousa.realestate.blueprints.MsgUpdateHouse", MsgUpdateHouse],
+    ["/rafaelsousa.realestate.blueprints.MsgDeleteHouse", MsgDeleteHouse],
 ];
 export const MissingWalletError = new Error("wallet is required");
 export const registry = new Registry(types);
@@ -29,9 +29,9 @@ const txClient = async (wallet, { addr: addr } = { addr: "http://localhost:26657
     const { address } = (await wallet.getAccounts())[0];
     return {
         signAndBroadcast: (msgs, { fee, memo } = { fee: defaultFee, memo: "" }) => client.signAndBroadcast(address, msgs, fee, memo),
-        msgDeleteHouse: (data) => ({ typeUrl: "/rafaelsousa.realestate.blueprints.MsgDeleteHouse", value: MsgDeleteHouse.fromPartial(data) }),
         msgCreateHouse: (data) => ({ typeUrl: "/rafaelsousa.realestate.blueprints.MsgCreateHouse", value: MsgCreateHouse.fromPartial(data) }),
         msgUpdateHouse: (data) => ({ typeUrl: "/rafaelsousa.realestate.blueprints.MsgUpdateHouse", value: MsgUpdateHouse.fromPartial(data) }),
+        msgDeleteHouse: (data) => ({ typeUrl: "/rafaelsousa.realestate.blueprints.MsgDeleteHouse", value: MsgDeleteHouse.fromPartial(data) }),
     };
 };
 const queryClient = async ({ addr: addr } = { addr: "http://localhost:1317" }) => {
