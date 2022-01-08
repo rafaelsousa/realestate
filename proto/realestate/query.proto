@@ -7,6 +7,10 @@ import "cosmos/base/query/v1beta1/pagination.proto";
 import "realestate/params.proto";
 import "realestate/property.proto";
 import "realestate/certificate.proto";
+import "realestate/locking.proto";
+import "realestate/inspection.proto";
+import "realestate/transference.proto";
+import "realestate/house.proto";
 // this line is used by starport scaffolding # 1
 
 option go_package = "github.com/rafaelsousa/realestate/x/realestate/types";
@@ -35,6 +39,46 @@ service Query {
 	// Queries a list of Certificate items.
 	rpc CertificateAll(QueryAllCertificateRequest) returns (QueryAllCertificateResponse) {
 		option (google.api.http).get = "/rafaelsousa/realestate/realestate/certificate";
+	}
+
+// Queries a Locking by id.
+	rpc Locking(QueryGetLockingRequest) returns (QueryGetLockingResponse) {
+		option (google.api.http).get = "/rafaelsousa/realestate/realestate/locking/{id}";
+	}
+
+	// Queries a list of Locking items.
+	rpc LockingAll(QueryAllLockingRequest) returns (QueryAllLockingResponse) {
+		option (google.api.http).get = "/rafaelsousa/realestate/realestate/locking";
+	}
+
+// Queries a Inspection by id.
+	rpc Inspection(QueryGetInspectionRequest) returns (QueryGetInspectionResponse) {
+		option (google.api.http).get = "/rafaelsousa/realestate/realestate/inspection/{id}";
+	}
+
+	// Queries a list of Inspection items.
+	rpc InspectionAll(QueryAllInspectionRequest) returns (QueryAllInspectionResponse) {
+		option (google.api.http).get = "/rafaelsousa/realestate/realestate/inspection";
+	}
+
+// Queries a Transference by id.
+	rpc Transference(QueryGetTransferenceRequest) returns (QueryGetTransferenceResponse) {
+		option (google.api.http).get = "/rafaelsousa/realestate/realestate/transference/{id}";
+	}
+
+	// Queries a list of Transference items.
+	rpc TransferenceAll(QueryAllTransferenceRequest) returns (QueryAllTransferenceResponse) {
+		option (google.api.http).get = "/rafaelsousa/realestate/realestate/transference";
+	}
+
+// Queries a House by id.
+	rpc House(QueryGetHouseRequest) returns (QueryGetHouseResponse) {
+		option (google.api.http).get = "/rafaelsousa/realestate/realestate/house/{id}";
+	}
+
+	// Queries a list of House items.
+	rpc HouseAll(QueryAllHouseRequest) returns (QueryAllHouseResponse) {
+		option (google.api.http).get = "/rafaelsousa/realestate/realestate/house";
 	}
 
 // this line is used by starport scaffolding # 2
@@ -80,6 +124,74 @@ message QueryAllCertificateRequest {
 
 message QueryAllCertificateResponse {
 	repeated Certificate Certificate = 1 [(gogoproto.nullable) = false];
+	cosmos.base.query.v1beta1.PageResponse pagination = 2;
+}
+
+message QueryGetLockingRequest {
+	uint64 id = 1;
+}
+
+message QueryGetLockingResponse {
+	Locking Locking = 1 [(gogoproto.nullable) = false];
+}
+
+message QueryAllLockingRequest {
+	cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+message QueryAllLockingResponse {
+	repeated Locking Locking = 1 [(gogoproto.nullable) = false];
+	cosmos.base.query.v1beta1.PageResponse pagination = 2;
+}
+
+message QueryGetInspectionRequest {
+	uint64 id = 1;
+}
+
+message QueryGetInspectionResponse {
+	Inspection Inspection = 1 [(gogoproto.nullable) = false];
+}
+
+message QueryAllInspectionRequest {
+	cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+message QueryAllInspectionResponse {
+	repeated Inspection Inspection = 1 [(gogoproto.nullable) = false];
+	cosmos.base.query.v1beta1.PageResponse pagination = 2;
+}
+
+message QueryGetTransferenceRequest {
+	uint64 id = 1;
+}
+
+message QueryGetTransferenceResponse {
+	Transference Transference = 1 [(gogoproto.nullable) = false];
+}
+
+message QueryAllTransferenceRequest {
+	cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+message QueryAllTransferenceResponse {
+	repeated Transference Transference = 1 [(gogoproto.nullable) = false];
+	cosmos.base.query.v1beta1.PageResponse pagination = 2;
+}
+
+message QueryGetHouseRequest {
+	uint64 id = 1;
+}
+
+message QueryGetHouseResponse {
+	House House = 1 [(gogoproto.nullable) = false];
+}
+
+message QueryAllHouseRequest {
+	cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+message QueryAllHouseResponse {
+	repeated House House = 1 [(gogoproto.nullable) = false];
 	cosmos.base.query.v1beta1.PageResponse pagination = 2;
 }
 

@@ -3,13 +3,13 @@ package simulation
 import (
 	"math/rand"
 
-	"github.com/rafaelsousa/realestate/x/realestate/keeper"
-	"github.com/rafaelsousa/realestate/x/realestate/types"
 	"github.com/cosmos/cosmos-sdk/baseapp"
 	simappparams "github.com/cosmos/cosmos-sdk/simapp/params"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	simtypes "github.com/cosmos/cosmos-sdk/types/simulation"
 	"github.com/cosmos/cosmos-sdk/x/simulation"
+	"github.com/rafaelsousa/realestate/x/realestate/keeper"
+	"github.com/rafaelsousa/realestate/x/realestate/types"
 )
 
 func SimulateMsgCreateCertificate(
@@ -51,11 +51,11 @@ func SimulateMsgUpdateCertificate(
 	return func(r *rand.Rand, app *baseapp.BaseApp, ctx sdk.Context, accs []simtypes.Account, chainID string,
 	) (simtypes.OperationMsg, []simtypes.FutureOperation, error) {
 		var (
-			simAccount = simtypes.Account{}
-			certificate = types.Certificate{}
-			msg = &types.MsgUpdateCertificate{}
+			simAccount     = simtypes.Account{}
+			certificate    = types.Certificate{}
+			msg            = &types.MsgUpdateCertificate{}
 			allCertificate = k.GetAllCertificate(ctx)
-			found = false
+			found          = false
 		)
 		for _, obj := range allCertificate {
 			simAccount, found = FindAccount(accs, obj.Creator)
@@ -96,11 +96,11 @@ func SimulateMsgDeleteCertificate(
 	return func(r *rand.Rand, app *baseapp.BaseApp, ctx sdk.Context, accs []simtypes.Account, chainID string,
 	) (simtypes.OperationMsg, []simtypes.FutureOperation, error) {
 		var (
-			simAccount = simtypes.Account{}
-			certificate = types.Certificate{}
-			msg = &types.MsgUpdateCertificate{}
+			simAccount     = simtypes.Account{}
+			certificate    = types.Certificate{}
+			msg            = &types.MsgUpdateCertificate{}
 			allCertificate = k.GetAllCertificate(ctx)
-			found = false
+			found          = false
 		)
 		for _, obj := range allCertificate {
 			simAccount, found = FindAccount(accs, obj.Creator)

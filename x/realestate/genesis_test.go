@@ -24,15 +24,51 @@ func TestGenesis(t *testing.T) {
 		},
 		PropertyCount: 2,
 		CertificateList: []types.Certificate{
-		{
-			Id: 0,
+			{
+				Id: 0,
+			},
+			{
+				Id: 1,
+			},
 		},
-		{
-			Id: 1,
+		CertificateCount: 2,
+		LockingList: []types.Locking{
+			{
+				Id: 0,
+			},
+			{
+				Id: 1,
+			},
 		},
-	},
-	CertificateCount: 2,
-	// this line is used by starport scaffolding # genesis/test/state
+		LockingCount: 2,
+		InspectionList: []types.Inspection{
+			{
+				Id: 0,
+			},
+			{
+				Id: 1,
+			},
+		},
+		InspectionCount: 2,
+		TransferenceList: []types.Transference{
+			{
+				Id: 0,
+			},
+			{
+				Id: 1,
+			},
+		},
+		TransferenceCount: 2,
+		HouseList: []types.House{
+			{
+				Id: 0,
+			},
+			{
+				Id: 1,
+			},
+		},
+		HouseCount: 2,
+		// this line is used by starport scaffolding # genesis/test/state
 	}
 
 	k, ctx := keepertest.RealestateKeeper(t)
@@ -46,6 +82,14 @@ func TestGenesis(t *testing.T) {
 	require.ElementsMatch(t, genesisState.PropertyList, got.PropertyList)
 	require.Equal(t, genesisState.PropertyCount, got.PropertyCount)
 	require.ElementsMatch(t, genesisState.CertificateList, got.CertificateList)
-require.Equal(t, genesisState.CertificateCount, got.CertificateCount)
-// this line is used by starport scaffolding # genesis/test/assert
+	require.Equal(t, genesisState.CertificateCount, got.CertificateCount)
+	require.ElementsMatch(t, genesisState.LockingList, got.LockingList)
+	require.Equal(t, genesisState.LockingCount, got.LockingCount)
+	require.ElementsMatch(t, genesisState.InspectionList, got.InspectionList)
+	require.Equal(t, genesisState.InspectionCount, got.InspectionCount)
+	require.ElementsMatch(t, genesisState.TransferenceList, got.TransferenceList)
+	require.Equal(t, genesisState.TransferenceCount, got.TransferenceCount)
+	require.ElementsMatch(t, genesisState.HouseList, got.HouseList)
+	require.Equal(t, genesisState.HouseCount, got.HouseCount)
+	// this line is used by starport scaffolding # genesis/test/assert
 }

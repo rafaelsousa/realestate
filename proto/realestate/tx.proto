@@ -3,6 +3,10 @@ package rafaelsousa.realestate.realestate;
 
 import "realestate/property.proto";
 import "realestate/certificate.proto";
+import "realestate/locking.proto";
+import "realestate/inspection.proto";
+import "realestate/transference.proto";
+import "realestate/house.proto";
 // this line is used by starport scaffolding # proto/tx/import
 
 option go_package = "github.com/rafaelsousa/realestate/x/realestate/types";
@@ -15,6 +19,23 @@ service Msg {
 rpc CreateCertificate(MsgCreateCertificate) returns (MsgCreateCertificateResponse);
   rpc UpdateCertificate(MsgUpdateCertificate) returns (MsgUpdateCertificateResponse);
   rpc DeleteCertificate(MsgDeleteCertificate) returns (MsgDeleteCertificateResponse);
+rpc CreateLocking(MsgCreateLocking) returns (MsgCreateLockingResponse);
+  rpc UpdateLocking(MsgUpdateLocking) returns (MsgUpdateLockingResponse);
+  rpc DeleteLocking(MsgDeleteLocking) returns (MsgDeleteLockingResponse);
+rpc CreateInspection(MsgCreateInspection) returns (MsgCreateInspectionResponse);
+  rpc UpdateInspection(MsgUpdateInspection) returns (MsgUpdateInspectionResponse);
+  rpc DeleteInspection(MsgDeleteInspection) returns (MsgDeleteInspectionResponse);
+rpc CreateTransference(MsgCreateTransference) returns (MsgCreateTransferenceResponse);
+  rpc UpdateTransference(MsgUpdateTransference) returns (MsgUpdateTransferenceResponse);
+  rpc DeleteTransference(MsgDeleteTransference) returns (MsgDeleteTransferenceResponse);
+rpc CreateHouse(MsgCreateHouse) returns (MsgCreateHouseResponse);
+  rpc UpdateHouse(MsgUpdateHouse) returns (MsgUpdateHouseResponse);
+  rpc DeleteHouse(MsgDeleteHouse) returns (MsgDeleteHouseResponse);
+  rpc RequestCertification(MsgRequestCertification) returns (MsgRequestCertificationResponse);
+  rpc EmitCertificate(MsgEmitCertificate) returns (MsgEmitCertificateResponse);
+  rpc LockProperty(MsgLockProperty) returns (MsgLockPropertyResponse);
+  rpc UnlockProperty(MsgUnlockProperty) returns (MsgUnlockPropertyResponse);
+  rpc UnlockAssets(MsgUnlockAssets) returns (MsgUnlockAssetsResponse);
 // this line is used by starport scaffolding # proto/tx/rpc
 }
 
@@ -85,5 +106,162 @@ message MsgDeleteCertificate {
 }
 
 message MsgDeleteCertificateResponse {}
+
+message MsgCreateLocking {
+  string creator = 1;
+  string owner = 2;
+  string dateLocking = 3;
+  string dateUnlocking = 4;
+  string unlockFees = 5;
+  string property = 6;
+}
+
+message MsgCreateLockingResponse {
+  uint64 id = 1;
+}
+
+message MsgUpdateLocking {
+  string creator = 1;
+  uint64 id = 2;
+  string owner = 3;
+  string dateLocking = 4;
+  string dateUnlocking = 5;
+  string unlockFees = 6;
+  string property = 7;
+}
+
+message MsgUpdateLockingResponse {}
+
+message MsgDeleteLocking {
+  string creator = 1;
+  uint64 id = 2;
+}
+
+message MsgDeleteLockingResponse {}
+
+message MsgCreateInspection {
+  string creator = 1;
+  string inspector = 2;
+  string property = 3;
+  string fees = 4;
+  string inspectionResults = 5;
+}
+
+message MsgCreateInspectionResponse {
+  uint64 id = 1;
+}
+
+message MsgUpdateInspection {
+  string creator = 1;
+  uint64 id = 2;
+  string inspector = 3;
+  string property = 4;
+  string fees = 5;
+  string inspectionResults = 6;
+}
+
+message MsgUpdateInspectionResponse {}
+
+message MsgDeleteInspection {
+  string creator = 1;
+  uint64 id = 2;
+}
+
+message MsgDeleteInspectionResponse {}
+
+message MsgCreateTransference {
+  string creator = 1;
+  string from = 2;
+  string to = 3;
+  string date = 4;
+  string value = 5;
+  string property = 6;
+}
+
+message MsgCreateTransferenceResponse {
+  uint64 id = 1;
+}
+
+message MsgUpdateTransference {
+  string creator = 1;
+  uint64 id = 2;
+  string from = 3;
+  string to = 4;
+  string date = 5;
+  string value = 6;
+  string property = 7;
+}
+
+message MsgUpdateTransferenceResponse {}
+
+message MsgDeleteTransference {
+  string creator = 1;
+  uint64 id = 2;
+}
+
+message MsgDeleteTransferenceResponse {}
+
+message MsgCreateHouse {
+  string creator = 1;
+  string description = 2;
+  string image = 3;
+  string blueprint = 4;
+}
+
+message MsgCreateHouseResponse {
+  uint64 id = 1;
+}
+
+message MsgUpdateHouse {
+  string creator = 1;
+  uint64 id = 2;
+  string description = 3;
+  string image = 4;
+  string blueprint = 5;
+}
+
+message MsgUpdateHouseResponse {}
+
+message MsgDeleteHouse {
+  string creator = 1;
+  uint64 id = 2;
+}
+
+message MsgDeleteHouseResponse {}
+
+message MsgRequestCertification {
+  string creator = 1;
+}
+
+message MsgRequestCertificationResponse {
+}
+
+message MsgEmitCertificate {
+  string creator = 1;
+}
+
+message MsgEmitCertificateResponse {
+}
+
+message MsgLockProperty {
+  string creator = 1;
+}
+
+message MsgLockPropertyResponse {
+}
+
+message MsgUnlockProperty {
+  string creator = 1;
+}
+
+message MsgUnlockPropertyResponse {
+}
+
+message MsgUnlockAssets {
+  string creator = 1;
+}
+
+message MsgUnlockAssetsResponse {
+}
 
 // this line is used by starport scaffolding # proto/tx/message

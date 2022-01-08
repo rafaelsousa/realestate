@@ -3,14 +3,14 @@ package keeper
 import (
 	"encoding/binary"
 
+	"github.com/cosmos/cosmos-sdk/store/prefix"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/rafaelsousa/realestate/x/realestate/types"
-	"github.com/cosmos/cosmos-sdk/store/prefix"
 )
 
 // GetCertificateCount get the total number of certificate
 func (k Keeper) GetCertificateCount(ctx sdk.Context) uint64 {
-	store :=  prefix.NewStore(ctx.KVStore(k.storeKey), []byte{})
+	store := prefix.NewStore(ctx.KVStore(k.storeKey), []byte{})
 	byteKey := types.KeyPrefix(types.CertificateCountKey)
 	bz := store.Get(byteKey)
 
@@ -24,8 +24,8 @@ func (k Keeper) GetCertificateCount(ctx sdk.Context) uint64 {
 }
 
 // SetCertificateCount set the total number of certificate
-func (k Keeper) SetCertificateCount(ctx sdk.Context, count uint64)  {
-	store :=  prefix.NewStore(ctx.KVStore(k.storeKey), []byte{})
+func (k Keeper) SetCertificateCount(ctx sdk.Context, count uint64) {
+	store := prefix.NewStore(ctx.KVStore(k.storeKey), []byte{})
 	byteKey := types.KeyPrefix(types.CertificateCountKey)
 	bz := make([]byte, 8)
 	binary.BigEndian.PutUint64(bz, count)
@@ -34,28 +34,28 @@ func (k Keeper) SetCertificateCount(ctx sdk.Context, count uint64)  {
 
 // AppendCertificate appends a certificate in the store with a new id and update the count
 func (k Keeper) AppendCertificate(
-    ctx sdk.Context,
-    certificate types.Certificate,
+	ctx sdk.Context,
+	certificate types.Certificate,
 ) uint64 {
 	// Create the certificate
-    count := k.GetCertificateCount(ctx)
+	count := k.GetCertificateCount(ctx)
 
-    // Set the ID of the appended value
-    certificate.Id = count
+	// Set the ID of the appended value
+	certificate.Id = count
 
-    store :=  prefix.NewStore(ctx.KVStore(k.storeKey), types.KeyPrefix(types.CertificateKey))
-    appendedValue := k.cdc.MustMarshal(&certificate)
-    store.Set(GetCertificateIDBytes(certificate.Id), appendedValue)
+	store := prefix.NewStore(ctx.KVStore(k.storeKey), types.KeyPrefix(types.CertificateKey))
+	appendedValue := k.cdc.MustMarshal(&certificate)
+	store.Set(GetCertificateIDBytes(certificate.Id), appendedValue)
 
-    // Update certificate count
-    k.SetCertificateCount(ctx, count+1)
+	// Update certificate count
+	k.SetCertificateCount(ctx, count+1)
 
-    return count
+	return count
 }
 
 // SetCertificate set a specific certificate in the store
 func (k Keeper) SetCertificate(ctx sdk.Context, certificate types.Certificate) {
-	store :=  prefix.NewStore(ctx.KVStore(k.storeKey), types.KeyPrefix(types.CertificateKey))
+	store := prefix.NewStore(ctx.KVStore(k.storeKey), types.KeyPrefix(types.CertificateKey))
 	b := k.cdc.MustMarshal(&certificate)
 	store.Set(GetCertificateIDBytes(certificate.Id), b)
 }
@@ -79,7 +79,7 @@ func (k Keeper) RemoveCertificate(ctx sdk.Context, id uint64) {
 
 // GetAllCertificate returns all certificate
 func (k Keeper) GetAllCertificate(ctx sdk.Context) (list []types.Certificate) {
-    store := prefix.NewStore(ctx.KVStore(k.storeKey), types.KeyPrefix(types.CertificateKey))
+	store := prefix.NewStore(ctx.KVStore(k.storeKey), types.KeyPrefix(types.CertificateKey))
 	iterator := sdk.KVStorePrefixIterator(store, []byte{})
 
 	defer iterator.Close()
@@ -87,10 +87,10 @@ func (k Keeper) GetAllCertificate(ctx sdk.Context) (list []types.Certificate) {
 	for ; iterator.Valid(); iterator.Next() {
 		var val types.Certificate
 		k.cdc.MustUnmarshal(iterator.Value(), &val)
-        list = append(list, val)
+		list = append(list, val)
 	}
 
-    return
+	return
 }
 
 // GetCertificateIDBytes returns the byte representation of the ID

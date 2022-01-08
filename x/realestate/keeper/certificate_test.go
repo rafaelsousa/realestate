@@ -3,11 +3,11 @@ package keeper_test
 import (
 	"testing"
 
-    "github.com/rafaelsousa/realestate/x/realestate/keeper"
-    "github.com/rafaelsousa/realestate/x/realestate/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	keepertest "github.com/rafaelsousa/realestate/testutil/keeper"
 	"github.com/rafaelsousa/realestate/testutil/nullify"
+	"github.com/rafaelsousa/realestate/x/realestate/keeper"
+	"github.com/rafaelsousa/realestate/x/realestate/types"
 	"github.com/stretchr/testify/require"
 )
 

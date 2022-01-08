@@ -10,9 +10,9 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"github.com/rafaelsousa/realestate/x/realestate/types"
-	"github.com/rafaelsousa/realestate/testutil/nullify"
 	keepertest "github.com/rafaelsousa/realestate/testutil/keeper"
+	"github.com/rafaelsousa/realestate/testutil/nullify"
+	"github.com/rafaelsousa/realestate/x/realestate/types"
 )
 
 func TestCertificateQuerySingle(t *testing.T) {
@@ -50,7 +50,7 @@ func TestCertificateQuerySingle(t *testing.T) {
 			if tc.err != nil {
 				require.ErrorIs(t, err, tc.err)
 			} else {
-			    require.NoError(t, err)
+				require.NoError(t, err)
 				require.Equal(t,
 					nullify.Fill(tc.response),
 					nullify.Fill(response),
@@ -83,8 +83,8 @@ func TestCertificateQueryPaginated(t *testing.T) {
 			require.LessOrEqual(t, len(resp.Certificate), step)
 			require.Subset(t,
 				nullify.Fill(msgs),
-            	nullify.Fill(resp.Certificate),
-            )
+				nullify.Fill(resp.Certificate),
+			)
 		}
 	})
 	t.Run("ByKey", func(t *testing.T) {
@@ -96,8 +96,8 @@ func TestCertificateQueryPaginated(t *testing.T) {
 			require.LessOrEqual(t, len(resp.Certificate), step)
 			require.Subset(t,
 				nullify.Fill(msgs),
-            	nullify.Fill(resp.Certificate),
-            )
+				nullify.Fill(resp.Certificate),
+			)
 			next = resp.Pagination.NextKey
 		}
 	})

@@ -1,0 +1,12 @@
+syntax = "proto3";
+package rafaelsousa.realestate.realestate;
+
+option go_package = "github.com/rafaelsousa/realestate/x/realestate/types";
+
+message House {
+  uint64 id = 1;
+  string description = 2; 
+  string image = 3; 
+  string blueprint = 4; 
+  string creator = 5;
+}

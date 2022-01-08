@@ -1,0 +1,14 @@
+syntax = "proto3";
+package rafaelsousa.realestate.realestate;
+
+option go_package = "github.com/rafaelsousa/realestate/x/realestate/types";
+
+message Transference {
+  uint64 id = 1;
+  string from = 2; 
+  string to = 3; 
+  string date = 4; 
+  string value = 5; 
+  string property = 6; 
+  string creator = 7;
+}

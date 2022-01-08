@@ -5,6 +5,10 @@ import "gogoproto/gogo.proto";
 import "realestate/params.proto";
 import "realestate/property.proto";
 import "realestate/certificate.proto";
+import "realestate/locking.proto";
+import "realestate/inspection.proto";
+import "realestate/transference.proto";
+import "realestate/house.proto";
 // this line is used by starport scaffolding # genesis/proto/import
 
 option go_package = "github.com/rafaelsousa/realestate/x/realestate/types";
@@ -16,5 +20,13 @@ message GenesisState {
   uint64 propertyCount = 3;
   repeated Certificate certificateList = 4 [(gogoproto.nullable) = false];
   uint64 certificateCount = 5;
+  repeated Locking lockingList = 6 [(gogoproto.nullable) = false];
+  uint64 lockingCount = 7;
+  repeated Inspection inspectionList = 8 [(gogoproto.nullable) = false];
+  uint64 inspectionCount = 9;
+  repeated Transference transferenceList = 10 [(gogoproto.nullable) = false];
+  uint64 transferenceCount = 11;
+  repeated House houseList = 12 [(gogoproto.nullable) = false];
+  uint64 houseCount = 13;
   // this line is used by starport scaffolding # genesis/proto/state
 }

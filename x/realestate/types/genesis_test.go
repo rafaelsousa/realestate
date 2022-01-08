@@ -32,15 +32,51 @@ func TestGenesisState_Validate(t *testing.T) {
 				},
 				PropertyCount: 2,
 				CertificateList: []types.Certificate{
-	{
-		Id: 0,
-	},
-	{
-		Id: 1,
-	},
-},
-CertificateCount: 2,
-// this line is used by starport scaffolding # types/genesis/validField
+					{
+						Id: 0,
+					},
+					{
+						Id: 1,
+					},
+				},
+				CertificateCount: 2,
+				LockingList: []types.Locking{
+					{
+						Id: 0,
+					},
+					{
+						Id: 1,
+					},
+				},
+				LockingCount: 2,
+				InspectionList: []types.Inspection{
+					{
+						Id: 0,
+					},
+					{
+						Id: 1,
+					},
+				},
+				InspectionCount: 2,
+				TransferenceList: []types.Transference{
+					{
+						Id: 0,
+					},
+					{
+						Id: 1,
+					},
+				},
+				TransferenceCount: 2,
+				HouseList: []types.House{
+					{
+						Id: 0,
+					},
+					{
+						Id: 1,
+					},
+				},
+				HouseCount: 2,
+				// this line is used by starport scaffolding # types/genesis/validField
 			},
 			valid: true,
 		},
@@ -71,32 +107,136 @@ CertificateCount: 2,
 			valid: false,
 		},
 		{
-	desc:     "duplicated certificate",
-	genState: &types.GenesisState{
-		CertificateList: []types.Certificate{
-			{
-				Id: 0,
+			desc: "duplicated certificate",
+			genState: &types.GenesisState{
+				CertificateList: []types.Certificate{
+					{
+						Id: 0,
+					},
+					{
+						Id: 0,
+					},
+				},
 			},
-			{
-				Id: 0,
-			},
+			valid: false,
 		},
-	},
-	valid:    false,
-},
-{
-	desc:     "invalid certificate count",
-	genState: &types.GenesisState{
-		CertificateList: []types.Certificate{
-			{
-				Id: 1,
+		{
+			desc: "invalid certificate count",
+			genState: &types.GenesisState{
+				CertificateList: []types.Certificate{
+					{
+						Id: 1,
+					},
+				},
+				CertificateCount: 0,
 			},
+			valid: false,
 		},
-		CertificateCount: 0,
-	},
-	valid:    false,
-},
-// this line is used by starport scaffolding # types/genesis/testcase
+		{
+			desc: "duplicated locking",
+			genState: &types.GenesisState{
+				LockingList: []types.Locking{
+					{
+						Id: 0,
+					},
+					{
+						Id: 0,
+					},
+				},
+			},
+			valid: false,
+		},
+		{
+			desc: "invalid locking count",
+			genState: &types.GenesisState{
+				LockingList: []types.Locking{
+					{
+						Id: 1,
+					},
+				},
+				LockingCount: 0,
+			},
+			valid: false,
+		},
+		{
+			desc: "duplicated inspection",
+			genState: &types.GenesisState{
+				InspectionList: []types.Inspection{
+					{
+						Id: 0,
+					},
+					{
+						Id: 0,
+					},
+				},
+			},
+			valid: false,
+		},
+		{
+			desc: "invalid inspection count",
+			genState: &types.GenesisState{
+				InspectionList: []types.Inspection{
+					{
+						Id: 1,
+					},
+				},
+				InspectionCount: 0,
+			},
+			valid: false,
+		},
+		{
+			desc: "duplicated transference",
+			genState: &types.GenesisState{
+				TransferenceList: []types.Transference{
+					{
+						Id: 0,
+					},
+					{
+						Id: 0,
+					},
+				},
+			},
+			valid: false,
+		},
+		{
+			desc: "invalid transference count",
+			genState: &types.GenesisState{
+				TransferenceList: []types.Transference{
+					{
+						Id: 1,
+					},
+				},
+				TransferenceCount: 0,
+			},
+			valid: false,
+		},
+		{
+			desc: "duplicated house",
+			genState: &types.GenesisState{
+				HouseList: []types.House{
+					{
+						Id: 0,
+					},
+					{
+						Id: 0,
+					},
+				},
+			},
+			valid: false,
+		},
+		{
+			desc: "invalid house count",
+			genState: &types.GenesisState{
+				HouseList: []types.House{
+					{
+						Id: 1,
+					},
+				},
+				HouseCount: 0,
+			},
+			valid: false,
+		},
+		// this line is used by starport scaffolding # types/genesis/testcase
 	} {
 		t.Run(tc.desc, func(t *testing.T) {
 			err := tc.genState.Validate()

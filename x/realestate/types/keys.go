@@ -27,6 +27,26 @@ const (
 )
 
 const (
-	CertificateKey= "Certificate-value-"
-	CertificateCountKey= "Certificate-count-"
+	CertificateKey      = "Certificate-value-"
+	CertificateCountKey = "Certificate-count-"
+)
+
+const (
+	LockingKey      = "Locking-value-"
+	LockingCountKey = "Locking-count-"
+)
+
+const (
+	InspectionKey      = "Inspection-value-"
+	InspectionCountKey = "Inspection-count-"
+)
+
+const (
+	TransferenceKey      = "Transference-value-"
+	TransferenceCountKey = "Transference-count-"
+)
+
+const (
+	HouseKey      = "House-value-"
+	HouseCountKey = "House-count-"
 )

@@ -1,13 +1,13 @@
 package cli
 
 import (
-    "strconv"
-	
-	"github.com/spf13/cobra"
-    "github.com/cosmos/cosmos-sdk/client"
+	"strconv"
+
+	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/client/flags"
 	"github.com/cosmos/cosmos-sdk/client/tx"
 	"github.com/rafaelsousa/realestate/x/realestate/types"
+	"github.com/spf13/cobra"
 )
 
 func CmdCreateCertificate() *cobra.Command {
@@ -16,12 +16,12 @@ func CmdCreateCertificate() *cobra.Command {
 		Short: "Create a new certificate",
 		Args:  cobra.ExactArgs(5),
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
-	  	 argProperty := args[0]
-		 argSurveyor := args[1]
-		 argCertifiationDate := args[2]
-		 argCertificateText := args[3]
-		 argPropertyMap := args[4]
-		
+			argProperty := args[0]
+			argSurveyor := args[1]
+			argCertifiationDate := args[2]
+			argCertificateText := args[3]
+			argPropertyMap := args[4]
+
 			clientCtx, err := client.GetClientTxContext(cmd)
 			if err != nil {
 				return err
@@ -37,7 +37,7 @@ func CmdCreateCertificate() *cobra.Command {
 
 	flags.AddTxFlagsToCmd(cmd)
 
-    return cmd
+	return cmd
 }
 
 func CmdUpdateCertificate() *cobra.Command {
@@ -46,22 +46,21 @@ func CmdUpdateCertificate() *cobra.Command {
 		Short: "Update a certificate",
 		Args:  cobra.ExactArgs(6),
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
-            id, err := strconv.ParseUint(args[0], 10, 64)
-            if err != nil {
-                return err
-            }
+			id, err := strconv.ParseUint(args[0], 10, 64)
+			if err != nil {
+				return err
+			}
 
-	    
-	  		argProperty := args[1]
-        
-	  		argSurveyor := args[2]
-        
-	  		argCertifiationDate := args[3]
-        
-	  		argCertificateText := args[4]
-        
-	  		argPropertyMap := args[5]
-        
+			argProperty := args[1]
+
+			argSurveyor := args[2]
+
+			argCertifiationDate := args[3]
+
+			argCertificateText := args[4]
+
+			argPropertyMap := args[5]
+
 			clientCtx, err := client.GetClientTxContext(cmd)
 			if err != nil {
 				return err
@@ -77,7 +76,7 @@ func CmdUpdateCertificate() *cobra.Command {
 
 	flags.AddTxFlagsToCmd(cmd)
 
-    return cmd
+	return cmd
 }
 
 func CmdDeleteCertificate() *cobra.Command {
@@ -86,10 +85,10 @@ func CmdDeleteCertificate() *cobra.Command {
 		Short: "Delete a certificate by id",
 		Args:  cobra.ExactArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) error {
-            id, err := strconv.ParseUint(args[0], 10, 64)
-            if err != nil {
-                return err
-            }
+			id, err := strconv.ParseUint(args[0], 10, 64)
+			if err != nil {
+				return err
+			}
 
 			clientCtx, err := client.GetClientTxContext(cmd)
 			if err != nil {
@@ -106,5 +105,5 @@ func CmdDeleteCertificate() *cobra.Command {
 
 	flags.AddTxFlagsToCmd(cmd)
 
-    return cmd
+	return cmd
 }

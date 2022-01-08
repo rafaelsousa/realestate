@@ -10,9 +10,13 @@ const DefaultIndex uint64 = 1
 // DefaultGenesis returns the default Capability genesis state
 func DefaultGenesis() *GenesisState {
 	return &GenesisState{
-		PropertyList: []Property{},
-		CertificateList: []Certificate{},
-// this line is used by starport scaffolding # genesis/types/default
+		PropertyList:     []Property{},
+		CertificateList:  []Certificate{},
+		LockingList:      []Locking{},
+		InspectionList:   []Inspection{},
+		TransferenceList: []Transference{},
+		HouseList:        []House{},
+		// this line is used by starport scaffolding # genesis/types/default
 		Params: DefaultParams(),
 	}
 }
@@ -33,18 +37,66 @@ func (gs GenesisState) Validate() error {
 		propertyIdMap[elem.Id] = true
 	}
 	// Check for duplicated ID in certificate
-certificateIdMap := make(map[uint64]bool)
-certificateCount := gs.GetCertificateCount()
-for _, elem := range gs.CertificateList {
-	if _, ok := certificateIdMap[elem.Id]; ok {
-		return fmt.Errorf("duplicated id for certificate")
+	certificateIdMap := make(map[uint64]bool)
+	certificateCount := gs.GetCertificateCount()
+	for _, elem := range gs.CertificateList {
+		if _, ok := certificateIdMap[elem.Id]; ok {
+			return fmt.Errorf("duplicated id for certificate")
+		}
+		if elem.Id >= certificateCount {
+			return fmt.Errorf("certificate id should be lower or equal than the last id")
+		}
+		certificateIdMap[elem.Id] = true
 	}
-	if elem.Id >= certificateCount {
-		return fmt.Errorf("certificate id should be lower or equal than the last id")
+	// Check for duplicated ID in locking
+	lockingIdMap := make(map[uint64]bool)
+	lockingCount := gs.GetLockingCount()
+	for _, elem := range gs.LockingList {
+		if _, ok := lockingIdMap[elem.Id]; ok {
+			return fmt.Errorf("duplicated id for locking")
+		}
+		if elem.Id >= lockingCount {
+			return fmt.Errorf("locking id should be lower or equal than the last id")
+		}
+		lockingIdMap[elem.Id] = true
 	}
-	certificateIdMap[elem.Id] = true
-}
-// this line is used by starport scaffolding # genesis/types/validate
+	// Check for duplicated ID in inspection
+	inspectionIdMap := make(map[uint64]bool)
+	inspectionCount := gs.GetInspectionCount()
+	for _, elem := range gs.InspectionList {
+		if _, ok := inspectionIdMap[elem.Id]; ok {
+			return fmt.Errorf("duplicated id for inspection")
+		}
+		if elem.Id >= inspectionCount {
+			return fmt.Errorf("inspection id should be lower or equal than the last id")
+		}
+		inspectionIdMap[elem.Id] = true
+	}
+	// Check for duplicated ID in transference
+	transferenceIdMap := make(map[uint64]bool)
+	transferenceCount := gs.GetTransferenceCount()
+	for _, elem := range gs.TransferenceList {
+		if _, ok := transferenceIdMap[elem.Id]; ok {
+			return fmt.Errorf("duplicated id for transference")
+		}
+		if elem.Id >= transferenceCount {
+			return fmt.Errorf("transference id should be lower or equal than the last id")
+		}
+		transferenceIdMap[elem.Id] = true
+	}
+	// Check for duplicated ID in house
+	houseIdMap := make(map[uint64]bool)
+	houseCount := gs.GetHouseCount()
+	for _, elem := range gs.HouseList {
+		if _, ok := houseIdMap[elem.Id]; ok {
+			return fmt.Errorf("duplicated id for house")
+		}
+		if elem.Id >= houseCount {
+			return fmt.Errorf("house id should be lower or equal than the last id")
+		}
+		houseIdMap[elem.Id] = true
+	}
+	// this line is used by starport scaffolding # genesis/types/validate
 
 	return gs.Params.Validate()
 }

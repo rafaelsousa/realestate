@@ -14,25 +14,25 @@ import (
 	"github.com/rafaelsousa/realestate/testutil/network"
 	"github.com/rafaelsousa/realestate/testutil/nullify"
 	"github.com/rafaelsousa/realestate/x/realestate/client/cli"
-    "github.com/rafaelsousa/realestate/x/realestate/types"
+	"github.com/rafaelsousa/realestate/x/realestate/types"
 )
 
 func networkWithCertificateObjects(t *testing.T, n int) (*network.Network, []types.Certificate) {
 	t.Helper()
 	cfg := network.DefaultConfig()
 	state := types.GenesisState{}
-    require.NoError(t, cfg.Codec.UnmarshalJSON(cfg.GenesisState[types.ModuleName], &state))
+	require.NoError(t, cfg.Codec.UnmarshalJSON(cfg.GenesisState[types.ModuleName], &state))
 
 	for i := 0; i < n; i++ {
 		certificate := types.Certificate{
-    		Id: uint64(i),
-    	}
+			Id: uint64(i),
+		}
 		nullify.Fill(&certificate)
 		state.CertificateList = append(state.CertificateList, certificate)
 	}
 	buf, err := cfg.Codec.MarshalJSON(&state)
 	require.NoError(t, err)
-    cfg.GenesisState[types.ModuleName] = buf
+	cfg.GenesisState[types.ModuleName] = buf
 	return network.New(t, cfg), state.CertificateList
 }
 
@@ -78,9 +78,9 @@ func TestShowCertificate(t *testing.T) {
 				require.NoError(t, net.Config.Codec.UnmarshalJSON(out.Bytes(), &resp))
 				require.NotNil(t, resp.Certificate)
 				require.Equal(t,
-                	nullify.Fill(&tc.obj),
-                	nullify.Fill(&resp.Certificate),
-                )
+					nullify.Fill(&tc.obj),
+					nullify.Fill(&resp.Certificate),
+				)
 			}
 		})
 	}
@@ -115,9 +115,9 @@ func TestListCertificate(t *testing.T) {
 			require.NoError(t, net.Config.Codec.UnmarshalJSON(out.Bytes(), &resp))
 			require.LessOrEqual(t, len(resp.Certificate), step)
 			require.Subset(t,
-            	nullify.Fill(objs),
-            	nullify.Fill(resp.Certificate),
-            )
+				nullify.Fill(objs),
+				nullify.Fill(resp.Certificate),
+			)
 		}
 	})
 	t.Run("ByKey", func(t *testing.T) {
@@ -132,8 +132,8 @@ func TestListCertificate(t *testing.T) {
 			require.LessOrEqual(t, len(resp.Certificate), step)
 			require.Subset(t,
 				nullify.Fill(objs),
-            	nullify.Fill(resp.Certificate),
-            )
+				nullify.Fill(resp.Certificate),
+			)
 			next = resp.Pagination.NextKey
 		}
 	})

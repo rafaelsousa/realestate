@@ -1,0 +1,14 @@
+syntax = "proto3";
+package rafaelsousa.realestate.realestate;
+
+option go_package = "github.com/rafaelsousa/realestate/x/realestate/types";
+
+message Locking {
+  uint64 id = 1;
+  string owner = 2; 
+  string dateLocking = 3; 
+  string dateUnlocking = 4; 
+  string unlockFees = 5; 
+  string property = 6; 
+  string creator = 7;
+}

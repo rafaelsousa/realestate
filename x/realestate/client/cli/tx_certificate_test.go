@@ -19,7 +19,7 @@ func TestCreateCertificate(t *testing.T) {
 	val := net.Validators[0]
 	ctx := val.ClientCtx
 
-    fields := []string{ "xyz",  "xyz",  "xyz",  "xyz",  "xyz", }
+	fields := []string{"xyz", "xyz", "xyz", "xyz", "xyz"}
 	for _, tc := range []struct {
 		desc string
 		args []string
@@ -38,9 +38,9 @@ func TestCreateCertificate(t *testing.T) {
 	} {
 		tc := tc
 		t.Run(tc.desc, func(t *testing.T) {
-            args := []string{}
-            args = append(args, fields...)
-            args = append(args, tc.args...)
+			args := []string{}
+			args = append(args, fields...)
+			args = append(args, tc.args...)
 			out, err := clitestutil.ExecTestCLICmd(ctx, cli.CmdCreateCertificate(), args)
 			if tc.err != nil {
 				require.ErrorIs(t, err, tc.err)
@@ -60,14 +60,14 @@ func TestUpdateCertificate(t *testing.T) {
 	val := net.Validators[0]
 	ctx := val.ClientCtx
 
-    fields := []string{ "xyz",  "xyz",  "xyz",  "xyz",  "xyz", }
+	fields := []string{"xyz", "xyz", "xyz", "xyz", "xyz"}
 	common := []string{
 		fmt.Sprintf("--%s=%s", flags.FlagFrom, val.Address.String()),
 		fmt.Sprintf("--%s=true", flags.FlagSkipConfirmation),
 		fmt.Sprintf("--%s=%s", flags.FlagBroadcastMode, flags.BroadcastBlock),
 		fmt.Sprintf("--%s=%s", flags.FlagFees, sdk.NewCoins(sdk.NewCoin(net.Config.BondDenom, sdk.NewInt(10))).String()),
 	}
-    args := []string{}
+	args := []string{}
 	args = append(args, fields...)
 	args = append(args, common...)
 	_, err := clitestutil.ExecTestCLICmd(ctx, cli.CmdCreateCertificate(), args)
@@ -94,9 +94,9 @@ func TestUpdateCertificate(t *testing.T) {
 	} {
 		tc := tc
 		t.Run(tc.desc, func(t *testing.T) {
-            args := []string{tc.id}
-            args = append(args, fields...)
-            args = append(args, tc.args...)
+			args := []string{tc.id}
+			args = append(args, fields...)
+			args = append(args, tc.args...)
 			out, err := clitestutil.ExecTestCLICmd(ctx, cli.CmdUpdateCertificate(), args)
 			if tc.err != nil {
 				require.ErrorIs(t, err, tc.err)
@@ -116,14 +116,14 @@ func TestDeleteCertificate(t *testing.T) {
 	val := net.Validators[0]
 	ctx := val.ClientCtx
 
-	fields := []string{ "xyz",  "xyz",  "xyz",  "xyz",  "xyz", }
+	fields := []string{"xyz", "xyz", "xyz", "xyz", "xyz"}
 	common := []string{
 		fmt.Sprintf("--%s=%s", flags.FlagFrom, val.Address.String()),
 		fmt.Sprintf("--%s=true", flags.FlagSkipConfirmation),
 		fmt.Sprintf("--%s=%s", flags.FlagBroadcastMode, flags.BroadcastBlock),
 		fmt.Sprintf("--%s=%s", flags.FlagFees, sdk.NewCoins(sdk.NewCoin(net.Config.BondDenom, sdk.NewInt(10))).String()),
 	}
-    args := []string{}
+	args := []string{}
 	args = append(args, fields...)
 	args = append(args, common...)
 	_, err := clitestutil.ExecTestCLICmd(ctx, cli.CmdCreateCertificate(), args)
