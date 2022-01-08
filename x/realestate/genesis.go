@@ -16,7 +16,14 @@ func InitGenesis(ctx sdk.Context, k keeper.Keeper, genState types.GenesisState) 
 
 	// Set property count
 	k.SetPropertyCount(ctx, genState.PropertyCount)
-	// this line is used by starport scaffolding # genesis/module/init
+	// Set all the certificate
+for _, elem := range genState.CertificateList {
+	k.SetCertificate(ctx, elem)
+}
+
+// Set certificate count
+k.SetCertificateCount(ctx, genState.CertificateCount)
+// this line is used by starport scaffolding # genesis/module/init
 	k.SetParams(ctx, genState.Params)
 }
 
@@ -27,7 +34,9 @@ func ExportGenesis(ctx sdk.Context, k keeper.Keeper) *types.GenesisState {
 
 	genesis.PropertyList = k.GetAllProperty(ctx)
 	genesis.PropertyCount = k.GetPropertyCount(ctx)
-	// this line is used by starport scaffolding # genesis/module/export
+	genesis.CertificateList = k.GetAllCertificate(ctx)
+genesis.CertificateCount = k.GetCertificateCount(ctx)
+// this line is used by starport scaffolding # genesis/module/export
 
 	return genesis
 }

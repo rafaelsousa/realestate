@@ -25,3 +25,8 @@ const (
 	PropertyKey      = "Property-value-"
 	PropertyCountKey = "Property-count-"
 )
+
+const (
+	CertificateKey= "Certificate-value-"
+	CertificateCountKey= "Certificate-count-"
+)

@@ -7,6 +7,14 @@ Locking -- Property
 Certificate *-- Property
 Inspection "*" -- "1" Property
 
+class Certificate {
+    property : string
+    surveyor : string
+    certification_date : date
+    certificate_text : string
+    property_map : string
+}
+
 class Locking{
     owner : addr
     date_locking : date

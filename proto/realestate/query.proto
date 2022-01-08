@@ -6,6 +6,7 @@ import "google/api/annotations.proto";
 import "cosmos/base/query/v1beta1/pagination.proto";
 import "realestate/params.proto";
 import "realestate/property.proto";
+import "realestate/certificate.proto";
 // this line is used by starport scaffolding # 1
 
 option go_package = "github.com/rafaelsousa/realestate/x/realestate/types";
@@ -24,6 +25,16 @@ service Query {
 	// Queries a list of Property items.
 	rpc PropertyAll(QueryAllPropertyRequest) returns (QueryAllPropertyResponse) {
 		option (google.api.http).get = "/rafaelsousa/realestate/realestate/property";
+	}
+
+// Queries a Certificate by id.
+	rpc Certificate(QueryGetCertificateRequest) returns (QueryGetCertificateResponse) {
+		option (google.api.http).get = "/rafaelsousa/realestate/realestate/certificate/{id}";
+	}
+
+	// Queries a list of Certificate items.
+	rpc CertificateAll(QueryAllCertificateRequest) returns (QueryAllCertificateResponse) {
+		option (google.api.http).get = "/rafaelsousa/realestate/realestate/certificate";
 	}
 
 // this line is used by starport scaffolding # 2
@@ -52,6 +63,23 @@ message QueryAllPropertyRequest {
 
 message QueryAllPropertyResponse {
 	repeated Property Property = 1 [(gogoproto.nullable) = false];
+	cosmos.base.query.v1beta1.PageResponse pagination = 2;
+}
+
+message QueryGetCertificateRequest {
+	uint64 id = 1;
+}
+
+message QueryGetCertificateResponse {
+	Certificate Certificate = 1 [(gogoproto.nullable) = false];
+}
+
+message QueryAllCertificateRequest {
+	cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+message QueryAllCertificateResponse {
+	repeated Certificate Certificate = 1 [(gogoproto.nullable) = false];
 	cosmos.base.query.v1beta1.PageResponse pagination = 2;
 }
 

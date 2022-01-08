@@ -11,7 +11,8 @@ const DefaultIndex uint64 = 1
 func DefaultGenesis() *GenesisState {
 	return &GenesisState{
 		PropertyList: []Property{},
-		// this line is used by starport scaffolding # genesis/types/default
+		CertificateList: []Certificate{},
+// this line is used by starport scaffolding # genesis/types/default
 		Params: DefaultParams(),
 	}
 }
@@ -31,7 +32,19 @@ func (gs GenesisState) Validate() error {
 		}
 		propertyIdMap[elem.Id] = true
 	}
-	// this line is used by starport scaffolding # genesis/types/validate
+	// Check for duplicated ID in certificate
+certificateIdMap := make(map[uint64]bool)
+certificateCount := gs.GetCertificateCount()
+for _, elem := range gs.CertificateList {
+	if _, ok := certificateIdMap[elem.Id]; ok {
+		return fmt.Errorf("duplicated id for certificate")
+	}
+	if elem.Id >= certificateCount {
+		return fmt.Errorf("certificate id should be lower or equal than the last id")
+	}
+	certificateIdMap[elem.Id] = true
+}
+// this line is used by starport scaffolding # genesis/types/validate
 
 	return gs.Params.Validate()
 }

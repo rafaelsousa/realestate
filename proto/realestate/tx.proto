@@ -2,6 +2,7 @@ syntax = "proto3";
 package rafaelsousa.realestate.realestate;
 
 import "realestate/property.proto";
+import "realestate/certificate.proto";
 // this line is used by starport scaffolding # proto/tx/import
 
 option go_package = "github.com/rafaelsousa/realestate/x/realestate/types";
@@ -11,6 +12,9 @@ service Msg {
     rpc CreateProperty(MsgCreateProperty) returns (MsgCreatePropertyResponse);
   rpc UpdateProperty(MsgUpdateProperty) returns (MsgUpdatePropertyResponse);
   rpc DeleteProperty(MsgDeleteProperty) returns (MsgDeletePropertyResponse);
+rpc CreateCertificate(MsgCreateCertificate) returns (MsgCreateCertificateResponse);
+  rpc UpdateCertificate(MsgUpdateCertificate) returns (MsgUpdateCertificateResponse);
+  rpc DeleteCertificate(MsgDeleteCertificate) returns (MsgDeleteCertificateResponse);
 // this line is used by starport scaffolding # proto/tx/rpc
 }
 
@@ -49,5 +53,37 @@ message MsgDeleteProperty {
 }
 
 message MsgDeletePropertyResponse {}
+
+message MsgCreateCertificate {
+  string creator = 1;
+  string property = 2;
+  string surveyor = 3;
+  string certifiationDate = 4;
+  string certificateText = 5;
+  string propertyMap = 6;
+}
+
+message MsgCreateCertificateResponse {
+  uint64 id = 1;
+}
+
+message MsgUpdateCertificate {
+  string creator = 1;
+  uint64 id = 2;
+  string property = 3;
+  string surveyor = 4;
+  string certifiationDate = 5;
+  string certificateText = 6;
+  string propertyMap = 7;
+}
+
+message MsgUpdateCertificateResponse {}
+
+message MsgDeleteCertificate {
+  string creator = 1;
+  uint64 id = 2;
+}
+
+message MsgDeleteCertificateResponse {}
 
 // this line is used by starport scaffolding # proto/tx/message

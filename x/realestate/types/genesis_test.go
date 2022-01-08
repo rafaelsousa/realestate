@@ -31,7 +31,16 @@ func TestGenesisState_Validate(t *testing.T) {
 					},
 				},
 				PropertyCount: 2,
-				// this line is used by starport scaffolding # types/genesis/validField
+				CertificateList: []types.Certificate{
+	{
+		Id: 0,
+	},
+	{
+		Id: 1,
+	},
+},
+CertificateCount: 2,
+// this line is used by starport scaffolding # types/genesis/validField
 			},
 			valid: true,
 		},
@@ -61,7 +70,33 @@ func TestGenesisState_Validate(t *testing.T) {
 			},
 			valid: false,
 		},
-		// this line is used by starport scaffolding # types/genesis/testcase
+		{
+	desc:     "duplicated certificate",
+	genState: &types.GenesisState{
+		CertificateList: []types.Certificate{
+			{
+				Id: 0,
+			},
+			{
+				Id: 0,
+			},
+		},
+	},
+	valid:    false,
+},
+{
+	desc:     "invalid certificate count",
+	genState: &types.GenesisState{
+		CertificateList: []types.Certificate{
+			{
+				Id: 1,
+			},
+		},
+		CertificateCount: 0,
+	},
+	valid:    false,
+},
+// this line is used by starport scaffolding # types/genesis/testcase
 	} {
 		t.Run(tc.desc, func(t *testing.T) {
 			err := tc.genState.Validate()

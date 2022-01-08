@@ -23,7 +23,16 @@ func TestGenesis(t *testing.T) {
 			},
 		},
 		PropertyCount: 2,
-		// this line is used by starport scaffolding # genesis/test/state
+		CertificateList: []types.Certificate{
+		{
+			Id: 0,
+		},
+		{
+			Id: 1,
+		},
+	},
+	CertificateCount: 2,
+	// this line is used by starport scaffolding # genesis/test/state
 	}
 
 	k, ctx := keepertest.RealestateKeeper(t)
@@ -36,5 +45,7 @@ func TestGenesis(t *testing.T) {
 
 	require.ElementsMatch(t, genesisState.PropertyList, got.PropertyList)
 	require.Equal(t, genesisState.PropertyCount, got.PropertyCount)
-	// this line is used by starport scaffolding # genesis/test/assert
+	require.ElementsMatch(t, genesisState.CertificateList, got.CertificateList)
+require.Equal(t, genesisState.CertificateCount, got.CertificateCount)
+// this line is used by starport scaffolding # genesis/test/assert
 }

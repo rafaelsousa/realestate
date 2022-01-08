@@ -36,6 +36,18 @@ const (
 	// TODO: Determine the simulation weight value
 	defaultWeightMsgDeleteProperty int = 100
 
+	opWeightMsgCreateCertificate = "op_weight_msg_create_chain"
+	// TODO: Determine the simulation weight value
+	defaultWeightMsgCreateCertificate int = 100
+
+	opWeightMsgUpdateCertificate = "op_weight_msg_create_chain"
+	// TODO: Determine the simulation weight value
+	defaultWeightMsgUpdateCertificate int = 100
+
+	opWeightMsgDeleteCertificate = "op_weight_msg_create_chain"
+	// TODO: Determine the simulation weight value
+	defaultWeightMsgDeleteCertificate int = 100
+
 	// this line is used by starport scaffolding # simapp/module/const
 )
 
@@ -57,7 +69,20 @@ func (AppModule) GenerateGenesisState(simState *module.SimulationState) {
 			},
 		},
 		PropertyCount: 2,
-		// this line is used by starport scaffolding # simapp/module/genesisState
+			CertificateList: []types.Certificate{
+		{
+			Id: 0,
+			Creator: sample.AccAddress(),
+
+		},
+		{
+			Id: 1,
+			Creator: sample.AccAddress(),
+
+		},
+	},
+	CertificateCount: 2,
+	// this line is used by starport scaffolding # simapp/module/genesisState
 	}
 	simState.GenState[types.ModuleName] = simState.Cdc.MustMarshalJSON(&realestateGenesis)
 }
@@ -111,6 +136,39 @@ func (am AppModule) WeightedOperations(simState module.SimulationState) []simtyp
 	operations = append(operations, simulation.NewWeightedOperation(
 		weightMsgDeleteProperty,
 		realestatesimulation.SimulateMsgDeleteProperty(am.accountKeeper, am.bankKeeper, am.keeper),
+	))
+
+	var weightMsgCreateCertificate int
+	simState.AppParams.GetOrGenerate(simState.Cdc, opWeightMsgCreateCertificate, &weightMsgCreateCertificate, nil,
+		func(_ *rand.Rand) {
+			weightMsgCreateCertificate = defaultWeightMsgCreateCertificate
+		},
+	)
+	operations = append(operations, simulation.NewWeightedOperation(
+		weightMsgCreateCertificate,
+		realestatesimulation.SimulateMsgCreateCertificate(am.accountKeeper, am.bankKeeper, am.keeper),
+	))
+
+	var weightMsgUpdateCertificate int
+	simState.AppParams.GetOrGenerate(simState.Cdc, opWeightMsgUpdateCertificate, &weightMsgUpdateCertificate, nil,
+		func(_ *rand.Rand) {
+			weightMsgUpdateCertificate = defaultWeightMsgUpdateCertificate
+		},
+	)
+	operations = append(operations, simulation.NewWeightedOperation(
+		weightMsgUpdateCertificate,
+		realestatesimulation.SimulateMsgUpdateCertificate(am.accountKeeper, am.bankKeeper, am.keeper),
+	))
+
+	var weightMsgDeleteCertificate int
+	simState.AppParams.GetOrGenerate(simState.Cdc, opWeightMsgDeleteCertificate, &weightMsgDeleteCertificate, nil,
+		func(_ *rand.Rand) {
+			weightMsgDeleteCertificate = defaultWeightMsgDeleteCertificate
+		},
+	)
+	operations = append(operations, simulation.NewWeightedOperation(
+		weightMsgDeleteCertificate,
+		realestatesimulation.SimulateMsgDeleteCertificate(am.accountKeeper, am.bankKeeper, am.keeper),
 	))
 
 	// this line is used by starport scaffolding # simapp/module/operation

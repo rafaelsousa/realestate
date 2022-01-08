@@ -29,7 +29,19 @@ func NewHandler(k keeper.Keeper) sdk.Handler {
 			res, err := msgServer.DeleteProperty(sdk.WrapSDKContext(ctx), msg)
 			return sdk.WrapServiceResult(ctx, res, err)
 
-			// this line is used by starport scaffolding # 1
+			case *types.MsgCreateCertificate:
+					res, err := msgServer.CreateCertificate(sdk.WrapSDKContext(ctx), msg)
+					return sdk.WrapServiceResult(ctx, res, err)
+
+		case *types.MsgUpdateCertificate:
+					res, err := msgServer.UpdateCertificate(sdk.WrapSDKContext(ctx), msg)
+					return sdk.WrapServiceResult(ctx, res, err)
+
+		case *types.MsgDeleteCertificate:
+					res, err := msgServer.DeleteCertificate(sdk.WrapSDKContext(ctx), msg)
+					return sdk.WrapServiceResult(ctx, res, err)
+
+// this line is used by starport scaffolding # 1
 		default:
 			errMsg := fmt.Sprintf("unrecognized %s message type: %T", types.ModuleName, msg)
 			return nil, sdkerrors.Wrap(sdkerrors.ErrUnknownRequest, errMsg)
