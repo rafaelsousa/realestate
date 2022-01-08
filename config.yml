@@ -13,18 +13,33 @@ genesis:
           denom: domus
 
 accounts:
-  - name: alpha
-    coins: ["42000000000domus"]
+  - name: admin
+    coins: ["1000000000domus"]
     mnemonic: "pitch potato lady search click tumble evoke reunion artwork debris alter panda journey hand elder whisper kick oblige number plastic adult junior enlist exercise"
+  - name: owner1
+    coins: [ "10000domus" ]
+    mnemonic: "welcome prepare whisper pave silver gather dumb security state write noble prison scout island glimpse leader balance wreck first treat luxury abstract stairs process"
+  - name: owner2
+    coins: [ "10000domus" ]
+    mnemonic: "screen stay runway crumble where mix receive wild april month security seat panel fashion garden oyster belt void galaxy hand drive frozen level increase"
+  - name: surveyor
+    coins: [ "10000domus" ]
+    mnemonic: "stable prepare skin idle parade chunk brand mixture sugar ladder dwarf shrimp uphold aspect warm hollow shock grunt evidence list artwork idle uncle water"
+  - name: broker
+    coins: [ "10000domus" ]
+    mnemonic: "tone web fine talk pen reunion away visa bar genre tomorrow vacant model monkey duty globe lab east rhythm joy ski lens valid hat"
+  - name: inspector
+    coins: [ "10000domus" ]
+    mnemonic: "trophy cricket wall own pipe search unique door fossil item expose inch learn atom cruel isolate rookie position match home repeat eyebrow slab parrot"
 
 validator:
-  name: alpha
-  staked: "2000000000domus"
+  name: admin
+  staked: "670000000domus"
 client:
 #  vuex:
 #    path: "vue/src/store"
 #  openapi:
 #    path: "docs/static/openapi.yml"
 faucet:
-  name: alpha
+  name: admin
   coins: ["100domus"]

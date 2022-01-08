@@ -4,7 +4,7 @@
 autonumber
 
 actor owner #red
-actor surveyour #blue
+actor surveyor #blue
 
 
 group creation
@@ -20,11 +20,11 @@ group certification
     property_keeper -> property_keeper : lock_property
     property_keeper -> bank_keeper : lock_assets
 
-    surveyour -> property_keeper : emit_certificate
+    surveyor -> property_keeper : emit_certificate
     property_keeper -> property_keeper : update_property
     property_keeper -> property_keeper : unlock_property
     property_keeper -> bank_keeper : unlock_assets
-    bank_keeper -> surveyour : transfer_assets
+    bank_keeper -> surveyor : transfer_assets
 end
 
 @enduml
