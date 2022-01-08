@@ -13,13 +13,13 @@ const (
 
 var _ sdk.Msg = &MsgCreateLocking{}
 
-func NewMsgCreateLocking(creator string, owner string, dateLocking string, dateUnlocking string, unlockFees string, property string) *MsgCreateLocking {
+func NewMsgCreateLocking(creator string, owner string, dateLocking string, dateUnlocking string, assets uint64, property uint64) *MsgCreateLocking {
 	return &MsgCreateLocking{
 		Creator:       creator,
 		Owner:         owner,
 		DateLocking:   dateLocking,
 		DateUnlocking: dateUnlocking,
-		UnlockFees:    unlockFees,
+		Assets:        assets,
 		Property:      property,
 	}
 }
@@ -55,14 +55,14 @@ func (msg *MsgCreateLocking) ValidateBasic() error {
 
 var _ sdk.Msg = &MsgUpdateLocking{}
 
-func NewMsgUpdateLocking(creator string, id uint64, owner string, dateLocking string, dateUnlocking string, unlockFees string, property string) *MsgUpdateLocking {
+func NewMsgUpdateLocking(creator string, id uint64, owner string, dateLocking string, dateUnlocking string, assets uint64, property uint64) *MsgUpdateLocking {
 	return &MsgUpdateLocking{
 		Id:            id,
 		Creator:       creator,
 		Owner:         owner,
 		DateLocking:   dateLocking,
 		DateUnlocking: dateUnlocking,
-		UnlockFees:    unlockFees,
+		Assets:        assets,
 		Property:      property,
 	}
 }

@@ -20,14 +20,14 @@ func CmdCreateTransference() *cobra.Command {
 			argTo := args[1]
 			argDate := args[2]
 			argValue := args[3]
-			argProperty := args[4]
+			argProperty, _ := strconv.Atoi(args[4])
 
 			clientCtx, err := client.GetClientTxContext(cmd)
 			if err != nil {
 				return err
 			}
 
-			msg := types.NewMsgCreateTransference(clientCtx.GetFromAddress().String(), argFrom, argTo, argDate, argValue, argProperty)
+			msg := types.NewMsgCreateTransference(clientCtx.GetFromAddress().String(), argFrom, argTo, argDate, argValue, uint64(argProperty))
 			if err := msg.ValidateBasic(); err != nil {
 				return err
 			}
@@ -59,14 +59,14 @@ func CmdUpdateTransference() *cobra.Command {
 
 			argValue := args[4]
 
-			argProperty := args[5]
+			argProperty, _ := strconv.Atoi(args[5])
 
 			clientCtx, err := client.GetClientTxContext(cmd)
 			if err != nil {
 				return err
 			}
 
-			msg := types.NewMsgUpdateTransference(clientCtx.GetFromAddress().String(), id, argFrom, argTo, argDate, argValue, argProperty)
+			msg := types.NewMsgUpdateTransference(clientCtx.GetFromAddress().String(), id, argFrom, argTo, argDate, argValue, uint64(argProperty))
 			if err := msg.ValidateBasic(); err != nil {
 				return err
 			}

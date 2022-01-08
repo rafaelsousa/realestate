@@ -128,7 +128,8 @@ func (m *MsgCreateProperty) GetLongitude() string {
 }
 
 type MsgCreatePropertyResponse struct {
-	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Id      uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Message string `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
 }
 
 func (m *MsgCreatePropertyResponse) Reset()         { *m = MsgCreatePropertyResponse{} }
@@ -169,6 +170,13 @@ func (m *MsgCreatePropertyResponse) GetId() uint64 {
 		return m.Id
 	}
 	return 0
+}
+
+func (m *MsgCreatePropertyResponse) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
 }
 
 type MsgUpdateProperty struct {
@@ -405,7 +413,7 @@ var xxx_messageInfo_MsgDeletePropertyResponse proto.InternalMessageInfo
 
 type MsgCreateCertificate struct {
 	Creator          string `protobuf:"bytes,1,opt,name=creator,proto3" json:"creator,omitempty"`
-	Property         string `protobuf:"bytes,2,opt,name=property,proto3" json:"property,omitempty"`
+	Property         uint64 `protobuf:"varint,2,opt,name=property,proto3" json:"property,omitempty"`
 	Surveyor         string `protobuf:"bytes,3,opt,name=surveyor,proto3" json:"surveyor,omitempty"`
 	CertifiationDate string `protobuf:"bytes,4,opt,name=certifiationDate,proto3" json:"certifiationDate,omitempty"`
 	CertificateText  string `protobuf:"bytes,5,opt,name=certificateText,proto3" json:"certificateText,omitempty"`
@@ -452,11 +460,11 @@ func (m *MsgCreateCertificate) GetCreator() string {
 	return ""
 }
 
-func (m *MsgCreateCertificate) GetProperty() string {
+func (m *MsgCreateCertificate) GetProperty() uint64 {
 	if m != nil {
 		return m.Property
 	}
-	return ""
+	return 0
 }
 
 func (m *MsgCreateCertificate) GetSurveyor() string {
@@ -534,7 +542,7 @@ func (m *MsgCreateCertificateResponse) GetId() uint64 {
 type MsgUpdateCertificate struct {
 	Creator          string `protobuf:"bytes,1,opt,name=creator,proto3" json:"creator,omitempty"`
 	Id               uint64 `protobuf:"varint,2,opt,name=id,proto3" json:"id,omitempty"`
-	Property         string `protobuf:"bytes,3,opt,name=property,proto3" json:"property,omitempty"`
+	Property         uint64 `protobuf:"varint,3,opt,name=property,proto3" json:"property,omitempty"`
 	Surveyor         string `protobuf:"bytes,4,opt,name=surveyor,proto3" json:"surveyor,omitempty"`
 	CertifiationDate string `protobuf:"bytes,5,opt,name=certifiationDate,proto3" json:"certifiationDate,omitempty"`
 	CertificateText  string `protobuf:"bytes,6,opt,name=certificateText,proto3" json:"certificateText,omitempty"`
@@ -588,11 +596,11 @@ func (m *MsgUpdateCertificate) GetId() uint64 {
 	return 0
 }
 
-func (m *MsgUpdateCertificate) GetProperty() string {
+func (m *MsgUpdateCertificate) GetProperty() uint64 {
 	if m != nil {
 		return m.Property
 	}
-	return ""
+	return 0
 }
 
 func (m *MsgUpdateCertificate) GetSurveyor() string {
@@ -752,8 +760,8 @@ type MsgCreateLocking struct {
 	Owner         string `protobuf:"bytes,2,opt,name=owner,proto3" json:"owner,omitempty"`
 	DateLocking   string `protobuf:"bytes,3,opt,name=dateLocking,proto3" json:"dateLocking,omitempty"`
 	DateUnlocking string `protobuf:"bytes,4,opt,name=dateUnlocking,proto3" json:"dateUnlocking,omitempty"`
-	UnlockFees    string `protobuf:"bytes,5,opt,name=unlockFees,proto3" json:"unlockFees,omitempty"`
-	Property      string `protobuf:"bytes,6,opt,name=property,proto3" json:"property,omitempty"`
+	Assets        uint64 `protobuf:"varint,5,opt,name=assets,proto3" json:"assets,omitempty"`
+	Property      uint64 `protobuf:"varint,6,opt,name=property,proto3" json:"property,omitempty"`
 }
 
 func (m *MsgCreateLocking) Reset()         { *m = MsgCreateLocking{} }
@@ -817,22 +825,23 @@ func (m *MsgCreateLocking) GetDateUnlocking() string {
 	return ""
 }
 
-func (m *MsgCreateLocking) GetUnlockFees() string {
+func (m *MsgCreateLocking) GetAssets() uint64 {
 	if m != nil {
-		return m.UnlockFees
+		return m.Assets
 	}
-	return ""
+	return 0
 }
 
-func (m *MsgCreateLocking) GetProperty() string {
+func (m *MsgCreateLocking) GetProperty() uint64 {
 	if m != nil {
 		return m.Property
 	}
-	return ""
+	return 0
 }
 
 type MsgCreateLockingResponse struct {
-	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Id       uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Response string `protobuf:"bytes,2,opt,name=response,proto3" json:"response,omitempty"`
 }
 
 func (m *MsgCreateLockingResponse) Reset()         { *m = MsgCreateLockingResponse{} }
@@ -875,14 +884,21 @@ func (m *MsgCreateLockingResponse) GetId() uint64 {
 	return 0
 }
 
+func (m *MsgCreateLockingResponse) GetResponse() string {
+	if m != nil {
+		return m.Response
+	}
+	return ""
+}
+
 type MsgUpdateLocking struct {
 	Creator       string `protobuf:"bytes,1,opt,name=creator,proto3" json:"creator,omitempty"`
 	Id            uint64 `protobuf:"varint,2,opt,name=id,proto3" json:"id,omitempty"`
 	Owner         string `protobuf:"bytes,3,opt,name=owner,proto3" json:"owner,omitempty"`
 	DateLocking   string `protobuf:"bytes,4,opt,name=dateLocking,proto3" json:"dateLocking,omitempty"`
 	DateUnlocking string `protobuf:"bytes,5,opt,name=dateUnlocking,proto3" json:"dateUnlocking,omitempty"`
-	UnlockFees    string `protobuf:"bytes,6,opt,name=unlockFees,proto3" json:"unlockFees,omitempty"`
-	Property      string `protobuf:"bytes,7,opt,name=property,proto3" json:"property,omitempty"`
+	Assets        uint64 `protobuf:"varint,6,opt,name=assets,proto3" json:"assets,omitempty"`
+	Property      uint64 `protobuf:"varint,7,opt,name=property,proto3" json:"property,omitempty"`
 }
 
 func (m *MsgUpdateLocking) Reset()         { *m = MsgUpdateLocking{} }
@@ -953,18 +969,18 @@ func (m *MsgUpdateLocking) GetDateUnlocking() string {
 	return ""
 }
 
-func (m *MsgUpdateLocking) GetUnlockFees() string {
+func (m *MsgUpdateLocking) GetAssets() uint64 {
 	if m != nil {
-		return m.UnlockFees
+		return m.Assets
 	}
-	return ""
+	return 0
 }
 
-func (m *MsgUpdateLocking) GetProperty() string {
+func (m *MsgUpdateLocking) GetProperty() uint64 {
 	if m != nil {
 		return m.Property
 	}
-	return ""
+	return 0
 }
 
 type MsgUpdateLockingResponse struct {
@@ -1094,7 +1110,7 @@ var xxx_messageInfo_MsgDeleteLockingResponse proto.InternalMessageInfo
 type MsgCreateInspection struct {
 	Creator           string `protobuf:"bytes,1,opt,name=creator,proto3" json:"creator,omitempty"`
 	Inspector         string `protobuf:"bytes,2,opt,name=inspector,proto3" json:"inspector,omitempty"`
-	Property          string `protobuf:"bytes,3,opt,name=property,proto3" json:"property,omitempty"`
+	Property          uint64 `protobuf:"varint,3,opt,name=property,proto3" json:"property,omitempty"`
 	Fees              string `protobuf:"bytes,4,opt,name=fees,proto3" json:"fees,omitempty"`
 	InspectionResults string `protobuf:"bytes,5,opt,name=inspectionResults,proto3" json:"inspectionResults,omitempty"`
 }
@@ -1146,11 +1162,11 @@ func (m *MsgCreateInspection) GetInspector() string {
 	return ""
 }
 
-func (m *MsgCreateInspection) GetProperty() string {
+func (m *MsgCreateInspection) GetProperty() uint64 {
 	if m != nil {
 		return m.Property
 	}
-	return ""
+	return 0
 }
 
 func (m *MsgCreateInspection) GetFees() string {
@@ -1215,7 +1231,7 @@ type MsgUpdateInspection struct {
 	Creator           string `protobuf:"bytes,1,opt,name=creator,proto3" json:"creator,omitempty"`
 	Id                uint64 `protobuf:"varint,2,opt,name=id,proto3" json:"id,omitempty"`
 	Inspector         string `protobuf:"bytes,3,opt,name=inspector,proto3" json:"inspector,omitempty"`
-	Property          string `protobuf:"bytes,4,opt,name=property,proto3" json:"property,omitempty"`
+	Property          uint64 `protobuf:"varint,4,opt,name=property,proto3" json:"property,omitempty"`
 	Fees              string `protobuf:"bytes,5,opt,name=fees,proto3" json:"fees,omitempty"`
 	InspectionResults string `protobuf:"bytes,6,opt,name=inspectionResults,proto3" json:"inspectionResults,omitempty"`
 }
@@ -1274,11 +1290,11 @@ func (m *MsgUpdateInspection) GetInspector() string {
 	return ""
 }
 
-func (m *MsgUpdateInspection) GetProperty() string {
+func (m *MsgUpdateInspection) GetProperty() uint64 {
 	if m != nil {
 		return m.Property
 	}
-	return ""
+	return 0
 }
 
 func (m *MsgUpdateInspection) GetFees() string {
@@ -1425,7 +1441,7 @@ type MsgCreateTransference struct {
 	To       string `protobuf:"bytes,3,opt,name=to,proto3" json:"to,omitempty"`
 	Date     string `protobuf:"bytes,4,opt,name=date,proto3" json:"date,omitempty"`
 	Value    string `protobuf:"bytes,5,opt,name=value,proto3" json:"value,omitempty"`
-	Property string `protobuf:"bytes,6,opt,name=property,proto3" json:"property,omitempty"`
+	Property uint64 `protobuf:"varint,6,opt,name=property,proto3" json:"property,omitempty"`
 }
 
 func (m *MsgCreateTransference) Reset()         { *m = MsgCreateTransference{} }
@@ -1496,11 +1512,11 @@ func (m *MsgCreateTransference) GetValue() string {
 	return ""
 }
 
-func (m *MsgCreateTransference) GetProperty() string {
+func (m *MsgCreateTransference) GetProperty() uint64 {
 	if m != nil {
 		return m.Property
 	}
-	return ""
+	return 0
 }
 
 type MsgCreateTransferenceResponse struct {
@@ -1554,7 +1570,7 @@ type MsgUpdateTransference struct {
 	To       string `protobuf:"bytes,4,opt,name=to,proto3" json:"to,omitempty"`
 	Date     string `protobuf:"bytes,5,opt,name=date,proto3" json:"date,omitempty"`
 	Value    string `protobuf:"bytes,6,opt,name=value,proto3" json:"value,omitempty"`
-	Property string `protobuf:"bytes,7,opt,name=property,proto3" json:"property,omitempty"`
+	Property uint64 `protobuf:"varint,7,opt,name=property,proto3" json:"property,omitempty"`
 }
 
 func (m *MsgUpdateTransference) Reset()         { *m = MsgUpdateTransference{} }
@@ -1632,11 +1648,11 @@ func (m *MsgUpdateTransference) GetValue() string {
 	return ""
 }
 
-func (m *MsgUpdateTransference) GetProperty() string {
+func (m *MsgUpdateTransference) GetProperty() uint64 {
 	if m != nil {
 		return m.Property
 	}
-	return ""
+	return 0
 }
 
 type MsgUpdateTransferenceResponse struct {
@@ -2076,7 +2092,10 @@ func (m *MsgDeleteHouseResponse) XXX_DiscardUnknown() {
 var xxx_messageInfo_MsgDeleteHouseResponse proto.InternalMessageInfo
 
 type MsgRequestCertification struct {
-	Creator string `protobuf:"bytes,1,opt,name=creator,proto3" json:"creator,omitempty"`
+	Creator  string `protobuf:"bytes,1,opt,name=creator,proto3" json:"creator,omitempty"`
+	Property uint64 `protobuf:"varint,2,opt,name=property,proto3" json:"property,omitempty"`
+	Fees     uint64 `protobuf:"varint,3,opt,name=fees,proto3" json:"fees,omitempty"`
+	Surveyor string `protobuf:"bytes,4,opt,name=surveyor,proto3" json:"surveyor,omitempty"`
 }
 
 func (m *MsgRequestCertification) Reset()         { *m = MsgRequestCertification{} }
@@ -2119,7 +2138,29 @@ func (m *MsgRequestCertification) GetCreator() string {
 	return ""
 }
 
+func (m *MsgRequestCertification) GetProperty() uint64 {
+	if m != nil {
+		return m.Property
+	}
+	return 0
+}
+
+func (m *MsgRequestCertification) GetFees() uint64 {
+	if m != nil {
+		return m.Fees
+	}
+	return 0
+}
+
+func (m *MsgRequestCertification) GetSurveyor() string {
+	if m != nil {
+		return m.Surveyor
+	}
+	return ""
+}
+
 type MsgRequestCertificationResponse struct {
+	Response string `protobuf:"bytes,1,opt,name=response,proto3" json:"response,omitempty"`
 }
 
 func (m *MsgRequestCertificationResponse) Reset()         { *m = MsgRequestCertificationResponse{} }
@@ -2155,8 +2196,16 @@ func (m *MsgRequestCertificationResponse) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_MsgRequestCertificationResponse proto.InternalMessageInfo
 
+func (m *MsgRequestCertificationResponse) GetResponse() string {
+	if m != nil {
+		return m.Response
+	}
+	return ""
+}
+
 type MsgEmitCertificate struct {
-	Creator string `protobuf:"bytes,1,opt,name=creator,proto3" json:"creator,omitempty"`
+	Creator     string `protobuf:"bytes,1,opt,name=creator,proto3" json:"creator,omitempty"`
+	Certificate string `protobuf:"bytes,2,opt,name=certificate,proto3" json:"certificate,omitempty"`
 }
 
 func (m *MsgEmitCertificate) Reset()         { *m = MsgEmitCertificate{} }
@@ -2199,6 +2248,13 @@ func (m *MsgEmitCertificate) GetCreator() string {
 	return ""
 }
 
+func (m *MsgEmitCertificate) GetCertificate() string {
+	if m != nil {
+		return m.Certificate
+	}
+	return ""
+}
+
 type MsgEmitCertificateResponse struct {
 }
 
@@ -2234,246 +2290,6 @@ func (m *MsgEmitCertificateResponse) XXX_DiscardUnknown() {
 }
 
 var xxx_messageInfo_MsgEmitCertificateResponse proto.InternalMessageInfo
-
-type MsgLockProperty struct {
-	Creator string `protobuf:"bytes,1,opt,name=creator,proto3" json:"creator,omitempty"`
-}
-
-func (m *MsgLockProperty) Reset()         { *m = MsgLockProperty{} }
-func (m *MsgLockProperty) String() string { return proto.CompactTextString(m) }
-func (*MsgLockProperty) ProtoMessage()    {}
-func (*MsgLockProperty) Descriptor() ([]byte, []int) {
-	return fileDescriptor_ff2a939c0fe257fe, []int{40}
-}
-func (m *MsgLockProperty) XXX_Unmarshal(b []byte) error {
-	return m.Unmarshal(b)
-}
-func (m *MsgLockProperty) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	if deterministic {
-		return xxx_messageInfo_MsgLockProperty.Marshal(b, m, deterministic)
-	} else {
-		b = b[:cap(b)]
-		n, err := m.MarshalToSizedBuffer(b)
-		if err != nil {
-			return nil, err
-		}
-		return b[:n], nil
-	}
-}
-func (m *MsgLockProperty) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_MsgLockProperty.Merge(m, src)
-}
-func (m *MsgLockProperty) XXX_Size() int {
-	return m.Size()
-}
-func (m *MsgLockProperty) XXX_DiscardUnknown() {
-	xxx_messageInfo_MsgLockProperty.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_MsgLockProperty proto.InternalMessageInfo
-
-func (m *MsgLockProperty) GetCreator() string {
-	if m != nil {
-		return m.Creator
-	}
-	return ""
-}
-
-type MsgLockPropertyResponse struct {
-}
-
-func (m *MsgLockPropertyResponse) Reset()         { *m = MsgLockPropertyResponse{} }
-func (m *MsgLockPropertyResponse) String() string { return proto.CompactTextString(m) }
-func (*MsgLockPropertyResponse) ProtoMessage()    {}
-func (*MsgLockPropertyResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_ff2a939c0fe257fe, []int{41}
-}
-func (m *MsgLockPropertyResponse) XXX_Unmarshal(b []byte) error {
-	return m.Unmarshal(b)
-}
-func (m *MsgLockPropertyResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	if deterministic {
-		return xxx_messageInfo_MsgLockPropertyResponse.Marshal(b, m, deterministic)
-	} else {
-		b = b[:cap(b)]
-		n, err := m.MarshalToSizedBuffer(b)
-		if err != nil {
-			return nil, err
-		}
-		return b[:n], nil
-	}
-}
-func (m *MsgLockPropertyResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_MsgLockPropertyResponse.Merge(m, src)
-}
-func (m *MsgLockPropertyResponse) XXX_Size() int {
-	return m.Size()
-}
-func (m *MsgLockPropertyResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_MsgLockPropertyResponse.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_MsgLockPropertyResponse proto.InternalMessageInfo
-
-type MsgUnlockProperty struct {
-	Creator string `protobuf:"bytes,1,opt,name=creator,proto3" json:"creator,omitempty"`
-}
-
-func (m *MsgUnlockProperty) Reset()         { *m = MsgUnlockProperty{} }
-func (m *MsgUnlockProperty) String() string { return proto.CompactTextString(m) }
-func (*MsgUnlockProperty) ProtoMessage()    {}
-func (*MsgUnlockProperty) Descriptor() ([]byte, []int) {
-	return fileDescriptor_ff2a939c0fe257fe, []int{42}
-}
-func (m *MsgUnlockProperty) XXX_Unmarshal(b []byte) error {
-	return m.Unmarshal(b)
-}
-func (m *MsgUnlockProperty) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	if deterministic {
-		return xxx_messageInfo_MsgUnlockProperty.Marshal(b, m, deterministic)
-	} else {
-		b = b[:cap(b)]
-		n, err := m.MarshalToSizedBuffer(b)
-		if err != nil {
-			return nil, err
-		}
-		return b[:n], nil
-	}
-}
-func (m *MsgUnlockProperty) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_MsgUnlockProperty.Merge(m, src)
-}
-func (m *MsgUnlockProperty) XXX_Size() int {
-	return m.Size()
-}
-func (m *MsgUnlockProperty) XXX_DiscardUnknown() {
-	xxx_messageInfo_MsgUnlockProperty.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_MsgUnlockProperty proto.InternalMessageInfo
-
-func (m *MsgUnlockProperty) GetCreator() string {
-	if m != nil {
-		return m.Creator
-	}
-	return ""
-}
-
-type MsgUnlockPropertyResponse struct {
-}
-
-func (m *MsgUnlockPropertyResponse) Reset()         { *m = MsgUnlockPropertyResponse{} }
-func (m *MsgUnlockPropertyResponse) String() string { return proto.CompactTextString(m) }
-func (*MsgUnlockPropertyResponse) ProtoMessage()    {}
-func (*MsgUnlockPropertyResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_ff2a939c0fe257fe, []int{43}
-}
-func (m *MsgUnlockPropertyResponse) XXX_Unmarshal(b []byte) error {
-	return m.Unmarshal(b)
-}
-func (m *MsgUnlockPropertyResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	if deterministic {
-		return xxx_messageInfo_MsgUnlockPropertyResponse.Marshal(b, m, deterministic)
-	} else {
-		b = b[:cap(b)]
-		n, err := m.MarshalToSizedBuffer(b)
-		if err != nil {
-			return nil, err
-		}
-		return b[:n], nil
-	}
-}
-func (m *MsgUnlockPropertyResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_MsgUnlockPropertyResponse.Merge(m, src)
-}
-func (m *MsgUnlockPropertyResponse) XXX_Size() int {
-	return m.Size()
-}
-func (m *MsgUnlockPropertyResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_MsgUnlockPropertyResponse.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_MsgUnlockPropertyResponse proto.InternalMessageInfo
-
-type MsgUnlockAssets struct {
-	Creator string `protobuf:"bytes,1,opt,name=creator,proto3" json:"creator,omitempty"`
-}
-
-func (m *MsgUnlockAssets) Reset()         { *m = MsgUnlockAssets{} }
-func (m *MsgUnlockAssets) String() string { return proto.CompactTextString(m) }
-func (*MsgUnlockAssets) ProtoMessage()    {}
-func (*MsgUnlockAssets) Descriptor() ([]byte, []int) {
-	return fileDescriptor_ff2a939c0fe257fe, []int{44}
-}
-func (m *MsgUnlockAssets) XXX_Unmarshal(b []byte) error {
-	return m.Unmarshal(b)
-}
-func (m *MsgUnlockAssets) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	if deterministic {
-		return xxx_messageInfo_MsgUnlockAssets.Marshal(b, m, deterministic)
-	} else {
-		b = b[:cap(b)]
-		n, err := m.MarshalToSizedBuffer(b)
-		if err != nil {
-			return nil, err
-		}
-		return b[:n], nil
-	}
-}
-func (m *MsgUnlockAssets) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_MsgUnlockAssets.Merge(m, src)
-}
-func (m *MsgUnlockAssets) XXX_Size() int {
-	return m.Size()
-}
-func (m *MsgUnlockAssets) XXX_DiscardUnknown() {
-	xxx_messageInfo_MsgUnlockAssets.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_MsgUnlockAssets proto.InternalMessageInfo
-
-func (m *MsgUnlockAssets) GetCreator() string {
-	if m != nil {
-		return m.Creator
-	}
-	return ""
-}
-
-type MsgUnlockAssetsResponse struct {
-}
-
-func (m *MsgUnlockAssetsResponse) Reset()         { *m = MsgUnlockAssetsResponse{} }
-func (m *MsgUnlockAssetsResponse) String() string { return proto.CompactTextString(m) }
-func (*MsgUnlockAssetsResponse) ProtoMessage()    {}
-func (*MsgUnlockAssetsResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_ff2a939c0fe257fe, []int{45}
-}
-func (m *MsgUnlockAssetsResponse) XXX_Unmarshal(b []byte) error {
-	return m.Unmarshal(b)
-}
-func (m *MsgUnlockAssetsResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	if deterministic {
-		return xxx_messageInfo_MsgUnlockAssetsResponse.Marshal(b, m, deterministic)
-	} else {
-		b = b[:cap(b)]
-		n, err := m.MarshalToSizedBuffer(b)
-		if err != nil {
-			return nil, err
-		}
-		return b[:n], nil
-	}
-}
-func (m *MsgUnlockAssetsResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_MsgUnlockAssetsResponse.Merge(m, src)
-}
-func (m *MsgUnlockAssetsResponse) XXX_Size() int {
-	return m.Size()
-}
-func (m *MsgUnlockAssetsResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_MsgUnlockAssetsResponse.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_MsgUnlockAssetsResponse proto.InternalMessageInfo
 
 func init() {
 	proto.RegisterType((*MsgCreateProperty)(nil), "rafaelsousa.realestate.realestate.MsgCreateProperty")
@@ -2516,107 +2332,99 @@ func init() {
 	proto.RegisterType((*MsgRequestCertificationResponse)(nil), "rafaelsousa.realestate.realestate.MsgRequestCertificationResponse")
 	proto.RegisterType((*MsgEmitCertificate)(nil), "rafaelsousa.realestate.realestate.MsgEmitCertificate")
 	proto.RegisterType((*MsgEmitCertificateResponse)(nil), "rafaelsousa.realestate.realestate.MsgEmitCertificateResponse")
-	proto.RegisterType((*MsgLockProperty)(nil), "rafaelsousa.realestate.realestate.MsgLockProperty")
-	proto.RegisterType((*MsgLockPropertyResponse)(nil), "rafaelsousa.realestate.realestate.MsgLockPropertyResponse")
-	proto.RegisterType((*MsgUnlockProperty)(nil), "rafaelsousa.realestate.realestate.MsgUnlockProperty")
-	proto.RegisterType((*MsgUnlockPropertyResponse)(nil), "rafaelsousa.realestate.realestate.MsgUnlockPropertyResponse")
-	proto.RegisterType((*MsgUnlockAssets)(nil), "rafaelsousa.realestate.realestate.MsgUnlockAssets")
-	proto.RegisterType((*MsgUnlockAssetsResponse)(nil), "rafaelsousa.realestate.realestate.MsgUnlockAssetsResponse")
 }
 
 func init() { proto.RegisterFile("realestate/tx.proto", fileDescriptor_ff2a939c0fe257fe) }
 
 var fileDescriptor_ff2a939c0fe257fe = []byte{
-	// 1422 bytes of a gzipped FileDescriptorProto
+	// 1384 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x9c, 0x59, 0x4d, 0x6f, 0x1c, 0x45,
-	0x13, 0xce, 0x78, 0x3f, 0x6c, 0x57, 0xde, 0xc4, 0x76, 0xc7, 0x6f, 0x18, 0x8f, 0xed, 0x4d, 0xb2,
-	0xe2, 0x60, 0x25, 0x64, 0x2d, 0xdb, 0xc1, 0x36, 0x26, 0x21, 0x9f, 0x20, 0x90, 0x58, 0x84, 0xac,
-	0xe4, 0xc2, 0x6d, 0xbc, 0xdb, 0xde, 0x8c, 0x58, 0xef, 0x2c, 0xd3, 0xb3, 0xc1, 0x06, 0x09, 0x81,
-	0x84, 0x84, 0x84, 0x84, 0xe4, 0x13, 0x17, 0x7e, 0x42, 0x7e, 0x02, 0x77, 0xc4, 0x31, 0x27, 0xe0,
-	0x46, 0x64, 0xff, 0x00, 0xf8, 0x09, 0xa8, 0x3f, 0xb6, 0xa7, 0x7b, 0xbe, 0x76, 0x7a, 0x6e, 0xdb,
-	0x5d, 0x53, 0xd5, 0xcf, 0xf3, 0x54, 0xf5, 0x4c, 0x95, 0x16, 0xae, 0x04, 0xd8, 0xed, 0x63, 0x12,
-	0xba, 0x21, 0x5e, 0x0f, 0x8f, 0x5b, 0xc3, 0xc0, 0x0f, 0x7d, 0x74, 0x23, 0x70, 0x0f, 0x5d, 0xdc,
-	0x27, 0xfe, 0x88, 0xb8, 0xad, 0xe8, 0x01, 0xe5, 0xa7, 0xb3, 0xa4, 0xf8, 0x0d, 0x03, 0x7f, 0x88,
-	0x83, 0xf0, 0x84, 0x7b, 0x3b, 0x2b, 0x8a, 0xa9, 0x83, 0x83, 0xd0, 0x3b, 0xf4, 0x3a, 0xd4, 0x9b,
-	0x5b, 0x6d, 0xc5, 0xda, 0xf7, 0x3b, 0x9f, 0x7b, 0x83, 0x9e, 0xb0, 0x2c, 0x2b, 0x16, 0x6f, 0x40,
-	0x86, 0xb8, 0x13, 0x7a, 0xfe, 0x40, 0x18, 0x57, 0x55, 0x9c, 0x81, 0x3b, 0x20, 0x87, 0x38, 0xc0,
-	0x83, 0xce, 0x38, 0xea, 0x55, 0xc5, 0xfc, 0xdc, 0x1f, 0x11, 0xb1, 0xdf, 0xfc, 0xdb, 0x82, 0x85,
-	0x36, 0xe9, 0x3d, 0x0e, 0xb0, 0x1b, 0xe2, 0x4f, 0x05, 0x4e, 0x64, 0xc3, 0x74, 0x87, 0xee, 0xf8,
-	0x81, 0x6d, 0x5d, 0xb7, 0xd6, 0x66, 0xf7, 0xc7, 0x4b, 0x6a, 0x71, 0xbb, 0xdd, 0x00, 0x13, 0x62,
-	0x4f, 0x71, 0x8b, 0x58, 0x22, 0x04, 0xd5, 0x8e, 0x17, 0x9e, 0xd8, 0x15, 0xb6, 0xcd, 0x7e, 0xa3,
-	0x45, 0xa8, 0xb1, 0x23, 0xed, 0x2a, 0xdb, 0xe4, 0x0b, 0x16, 0xdd, 0x1f, 0x0d, 0xc2, 0xe0, 0xc4,
-	0xae, 0x89, 0xe8, 0x7c, 0x49, 0x2d, 0x5f, 0x79, 0xc3, 0x8e, 0xdf, 0xc5, 0x76, 0x9d, 0x5b, 0xc4,
-	0x12, 0x39, 0x30, 0xd3, 0x77, 0x43, 0x2f, 0x1c, 0x75, 0xb1, 0x3d, 0xcd, 0x4c, 0x72, 0x8d, 0x56,
-	0x60, 0xb6, 0xef, 0x0f, 0x7a, 0xdc, 0x38, 0xc3, 0x8c, 0xd1, 0x46, 0xf3, 0x16, 0x2c, 0x25, 0x08,
-	0xee, 0x63, 0x32, 0xf4, 0x07, 0x04, 0xa3, 0xcb, 0x30, 0xe5, 0x75, 0x19, 0xc7, 0xea, 0xfe, 0x94,
-	0xd7, 0x6d, 0xfe, 0xc3, 0xe5, 0x78, 0x36, 0xec, 0x16, 0x93, 0x83, 0xfb, 0x4f, 0x8d, 0xfd, 0x55,
-	0x79, 0x2a, 0xe9, 0xf2, 0x54, 0xd3, 0xe4, 0xa9, 0x65, 0xc8, 0x53, 0xcf, 0x94, 0x67, 0x3a, 0x5b,
-	0x9e, 0x99, 0x3c, 0x79, 0x66, 0xe3, 0xf2, 0x2c, 0x33, 0x79, 0x74, 0xc2, 0x63, 0x79, 0x9a, 0xf7,
-	0x98, 0x1a, 0x4f, 0x70, 0x1f, 0x97, 0x51, 0x43, 0xc4, 0xd6, 0xdd, 0x65, 0xec, 0xd7, 0x16, 0x2c,
-	0xca, 0xc4, 0x3c, 0x8e, 0xae, 0x41, 0x4e, 0x7c, 0x07, 0x66, 0xc6, 0x57, 0x49, 0x54, 0x9f, 0x5c,
-	0x53, 0x1b, 0x19, 0x05, 0x2f, 0xf0, 0x89, 0x1f, 0x08, 0xe9, 0xe5, 0x1a, 0xdd, 0x84, 0x79, 0x71,
-	0xcf, 0x5c, 0x7a, 0x63, 0x9e, 0x44, 0x15, 0x99, 0xd8, 0x47, 0x6b, 0x30, 0xa7, 0xdc, 0xc9, 0xa7,
-	0xf8, 0x38, 0x14, 0xd9, 0x89, 0x6f, 0xa3, 0xeb, 0x70, 0x71, 0x7c, 0x7a, 0xdb, 0x1d, 0x8a, 0x5c,
-	0xa9, 0x5b, 0xcd, 0x16, 0xac, 0xa4, 0x31, 0xcc, 0xac, 0xbe, 0x7f, 0xb9, 0x24, 0x3c, 0x19, 0xc5,
-	0x24, 0x89, 0x17, 0xa0, 0x2a, 0x51, 0x25, 0x47, 0xa2, 0x6a, 0x01, 0x89, 0x6a, 0xc5, 0x25, 0xaa,
-	0x17, 0x92, 0x68, 0x3a, 0x29, 0x51, 0x83, 0x49, 0x94, 0x60, 0x2c, 0xab, 0xe4, 0x01, 0x53, 0x84,
-	0x97, 0x50, 0x29, 0x45, 0xc4, 0x09, 0x89, 0x08, 0xf2, 0x84, 0xdf, 0x2c, 0x98, 0x97, 0x59, 0xfa,
-	0x98, 0xbf, 0x70, 0x73, 0xc2, 0x2f, 0x42, 0xcd, 0xff, 0x72, 0x80, 0x03, 0x51, 0x80, 0x7c, 0x41,
-	0x89, 0x76, 0x23, 0x77, 0xa1, 0xbc, 0xba, 0x85, 0xde, 0x84, 0x4b, 0x74, 0xf9, 0x6c, 0x20, 0xde,
-	0xe9, 0x22, 0x03, 0xfa, 0x26, 0x6a, 0x00, 0x8c, 0xd8, 0xe2, 0x03, 0x8c, 0x89, 0x48, 0x80, 0xb2,
-	0xa3, 0xa5, 0xb7, 0xae, 0xa7, 0xb7, 0x79, 0x13, 0xec, 0x38, 0x8f, 0xcc, 0x4a, 0xfb, 0x83, 0x93,
-	0xe6, 0xba, 0x4f, 0x26, 0x1d, 0xaf, 0x32, 0x29, 0x42, 0x25, 0x47, 0x84, 0x6a, 0x01, 0x11, 0x6a,
-	0x93, 0x45, 0xa8, 0xe7, 0x8a, 0x30, 0x1d, 0x13, 0xc1, 0x61, 0x22, 0x68, 0xbc, 0x64, 0xa6, 0xef,
-	0x32, 0xce, 0xbc, 0x12, 0x8c, 0x39, 0x8b, 0xc8, 0x9a, 0xb7, 0x8c, 0xfc, 0xd2, 0x82, 0x2b, 0x52,
-	0xfb, 0x8f, 0xe4, 0xa7, 0x39, 0x27, 0xfa, 0x0a, 0xcc, 0x8a, 0x4f, 0xb8, 0x3f, 0x2e, 0xa5, 0x68,
-	0x23, 0xf7, 0x16, 0x23, 0xa8, 0x1e, 0x52, 0x5d, 0xc4, 0x87, 0x84, 0xfe, 0x46, 0x6f, 0xc1, 0x42,
-	0xd4, 0x10, 0xec, 0x63, 0x32, 0xea, 0x87, 0xe3, 0xea, 0x49, 0x1a, 0x9a, 0xb7, 0x61, 0x39, 0x05,
-	0x6c, 0x66, 0xad, 0xfc, 0xca, 0xc9, 0x71, 0x4d, 0x0b, 0x91, 0x8b, 0x97, 0x8b, 0x46, 0xb6, 0x92,
-	0x47, 0xb6, 0x9a, 0x41, 0xb6, 0x36, 0x89, 0x6c, 0x3d, 0x8b, 0xec, 0x2a, 0x23, 0x1b, 0x07, 0x2f,
-	0x33, 0x77, 0x9f, 0x71, 0xe3, 0x59, 0x2d, 0xc3, 0x4d, 0xc4, 0x8f, 0x07, 0x90, 0xf1, 0x7f, 0xb1,
-	0xe0, 0xff, 0x52, 0xec, 0xa7, 0x4a, 0x5f, 0x96, 0x73, 0x04, 0x25, 0x1d, 0xf8, 0x47, 0xa2, 0x2c,
-	0xd8, 0x6f, 0x7a, 0x6c, 0xe8, 0x0b, 0xed, 0xa6, 0x42, 0x9f, 0x3e, 0xd3, 0x8d, 0x3e, 0x63, 0xec,
-	0x37, 0xbd, 0x95, 0x2f, 0xdc, 0xfe, 0x48, 0xb6, 0x13, 0x6c, 0x91, 0xfb, 0xca, 0x58, 0x87, 0xd5,
-	0x54, 0x70, 0x99, 0xb5, 0xf0, 0x92, 0xd3, 0xe1, 0x72, 0x16, 0xa4, 0x13, 0xaf, 0x86, 0x31, 0xbd,
-	0x4a, 0x82, 0x5e, 0x35, 0x41, 0xaf, 0x96, 0x46, 0xaf, 0x9e, 0x45, 0x2f, 0xfe, 0x32, 0xb8, 0xc6,
-	0xe8, 0x25, 0xc1, 0xca, 0xec, 0x3c, 0x64, 0x6c, 0x78, 0xf2, 0xca, 0xb1, 0x11, 0x67, 0x24, 0x43,
-	0xc8, 0x33, 0xbe, 0xb5, 0xe0, 0xb2, 0x14, 0xf9, 0x43, 0xda, 0x7a, 0xe7, 0x44, 0xa7, 0xaf, 0x50,
-	0x4c, 0x3a, 0x81, 0x37, 0xa4, 0x55, 0x24, 0x2a, 0x40, 0xdd, 0xa2, 0x2a, 0x78, 0x47, 0x6e, 0x0f,
-	0x8f, 0x5f, 0xbd, 0x6c, 0x41, 0x6f, 0xd8, 0x41, 0x7f, 0x84, 0x87, 0x81, 0x37, 0x08, 0x85, 0x8c,
-	0xd1, 0x46, 0x73, 0x0d, 0xae, 0xea, 0x08, 0x32, 0xf3, 0x7b, 0xca, 0xc1, 0x72, 0xc9, 0x26, 0x81,
-	0x8d, 0x27, 0x36, 0x06, 0xbe, 0x92, 0x03, 0xbe, 0x9a, 0x09, 0xbe, 0x16, 0x07, 0x6f, 0x33, 0xf0,
-	0x0a, 0x22, 0xa9, 0xec, 0x1e, 0xc3, 0xca, 0xa5, 0x37, 0xc4, 0x2a, 0xa2, 0x2a, 0xbe, 0x32, 0xea,
-	0x16, 0xbc, 0xd1, 0x26, 0xbd, 0x7d, 0xfc, 0xc5, 0x08, 0x93, 0x30, 0x6a, 0x18, 0x72, 0xdf, 0x0a,
-	0xcd, 0x1b, 0x70, 0x2d, 0xc3, 0x49, 0xc6, 0x6d, 0x01, 0x6a, 0x93, 0xde, 0xfb, 0x47, 0x5e, 0x58,
-	0xa8, 0x8f, 0x69, 0xae, 0x80, 0x93, 0x7c, 0x5e, 0x46, 0xbb, 0x05, 0x73, 0x6d, 0xd2, 0xa3, 0xdf,
-	0xa1, 0xc9, 0x7d, 0x79, 0x73, 0x89, 0x51, 0x52, 0x1f, 0x96, 0x71, 0x6e, 0xf3, 0x79, 0x87, 0x7d,
-	0x5c, 0x0b, 0x44, 0x12, 0xd3, 0x82, 0xf6, 0x78, 0x0c, 0x13, 0x37, 0x3e, 0x24, 0x04, 0x87, 0x64,
-	0x22, 0x26, 0xf5, 0xe1, 0x71, 0x9c, 0xcd, 0x3f, 0x6d, 0xa8, 0xb4, 0x49, 0x0f, 0x7d, 0x6f, 0xc1,
-	0xe5, 0xd8, 0x60, 0x7a, 0xa7, 0x35, 0x71, 0xf2, 0x6e, 0x25, 0xa6, 0x3d, 0xe7, 0x6e, 0x19, 0x2f,
-	0x79, 0x47, 0x28, 0x8c, 0xd8, 0x40, 0x58, 0x10, 0x86, 0xee, 0x55, 0x14, 0x46, 0xfa, 0x2c, 0xc6,
-	0x60, 0xc4, 0x26, 0xb1, 0x82, 0x30, 0x74, 0xaf, 0xa2, 0x30, 0xd2, 0xc7, 0x36, 0xf4, 0x93, 0x05,
-	0x0b, 0xc9, 0x99, 0x6d, 0xc7, 0x44, 0x61, 0xc5, 0xd1, 0xb9, 0x5f, 0xd2, 0x51, 0xc3, 0x93, 0x1c,
-	0x98, 0x76, 0x4c, 0xa4, 0x2e, 0x81, 0x27, 0x73, 0x60, 0x61, 0x78, 0x92, 0xe3, 0xca, 0x8e, 0x89,
-	0xe6, 0x25, 0xf0, 0x64, 0x8e, 0x37, 0xe8, 0x3b, 0x0b, 0x2e, 0xe9, 0xb3, 0xcd, 0x96, 0x89, 0xe4,
-	0xc2, 0xc9, 0x79, 0xb7, 0x84, 0x93, 0x86, 0x41, 0x1f, 0x35, 0xb6, 0x4c, 0x64, 0x36, 0xc4, 0x90,
-	0xda, 0xfc, 0x33, 0x0c, 0x7a, 0xeb, 0xbf, 0x65, 0x22, 0xad, 0x21, 0x86, 0xd4, 0x31, 0x01, 0xfd,
-	0x68, 0xc1, 0x7c, 0x62, 0x46, 0xd8, 0x36, 0x51, 0x36, 0xf2, 0x73, 0xde, 0x2b, 0xe7, 0xa7, 0x81,
-	0x49, 0xf4, 0xf4, 0xdb, 0x26, 0x12, 0x9b, 0x83, 0xc9, 0x6a, 0xc3, 0x19, 0x98, 0x44, 0x13, 0xbe,
-	0x6d, 0xa2, 0xb5, 0x39, 0x98, 0xac, 0x9e, 0x1d, 0x9d, 0x5a, 0x80, 0x52, 0x1a, 0xf6, 0x5d, 0x13,
-	0xc1, 0x55, 0x4f, 0xe7, 0x41, 0x59, 0x4f, 0x0d, 0x52, 0x4a, 0xd3, 0xbd, 0x6b, 0x22, 0x7b, 0x19,
-	0x48, 0xd9, 0xbd, 0x33, 0x83, 0x94, 0xd2, 0x39, 0xef, 0x9a, 0x88, 0x5f, 0x06, 0x52, 0x76, 0xab,
-	0x8d, 0xbe, 0x86, 0x8b, 0x6a, 0x9b, 0xbd, 0x61, 0x22, 0x3b, 0x73, 0x71, 0xde, 0x31, 0x76, 0x51,
-	0x0f, 0x57, 0xdb, 0xe6, 0x0d, 0x13, 0x81, 0x8d, 0x0e, 0x4f, 0x69, 0x85, 0xe9, 0xe1, 0x6a, 0x1f,
-	0xbc, 0x61, 0x22, 0xa5, 0xd1, 0xe1, 0x29, 0x1d, 0x33, 0xfa, 0xd9, 0x82, 0xc5, 0xd4, 0x7e, 0x79,
-	0xaf, 0x58, 0xcc, 0x34, 0x5f, 0xe7, 0x51, 0x79, 0x5f, 0x09, 0xec, 0x07, 0x0b, 0xe6, 0xe2, 0x0d,
-	0xf7, 0xdb, 0xc5, 0xe2, 0xc6, 0xdc, 0x9c, 0x7b, 0xa5, 0xdc, 0x24, 0x92, 0x6f, 0xe0, 0x7f, 0x5a,
-	0xaf, 0xbe, 0x59, 0x2c, 0x9c, 0xea, 0xe3, 0xec, 0x99, 0xfb, 0xe8, 0x3d, 0xac, 0xde, 0xe4, 0x17,
-	0xed, 0x61, 0x35, 0xaf, 0xc2, 0x3d, 0x6c, 0xea, 0x84, 0x40, 0x65, 0xd0, 0xc6, 0x83, 0x4d, 0x93,
-	0x68, 0xdc, 0xa7, 0xa8, 0x0c, 0x69, 0x93, 0xc5, 0xa3, 0x4f, 0x7e, 0x3f, 0x6b, 0x58, 0xaf, 0xce,
-	0x1a, 0xd6, 0xeb, 0xb3, 0x86, 0x75, 0x7a, 0xde, 0xb8, 0xf0, 0xea, 0xbc, 0x71, 0xe1, 0xaf, 0xf3,
-	0xc6, 0x85, 0xcf, 0xee, 0xf4, 0xbc, 0xf0, 0xf9, 0xe8, 0xa0, 0xd5, 0xf1, 0x8f, 0xd6, 0x95, 0xf8,
-	0xeb, 0xca, 0xdf, 0x66, 0xc7, 0xea, 0x22, 0x3c, 0x19, 0x62, 0x72, 0x50, 0x67, 0x7f, 0xa2, 0x6d,
-	0xfd, 0x17, 0x00, 0x00, 0xff, 0xff, 0x74, 0xcb, 0xf4, 0xd5, 0x25, 0x1c, 0x00, 0x00,
+	0x13, 0xce, 0x78, 0x3f, 0x6c, 0x57, 0x14, 0xc7, 0xee, 0x38, 0x7e, 0x37, 0x63, 0x7b, 0xe3, 0x77,
+	0xc4, 0xc1, 0x42, 0xb0, 0x96, 0x71, 0xb0, 0x4d, 0x88, 0x49, 0xc8, 0x07, 0x02, 0x09, 0xa3, 0x68,
+	0x95, 0x5c, 0xb8, 0x8d, 0x77, 0xdb, 0x9b, 0x11, 0xeb, 0x99, 0x61, 0x7a, 0x36, 0xd8, 0x70, 0x00,
+	0x24, 0x24, 0x24, 0x24, 0x24, 0x9f, 0xb8, 0xf0, 0x13, 0xf2, 0x13, 0x90, 0x38, 0x73, 0x42, 0x3e,
+	0x72, 0x23, 0xb2, 0x7f, 0x00, 0xfc, 0x04, 0xd4, 0x1f, 0xd3, 0xd3, 0xf3, 0xe9, 0xe9, 0xb9, 0x4d,
+	0x75, 0x6d, 0x55, 0x3f, 0xcf, 0x53, 0x35, 0x3d, 0xd5, 0x5a, 0xb8, 0x11, 0x60, 0x7b, 0x8c, 0x49,
+	0x68, 0x87, 0x78, 0x23, 0x3c, 0xee, 0xf9, 0x81, 0x17, 0x7a, 0xe8, 0xff, 0x81, 0x7d, 0x68, 0xe3,
+	0x31, 0xf1, 0x26, 0xc4, 0xee, 0xc5, 0x3f, 0x50, 0x1e, 0xcd, 0x5b, 0x4a, 0x9c, 0x1f, 0x78, 0x3e,
+	0x0e, 0xc2, 0x13, 0x1e, 0x6d, 0xae, 0x28, 0xae, 0x01, 0x0e, 0x42, 0xe7, 0xd0, 0x19, 0xd0, 0x68,
+	0xee, 0xed, 0x28, 0xde, 0xb1, 0x37, 0xf8, 0xc2, 0x71, 0x47, 0xc2, 0xb3, 0xac, 0x78, 0x1c, 0x97,
+	0xf8, 0x78, 0x10, 0x3a, 0x9e, 0x2b, 0x9c, 0xab, 0x2a, 0xce, 0xc0, 0x76, 0xc9, 0x21, 0x0e, 0xb0,
+	0x3b, 0x88, 0xb2, 0x2e, 0x29, 0xee, 0x17, 0xde, 0x84, 0x88, 0x75, 0xeb, 0x6f, 0x03, 0x16, 0xf6,
+	0xc9, 0xe8, 0x51, 0x80, 0xed, 0x10, 0x3f, 0x15, 0x38, 0x51, 0x07, 0xa6, 0x07, 0x74, 0xc5, 0x0b,
+	0x3a, 0xc6, 0x9a, 0xb1, 0x3e, 0xdb, 0x8f, 0x4c, 0xea, 0xb1, 0x87, 0xc3, 0x00, 0x13, 0xd2, 0x99,
+	0xe2, 0x1e, 0x61, 0x22, 0x04, 0xcd, 0x81, 0x13, 0x9e, 0x74, 0x1a, 0x6c, 0x99, 0x3d, 0xa3, 0x45,
+	0x68, 0xb1, 0x2d, 0x3b, 0x4d, 0xb6, 0xc8, 0x0d, 0x96, 0xdd, 0x9b, 0xb8, 0x61, 0x70, 0xd2, 0x69,
+	0x89, 0xec, 0xdc, 0xa4, 0x9e, 0xaf, 0x1d, 0x7f, 0xe0, 0x0d, 0x71, 0xa7, 0xcd, 0x3d, 0xc2, 0x44,
+	0x26, 0xcc, 0x8c, 0xed, 0xd0, 0x09, 0x27, 0x43, 0xdc, 0x99, 0x66, 0x2e, 0x69, 0xa3, 0x15, 0x98,
+	0x1d, 0x7b, 0xee, 0x88, 0x3b, 0x67, 0x98, 0x33, 0x5e, 0xb0, 0x9e, 0xc0, 0xad, 0x0c, 0xc1, 0x3e,
+	0x26, 0xbe, 0xe7, 0x12, 0x8c, 0xe6, 0x60, 0xca, 0x19, 0x32, 0x8e, 0xcd, 0xfe, 0x94, 0x33, 0xa4,
+	0x00, 0x8e, 0x30, 0x21, 0xf6, 0x08, 0x47, 0xf4, 0x84, 0x69, 0xfd, 0xc3, 0x85, 0x7a, 0xee, 0x0f,
+	0xab, 0x09, 0xc5, 0x33, 0x4f, 0xa9, 0x99, 0x23, 0xe1, 0x1a, 0xf9, 0xc2, 0x35, 0xf3, 0x84, 0x6b,
+	0x15, 0x08, 0xd7, 0x2e, 0x14, 0x6e, 0xba, 0x58, 0xb8, 0x99, 0x32, 0xe1, 0x66, 0xd3, 0xc2, 0x2d,
+	0x33, 0xe1, 0x92, 0x84, 0x23, 0xe1, 0xac, 0x3d, 0xa6, 0xc6, 0x63, 0x3c, 0xc6, 0x75, 0xd4, 0x10,
+	0xb9, 0x93, 0xe1, 0x32, 0xf7, 0x6b, 0x03, 0x16, 0x65, 0xc9, 0x1e, 0xc5, 0x2f, 0x48, 0x49, 0x7e,
+	0x13, 0x66, 0xa2, 0x97, 0x4c, 0xec, 0x22, 0x6d, 0xea, 0x23, 0x93, 0xe0, 0x25, 0x3e, 0xf1, 0x02,
+	0x21, 0xbd, 0xb4, 0xd1, 0x9b, 0x30, 0x2f, 0xde, 0x40, 0x9b, 0xbe, 0x4b, 0x8f, 0xe3, 0x5e, 0xcd,
+	0xac, 0xa3, 0x75, 0xb8, 0xae, 0xbc, 0xad, 0xcf, 0xf0, 0x71, 0x28, 0xaa, 0x93, 0x5e, 0x46, 0x6b,
+	0x70, 0x35, 0xda, 0x7d, 0xdf, 0xf6, 0x45, 0xad, 0xd4, 0x25, 0xab, 0x07, 0x2b, 0x79, 0x0c, 0x8b,
+	0xfa, 0xd2, 0xfa, 0x97, 0x4b, 0xc2, 0x8b, 0x51, 0x4d, 0x92, 0x74, 0x03, 0xaa, 0x12, 0x35, 0x4a,
+	0x24, 0x6a, 0x56, 0x90, 0xa8, 0x55, 0x5d, 0xa2, 0x76, 0x25, 0x89, 0xa6, 0xb3, 0x12, 0x75, 0x99,
+	0x44, 0x19, 0xc6, 0xb2, 0x4b, 0x1e, 0x30, 0x45, 0x78, 0x0b, 0xd5, 0x52, 0x44, 0xec, 0x90, 0xc9,
+	0x20, 0x77, 0xf8, 0xdd, 0x80, 0x79, 0x59, 0xa5, 0x4f, 0xf9, 0x51, 0x5c, 0x92, 0x7e, 0x11, 0x5a,
+	0xde, 0x57, 0x2e, 0x0e, 0xc4, 0xc9, 0xc1, 0x0d, 0x4a, 0x74, 0x18, 0x87, 0x8b, 0x06, 0x54, 0x97,
+	0xd0, 0x1b, 0x70, 0x8d, 0x9a, 0xcf, 0x5d, 0x71, 0xda, 0x8b, 0x0a, 0x24, 0x17, 0xd1, 0x12, 0xb4,
+	0x6d, 0x42, 0x70, 0x48, 0x98, 0xf8, 0xcd, 0xbe, 0xb0, 0x12, 0x65, 0x6d, 0x27, 0xcb, 0x6a, 0x7d,
+	0x04, 0x9d, 0x34, 0xfe, 0xc2, 0x93, 0xcf, 0x84, 0x99, 0x40, 0xf8, 0x04, 0x01, 0x69, 0x5b, 0x7f,
+	0x72, 0x21, 0x78, 0x2d, 0x2e, 0x17, 0x22, 0xdd, 0x79, 0x52, 0x98, 0x46, 0x89, 0x30, 0xcd, 0x0a,
+	0xc2, 0xb4, 0xca, 0x85, 0x69, 0x17, 0x0a, 0x33, 0x9d, 0x12, 0xc6, 0x64, 0xc2, 0x24, 0xf8, 0xc8,
+	0xaa, 0xdf, 0x63, 0x5c, 0x79, 0x57, 0x68, 0x73, 0x15, 0x99, 0x13, 0xd1, 0x32, 0xf3, 0x2b, 0x03,
+	0x6e, 0xc8, 0x7a, 0x7c, 0x22, 0x3f, 0xe0, 0x25, 0xd9, 0x57, 0x60, 0x56, 0x7c, 0xe8, 0xbd, 0xa8,
+	0xad, 0xe2, 0x85, 0xd2, 0x37, 0x1a, 0x41, 0xf3, 0x10, 0x63, 0x12, 0x7d, 0x54, 0xe8, 0x33, 0x7a,
+	0x0b, 0x16, 0xe2, 0xb1, 0xa1, 0x8f, 0xc9, 0x64, 0x2c, 0xba, 0x69, 0xb6, 0x9f, 0x75, 0x58, 0x6f,
+	0xc3, 0x72, 0x0e, 0xd8, 0xc2, 0x13, 0xea, 0x37, 0x4e, 0x8e, 0x6b, 0x5a, 0x89, 0x5c, 0xba, 0x4d,
+	0x12, 0x64, 0x1b, 0x65, 0x64, 0x9b, 0x05, 0x64, 0x5b, 0x97, 0x91, 0x6d, 0x17, 0x91, 0x5d, 0x65,
+	0x64, 0xd3, 0xe0, 0x65, 0xe5, 0xee, 0x33, 0x6e, 0xbc, 0xaa, 0x75, 0xb8, 0x89, 0xfc, 0xe9, 0x04,
+	0x32, 0xff, 0xaf, 0x06, 0xdc, 0x94, 0x62, 0x3f, 0x53, 0xa6, 0xb7, 0x92, 0x2d, 0x28, 0xe9, 0xc0,
+	0x3b, 0x12, 0x6d, 0xc1, 0x9e, 0xe9, 0xb6, 0xa1, 0x27, 0xb4, 0x9b, 0x0a, 0x3d, 0xfa, 0x9b, 0x61,
+	0xfc, 0x49, 0x63, 0xcf, 0xf4, 0x6d, 0x7c, 0x69, 0x8f, 0x27, 0x72, 0xb4, 0x60, 0x46, 0xe9, 0x31,
+	0xb2, 0x01, 0xab, 0xb9, 0xe0, 0x0a, 0x7b, 0xe1, 0x15, 0xa7, 0xc3, 0xe5, 0xac, 0x48, 0x27, 0xdd,
+	0x0d, 0x11, 0xbd, 0x46, 0x86, 0x5e, 0x33, 0x43, 0xaf, 0x95, 0x47, 0xaf, 0x5d, 0x44, 0x2f, 0x7d,
+	0x18, 0xdc, 0x66, 0xf4, 0xb2, 0x60, 0x65, 0x75, 0x3e, 0x64, 0x6c, 0x78, 0xf1, 0xea, 0xb1, 0x11,
+	0x7b, 0x64, 0x53, 0xc8, 0x3d, 0xbe, 0x33, 0x60, 0x4e, 0x8a, 0xfc, 0x31, 0x1d, 0xd0, 0x4b, 0xb2,
+	0xd3, 0xa3, 0x13, 0x93, 0x41, 0xe0, 0xf8, 0xb4, 0x8b, 0x44, 0x07, 0xa8, 0x4b, 0x54, 0x05, 0xe7,
+	0x88, 0x4e, 0xb1, 0xe2, 0xc8, 0x65, 0x06, 0x7d, 0xc3, 0x0e, 0xc6, 0x13, 0xec, 0x07, 0x8e, 0x1b,
+	0x0a, 0x19, 0xe3, 0x05, 0x6b, 0x1d, 0x96, 0x92, 0x08, 0x0a, 0xeb, 0x7b, 0xca, 0xc1, 0x72, 0xc9,
+	0x2e, 0x03, 0x9b, 0x2e, 0x6c, 0x0a, 0x7c, 0xa3, 0x04, 0x7c, 0xb3, 0x10, 0x7c, 0x2b, 0x0d, 0xbe,
+	0xc3, 0xc0, 0x2b, 0x88, 0xa4, 0xb2, 0x77, 0x19, 0x56, 0x2e, 0xbd, 0x26, 0x56, 0x91, 0x55, 0x89,
+	0x95, 0x59, 0xbf, 0x85, 0xff, 0xed, 0x93, 0x51, 0x1f, 0x7f, 0x39, 0xc1, 0x24, 0x8c, 0x87, 0x87,
+	0xf2, 0x53, 0xa1, 0x6c, 0x4a, 0x8d, 0xce, 0x30, 0x7e, 0x90, 0xf3, 0x33, 0xac, 0x64, 0x2c, 0xb3,
+	0xf6, 0xe0, 0x76, 0x01, 0x00, 0x59, 0x36, 0xf5, 0x93, 0x6e, 0xa4, 0x3e, 0xe9, 0x4f, 0x01, 0xed,
+	0x93, 0xd1, 0x93, 0x23, 0x27, 0xac, 0x36, 0x3b, 0xad, 0xc1, 0x55, 0x65, 0x84, 0x8b, 0x5a, 0x4e,
+	0x59, 0xb2, 0x56, 0xc0, 0xcc, 0x66, 0x8c, 0xb0, 0xbc, 0x73, 0x76, 0x13, 0x1a, 0xfb, 0x64, 0x84,
+	0x7e, 0x30, 0x60, 0x2e, 0x75, 0xd9, 0xbc, 0xd3, 0xbb, 0xf4, 0x36, 0xdd, 0xcb, 0xdc, 0xe0, 0xcc,
+	0x7b, 0x75, 0xa2, 0xa4, 0x34, 0x14, 0x46, 0xea, 0x2a, 0x57, 0x11, 0x46, 0x32, 0xaa, 0x2a, 0x8c,
+	0xfc, 0x5b, 0x14, 0x83, 0x91, 0xba, 0x43, 0x55, 0x84, 0x91, 0x8c, 0xaa, 0x0a, 0x23, 0xff, 0xc2,
+	0x85, 0x7e, 0x36, 0x60, 0x21, 0x7b, 0xdb, 0xda, 0xd1, 0x51, 0x58, 0x09, 0x34, 0xef, 0xd7, 0x0c,
+	0x4c, 0xe0, 0xc9, 0x5e, 0x75, 0x76, 0x74, 0xa4, 0xae, 0x81, 0xa7, 0xf0, 0xaa, 0xc1, 0xf0, 0x64,
+	0x2f, 0x1a, 0x3b, 0x3a, 0x9a, 0xd7, 0xc0, 0x53, 0x78, 0x31, 0x41, 0xdf, 0x1b, 0x70, 0x2d, 0x79,
+	0x2b, 0xd9, 0xd2, 0x91, 0x5c, 0x04, 0x99, 0xef, 0xd7, 0x08, 0x4a, 0x60, 0x48, 0x5e, 0x08, 0xb6,
+	0x74, 0x64, 0xd6, 0xc4, 0x90, 0x3b, 0xaa, 0x33, 0x0c, 0xc9, 0x41, 0x7d, 0x4b, 0x47, 0x5a, 0x4d,
+	0x0c, 0xb9, 0x43, 0x3d, 0xfa, 0xc9, 0x80, 0xf9, 0xcc, 0x44, 0xbf, 0xad, 0xa3, 0x6c, 0x1c, 0x67,
+	0x7e, 0x50, 0x2f, 0x2e, 0x01, 0x26, 0x33, 0x81, 0x6f, 0xeb, 0x48, 0xac, 0x0f, 0xa6, 0x68, 0x68,
+	0x66, 0x60, 0x32, 0x23, 0xf3, 0xb6, 0x8e, 0xd6, 0xfa, 0x60, 0x8a, 0x26, 0x6c, 0x74, 0x6a, 0x00,
+	0xca, 0x19, 0xaf, 0x77, 0x75, 0x04, 0x57, 0x23, 0xcd, 0x07, 0x75, 0x23, 0x13, 0x90, 0x72, 0x46,
+	0xe4, 0x5d, 0x1d, 0xd9, 0xeb, 0x40, 0x2a, 0x9e, 0x74, 0x19, 0xa4, 0x9c, 0x39, 0x77, 0x57, 0x47,
+	0xfc, 0x3a, 0x90, 0x8a, 0x07, 0x63, 0xf4, 0x0d, 0x5c, 0x55, 0x87, 0xe2, 0x4d, 0x1d, 0xd9, 0x59,
+	0x88, 0xf9, 0x9e, 0x76, 0x88, 0xba, 0xb9, 0x3a, 0xe4, 0x6e, 0xea, 0x08, 0xac, 0xb5, 0x79, 0xce,
+	0xe0, 0x4a, 0x37, 0x57, 0xa7, 0xd6, 0x4d, 0x1d, 0x29, 0xb5, 0x36, 0xcf, 0x99, 0x6f, 0xd1, 0x2f,
+	0x06, 0x2c, 0xe6, 0x4e, 0xb7, 0x77, 0xab, 0xe5, 0xcc, 0x8b, 0x35, 0x1f, 0xd6, 0x8f, 0x95, 0xc0,
+	0x7e, 0x34, 0xe0, 0x7a, 0x7a, 0x6c, 0x7d, 0xb7, 0x5a, 0xde, 0x54, 0x98, 0xb9, 0x57, 0x2b, 0x2c,
+	0x42, 0xf2, 0xf0, 0xb3, 0x3f, 0xce, 0xbb, 0xc6, 0xd9, 0x79, 0xd7, 0x78, 0x7d, 0xde, 0x35, 0x4e,
+	0x2f, 0xba, 0x57, 0xce, 0x2e, 0xba, 0x57, 0xfe, 0xba, 0xe8, 0x5e, 0xf9, 0xfc, 0xce, 0xc8, 0x09,
+	0x5f, 0x4c, 0x0e, 0x7a, 0x03, 0xef, 0x68, 0x43, 0xd9, 0x62, 0x43, 0xf9, 0x0f, 0xe6, 0x58, 0x35,
+	0xc2, 0x13, 0x1f, 0x93, 0x83, 0x36, 0xfb, 0x47, 0x66, 0xeb, 0xbf, 0x00, 0x00, 0x00, 0xff, 0xff,
+	0xb2, 0x0b, 0x1d, 0xeb, 0x72, 0x1a, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -2651,9 +2459,6 @@ type MsgClient interface {
 	DeleteHouse(ctx context.Context, in *MsgDeleteHouse, opts ...grpc.CallOption) (*MsgDeleteHouseResponse, error)
 	RequestCertification(ctx context.Context, in *MsgRequestCertification, opts ...grpc.CallOption) (*MsgRequestCertificationResponse, error)
 	EmitCertificate(ctx context.Context, in *MsgEmitCertificate, opts ...grpc.CallOption) (*MsgEmitCertificateResponse, error)
-	LockProperty(ctx context.Context, in *MsgLockProperty, opts ...grpc.CallOption) (*MsgLockPropertyResponse, error)
-	UnlockProperty(ctx context.Context, in *MsgUnlockProperty, opts ...grpc.CallOption) (*MsgUnlockPropertyResponse, error)
-	UnlockAssets(ctx context.Context, in *MsgUnlockAssets, opts ...grpc.CallOption) (*MsgUnlockAssetsResponse, error)
 }
 
 type msgClient struct {
@@ -2844,33 +2649,6 @@ func (c *msgClient) EmitCertificate(ctx context.Context, in *MsgEmitCertificate,
 	return out, nil
 }
 
-func (c *msgClient) LockProperty(ctx context.Context, in *MsgLockProperty, opts ...grpc.CallOption) (*MsgLockPropertyResponse, error) {
-	out := new(MsgLockPropertyResponse)
-	err := c.cc.Invoke(ctx, "/rafaelsousa.realestate.realestate.Msg/LockProperty", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *msgClient) UnlockProperty(ctx context.Context, in *MsgUnlockProperty, opts ...grpc.CallOption) (*MsgUnlockPropertyResponse, error) {
-	out := new(MsgUnlockPropertyResponse)
-	err := c.cc.Invoke(ctx, "/rafaelsousa.realestate.realestate.Msg/UnlockProperty", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *msgClient) UnlockAssets(ctx context.Context, in *MsgUnlockAssets, opts ...grpc.CallOption) (*MsgUnlockAssetsResponse, error) {
-	out := new(MsgUnlockAssetsResponse)
-	err := c.cc.Invoke(ctx, "/rafaelsousa.realestate.realestate.Msg/UnlockAssets", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 // MsgServer is the server API for Msg service.
 type MsgServer interface {
 	CreateProperty(context.Context, *MsgCreateProperty) (*MsgCreatePropertyResponse, error)
@@ -2893,9 +2671,6 @@ type MsgServer interface {
 	DeleteHouse(context.Context, *MsgDeleteHouse) (*MsgDeleteHouseResponse, error)
 	RequestCertification(context.Context, *MsgRequestCertification) (*MsgRequestCertificationResponse, error)
 	EmitCertificate(context.Context, *MsgEmitCertificate) (*MsgEmitCertificateResponse, error)
-	LockProperty(context.Context, *MsgLockProperty) (*MsgLockPropertyResponse, error)
-	UnlockProperty(context.Context, *MsgUnlockProperty) (*MsgUnlockPropertyResponse, error)
-	UnlockAssets(context.Context, *MsgUnlockAssets) (*MsgUnlockAssetsResponse, error)
 }
 
 // UnimplementedMsgServer can be embedded to have forward compatible implementations.
@@ -2961,15 +2736,6 @@ func (*UnimplementedMsgServer) RequestCertification(ctx context.Context, req *Ms
 }
 func (*UnimplementedMsgServer) EmitCertificate(ctx context.Context, req *MsgEmitCertificate) (*MsgEmitCertificateResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method EmitCertificate not implemented")
-}
-func (*UnimplementedMsgServer) LockProperty(ctx context.Context, req *MsgLockProperty) (*MsgLockPropertyResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method LockProperty not implemented")
-}
-func (*UnimplementedMsgServer) UnlockProperty(ctx context.Context, req *MsgUnlockProperty) (*MsgUnlockPropertyResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UnlockProperty not implemented")
-}
-func (*UnimplementedMsgServer) UnlockAssets(ctx context.Context, req *MsgUnlockAssets) (*MsgUnlockAssetsResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UnlockAssets not implemented")
 }
 
 func RegisterMsgServer(s grpc1.Server, srv MsgServer) {
@@ -3336,60 +3102,6 @@ func _Msg_EmitCertificate_Handler(srv interface{}, ctx context.Context, dec func
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Msg_LockProperty_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MsgLockProperty)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MsgServer).LockProperty(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/rafaelsousa.realestate.realestate.Msg/LockProperty",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MsgServer).LockProperty(ctx, req.(*MsgLockProperty))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Msg_UnlockProperty_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MsgUnlockProperty)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MsgServer).UnlockProperty(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/rafaelsousa.realestate.realestate.Msg/UnlockProperty",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MsgServer).UnlockProperty(ctx, req.(*MsgUnlockProperty))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Msg_UnlockAssets_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MsgUnlockAssets)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MsgServer).UnlockAssets(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/rafaelsousa.realestate.realestate.Msg/UnlockAssets",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MsgServer).UnlockAssets(ctx, req.(*MsgUnlockAssets))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 var _Msg_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "rafaelsousa.realestate.realestate.Msg",
 	HandlerType: (*MsgServer)(nil),
@@ -3473,18 +3185,6 @@ var _Msg_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "EmitCertificate",
 			Handler:    _Msg_EmitCertificate_Handler,
-		},
-		{
-			MethodName: "LockProperty",
-			Handler:    _Msg_LockProperty_Handler,
-		},
-		{
-			MethodName: "UnlockProperty",
-			Handler:    _Msg_UnlockProperty_Handler,
-		},
-		{
-			MethodName: "UnlockAssets",
-			Handler:    _Msg_UnlockAssets_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -3590,6 +3290,13 @@ func (m *MsgCreatePropertyResponse) MarshalToSizedBuffer(dAtA []byte) (int, erro
 	_ = i
 	var l int
 	_ = l
+	if len(m.Message) > 0 {
+		i -= len(m.Message)
+		copy(dAtA[i:], m.Message)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Message)))
+		i--
+		dAtA[i] = 0x12
+	}
 	if m.Id != 0 {
 		i = encodeVarintTx(dAtA, i, uint64(m.Id))
 		i--
@@ -3811,12 +3518,10 @@ func (m *MsgCreateCertificate) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 		i--
 		dAtA[i] = 0x1a
 	}
-	if len(m.Property) > 0 {
-		i -= len(m.Property)
-		copy(dAtA[i:], m.Property)
-		i = encodeVarintTx(dAtA, i, uint64(len(m.Property)))
+	if m.Property != 0 {
+		i = encodeVarintTx(dAtA, i, uint64(m.Property))
 		i--
-		dAtA[i] = 0x12
+		dAtA[i] = 0x10
 	}
 	if len(m.Creator) > 0 {
 		i -= len(m.Creator)
@@ -3904,12 +3609,10 @@ func (m *MsgUpdateCertificate) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 		i--
 		dAtA[i] = 0x22
 	}
-	if len(m.Property) > 0 {
-		i -= len(m.Property)
-		copy(dAtA[i:], m.Property)
-		i = encodeVarintTx(dAtA, i, uint64(len(m.Property)))
+	if m.Property != 0 {
+		i = encodeVarintTx(dAtA, i, uint64(m.Property))
 		i--
-		dAtA[i] = 0x1a
+		dAtA[i] = 0x18
 	}
 	if m.Id != 0 {
 		i = encodeVarintTx(dAtA, i, uint64(m.Id))
@@ -4027,19 +3730,15 @@ func (m *MsgCreateLocking) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if len(m.Property) > 0 {
-		i -= len(m.Property)
-		copy(dAtA[i:], m.Property)
-		i = encodeVarintTx(dAtA, i, uint64(len(m.Property)))
+	if m.Property != 0 {
+		i = encodeVarintTx(dAtA, i, uint64(m.Property))
 		i--
-		dAtA[i] = 0x32
+		dAtA[i] = 0x30
 	}
-	if len(m.UnlockFees) > 0 {
-		i -= len(m.UnlockFees)
-		copy(dAtA[i:], m.UnlockFees)
-		i = encodeVarintTx(dAtA, i, uint64(len(m.UnlockFees)))
+	if m.Assets != 0 {
+		i = encodeVarintTx(dAtA, i, uint64(m.Assets))
 		i--
-		dAtA[i] = 0x2a
+		dAtA[i] = 0x28
 	}
 	if len(m.DateUnlocking) > 0 {
 		i -= len(m.DateUnlocking)
@@ -4092,6 +3791,13 @@ func (m *MsgCreateLockingResponse) MarshalToSizedBuffer(dAtA []byte) (int, error
 	_ = i
 	var l int
 	_ = l
+	if len(m.Response) > 0 {
+		i -= len(m.Response)
+		copy(dAtA[i:], m.Response)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Response)))
+		i--
+		dAtA[i] = 0x12
+	}
 	if m.Id != 0 {
 		i = encodeVarintTx(dAtA, i, uint64(m.Id))
 		i--
@@ -4120,19 +3826,15 @@ func (m *MsgUpdateLocking) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if len(m.Property) > 0 {
-		i -= len(m.Property)
-		copy(dAtA[i:], m.Property)
-		i = encodeVarintTx(dAtA, i, uint64(len(m.Property)))
+	if m.Property != 0 {
+		i = encodeVarintTx(dAtA, i, uint64(m.Property))
 		i--
-		dAtA[i] = 0x3a
+		dAtA[i] = 0x38
 	}
-	if len(m.UnlockFees) > 0 {
-		i -= len(m.UnlockFees)
-		copy(dAtA[i:], m.UnlockFees)
-		i = encodeVarintTx(dAtA, i, uint64(len(m.UnlockFees)))
+	if m.Assets != 0 {
+		i = encodeVarintTx(dAtA, i, uint64(m.Assets))
 		i--
-		dAtA[i] = 0x32
+		dAtA[i] = 0x30
 	}
 	if len(m.DateUnlocking) > 0 {
 		i -= len(m.DateUnlocking)
@@ -4285,12 +3987,10 @@ func (m *MsgCreateInspection) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 		i--
 		dAtA[i] = 0x22
 	}
-	if len(m.Property) > 0 {
-		i -= len(m.Property)
-		copy(dAtA[i:], m.Property)
-		i = encodeVarintTx(dAtA, i, uint64(len(m.Property)))
+	if m.Property != 0 {
+		i = encodeVarintTx(dAtA, i, uint64(m.Property))
 		i--
-		dAtA[i] = 0x1a
+		dAtA[i] = 0x18
 	}
 	if len(m.Inspector) > 0 {
 		i -= len(m.Inspector)
@@ -4371,12 +4071,10 @@ func (m *MsgUpdateInspection) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 		i--
 		dAtA[i] = 0x2a
 	}
-	if len(m.Property) > 0 {
-		i -= len(m.Property)
-		copy(dAtA[i:], m.Property)
-		i = encodeVarintTx(dAtA, i, uint64(len(m.Property)))
+	if m.Property != 0 {
+		i = encodeVarintTx(dAtA, i, uint64(m.Property))
 		i--
-		dAtA[i] = 0x22
+		dAtA[i] = 0x20
 	}
 	if len(m.Inspector) > 0 {
 		i -= len(m.Inspector)
@@ -4501,12 +4199,10 @@ func (m *MsgCreateTransference) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if len(m.Property) > 0 {
-		i -= len(m.Property)
-		copy(dAtA[i:], m.Property)
-		i = encodeVarintTx(dAtA, i, uint64(len(m.Property)))
+	if m.Property != 0 {
+		i = encodeVarintTx(dAtA, i, uint64(m.Property))
 		i--
-		dAtA[i] = 0x32
+		dAtA[i] = 0x30
 	}
 	if len(m.Value) > 0 {
 		i -= len(m.Value)
@@ -4594,12 +4290,10 @@ func (m *MsgUpdateTransference) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if len(m.Property) > 0 {
-		i -= len(m.Property)
-		copy(dAtA[i:], m.Property)
-		i = encodeVarintTx(dAtA, i, uint64(len(m.Property)))
+	if m.Property != 0 {
+		i = encodeVarintTx(dAtA, i, uint64(m.Property))
 		i--
-		dAtA[i] = 0x3a
+		dAtA[i] = 0x38
 	}
 	if len(m.Value) > 0 {
 		i -= len(m.Value)
@@ -4961,6 +4655,23 @@ func (m *MsgRequestCertification) MarshalToSizedBuffer(dAtA []byte) (int, error)
 	_ = i
 	var l int
 	_ = l
+	if len(m.Surveyor) > 0 {
+		i -= len(m.Surveyor)
+		copy(dAtA[i:], m.Surveyor)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Surveyor)))
+		i--
+		dAtA[i] = 0x22
+	}
+	if m.Fees != 0 {
+		i = encodeVarintTx(dAtA, i, uint64(m.Fees))
+		i--
+		dAtA[i] = 0x18
+	}
+	if m.Property != 0 {
+		i = encodeVarintTx(dAtA, i, uint64(m.Property))
+		i--
+		dAtA[i] = 0x10
+	}
 	if len(m.Creator) > 0 {
 		i -= len(m.Creator)
 		copy(dAtA[i:], m.Creator)
@@ -4991,6 +4702,13 @@ func (m *MsgRequestCertificationResponse) MarshalToSizedBuffer(dAtA []byte) (int
 	_ = i
 	var l int
 	_ = l
+	if len(m.Response) > 0 {
+		i -= len(m.Response)
+		copy(dAtA[i:], m.Response)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Response)))
+		i--
+		dAtA[i] = 0xa
+	}
 	return len(dAtA) - i, nil
 }
 
@@ -5014,6 +4732,13 @@ func (m *MsgEmitCertificate) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
+	if len(m.Certificate) > 0 {
+		i -= len(m.Certificate)
+		copy(dAtA[i:], m.Certificate)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Certificate)))
+		i--
+		dAtA[i] = 0x12
+	}
 	if len(m.Creator) > 0 {
 		i -= len(m.Creator)
 		copy(dAtA[i:], m.Creator)
@@ -5040,165 +4765,6 @@ func (m *MsgEmitCertificateResponse) MarshalTo(dAtA []byte) (int, error) {
 }
 
 func (m *MsgEmitCertificateResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
-	i := len(dAtA)
-	_ = i
-	var l int
-	_ = l
-	return len(dAtA) - i, nil
-}
-
-func (m *MsgLockProperty) Marshal() (dAtA []byte, err error) {
-	size := m.Size()
-	dAtA = make([]byte, size)
-	n, err := m.MarshalToSizedBuffer(dAtA[:size])
-	if err != nil {
-		return nil, err
-	}
-	return dAtA[:n], nil
-}
-
-func (m *MsgLockProperty) MarshalTo(dAtA []byte) (int, error) {
-	size := m.Size()
-	return m.MarshalToSizedBuffer(dAtA[:size])
-}
-
-func (m *MsgLockProperty) MarshalToSizedBuffer(dAtA []byte) (int, error) {
-	i := len(dAtA)
-	_ = i
-	var l int
-	_ = l
-	if len(m.Creator) > 0 {
-		i -= len(m.Creator)
-		copy(dAtA[i:], m.Creator)
-		i = encodeVarintTx(dAtA, i, uint64(len(m.Creator)))
-		i--
-		dAtA[i] = 0xa
-	}
-	return len(dAtA) - i, nil
-}
-
-func (m *MsgLockPropertyResponse) Marshal() (dAtA []byte, err error) {
-	size := m.Size()
-	dAtA = make([]byte, size)
-	n, err := m.MarshalToSizedBuffer(dAtA[:size])
-	if err != nil {
-		return nil, err
-	}
-	return dAtA[:n], nil
-}
-
-func (m *MsgLockPropertyResponse) MarshalTo(dAtA []byte) (int, error) {
-	size := m.Size()
-	return m.MarshalToSizedBuffer(dAtA[:size])
-}
-
-func (m *MsgLockPropertyResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
-	i := len(dAtA)
-	_ = i
-	var l int
-	_ = l
-	return len(dAtA) - i, nil
-}
-
-func (m *MsgUnlockProperty) Marshal() (dAtA []byte, err error) {
-	size := m.Size()
-	dAtA = make([]byte, size)
-	n, err := m.MarshalToSizedBuffer(dAtA[:size])
-	if err != nil {
-		return nil, err
-	}
-	return dAtA[:n], nil
-}
-
-func (m *MsgUnlockProperty) MarshalTo(dAtA []byte) (int, error) {
-	size := m.Size()
-	return m.MarshalToSizedBuffer(dAtA[:size])
-}
-
-func (m *MsgUnlockProperty) MarshalToSizedBuffer(dAtA []byte) (int, error) {
-	i := len(dAtA)
-	_ = i
-	var l int
-	_ = l
-	if len(m.Creator) > 0 {
-		i -= len(m.Creator)
-		copy(dAtA[i:], m.Creator)
-		i = encodeVarintTx(dAtA, i, uint64(len(m.Creator)))
-		i--
-		dAtA[i] = 0xa
-	}
-	return len(dAtA) - i, nil
-}
-
-func (m *MsgUnlockPropertyResponse) Marshal() (dAtA []byte, err error) {
-	size := m.Size()
-	dAtA = make([]byte, size)
-	n, err := m.MarshalToSizedBuffer(dAtA[:size])
-	if err != nil {
-		return nil, err
-	}
-	return dAtA[:n], nil
-}
-
-func (m *MsgUnlockPropertyResponse) MarshalTo(dAtA []byte) (int, error) {
-	size := m.Size()
-	return m.MarshalToSizedBuffer(dAtA[:size])
-}
-
-func (m *MsgUnlockPropertyResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
-	i := len(dAtA)
-	_ = i
-	var l int
-	_ = l
-	return len(dAtA) - i, nil
-}
-
-func (m *MsgUnlockAssets) Marshal() (dAtA []byte, err error) {
-	size := m.Size()
-	dAtA = make([]byte, size)
-	n, err := m.MarshalToSizedBuffer(dAtA[:size])
-	if err != nil {
-		return nil, err
-	}
-	return dAtA[:n], nil
-}
-
-func (m *MsgUnlockAssets) MarshalTo(dAtA []byte) (int, error) {
-	size := m.Size()
-	return m.MarshalToSizedBuffer(dAtA[:size])
-}
-
-func (m *MsgUnlockAssets) MarshalToSizedBuffer(dAtA []byte) (int, error) {
-	i := len(dAtA)
-	_ = i
-	var l int
-	_ = l
-	if len(m.Creator) > 0 {
-		i -= len(m.Creator)
-		copy(dAtA[i:], m.Creator)
-		i = encodeVarintTx(dAtA, i, uint64(len(m.Creator)))
-		i--
-		dAtA[i] = 0xa
-	}
-	return len(dAtA) - i, nil
-}
-
-func (m *MsgUnlockAssetsResponse) Marshal() (dAtA []byte, err error) {
-	size := m.Size()
-	dAtA = make([]byte, size)
-	n, err := m.MarshalToSizedBuffer(dAtA[:size])
-	if err != nil {
-		return nil, err
-	}
-	return dAtA[:n], nil
-}
-
-func (m *MsgUnlockAssetsResponse) MarshalTo(dAtA []byte) (int, error) {
-	size := m.Size()
-	return m.MarshalToSizedBuffer(dAtA[:size])
-}
-
-func (m *MsgUnlockAssetsResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	i := len(dAtA)
 	_ = i
 	var l int
@@ -5266,6 +4832,10 @@ func (m *MsgCreatePropertyResponse) Size() (n int) {
 	_ = l
 	if m.Id != 0 {
 		n += 1 + sovTx(uint64(m.Id))
+	}
+	l = len(m.Message)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
 	}
 	return n
 }
@@ -5358,9 +4928,8 @@ func (m *MsgCreateCertificate) Size() (n int) {
 	if l > 0 {
 		n += 1 + l + sovTx(uint64(l))
 	}
-	l = len(m.Property)
-	if l > 0 {
-		n += 1 + l + sovTx(uint64(l))
+	if m.Property != 0 {
+		n += 1 + sovTx(uint64(m.Property))
 	}
 	l = len(m.Surveyor)
 	if l > 0 {
@@ -5406,9 +4975,8 @@ func (m *MsgUpdateCertificate) Size() (n int) {
 	if m.Id != 0 {
 		n += 1 + sovTx(uint64(m.Id))
 	}
-	l = len(m.Property)
-	if l > 0 {
-		n += 1 + l + sovTx(uint64(l))
+	if m.Property != 0 {
+		n += 1 + sovTx(uint64(m.Property))
 	}
 	l = len(m.Surveyor)
 	if l > 0 {
@@ -5485,13 +5053,11 @@ func (m *MsgCreateLocking) Size() (n int) {
 	if l > 0 {
 		n += 1 + l + sovTx(uint64(l))
 	}
-	l = len(m.UnlockFees)
-	if l > 0 {
-		n += 1 + l + sovTx(uint64(l))
+	if m.Assets != 0 {
+		n += 1 + sovTx(uint64(m.Assets))
 	}
-	l = len(m.Property)
-	if l > 0 {
-		n += 1 + l + sovTx(uint64(l))
+	if m.Property != 0 {
+		n += 1 + sovTx(uint64(m.Property))
 	}
 	return n
 }
@@ -5504,6 +5070,10 @@ func (m *MsgCreateLockingResponse) Size() (n int) {
 	_ = l
 	if m.Id != 0 {
 		n += 1 + sovTx(uint64(m.Id))
+	}
+	l = len(m.Response)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
 	}
 	return n
 }
@@ -5533,13 +5103,11 @@ func (m *MsgUpdateLocking) Size() (n int) {
 	if l > 0 {
 		n += 1 + l + sovTx(uint64(l))
 	}
-	l = len(m.UnlockFees)
-	if l > 0 {
-		n += 1 + l + sovTx(uint64(l))
+	if m.Assets != 0 {
+		n += 1 + sovTx(uint64(m.Assets))
 	}
-	l = len(m.Property)
-	if l > 0 {
-		n += 1 + l + sovTx(uint64(l))
+	if m.Property != 0 {
+		n += 1 + sovTx(uint64(m.Property))
 	}
 	return n
 }
@@ -5592,9 +5160,8 @@ func (m *MsgCreateInspection) Size() (n int) {
 	if l > 0 {
 		n += 1 + l + sovTx(uint64(l))
 	}
-	l = len(m.Property)
-	if l > 0 {
-		n += 1 + l + sovTx(uint64(l))
+	if m.Property != 0 {
+		n += 1 + sovTx(uint64(m.Property))
 	}
 	l = len(m.Fees)
 	if l > 0 {
@@ -5636,9 +5203,8 @@ func (m *MsgUpdateInspection) Size() (n int) {
 	if l > 0 {
 		n += 1 + l + sovTx(uint64(l))
 	}
-	l = len(m.Property)
-	if l > 0 {
-		n += 1 + l + sovTx(uint64(l))
+	if m.Property != 0 {
+		n += 1 + sovTx(uint64(m.Property))
 	}
 	l = len(m.Fees)
 	if l > 0 {
@@ -5711,9 +5277,8 @@ func (m *MsgCreateTransference) Size() (n int) {
 	if l > 0 {
 		n += 1 + l + sovTx(uint64(l))
 	}
-	l = len(m.Property)
-	if l > 0 {
-		n += 1 + l + sovTx(uint64(l))
+	if m.Property != 0 {
+		n += 1 + sovTx(uint64(m.Property))
 	}
 	return n
 }
@@ -5759,9 +5324,8 @@ func (m *MsgUpdateTransference) Size() (n int) {
 	if l > 0 {
 		n += 1 + l + sovTx(uint64(l))
 	}
-	l = len(m.Property)
-	if l > 0 {
-		n += 1 + l + sovTx(uint64(l))
+	if m.Property != 0 {
+		n += 1 + sovTx(uint64(m.Property))
 	}
 	return n
 }
@@ -5909,6 +5473,16 @@ func (m *MsgRequestCertification) Size() (n int) {
 	if l > 0 {
 		n += 1 + l + sovTx(uint64(l))
 	}
+	if m.Property != 0 {
+		n += 1 + sovTx(uint64(m.Property))
+	}
+	if m.Fees != 0 {
+		n += 1 + sovTx(uint64(m.Fees))
+	}
+	l = len(m.Surveyor)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
 	return n
 }
 
@@ -5918,6 +5492,10 @@ func (m *MsgRequestCertificationResponse) Size() (n int) {
 	}
 	var l int
 	_ = l
+	l = len(m.Response)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
 	return n
 }
 
@@ -5931,76 +5509,14 @@ func (m *MsgEmitCertificate) Size() (n int) {
 	if l > 0 {
 		n += 1 + l + sovTx(uint64(l))
 	}
+	l = len(m.Certificate)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
 	return n
 }
 
 func (m *MsgEmitCertificateResponse) Size() (n int) {
-	if m == nil {
-		return 0
-	}
-	var l int
-	_ = l
-	return n
-}
-
-func (m *MsgLockProperty) Size() (n int) {
-	if m == nil {
-		return 0
-	}
-	var l int
-	_ = l
-	l = len(m.Creator)
-	if l > 0 {
-		n += 1 + l + sovTx(uint64(l))
-	}
-	return n
-}
-
-func (m *MsgLockPropertyResponse) Size() (n int) {
-	if m == nil {
-		return 0
-	}
-	var l int
-	_ = l
-	return n
-}
-
-func (m *MsgUnlockProperty) Size() (n int) {
-	if m == nil {
-		return 0
-	}
-	var l int
-	_ = l
-	l = len(m.Creator)
-	if l > 0 {
-		n += 1 + l + sovTx(uint64(l))
-	}
-	return n
-}
-
-func (m *MsgUnlockPropertyResponse) Size() (n int) {
-	if m == nil {
-		return 0
-	}
-	var l int
-	_ = l
-	return n
-}
-
-func (m *MsgUnlockAssets) Size() (n int) {
-	if m == nil {
-		return 0
-	}
-	var l int
-	_ = l
-	l = len(m.Creator)
-	if l > 0 {
-		n += 1 + l + sovTx(uint64(l))
-	}
-	return n
-}
-
-func (m *MsgUnlockAssetsResponse) Size() (n int) {
 	if m == nil {
 		return 0
 	}
@@ -6369,6 +5885,38 @@ func (m *MsgCreatePropertyResponse) Unmarshal(dAtA []byte) error {
 					break
 				}
 			}
+		case 2:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Message", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Message = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
 		default:
 			iNdEx = preIndex
 			skippy, err := skipTx(dAtA[iNdEx:])
@@ -6978,10 +6526,10 @@ func (m *MsgCreateCertificate) Unmarshal(dAtA []byte) error {
 			m.Creator = string(dAtA[iNdEx:postIndex])
 			iNdEx = postIndex
 		case 2:
-			if wireType != 2 {
+			if wireType != 0 {
 				return fmt.Errorf("proto: wrong wireType = %d for field Property", wireType)
 			}
-			var stringLen uint64
+			m.Property = 0
 			for shift := uint(0); ; shift += 7 {
 				if shift >= 64 {
 					return ErrIntOverflowTx
@@ -6991,24 +6539,11 @@ func (m *MsgCreateCertificate) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
+				m.Property |= uint64(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
 			}
-			intStringLen := int(stringLen)
-			if intStringLen < 0 {
-				return ErrInvalidLengthTx
-			}
-			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthTx
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.Property = string(dAtA[iNdEx:postIndex])
-			iNdEx = postIndex
 		case 3:
 			if wireType != 2 {
 				return fmt.Errorf("proto: wrong wireType = %d for field Surveyor", wireType)
@@ -7308,10 +6843,10 @@ func (m *MsgUpdateCertificate) Unmarshal(dAtA []byte) error {
 				}
 			}
 		case 3:
-			if wireType != 2 {
+			if wireType != 0 {
 				return fmt.Errorf("proto: wrong wireType = %d for field Property", wireType)
 			}
-			var stringLen uint64
+			m.Property = 0
 			for shift := uint(0); ; shift += 7 {
 				if shift >= 64 {
 					return ErrIntOverflowTx
@@ -7321,24 +6856,11 @@ func (m *MsgUpdateCertificate) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
+				m.Property |= uint64(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
 			}
-			intStringLen := int(stringLen)
-			if intStringLen < 0 {
-				return ErrInvalidLengthTx
-			}
-			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthTx
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.Property = string(dAtA[iNdEx:postIndex])
-			iNdEx = postIndex
 		case 4:
 			if wireType != 2 {
 				return fmt.Errorf("proto: wrong wireType = %d for field Surveyor", wireType)
@@ -7847,10 +7369,10 @@ func (m *MsgCreateLocking) Unmarshal(dAtA []byte) error {
 			m.DateUnlocking = string(dAtA[iNdEx:postIndex])
 			iNdEx = postIndex
 		case 5:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field UnlockFees", wireType)
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Assets", wireType)
 			}
-			var stringLen uint64
+			m.Assets = 0
 			for shift := uint(0); ; shift += 7 {
 				if shift >= 64 {
 					return ErrIntOverflowTx
@@ -7860,29 +7382,16 @@ func (m *MsgCreateLocking) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
+				m.Assets |= uint64(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
 			}
-			intStringLen := int(stringLen)
-			if intStringLen < 0 {
-				return ErrInvalidLengthTx
-			}
-			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthTx
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.UnlockFees = string(dAtA[iNdEx:postIndex])
-			iNdEx = postIndex
 		case 6:
-			if wireType != 2 {
+			if wireType != 0 {
 				return fmt.Errorf("proto: wrong wireType = %d for field Property", wireType)
 			}
-			var stringLen uint64
+			m.Property = 0
 			for shift := uint(0); ; shift += 7 {
 				if shift >= 64 {
 					return ErrIntOverflowTx
@@ -7892,24 +7401,11 @@ func (m *MsgCreateLocking) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
+				m.Property |= uint64(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
 			}
-			intStringLen := int(stringLen)
-			if intStringLen < 0 {
-				return ErrInvalidLengthTx
-			}
-			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthTx
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.Property = string(dAtA[iNdEx:postIndex])
-			iNdEx = postIndex
 		default:
 			iNdEx = preIndex
 			skippy, err := skipTx(dAtA[iNdEx:])
@@ -7979,6 +7475,38 @@ func (m *MsgCreateLockingResponse) Unmarshal(dAtA []byte) error {
 					break
 				}
 			}
+		case 2:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Response", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Response = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
 		default:
 			iNdEx = preIndex
 			skippy, err := skipTx(dAtA[iNdEx:])
@@ -8177,10 +7705,10 @@ func (m *MsgUpdateLocking) Unmarshal(dAtA []byte) error {
 			m.DateUnlocking = string(dAtA[iNdEx:postIndex])
 			iNdEx = postIndex
 		case 6:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field UnlockFees", wireType)
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Assets", wireType)
 			}
-			var stringLen uint64
+			m.Assets = 0
 			for shift := uint(0); ; shift += 7 {
 				if shift >= 64 {
 					return ErrIntOverflowTx
@@ -8190,29 +7718,16 @@ func (m *MsgUpdateLocking) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
+				m.Assets |= uint64(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
 			}
-			intStringLen := int(stringLen)
-			if intStringLen < 0 {
-				return ErrInvalidLengthTx
-			}
-			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthTx
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.UnlockFees = string(dAtA[iNdEx:postIndex])
-			iNdEx = postIndex
 		case 7:
-			if wireType != 2 {
+			if wireType != 0 {
 				return fmt.Errorf("proto: wrong wireType = %d for field Property", wireType)
 			}
-			var stringLen uint64
+			m.Property = 0
 			for shift := uint(0); ; shift += 7 {
 				if shift >= 64 {
 					return ErrIntOverflowTx
@@ -8222,24 +7737,11 @@ func (m *MsgUpdateLocking) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
+				m.Property |= uint64(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
 			}
-			intStringLen := int(stringLen)
-			if intStringLen < 0 {
-				return ErrInvalidLengthTx
-			}
-			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthTx
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.Property = string(dAtA[iNdEx:postIndex])
-			iNdEx = postIndex
 		default:
 			iNdEx = preIndex
 			skippy, err := skipTx(dAtA[iNdEx:])
@@ -8556,10 +8058,10 @@ func (m *MsgCreateInspection) Unmarshal(dAtA []byte) error {
 			m.Inspector = string(dAtA[iNdEx:postIndex])
 			iNdEx = postIndex
 		case 3:
-			if wireType != 2 {
+			if wireType != 0 {
 				return fmt.Errorf("proto: wrong wireType = %d for field Property", wireType)
 			}
-			var stringLen uint64
+			m.Property = 0
 			for shift := uint(0); ; shift += 7 {
 				if shift >= 64 {
 					return ErrIntOverflowTx
@@ -8569,24 +8071,11 @@ func (m *MsgCreateInspection) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
+				m.Property |= uint64(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
 			}
-			intStringLen := int(stringLen)
-			if intStringLen < 0 {
-				return ErrInvalidLengthTx
-			}
-			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthTx
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.Property = string(dAtA[iNdEx:postIndex])
-			iNdEx = postIndex
 		case 4:
 			if wireType != 2 {
 				return fmt.Errorf("proto: wrong wireType = %d for field Fees", wireType)
@@ -8854,10 +8343,10 @@ func (m *MsgUpdateInspection) Unmarshal(dAtA []byte) error {
 			m.Inspector = string(dAtA[iNdEx:postIndex])
 			iNdEx = postIndex
 		case 4:
-			if wireType != 2 {
+			if wireType != 0 {
 				return fmt.Errorf("proto: wrong wireType = %d for field Property", wireType)
 			}
-			var stringLen uint64
+			m.Property = 0
 			for shift := uint(0); ; shift += 7 {
 				if shift >= 64 {
 					return ErrIntOverflowTx
@@ -8867,24 +8356,11 @@ func (m *MsgUpdateInspection) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
+				m.Property |= uint64(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
 			}
-			intStringLen := int(stringLen)
-			if intStringLen < 0 {
-				return ErrInvalidLengthTx
-			}
-			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthTx
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.Property = string(dAtA[iNdEx:postIndex])
-			iNdEx = postIndex
 		case 5:
 			if wireType != 2 {
 				return fmt.Errorf("proto: wrong wireType = %d for field Fees", wireType)
@@ -9361,10 +8837,10 @@ func (m *MsgCreateTransference) Unmarshal(dAtA []byte) error {
 			m.Value = string(dAtA[iNdEx:postIndex])
 			iNdEx = postIndex
 		case 6:
-			if wireType != 2 {
+			if wireType != 0 {
 				return fmt.Errorf("proto: wrong wireType = %d for field Property", wireType)
 			}
-			var stringLen uint64
+			m.Property = 0
 			for shift := uint(0); ; shift += 7 {
 				if shift >= 64 {
 					return ErrIntOverflowTx
@@ -9374,24 +8850,11 @@ func (m *MsgCreateTransference) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
+				m.Property |= uint64(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
 			}
-			intStringLen := int(stringLen)
-			if intStringLen < 0 {
-				return ErrInvalidLengthTx
-			}
-			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthTx
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.Property = string(dAtA[iNdEx:postIndex])
-			iNdEx = postIndex
 		default:
 			iNdEx = preIndex
 			skippy, err := skipTx(dAtA[iNdEx:])
@@ -9691,10 +9154,10 @@ func (m *MsgUpdateTransference) Unmarshal(dAtA []byte) error {
 			m.Value = string(dAtA[iNdEx:postIndex])
 			iNdEx = postIndex
 		case 7:
-			if wireType != 2 {
+			if wireType != 0 {
 				return fmt.Errorf("proto: wrong wireType = %d for field Property", wireType)
 			}
-			var stringLen uint64
+			m.Property = 0
 			for shift := uint(0); ; shift += 7 {
 				if shift >= 64 {
 					return ErrIntOverflowTx
@@ -9704,24 +9167,11 @@ func (m *MsgUpdateTransference) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
+				m.Property |= uint64(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
 			}
-			intStringLen := int(stringLen)
-			if intStringLen < 0 {
-				return ErrInvalidLengthTx
-			}
-			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthTx
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.Property = string(dAtA[iNdEx:postIndex])
-			iNdEx = postIndex
 		default:
 			iNdEx = preIndex
 			skippy, err := skipTx(dAtA[iNdEx:])
@@ -10650,6 +10100,76 @@ func (m *MsgRequestCertification) Unmarshal(dAtA []byte) error {
 			}
 			m.Creator = string(dAtA[iNdEx:postIndex])
 			iNdEx = postIndex
+		case 2:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Property", wireType)
+			}
+			m.Property = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.Property |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 3:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Fees", wireType)
+			}
+			m.Fees = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.Fees |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 4:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Surveyor", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Surveyor = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
 		default:
 			iNdEx = preIndex
 			skippy, err := skipTx(dAtA[iNdEx:])
@@ -10700,6 +10220,38 @@ func (m *MsgRequestCertificationResponse) Unmarshal(dAtA []byte) error {
 			return fmt.Errorf("proto: MsgRequestCertificationResponse: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Response", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Response = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
 		default:
 			iNdEx = preIndex
 			skippy, err := skipTx(dAtA[iNdEx:])
@@ -10782,6 +10334,38 @@ func (m *MsgEmitCertificate) Unmarshal(dAtA []byte) error {
 			}
 			m.Creator = string(dAtA[iNdEx:postIndex])
 			iNdEx = postIndex
+		case 2:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Certificate", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Certificate = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
 		default:
 			iNdEx = preIndex
 			skippy, err := skipTx(dAtA[iNdEx:])
@@ -10830,402 +10414,6 @@ func (m *MsgEmitCertificateResponse) Unmarshal(dAtA []byte) error {
 		}
 		if fieldNum <= 0 {
 			return fmt.Errorf("proto: MsgEmitCertificateResponse: illegal tag %d (wire type %d)", fieldNum, wire)
-		}
-		switch fieldNum {
-		default:
-			iNdEx = preIndex
-			skippy, err := skipTx(dAtA[iNdEx:])
-			if err != nil {
-				return err
-			}
-			if (skippy < 0) || (iNdEx+skippy) < 0 {
-				return ErrInvalidLengthTx
-			}
-			if (iNdEx + skippy) > l {
-				return io.ErrUnexpectedEOF
-			}
-			iNdEx += skippy
-		}
-	}
-
-	if iNdEx > l {
-		return io.ErrUnexpectedEOF
-	}
-	return nil
-}
-func (m *MsgLockProperty) Unmarshal(dAtA []byte) error {
-	l := len(dAtA)
-	iNdEx := 0
-	for iNdEx < l {
-		preIndex := iNdEx
-		var wire uint64
-		for shift := uint(0); ; shift += 7 {
-			if shift >= 64 {
-				return ErrIntOverflowTx
-			}
-			if iNdEx >= l {
-				return io.ErrUnexpectedEOF
-			}
-			b := dAtA[iNdEx]
-			iNdEx++
-			wire |= uint64(b&0x7F) << shift
-			if b < 0x80 {
-				break
-			}
-		}
-		fieldNum := int32(wire >> 3)
-		wireType := int(wire & 0x7)
-		if wireType == 4 {
-			return fmt.Errorf("proto: MsgLockProperty: wiretype end group for non-group")
-		}
-		if fieldNum <= 0 {
-			return fmt.Errorf("proto: MsgLockProperty: illegal tag %d (wire type %d)", fieldNum, wire)
-		}
-		switch fieldNum {
-		case 1:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Creator", wireType)
-			}
-			var stringLen uint64
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowTx
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			intStringLen := int(stringLen)
-			if intStringLen < 0 {
-				return ErrInvalidLengthTx
-			}
-			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthTx
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.Creator = string(dAtA[iNdEx:postIndex])
-			iNdEx = postIndex
-		default:
-			iNdEx = preIndex
-			skippy, err := skipTx(dAtA[iNdEx:])
-			if err != nil {
-				return err
-			}
-			if (skippy < 0) || (iNdEx+skippy) < 0 {
-				return ErrInvalidLengthTx
-			}
-			if (iNdEx + skippy) > l {
-				return io.ErrUnexpectedEOF
-			}
-			iNdEx += skippy
-		}
-	}
-
-	if iNdEx > l {
-		return io.ErrUnexpectedEOF
-	}
-	return nil
-}
-func (m *MsgLockPropertyResponse) Unmarshal(dAtA []byte) error {
-	l := len(dAtA)
-	iNdEx := 0
-	for iNdEx < l {
-		preIndex := iNdEx
-		var wire uint64
-		for shift := uint(0); ; shift += 7 {
-			if shift >= 64 {
-				return ErrIntOverflowTx
-			}
-			if iNdEx >= l {
-				return io.ErrUnexpectedEOF
-			}
-			b := dAtA[iNdEx]
-			iNdEx++
-			wire |= uint64(b&0x7F) << shift
-			if b < 0x80 {
-				break
-			}
-		}
-		fieldNum := int32(wire >> 3)
-		wireType := int(wire & 0x7)
-		if wireType == 4 {
-			return fmt.Errorf("proto: MsgLockPropertyResponse: wiretype end group for non-group")
-		}
-		if fieldNum <= 0 {
-			return fmt.Errorf("proto: MsgLockPropertyResponse: illegal tag %d (wire type %d)", fieldNum, wire)
-		}
-		switch fieldNum {
-		default:
-			iNdEx = preIndex
-			skippy, err := skipTx(dAtA[iNdEx:])
-			if err != nil {
-				return err
-			}
-			if (skippy < 0) || (iNdEx+skippy) < 0 {
-				return ErrInvalidLengthTx
-			}
-			if (iNdEx + skippy) > l {
-				return io.ErrUnexpectedEOF
-			}
-			iNdEx += skippy
-		}
-	}
-
-	if iNdEx > l {
-		return io.ErrUnexpectedEOF
-	}
-	return nil
-}
-func (m *MsgUnlockProperty) Unmarshal(dAtA []byte) error {
-	l := len(dAtA)
-	iNdEx := 0
-	for iNdEx < l {
-		preIndex := iNdEx
-		var wire uint64
-		for shift := uint(0); ; shift += 7 {
-			if shift >= 64 {
-				return ErrIntOverflowTx
-			}
-			if iNdEx >= l {
-				return io.ErrUnexpectedEOF
-			}
-			b := dAtA[iNdEx]
-			iNdEx++
-			wire |= uint64(b&0x7F) << shift
-			if b < 0x80 {
-				break
-			}
-		}
-		fieldNum := int32(wire >> 3)
-		wireType := int(wire & 0x7)
-		if wireType == 4 {
-			return fmt.Errorf("proto: MsgUnlockProperty: wiretype end group for non-group")
-		}
-		if fieldNum <= 0 {
-			return fmt.Errorf("proto: MsgUnlockProperty: illegal tag %d (wire type %d)", fieldNum, wire)
-		}
-		switch fieldNum {
-		case 1:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Creator", wireType)
-			}
-			var stringLen uint64
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowTx
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			intStringLen := int(stringLen)
-			if intStringLen < 0 {
-				return ErrInvalidLengthTx
-			}
-			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthTx
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.Creator = string(dAtA[iNdEx:postIndex])
-			iNdEx = postIndex
-		default:
-			iNdEx = preIndex
-			skippy, err := skipTx(dAtA[iNdEx:])
-			if err != nil {
-				return err
-			}
-			if (skippy < 0) || (iNdEx+skippy) < 0 {
-				return ErrInvalidLengthTx
-			}
-			if (iNdEx + skippy) > l {
-				return io.ErrUnexpectedEOF
-			}
-			iNdEx += skippy
-		}
-	}
-
-	if iNdEx > l {
-		return io.ErrUnexpectedEOF
-	}
-	return nil
-}
-func (m *MsgUnlockPropertyResponse) Unmarshal(dAtA []byte) error {
-	l := len(dAtA)
-	iNdEx := 0
-	for iNdEx < l {
-		preIndex := iNdEx
-		var wire uint64
-		for shift := uint(0); ; shift += 7 {
-			if shift >= 64 {
-				return ErrIntOverflowTx
-			}
-			if iNdEx >= l {
-				return io.ErrUnexpectedEOF
-			}
-			b := dAtA[iNdEx]
-			iNdEx++
-			wire |= uint64(b&0x7F) << shift
-			if b < 0x80 {
-				break
-			}
-		}
-		fieldNum := int32(wire >> 3)
-		wireType := int(wire & 0x7)
-		if wireType == 4 {
-			return fmt.Errorf("proto: MsgUnlockPropertyResponse: wiretype end group for non-group")
-		}
-		if fieldNum <= 0 {
-			return fmt.Errorf("proto: MsgUnlockPropertyResponse: illegal tag %d (wire type %d)", fieldNum, wire)
-		}
-		switch fieldNum {
-		default:
-			iNdEx = preIndex
-			skippy, err := skipTx(dAtA[iNdEx:])
-			if err != nil {
-				return err
-			}
-			if (skippy < 0) || (iNdEx+skippy) < 0 {
-				return ErrInvalidLengthTx
-			}
-			if (iNdEx + skippy) > l {
-				return io.ErrUnexpectedEOF
-			}
-			iNdEx += skippy
-		}
-	}
-
-	if iNdEx > l {
-		return io.ErrUnexpectedEOF
-	}
-	return nil
-}
-func (m *MsgUnlockAssets) Unmarshal(dAtA []byte) error {
-	l := len(dAtA)
-	iNdEx := 0
-	for iNdEx < l {
-		preIndex := iNdEx
-		var wire uint64
-		for shift := uint(0); ; shift += 7 {
-			if shift >= 64 {
-				return ErrIntOverflowTx
-			}
-			if iNdEx >= l {
-				return io.ErrUnexpectedEOF
-			}
-			b := dAtA[iNdEx]
-			iNdEx++
-			wire |= uint64(b&0x7F) << shift
-			if b < 0x80 {
-				break
-			}
-		}
-		fieldNum := int32(wire >> 3)
-		wireType := int(wire & 0x7)
-		if wireType == 4 {
-			return fmt.Errorf("proto: MsgUnlockAssets: wiretype end group for non-group")
-		}
-		if fieldNum <= 0 {
-			return fmt.Errorf("proto: MsgUnlockAssets: illegal tag %d (wire type %d)", fieldNum, wire)
-		}
-		switch fieldNum {
-		case 1:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Creator", wireType)
-			}
-			var stringLen uint64
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowTx
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			intStringLen := int(stringLen)
-			if intStringLen < 0 {
-				return ErrInvalidLengthTx
-			}
-			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthTx
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.Creator = string(dAtA[iNdEx:postIndex])
-			iNdEx = postIndex
-		default:
-			iNdEx = preIndex
-			skippy, err := skipTx(dAtA[iNdEx:])
-			if err != nil {
-				return err
-			}
-			if (skippy < 0) || (iNdEx+skippy) < 0 {
-				return ErrInvalidLengthTx
-			}
-			if (iNdEx + skippy) > l {
-				return io.ErrUnexpectedEOF
-			}
-			iNdEx += skippy
-		}
-	}
-
-	if iNdEx > l {
-		return io.ErrUnexpectedEOF
-	}
-	return nil
-}
-func (m *MsgUnlockAssetsResponse) Unmarshal(dAtA []byte) error {
-	l := len(dAtA)
-	iNdEx := 0
-	for iNdEx < l {
-		preIndex := iNdEx
-		var wire uint64
-		for shift := uint(0); ; shift += 7 {
-			if shift >= 64 {
-				return ErrIntOverflowTx
-			}
-			if iNdEx >= l {
-				return io.ErrUnexpectedEOF
-			}
-			b := dAtA[iNdEx]
-			iNdEx++
-			wire |= uint64(b&0x7F) << shift
-			if b < 0x80 {
-				break
-			}
-		}
-		fieldNum := int32(wire >> 3)
-		wireType := int(wire & 0x7)
-		if wireType == 4 {
-			return fmt.Errorf("proto: MsgUnlockAssetsResponse: wiretype end group for non-group")
-		}
-		if fieldNum <= 0 {
-			return fmt.Errorf("proto: MsgUnlockAssetsResponse: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
 		default:

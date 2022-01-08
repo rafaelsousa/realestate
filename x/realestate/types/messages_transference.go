@@ -13,7 +13,7 @@ const (
 
 var _ sdk.Msg = &MsgCreateTransference{}
 
-func NewMsgCreateTransference(creator string, from string, to string, date string, value string, property string) *MsgCreateTransference {
+func NewMsgCreateTransference(creator string, from string, to string, date string, value string, property uint64) *MsgCreateTransference {
 	return &MsgCreateTransference{
 		Creator:  creator,
 		From:     from,
@@ -55,7 +55,7 @@ func (msg *MsgCreateTransference) ValidateBasic() error {
 
 var _ sdk.Msg = &MsgUpdateTransference{}
 
-func NewMsgUpdateTransference(creator string, id uint64, from string, to string, date string, value string, property string) *MsgUpdateTransference {
+func NewMsgUpdateTransference(creator string, id uint64, from string, to string, date string, value string, property uint64) *MsgUpdateTransference {
 	return &MsgUpdateTransference{
 		Id:       id,
 		Creator:  creator,

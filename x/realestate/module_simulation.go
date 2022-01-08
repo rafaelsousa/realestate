@@ -108,10 +108,6 @@ const (
 	// TODO: Determine the simulation weight value
 	defaultWeightMsgLockProperty int = 100
 
-	opWeightMsgUnlockProperty = "op_weight_msg_create_chain"
-	// TODO: Determine the simulation weight value
-	defaultWeightMsgUnlockProperty int = 100
-
 	opWeightMsgUnlockAssets = "op_weight_msg_create_chain"
 	// TODO: Determine the simulation weight value
 	defaultWeightMsgUnlockAssets int = 100
@@ -441,21 +437,6 @@ func (am AppModule) WeightedOperations(simState module.SimulationState) []simtyp
 			weightMsgLockProperty = defaultWeightMsgLockProperty
 		},
 	)
-	operations = append(operations, simulation.NewWeightedOperation(
-		weightMsgLockProperty,
-		realestatesimulation.SimulateMsgLockProperty(am.accountKeeper, am.bankKeeper, am.keeper),
-	))
-
-	var weightMsgUnlockProperty int
-	simState.AppParams.GetOrGenerate(simState.Cdc, opWeightMsgUnlockProperty, &weightMsgUnlockProperty, nil,
-		func(_ *rand.Rand) {
-			weightMsgUnlockProperty = defaultWeightMsgUnlockProperty
-		},
-	)
-	operations = append(operations, simulation.NewWeightedOperation(
-		weightMsgUnlockProperty,
-		realestatesimulation.SimulateMsgUnlockProperty(am.accountKeeper, am.bankKeeper, am.keeper),
-	))
 
 	var weightMsgUnlockAssets int
 	simState.AppParams.GetOrGenerate(simState.Cdc, opWeightMsgUnlockAssets, &weightMsgUnlockAssets, nil,
@@ -463,10 +444,6 @@ func (am AppModule) WeightedOperations(simState module.SimulationState) []simtyp
 			weightMsgUnlockAssets = defaultWeightMsgUnlockAssets
 		},
 	)
-	operations = append(operations, simulation.NewWeightedOperation(
-		weightMsgUnlockAssets,
-		realestatesimulation.SimulateMsgUnlockAssets(am.accountKeeper, am.bankKeeper, am.keeper),
-	))
 
 	// this line is used by starport scaffolding # simapp/module/operation
 

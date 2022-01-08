@@ -50,9 +50,6 @@ func GetTxCmd() *cobra.Command {
 	cmd.AddCommand(CmdDeleteHouse())
 	cmd.AddCommand(CmdRequestCertification())
 	cmd.AddCommand(CmdEmitCertificate())
-	cmd.AddCommand(CmdLockProperty())
-	cmd.AddCommand(CmdUnlockProperty())
-	cmd.AddCommand(CmdUnlockAssets())
 	// this line is used by starport scaffolding # 1
 
 	return cmd

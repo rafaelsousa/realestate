@@ -17,7 +17,7 @@ func CmdCreateInspection() *cobra.Command {
 		Args:  cobra.ExactArgs(4),
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			argInspector := args[0]
-			argProperty := args[1]
+			argProperty, _ := strconv.Atoi(args[1])
 			argFees := args[2]
 			argInspectionResults := args[3]
 
@@ -26,7 +26,7 @@ func CmdCreateInspection() *cobra.Command {
 				return err
 			}
 
-			msg := types.NewMsgCreateInspection(clientCtx.GetFromAddress().String(), argInspector, argProperty, argFees, argInspectionResults)
+			msg := types.NewMsgCreateInspection(clientCtx.GetFromAddress().String(), argInspector, uint64(argProperty), argFees, argInspectionResults)
 			if err := msg.ValidateBasic(); err != nil {
 				return err
 			}
@@ -52,7 +52,7 @@ func CmdUpdateInspection() *cobra.Command {
 
 			argInspector := args[1]
 
-			argProperty := args[2]
+			argProperty, _ := strconv.Atoi(args[2])
 
 			argFees := args[3]
 
@@ -63,7 +63,7 @@ func CmdUpdateInspection() *cobra.Command {
 				return err
 			}
 
-			msg := types.NewMsgUpdateInspection(clientCtx.GetFromAddress().String(), id, argInspector, argProperty, argFees, argInspectionResults)
+			msg := types.NewMsgUpdateInspection(clientCtx.GetFromAddress().String(), id, argInspector, uint64(argProperty), argFees, argInspectionResults)
 			if err := msg.ValidateBasic(); err != nil {
 				return err
 			}

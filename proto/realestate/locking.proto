@@ -8,7 +8,7 @@ message Locking {
   string owner = 2; 
   string dateLocking = 3; 
   string dateUnlocking = 4; 
-  string unlockFees = 5; 
-  string property = 6; 
+  uint64 assets = 5;
+  uint64 property = 6;
   string creator = 7;
 }

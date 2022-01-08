@@ -16,7 +16,7 @@ func CmdCreateCertificate() *cobra.Command {
 		Short: "Create a new certificate",
 		Args:  cobra.ExactArgs(5),
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
-			argProperty := args[0]
+			argProperty, _ := strconv.Atoi(args[0])
 			argSurveyor := args[1]
 			argCertifiationDate := args[2]
 			argCertificateText := args[3]
@@ -27,7 +27,7 @@ func CmdCreateCertificate() *cobra.Command {
 				return err
 			}
 
-			msg := types.NewMsgCreateCertificate(clientCtx.GetFromAddress().String(), argProperty, argSurveyor, argCertifiationDate, argCertificateText, argPropertyMap)
+			msg := types.NewMsgCreateCertificate(clientCtx.GetFromAddress().String(), uint64(argProperty), argSurveyor, argCertifiationDate, argCertificateText, argPropertyMap)
 			if err := msg.ValidateBasic(); err != nil {
 				return err
 			}
@@ -51,7 +51,7 @@ func CmdUpdateCertificate() *cobra.Command {
 				return err
 			}
 
-			argProperty := args[1]
+			argProperty, _ := strconv.Atoi(args[1])
 
 			argSurveyor := args[2]
 
@@ -66,7 +66,7 @@ func CmdUpdateCertificate() *cobra.Command {
 				return err
 			}
 
-			msg := types.NewMsgUpdateCertificate(clientCtx.GetFromAddress().String(), id, argProperty, argSurveyor, argCertifiationDate, argCertificateText, argPropertyMap)
+			msg := types.NewMsgUpdateCertificate(clientCtx.GetFromAddress().String(), id, uint64(argProperty), argSurveyor, argCertifiationDate, argCertificateText, argPropertyMap)
 			if err := msg.ValidateBasic(); err != nil {
 				return err
 			}

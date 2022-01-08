@@ -15,6 +15,8 @@ const (
 
 	// MemStoreKey defines the in-memory store key
 	MemStoreKey = "mem_realestate"
+
+	GovernanceToken = "domus"
 )
 
 func KeyPrefix(p string) []byte {

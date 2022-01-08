@@ -15,4 +15,5 @@ message Property {
   string creator = 9;
   string blueprint = 10;
   string imgUrl = 11;
+  string owner = 12;
 }

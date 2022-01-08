@@ -28,9 +28,6 @@ func RegisterCodec(cdc *codec.LegacyAmino) {
 	cdc.RegisterConcrete(&MsgDeleteHouse{}, "realestate/DeleteHouse", nil)
 	cdc.RegisterConcrete(&MsgRequestCertification{}, "realestate/RequestCertification", nil)
 	cdc.RegisterConcrete(&MsgEmitCertificate{}, "realestate/EmitCertificate", nil)
-	cdc.RegisterConcrete(&MsgLockProperty{}, "realestate/LockProperty", nil)
-	cdc.RegisterConcrete(&MsgUnlockProperty{}, "realestate/UnlockProperty", nil)
-	cdc.RegisterConcrete(&MsgUnlockAssets{}, "realestate/UnlockAssets", nil)
 	// this line is used by starport scaffolding # 2
 }
 
@@ -70,15 +67,6 @@ func RegisterInterfaces(registry cdctypes.InterfaceRegistry) {
 	)
 	registry.RegisterImplementations((*sdk.Msg)(nil),
 		&MsgEmitCertificate{},
-	)
-	registry.RegisterImplementations((*sdk.Msg)(nil),
-		&MsgLockProperty{},
-	)
-	registry.RegisterImplementations((*sdk.Msg)(nil),
-		&MsgUnlockProperty{},
-	)
-	registry.RegisterImplementations((*sdk.Msg)(nil),
-		&MsgUnlockAssets{},
 	)
 	// this line is used by starport scaffolding # 3
 

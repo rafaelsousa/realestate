@@ -6,7 +6,7 @@ option go_package = "github.com/rafaelsousa/realestate/x/realestate/types";
 message Inspection {
   uint64 id = 1;
   string inspector = 2; 
-  string property = 3; 
+  uint64 property = 3;
   string fees = 4; 
   string inspectionResults = 5; 
   string creator = 6;

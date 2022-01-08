@@ -17,7 +17,7 @@ func (k msgServer) CreateLocking(goCtx context.Context, msg *types.MsgCreateLock
 		Owner:         msg.Owner,
 		DateLocking:   msg.DateLocking,
 		DateUnlocking: msg.DateUnlocking,
-		UnlockFees:    msg.UnlockFees,
+		Assets:        msg.Assets,
 		Property:      msg.Property,
 	}
 
@@ -40,7 +40,7 @@ func (k msgServer) UpdateLocking(goCtx context.Context, msg *types.MsgUpdateLock
 		Owner:         msg.Owner,
 		DateLocking:   msg.DateLocking,
 		DateUnlocking: msg.DateUnlocking,
-		UnlockFees:    msg.UnlockFees,
+		Assets:        msg.Assets,
 		Property:      msg.Property,
 	}
 

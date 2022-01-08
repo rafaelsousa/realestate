@@ -19,15 +19,15 @@ func CmdCreateLocking() *cobra.Command {
 			argOwner := args[0]
 			argDateLocking := args[1]
 			argDateUnlocking := args[2]
-			argUnlockFees := args[3]
-			argProperty := args[4]
+			argUnlockFees, _ := strconv.Atoi(args[3])
+			argProperty, _ := strconv.Atoi(args[4])
 
 			clientCtx, err := client.GetClientTxContext(cmd)
 			if err != nil {
 				return err
 			}
 
-			msg := types.NewMsgCreateLocking(clientCtx.GetFromAddress().String(), argOwner, argDateLocking, argDateUnlocking, argUnlockFees, argProperty)
+			msg := types.NewMsgCreateLocking(clientCtx.GetFromAddress().String(), argOwner, argDateLocking, argDateUnlocking, uint64(argUnlockFees), uint64(argProperty))
 			if err := msg.ValidateBasic(); err != nil {
 				return err
 			}
@@ -57,16 +57,16 @@ func CmdUpdateLocking() *cobra.Command {
 
 			argDateUnlocking := args[3]
 
-			argUnlockFees := args[4]
+			argUnlockFees, _ := strconv.Atoi(args[4])
 
-			argProperty := args[5]
+			argProperty, _ := strconv.Atoi(args[5])
 
 			clientCtx, err := client.GetClientTxContext(cmd)
 			if err != nil {
 				return err
 			}
 
-			msg := types.NewMsgUpdateLocking(clientCtx.GetFromAddress().String(), id, argOwner, argDateLocking, argDateUnlocking, argUnlockFees, argProperty)
+			msg := types.NewMsgUpdateLocking(clientCtx.GetFromAddress().String(), id, argOwner, argDateLocking, argDateUnlocking, uint64(argUnlockFees), uint64(argProperty))
 			if err := msg.ValidateBasic(); err != nil {
 				return err
 			}

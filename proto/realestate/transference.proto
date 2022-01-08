@@ -9,6 +9,6 @@ message Transference {
   string to = 3; 
   string date = 4; 
   string value = 5; 
-  string property = 6; 
+  uint64 property = 6;
   string creator = 7;
 }

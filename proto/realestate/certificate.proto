@@ -5,7 +5,7 @@ option go_package = "github.com/rafaelsousa/realestate/x/realestate/types";
 
 message Certificate {
   uint64 id = 1;
-  string property = 2; 
+  uint64 property = 2;
   string surveyor = 3; 
   string certifiationDate = 4; 
   string certificateText = 5; 

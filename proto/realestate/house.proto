@@ -9,4 +9,5 @@ message House {
   string image = 3; 
   string blueprint = 4; 
   string creator = 5;
+  uint64 property = 6;
 }

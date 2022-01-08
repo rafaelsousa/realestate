@@ -13,7 +13,7 @@ const (
 
 var _ sdk.Msg = &MsgCreateCertificate{}
 
-func NewMsgCreateCertificate(creator string, property string, surveyor string, certifiationDate string, certificateText string, propertyMap string) *MsgCreateCertificate {
+func NewMsgCreateCertificate(creator string, property uint64, surveyor string, certifiationDate string, certificateText string, propertyMap string) *MsgCreateCertificate {
 	return &MsgCreateCertificate{
 		Creator:          creator,
 		Property:         property,
@@ -55,7 +55,7 @@ func (msg *MsgCreateCertificate) ValidateBasic() error {
 
 var _ sdk.Msg = &MsgUpdateCertificate{}
 
-func NewMsgUpdateCertificate(creator string, id uint64, property string, surveyor string, certifiationDate string, certificateText string, propertyMap string) *MsgUpdateCertificate {
+func NewMsgUpdateCertificate(creator string, id uint64, property uint64, surveyor string, certifiationDate string, certificateText string, propertyMap string) *MsgUpdateCertificate {
 	return &MsgUpdateCertificate{
 		Id:               id,
 		Creator:          creator,
