@@ -3,23 +3,23 @@ genesis:
   app_state:
     staking:
       params:
-        bond_denom: "udomus"
+        bond_denom: "domus"
     crisis:
       constant_fee:
-        denom: udomus
+        denom: domus
     gov:
       deposit_params:
         min_deposit:
-          denom: udomus
+          denom: domus
 
 accounts:
   - name: alpha
-    coins: ["3000000000udomus"]
+    coins: ["42000000000domus"]
     mnemonic: "pitch potato lady search click tumble evoke reunion artwork debris alter panda journey hand elder whisper kick oblige number plastic adult junior enlist exercise"
 
 validator:
   name: alpha
-  staked: "2000000000udomus"
+  staked: "2000000000domus"
 client:
 #  vuex:
 #    path: "vue/src/store"
@@ -27,4 +27,4 @@ client:
 #    path: "docs/static/openapi.yml"
 faucet:
   name: alpha
-  coins: ["100udomus"]
+  coins: ["100domus"]
