@@ -1,11 +1,11 @@
 /* eslint-disable */
-import { Timestamp } from "../../../google/protobuf/timestamp";
-import * as Long from "long";
-import { util, configure, Writer, Reader } from "protobufjs/minimal";
-import { Duration } from "../../../google/protobuf/duration";
-export const protobufPackage = "cosmos.slashing.v1beta1";
+import { Timestamp } from '../../../google/protobuf/timestamp';
+import * as Long from 'long';
+import { configure, Reader, util, Writer } from 'protobufjs/minimal';
+import { Duration } from '../../../google/protobuf/duration';
+export const protobufPackage = 'cosmos.slashing.v1beta1';
 const baseValidatorSigningInfo = {
-    address: "",
+    address: '',
     startHeight: 0,
     indexOffset: 0,
     tombstoned: false,
@@ -13,7 +13,7 @@ const baseValidatorSigningInfo = {
 };
 export const ValidatorSigningInfo = {
     encode(message, writer = Writer.create()) {
-        if (message.address !== "") {
+        if (message.address !== '') {
             writer.uint32(10).string(message.address);
         }
         if (message.startHeight !== 0) {
@@ -71,7 +71,7 @@ export const ValidatorSigningInfo = {
             message.address = String(object.address);
         }
         else {
-            message.address = "";
+            message.address = '';
         }
         if (object.startHeight !== undefined && object.startHeight !== null) {
             message.startHeight = Number(object.startHeight);
@@ -129,7 +129,7 @@ export const ValidatorSigningInfo = {
             message.address = object.address;
         }
         else {
-            message.address = "";
+            message.address = '';
         }
         if (object.startHeight !== undefined && object.startHeight !== null) {
             message.startHeight = object.startHeight;
@@ -307,18 +307,18 @@ export const Params = {
     },
 };
 var globalThis = (() => {
-    if (typeof globalThis !== "undefined")
+    if (typeof globalThis !== 'undefined')
         return globalThis;
-    if (typeof self !== "undefined")
+    if (typeof self !== 'undefined')
         return self;
-    if (typeof window !== "undefined")
+    if (typeof window !== 'undefined')
         return window;
-    if (typeof global !== "undefined")
+    if (typeof global !== 'undefined')
         return global;
-    throw "Unable to locate global object";
+    throw 'Unable to locate global object';
 })();
 const atob = globalThis.atob ||
-    ((b64) => globalThis.Buffer.from(b64, "base64").toString("binary"));
+    ((b64) => globalThis.Buffer.from(b64, 'base64').toString('binary'));
 function bytesFromBase64(b64) {
     const bin = atob(b64);
     const arr = new Uint8Array(bin.length);
@@ -328,13 +328,13 @@ function bytesFromBase64(b64) {
     return arr;
 }
 const btoa = globalThis.btoa ||
-    ((bin) => globalThis.Buffer.from(bin, "binary").toString("base64"));
+    ((bin) => globalThis.Buffer.from(bin, 'binary').toString('base64'));
 function base64FromBytes(arr) {
     const bin = [];
     for (let i = 0; i < arr.byteLength; ++i) {
         bin.push(String.fromCharCode(arr[i]));
     }
-    return btoa(bin.join(""));
+    return btoa(bin.join(''));
 }
 function toTimestamp(date) {
     const seconds = date.getTime() / 1000;
@@ -350,7 +350,7 @@ function fromJsonTimestamp(o) {
     if (o instanceof Date) {
         return o;
     }
-    else if (typeof o === "string") {
+    else if (typeof o === 'string') {
         return new Date(o);
     }
     else {
@@ -359,7 +359,7 @@ function fromJsonTimestamp(o) {
 }
 function longToNumber(long) {
     if (long.gt(Number.MAX_SAFE_INTEGER)) {
-        throw new globalThis.Error("Value is larger than Number.MAX_SAFE_INTEGER");
+        throw new globalThis.Error('Value is larger than Number.MAX_SAFE_INTEGER');
     }
     return long.toNumber();
 }

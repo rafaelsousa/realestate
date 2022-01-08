@@ -1,6 +1,6 @@
-import { Reader, Writer } from "protobufjs/minimal";
-import { Grant } from "../../../cosmos/authz/v1beta1/authz";
-import { Any } from "../../../google/protobuf/any";
+import { Reader, Writer } from 'protobufjs/minimal';
+import { Grant } from '../../../cosmos/authz/v1beta1/authz';
+import { Any } from '../../../google/protobuf/any';
 export declare const protobufPackage = "cosmos.authz.v1beta1";
 /** Since: cosmos-sdk 0.43 */
 /**

@@ -1,7 +1,7 @@
 /* eslint-disable */
-import { Coin } from "../../../cosmos/base/v1beta1/coin";
-import { Writer, Reader } from "protobufjs/minimal";
-export const protobufPackage = "cosmos.staking.v1beta1";
+import { Coin } from '../../../cosmos/base/v1beta1/coin';
+import { Reader, Writer } from 'protobufjs/minimal';
+export const protobufPackage = 'cosmos.staking.v1beta1';
 /**
  * AuthorizationType defines the type of staking module authorization type
  *
@@ -22,19 +22,19 @@ export var AuthorizationType;
 export function authorizationTypeFromJSON(object) {
     switch (object) {
         case 0:
-        case "AUTHORIZATION_TYPE_UNSPECIFIED":
+        case 'AUTHORIZATION_TYPE_UNSPECIFIED':
             return AuthorizationType.AUTHORIZATION_TYPE_UNSPECIFIED;
         case 1:
-        case "AUTHORIZATION_TYPE_DELEGATE":
+        case 'AUTHORIZATION_TYPE_DELEGATE':
             return AuthorizationType.AUTHORIZATION_TYPE_DELEGATE;
         case 2:
-        case "AUTHORIZATION_TYPE_UNDELEGATE":
+        case 'AUTHORIZATION_TYPE_UNDELEGATE':
             return AuthorizationType.AUTHORIZATION_TYPE_UNDELEGATE;
         case 3:
-        case "AUTHORIZATION_TYPE_REDELEGATE":
+        case 'AUTHORIZATION_TYPE_REDELEGATE':
             return AuthorizationType.AUTHORIZATION_TYPE_REDELEGATE;
         case -1:
-        case "UNRECOGNIZED":
+        case 'UNRECOGNIZED':
         default:
             return AuthorizationType.UNRECOGNIZED;
     }
@@ -42,15 +42,15 @@ export function authorizationTypeFromJSON(object) {
 export function authorizationTypeToJSON(object) {
     switch (object) {
         case AuthorizationType.AUTHORIZATION_TYPE_UNSPECIFIED:
-            return "AUTHORIZATION_TYPE_UNSPECIFIED";
+            return 'AUTHORIZATION_TYPE_UNSPECIFIED';
         case AuthorizationType.AUTHORIZATION_TYPE_DELEGATE:
-            return "AUTHORIZATION_TYPE_DELEGATE";
+            return 'AUTHORIZATION_TYPE_DELEGATE';
         case AuthorizationType.AUTHORIZATION_TYPE_UNDELEGATE:
-            return "AUTHORIZATION_TYPE_UNDELEGATE";
+            return 'AUTHORIZATION_TYPE_UNDELEGATE';
         case AuthorizationType.AUTHORIZATION_TYPE_REDELEGATE:
-            return "AUTHORIZATION_TYPE_REDELEGATE";
+            return 'AUTHORIZATION_TYPE_REDELEGATE';
         default:
-            return "UNKNOWN";
+            return 'UNKNOWN';
     }
 }
 const baseStakeAuthorization = { authorizationType: 0 };
@@ -173,7 +173,7 @@ export const StakeAuthorization = {
         return message;
     },
 };
-const baseStakeAuthorization_Validators = { address: "" };
+const baseStakeAuthorization_Validators = { address: '' };
 export const StakeAuthorization_Validators = {
     encode(message, writer = Writer.create()) {
         for (const v of message.address) {

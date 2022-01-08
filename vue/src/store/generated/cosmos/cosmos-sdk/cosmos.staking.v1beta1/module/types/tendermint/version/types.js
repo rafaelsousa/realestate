@@ -1,14 +1,14 @@
 /* eslint-disable */
-import * as Long from "long";
-import { util, configure, Writer, Reader } from "protobufjs/minimal";
-export const protobufPackage = "tendermint.version";
-const baseApp = { protocol: 0, software: "" };
+import * as Long from 'long';
+import { configure, Reader, util, Writer } from 'protobufjs/minimal';
+export const protobufPackage = 'tendermint.version';
+const baseApp = { protocol: 0, software: '' };
 export const App = {
     encode(message, writer = Writer.create()) {
         if (message.protocol !== 0) {
             writer.uint32(8).uint64(message.protocol);
         }
-        if (message.software !== "") {
+        if (message.software !== '') {
             writer.uint32(18).string(message.software);
         }
         return writer;
@@ -45,7 +45,7 @@ export const App = {
             message.software = String(object.software);
         }
         else {
-            message.software = "";
+            message.software = '';
         }
         return message;
     },
@@ -67,7 +67,7 @@ export const App = {
             message.software = object.software;
         }
         else {
-            message.software = "";
+            message.software = '';
         }
         return message;
     },
@@ -143,19 +143,19 @@ export const Consensus = {
     },
 };
 var globalThis = (() => {
-    if (typeof globalThis !== "undefined")
+    if (typeof globalThis !== 'undefined')
         return globalThis;
-    if (typeof self !== "undefined")
+    if (typeof self !== 'undefined')
         return self;
-    if (typeof window !== "undefined")
+    if (typeof window !== 'undefined')
         return window;
-    if (typeof global !== "undefined")
+    if (typeof global !== 'undefined')
         return global;
-    throw "Unable to locate global object";
+    throw 'Unable to locate global object';
 })();
 function longToNumber(long) {
     if (long.gt(Number.MAX_SAFE_INTEGER)) {
-        throw new globalThis.Error("Value is larger than Number.MAX_SAFE_INTEGER");
+        throw new globalThis.Error('Value is larger than Number.MAX_SAFE_INTEGER');
     }
     return long.toNumber();
 }

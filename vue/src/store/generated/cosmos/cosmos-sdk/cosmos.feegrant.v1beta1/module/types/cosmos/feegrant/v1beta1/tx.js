@@ -1,14 +1,14 @@
 /* eslint-disable */
-import { Reader, Writer } from "protobufjs/minimal";
-import { Any } from "../../../google/protobuf/any";
-export const protobufPackage = "cosmos.feegrant.v1beta1";
-const baseMsgGrantAllowance = { granter: "", grantee: "" };
+import { Reader, Writer } from 'protobufjs/minimal';
+import { Any } from '../../../google/protobuf/any';
+export const protobufPackage = 'cosmos.feegrant.v1beta1';
+const baseMsgGrantAllowance = { granter: '', grantee: '' };
 export const MsgGrantAllowance = {
     encode(message, writer = Writer.create()) {
-        if (message.granter !== "") {
+        if (message.granter !== '') {
             writer.uint32(10).string(message.granter);
         }
-        if (message.grantee !== "") {
+        if (message.grantee !== '') {
             writer.uint32(18).string(message.grantee);
         }
         if (message.allowance !== undefined) {
@@ -45,13 +45,13 @@ export const MsgGrantAllowance = {
             message.granter = String(object.granter);
         }
         else {
-            message.granter = "";
+            message.granter = '';
         }
         if (object.grantee !== undefined && object.grantee !== null) {
             message.grantee = String(object.grantee);
         }
         else {
-            message.grantee = "";
+            message.grantee = '';
         }
         if (object.allowance !== undefined && object.allowance !== null) {
             message.allowance = Any.fromJSON(object.allowance);
@@ -77,13 +77,13 @@ export const MsgGrantAllowance = {
             message.granter = object.granter;
         }
         else {
-            message.granter = "";
+            message.granter = '';
         }
         if (object.grantee !== undefined && object.grantee !== null) {
             message.grantee = object.grantee;
         }
         else {
-            message.grantee = "";
+            message.grantee = '';
         }
         if (object.allowance !== undefined && object.allowance !== null) {
             message.allowance = Any.fromPartial(object.allowance);
@@ -132,13 +132,13 @@ export const MsgGrantAllowanceResponse = {
         return message;
     },
 };
-const baseMsgRevokeAllowance = { granter: "", grantee: "" };
+const baseMsgRevokeAllowance = { granter: '', grantee: '' };
 export const MsgRevokeAllowance = {
     encode(message, writer = Writer.create()) {
-        if (message.granter !== "") {
+        if (message.granter !== '') {
             writer.uint32(10).string(message.granter);
         }
-        if (message.grantee !== "") {
+        if (message.grantee !== '') {
             writer.uint32(18).string(message.grantee);
         }
         return writer;
@@ -169,13 +169,13 @@ export const MsgRevokeAllowance = {
             message.granter = String(object.granter);
         }
         else {
-            message.granter = "";
+            message.granter = '';
         }
         if (object.grantee !== undefined && object.grantee !== null) {
             message.grantee = String(object.grantee);
         }
         else {
-            message.grantee = "";
+            message.grantee = '';
         }
         return message;
     },
@@ -191,13 +191,13 @@ export const MsgRevokeAllowance = {
             message.granter = object.granter;
         }
         else {
-            message.granter = "";
+            message.granter = '';
         }
         if (object.grantee !== undefined && object.grantee !== null) {
             message.grantee = object.grantee;
         }
         else {
-            message.grantee = "";
+            message.grantee = '';
         }
         return message;
     },
@@ -246,12 +246,12 @@ export class MsgClientImpl {
     }
     GrantAllowance(request) {
         const data = MsgGrantAllowance.encode(request).finish();
-        const promise = this.rpc.request("cosmos.feegrant.v1beta1.Msg", "GrantAllowance", data);
+        const promise = this.rpc.request('cosmos.feegrant.v1beta1.Msg', 'GrantAllowance', data);
         return promise.then((data) => MsgGrantAllowanceResponse.decode(new Reader(data)));
     }
     RevokeAllowance(request) {
         const data = MsgRevokeAllowance.encode(request).finish();
-        const promise = this.rpc.request("cosmos.feegrant.v1beta1.Msg", "RevokeAllowance", data);
+        const promise = this.rpc.request('cosmos.feegrant.v1beta1.Msg', 'RevokeAllowance', data);
         return promise.then((data) => MsgRevokeAllowanceResponse.decode(new Reader(data)));
     }
 }

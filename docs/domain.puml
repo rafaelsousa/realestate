@@ -1,0 +1,54 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+Property --* Transference
+House -|> Property
+Locking -- Property
+Certificate *-- Property
+Inspection "*" -- "1" Property
+
+class Locking{
+    owner : addr
+    date_locking : date
+    date_unlocking : date
+    unlock_fees : double
+    property : string
+}
+
+class Inspection {
+    inspector : addr
+    property : string
+    fees : double
+    inspection_results : string
+}
+
+class Property {
+    id          : int
+    address     : string
+    city        : string
+    state       : string
+    country     : string
+    zipcode     : string
+    latitude    : string
+    longitude   : string
+    creator     : string
+    blueprint   : string
+    imgUrl      : string
+}
+
+class Transference {
+    from : string
+    to : string
+    date : date
+    value : double
+    property : string
+}
+
+class House {
+    description : string
+    image       : string
+    blueprint   : string
+}
+
+
+@enduml

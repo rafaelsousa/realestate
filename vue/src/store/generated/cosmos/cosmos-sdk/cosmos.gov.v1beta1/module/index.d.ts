@@ -1,10 +1,7 @@
-import { StdFee } from "@cosmjs/launchpad";
-import { Registry, OfflineSigner, EncodeObject } from "@cosmjs/proto-signing";
-import { Api } from "./rest";
-import { MsgVoteWeighted } from "./types/cosmos/gov/v1beta1/tx";
-import { MsgVote } from "./types/cosmos/gov/v1beta1/tx";
-import { MsgDeposit } from "./types/cosmos/gov/v1beta1/tx";
-import { MsgSubmitProposal } from "./types/cosmos/gov/v1beta1/tx";
+import { StdFee } from '@cosmjs/launchpad';
+import { EncodeObject, OfflineSigner, Registry } from '@cosmjs/proto-signing';
+import { Api } from './rest';
+import { MsgDeposit, MsgSubmitProposal, MsgVote, MsgVoteWeighted } from './types/cosmos/gov/v1beta1/tx';
 export declare const MissingWalletError: Error;
 export declare const registry: Registry;
 interface TxClientOptions {

@@ -1,12 +1,12 @@
 /* eslint-disable */
-import { Timestamp } from "../../../google/protobuf/timestamp";
-import * as Long from "long";
-import { util, configure, Writer, Reader } from "protobufjs/minimal";
-export const protobufPackage = "cosmos.upgrade.v1beta1";
-const basePlan = { name: "", height: 0, info: "" };
+import { Timestamp } from '../../../google/protobuf/timestamp';
+import * as Long from 'long';
+import { configure, Reader, util, Writer } from 'protobufjs/minimal';
+export const protobufPackage = 'cosmos.upgrade.v1beta1';
+const basePlan = { name: '', height: 0, info: '' };
 export const Plan = {
     encode(message, writer = Writer.create()) {
-        if (message.name !== "") {
+        if (message.name !== '') {
             writer.uint32(10).string(message.name);
         }
         if (message.time !== undefined) {
@@ -15,7 +15,7 @@ export const Plan = {
         if (message.height !== 0) {
             writer.uint32(24).int64(message.height);
         }
-        if (message.info !== "") {
+        if (message.info !== '') {
             writer.uint32(34).string(message.info);
         }
         return writer;
@@ -52,7 +52,7 @@ export const Plan = {
             message.name = String(object.name);
         }
         else {
-            message.name = "";
+            message.name = '';
         }
         if (object.time !== undefined && object.time !== null) {
             message.time = fromJsonTimestamp(object.time);
@@ -70,7 +70,7 @@ export const Plan = {
             message.info = String(object.info);
         }
         else {
-            message.info = "";
+            message.info = '';
         }
         return message;
     },
@@ -90,7 +90,7 @@ export const Plan = {
             message.name = object.name;
         }
         else {
-            message.name = "";
+            message.name = '';
         }
         if (object.time !== undefined && object.time !== null) {
             message.time = object.time;
@@ -108,18 +108,18 @@ export const Plan = {
             message.info = object.info;
         }
         else {
-            message.info = "";
+            message.info = '';
         }
         return message;
     },
 };
-const baseSoftwareUpgradeProposal = { title: "", description: "" };
+const baseSoftwareUpgradeProposal = { title: '', description: '' };
 export const SoftwareUpgradeProposal = {
     encode(message, writer = Writer.create()) {
-        if (message.title !== "") {
+        if (message.title !== '') {
             writer.uint32(10).string(message.title);
         }
-        if (message.description !== "") {
+        if (message.description !== '') {
             writer.uint32(18).string(message.description);
         }
         if (message.plan !== undefined) {
@@ -160,13 +160,13 @@ export const SoftwareUpgradeProposal = {
             message.title = String(object.title);
         }
         else {
-            message.title = "";
+            message.title = '';
         }
         if (object.description !== undefined && object.description !== null) {
             message.description = String(object.description);
         }
         else {
-            message.description = "";
+            message.description = '';
         }
         if (object.plan !== undefined && object.plan !== null) {
             message.plan = Plan.fromJSON(object.plan);
@@ -193,13 +193,13 @@ export const SoftwareUpgradeProposal = {
             message.title = object.title;
         }
         else {
-            message.title = "";
+            message.title = '';
         }
         if (object.description !== undefined && object.description !== null) {
             message.description = object.description;
         }
         else {
-            message.description = "";
+            message.description = '';
         }
         if (object.plan !== undefined && object.plan !== null) {
             message.plan = Plan.fromPartial(object.plan);
@@ -211,15 +211,15 @@ export const SoftwareUpgradeProposal = {
     },
 };
 const baseCancelSoftwareUpgradeProposal = {
-    title: "",
-    description: "",
+    title: '',
+    description: '',
 };
 export const CancelSoftwareUpgradeProposal = {
     encode(message, writer = Writer.create()) {
-        if (message.title !== "") {
+        if (message.title !== '') {
             writer.uint32(10).string(message.title);
         }
-        if (message.description !== "") {
+        if (message.description !== '') {
             writer.uint32(18).string(message.description);
         }
         return writer;
@@ -254,13 +254,13 @@ export const CancelSoftwareUpgradeProposal = {
             message.title = String(object.title);
         }
         else {
-            message.title = "";
+            message.title = '';
         }
         if (object.description !== undefined && object.description !== null) {
             message.description = String(object.description);
         }
         else {
-            message.description = "";
+            message.description = '';
         }
         return message;
     },
@@ -279,27 +279,27 @@ export const CancelSoftwareUpgradeProposal = {
             message.title = object.title;
         }
         else {
-            message.title = "";
+            message.title = '';
         }
         if (object.description !== undefined && object.description !== null) {
             message.description = object.description;
         }
         else {
-            message.description = "";
+            message.description = '';
         }
         return message;
     },
 };
 var globalThis = (() => {
-    if (typeof globalThis !== "undefined")
+    if (typeof globalThis !== 'undefined')
         return globalThis;
-    if (typeof self !== "undefined")
+    if (typeof self !== 'undefined')
         return self;
-    if (typeof window !== "undefined")
+    if (typeof window !== 'undefined')
         return window;
-    if (typeof global !== "undefined")
+    if (typeof global !== 'undefined')
         return global;
-    throw "Unable to locate global object";
+    throw 'Unable to locate global object';
 })();
 function toTimestamp(date) {
     const seconds = date.getTime() / 1000;
@@ -315,7 +315,7 @@ function fromJsonTimestamp(o) {
     if (o instanceof Date) {
         return o;
     }
-    else if (typeof o === "string") {
+    else if (typeof o === 'string') {
         return new Date(o);
     }
     else {
@@ -324,7 +324,7 @@ function fromJsonTimestamp(o) {
 }
 function longToNumber(long) {
     if (long.gt(Number.MAX_SAFE_INTEGER)) {
-        throw new globalThis.Error("Value is larger than Number.MAX_SAFE_INTEGER");
+        throw new globalThis.Error('Value is larger than Number.MAX_SAFE_INTEGER');
     }
     return long.toNumber();
 }

@@ -1,20 +1,20 @@
 /* eslint-disable */
-import { Reader, util, configure, Writer } from "protobufjs/minimal";
-import * as Long from "long";
-import { Coin } from "../../../cosmos/base/v1beta1/coin";
-export const protobufPackage = "cosmos.vesting.v1beta1";
+import { configure, Reader, util, Writer } from 'protobufjs/minimal';
+import * as Long from 'long';
+import { Coin } from '../../../cosmos/base/v1beta1/coin';
+export const protobufPackage = 'cosmos.vesting.v1beta1';
 const baseMsgCreateVestingAccount = {
-    fromAddress: "",
-    toAddress: "",
+    fromAddress: '',
+    toAddress: '',
     endTime: 0,
     delayed: false,
 };
 export const MsgCreateVestingAccount = {
     encode(message, writer = Writer.create()) {
-        if (message.fromAddress !== "") {
+        if (message.fromAddress !== '') {
             writer.uint32(10).string(message.fromAddress);
         }
-        if (message.toAddress !== "") {
+        if (message.toAddress !== '') {
             writer.uint32(18).string(message.toAddress);
         }
         for (const v of message.amount) {
@@ -69,13 +69,13 @@ export const MsgCreateVestingAccount = {
             message.fromAddress = String(object.fromAddress);
         }
         else {
-            message.fromAddress = "";
+            message.fromAddress = '';
         }
         if (object.toAddress !== undefined && object.toAddress !== null) {
             message.toAddress = String(object.toAddress);
         }
         else {
-            message.toAddress = "";
+            message.toAddress = '';
         }
         if (object.amount !== undefined && object.amount !== null) {
             for (const e of object.amount) {
@@ -120,13 +120,13 @@ export const MsgCreateVestingAccount = {
             message.fromAddress = object.fromAddress;
         }
         else {
-            message.fromAddress = "";
+            message.fromAddress = '';
         }
         if (object.toAddress !== undefined && object.toAddress !== null) {
             message.toAddress = object.toAddress;
         }
         else {
-            message.toAddress = "";
+            message.toAddress = '';
         }
         if (object.amount !== undefined && object.amount !== null) {
             for (const e of object.amount) {
@@ -192,24 +192,24 @@ export class MsgClientImpl {
     }
     CreateVestingAccount(request) {
         const data = MsgCreateVestingAccount.encode(request).finish();
-        const promise = this.rpc.request("cosmos.vesting.v1beta1.Msg", "CreateVestingAccount", data);
+        const promise = this.rpc.request('cosmos.vesting.v1beta1.Msg', 'CreateVestingAccount', data);
         return promise.then((data) => MsgCreateVestingAccountResponse.decode(new Reader(data)));
     }
 }
 var globalThis = (() => {
-    if (typeof globalThis !== "undefined")
+    if (typeof globalThis !== 'undefined')
         return globalThis;
-    if (typeof self !== "undefined")
+    if (typeof self !== 'undefined')
         return self;
-    if (typeof window !== "undefined")
+    if (typeof window !== 'undefined')
         return window;
-    if (typeof global !== "undefined")
+    if (typeof global !== 'undefined')
         return global;
-    throw "Unable to locate global object";
+    throw 'Unable to locate global object';
 })();
 function longToNumber(long) {
     if (long.gt(Number.MAX_SAFE_INTEGER)) {
-        throw new globalThis.Error("Value is larger than Number.MAX_SAFE_INTEGER");
+        throw new globalThis.Error('Value is larger than Number.MAX_SAFE_INTEGER');
     }
     return long.toNumber();
 }

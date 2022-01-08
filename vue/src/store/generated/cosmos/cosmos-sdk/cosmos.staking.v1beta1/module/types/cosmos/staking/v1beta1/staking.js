@@ -1,12 +1,12 @@
 /* eslint-disable */
-import { Timestamp } from "../../../google/protobuf/timestamp";
-import * as Long from "long";
-import { util, configure, Writer, Reader } from "protobufjs/minimal";
-import { Header } from "../../../tendermint/types/types";
-import { Any } from "../../../google/protobuf/any";
-import { Duration } from "../../../google/protobuf/duration";
-import { Coin } from "../../../cosmos/base/v1beta1/coin";
-export const protobufPackage = "cosmos.staking.v1beta1";
+import { Timestamp } from '../../../google/protobuf/timestamp';
+import * as Long from 'long';
+import { configure, Reader, util, Writer } from 'protobufjs/minimal';
+import { Header } from '../../../tendermint/types/types';
+import { Any } from '../../../google/protobuf/any';
+import { Duration } from '../../../google/protobuf/duration';
+import { Coin } from '../../../cosmos/base/v1beta1/coin';
+export const protobufPackage = 'cosmos.staking.v1beta1';
 /** BondStatus is the status of a validator. */
 export var BondStatus;
 (function (BondStatus) {
@@ -23,19 +23,19 @@ export var BondStatus;
 export function bondStatusFromJSON(object) {
     switch (object) {
         case 0:
-        case "BOND_STATUS_UNSPECIFIED":
+        case 'BOND_STATUS_UNSPECIFIED':
             return BondStatus.BOND_STATUS_UNSPECIFIED;
         case 1:
-        case "BOND_STATUS_UNBONDED":
+        case 'BOND_STATUS_UNBONDED':
             return BondStatus.BOND_STATUS_UNBONDED;
         case 2:
-        case "BOND_STATUS_UNBONDING":
+        case 'BOND_STATUS_UNBONDING':
             return BondStatus.BOND_STATUS_UNBONDING;
         case 3:
-        case "BOND_STATUS_BONDED":
+        case 'BOND_STATUS_BONDED':
             return BondStatus.BOND_STATUS_BONDED;
         case -1:
-        case "UNRECOGNIZED":
+        case 'UNRECOGNIZED':
         default:
             return BondStatus.UNRECOGNIZED;
     }
@@ -43,15 +43,15 @@ export function bondStatusFromJSON(object) {
 export function bondStatusToJSON(object) {
     switch (object) {
         case BondStatus.BOND_STATUS_UNSPECIFIED:
-            return "BOND_STATUS_UNSPECIFIED";
+            return 'BOND_STATUS_UNSPECIFIED';
         case BondStatus.BOND_STATUS_UNBONDED:
-            return "BOND_STATUS_UNBONDED";
+            return 'BOND_STATUS_UNBONDED';
         case BondStatus.BOND_STATUS_UNBONDING:
-            return "BOND_STATUS_UNBONDING";
+            return 'BOND_STATUS_UNBONDING';
         case BondStatus.BOND_STATUS_BONDED:
-            return "BOND_STATUS_BONDED";
+            return 'BOND_STATUS_BONDED';
         default:
-            return "UNKNOWN";
+            return 'UNKNOWN';
     }
 }
 const baseHistoricalInfo = {};
@@ -132,19 +132,19 @@ export const HistoricalInfo = {
     },
 };
 const baseCommissionRates = {
-    rate: "",
-    maxRate: "",
-    maxChangeRate: "",
+    rate: '',
+    maxRate: '',
+    maxChangeRate: '',
 };
 export const CommissionRates = {
     encode(message, writer = Writer.create()) {
-        if (message.rate !== "") {
+        if (message.rate !== '') {
             writer.uint32(10).string(message.rate);
         }
-        if (message.maxRate !== "") {
+        if (message.maxRate !== '') {
             writer.uint32(18).string(message.maxRate);
         }
-        if (message.maxChangeRate !== "") {
+        if (message.maxChangeRate !== '') {
             writer.uint32(26).string(message.maxChangeRate);
         }
         return writer;
@@ -178,19 +178,19 @@ export const CommissionRates = {
             message.rate = String(object.rate);
         }
         else {
-            message.rate = "";
+            message.rate = '';
         }
         if (object.maxRate !== undefined && object.maxRate !== null) {
             message.maxRate = String(object.maxRate);
         }
         else {
-            message.maxRate = "";
+            message.maxRate = '';
         }
         if (object.maxChangeRate !== undefined && object.maxChangeRate !== null) {
             message.maxChangeRate = String(object.maxChangeRate);
         }
         else {
-            message.maxChangeRate = "";
+            message.maxChangeRate = '';
         }
         return message;
     },
@@ -208,19 +208,19 @@ export const CommissionRates = {
             message.rate = object.rate;
         }
         else {
-            message.rate = "";
+            message.rate = '';
         }
         if (object.maxRate !== undefined && object.maxRate !== null) {
             message.maxRate = object.maxRate;
         }
         else {
-            message.maxRate = "";
+            message.maxRate = '';
         }
         if (object.maxChangeRate !== undefined && object.maxChangeRate !== null) {
             message.maxChangeRate = object.maxChangeRate;
         }
         else {
-            message.maxChangeRate = "";
+            message.maxChangeRate = '';
         }
         return message;
     },
@@ -305,27 +305,27 @@ export const Commission = {
     },
 };
 const baseDescription = {
-    moniker: "",
-    identity: "",
-    website: "",
-    securityContact: "",
-    details: "",
+    moniker: '',
+    identity: '',
+    website: '',
+    securityContact: '',
+    details: '',
 };
 export const Description = {
     encode(message, writer = Writer.create()) {
-        if (message.moniker !== "") {
+        if (message.moniker !== '') {
             writer.uint32(10).string(message.moniker);
         }
-        if (message.identity !== "") {
+        if (message.identity !== '') {
             writer.uint32(18).string(message.identity);
         }
-        if (message.website !== "") {
+        if (message.website !== '') {
             writer.uint32(26).string(message.website);
         }
-        if (message.securityContact !== "") {
+        if (message.securityContact !== '') {
             writer.uint32(34).string(message.securityContact);
         }
-        if (message.details !== "") {
+        if (message.details !== '') {
             writer.uint32(42).string(message.details);
         }
         return writer;
@@ -365,32 +365,32 @@ export const Description = {
             message.moniker = String(object.moniker);
         }
         else {
-            message.moniker = "";
+            message.moniker = '';
         }
         if (object.identity !== undefined && object.identity !== null) {
             message.identity = String(object.identity);
         }
         else {
-            message.identity = "";
+            message.identity = '';
         }
         if (object.website !== undefined && object.website !== null) {
             message.website = String(object.website);
         }
         else {
-            message.website = "";
+            message.website = '';
         }
         if (object.securityContact !== undefined &&
             object.securityContact !== null) {
             message.securityContact = String(object.securityContact);
         }
         else {
-            message.securityContact = "";
+            message.securityContact = '';
         }
         if (object.details !== undefined && object.details !== null) {
             message.details = String(object.details);
         }
         else {
-            message.details = "";
+            message.details = '';
         }
         return message;
     },
@@ -410,48 +410,48 @@ export const Description = {
             message.moniker = object.moniker;
         }
         else {
-            message.moniker = "";
+            message.moniker = '';
         }
         if (object.identity !== undefined && object.identity !== null) {
             message.identity = object.identity;
         }
         else {
-            message.identity = "";
+            message.identity = '';
         }
         if (object.website !== undefined && object.website !== null) {
             message.website = object.website;
         }
         else {
-            message.website = "";
+            message.website = '';
         }
         if (object.securityContact !== undefined &&
             object.securityContact !== null) {
             message.securityContact = object.securityContact;
         }
         else {
-            message.securityContact = "";
+            message.securityContact = '';
         }
         if (object.details !== undefined && object.details !== null) {
             message.details = object.details;
         }
         else {
-            message.details = "";
+            message.details = '';
         }
         return message;
     },
 };
 const baseValidator = {
-    operatorAddress: "",
+    operatorAddress: '',
     jailed: false,
     status: 0,
-    tokens: "",
-    delegatorShares: "",
+    tokens: '',
+    delegatorShares: '',
     unbondingHeight: 0,
-    minSelfDelegation: "",
+    minSelfDelegation: '',
 };
 export const Validator = {
     encode(message, writer = Writer.create()) {
-        if (message.operatorAddress !== "") {
+        if (message.operatorAddress !== '') {
             writer.uint32(10).string(message.operatorAddress);
         }
         if (message.consensusPubkey !== undefined) {
@@ -463,10 +463,10 @@ export const Validator = {
         if (message.status !== 0) {
             writer.uint32(32).int32(message.status);
         }
-        if (message.tokens !== "") {
+        if (message.tokens !== '') {
             writer.uint32(42).string(message.tokens);
         }
-        if (message.delegatorShares !== "") {
+        if (message.delegatorShares !== '') {
             writer.uint32(50).string(message.delegatorShares);
         }
         if (message.description !== undefined) {
@@ -481,7 +481,7 @@ export const Validator = {
         if (message.commission !== undefined) {
             Commission.encode(message.commission, writer.uint32(82).fork()).ldelim();
         }
-        if (message.minSelfDelegation !== "") {
+        if (message.minSelfDelegation !== '') {
             writer.uint32(90).string(message.minSelfDelegation);
         }
         return writer;
@@ -540,7 +540,7 @@ export const Validator = {
             message.operatorAddress = String(object.operatorAddress);
         }
         else {
-            message.operatorAddress = "";
+            message.operatorAddress = '';
         }
         if (object.consensusPubkey !== undefined &&
             object.consensusPubkey !== null) {
@@ -565,14 +565,14 @@ export const Validator = {
             message.tokens = String(object.tokens);
         }
         else {
-            message.tokens = "";
+            message.tokens = '';
         }
         if (object.delegatorShares !== undefined &&
             object.delegatorShares !== null) {
             message.delegatorShares = String(object.delegatorShares);
         }
         else {
-            message.delegatorShares = "";
+            message.delegatorShares = '';
         }
         if (object.description !== undefined && object.description !== null) {
             message.description = Description.fromJSON(object.description);
@@ -604,7 +604,7 @@ export const Validator = {
             message.minSelfDelegation = String(object.minSelfDelegation);
         }
         else {
-            message.minSelfDelegation = "";
+            message.minSelfDelegation = '';
         }
         return message;
     },
@@ -648,7 +648,7 @@ export const Validator = {
             message.operatorAddress = object.operatorAddress;
         }
         else {
-            message.operatorAddress = "";
+            message.operatorAddress = '';
         }
         if (object.consensusPubkey !== undefined &&
             object.consensusPubkey !== null) {
@@ -673,14 +673,14 @@ export const Validator = {
             message.tokens = object.tokens;
         }
         else {
-            message.tokens = "";
+            message.tokens = '';
         }
         if (object.delegatorShares !== undefined &&
             object.delegatorShares !== null) {
             message.delegatorShares = object.delegatorShares;
         }
         else {
-            message.delegatorShares = "";
+            message.delegatorShares = '';
         }
         if (object.description !== undefined && object.description !== null) {
             message.description = Description.fromPartial(object.description);
@@ -712,12 +712,12 @@ export const Validator = {
             message.minSelfDelegation = object.minSelfDelegation;
         }
         else {
-            message.minSelfDelegation = "";
+            message.minSelfDelegation = '';
         }
         return message;
     },
 };
-const baseValAddresses = { addresses: "" };
+const baseValAddresses = { addresses: '' };
 export const ValAddresses = {
     encode(message, writer = Writer.create()) {
         for (const v of message.addresses) {
@@ -774,13 +774,13 @@ export const ValAddresses = {
         return message;
     },
 };
-const baseDVPair = { delegatorAddress: "", validatorAddress: "" };
+const baseDVPair = { delegatorAddress: '', validatorAddress: '' };
 export const DVPair = {
     encode(message, writer = Writer.create()) {
-        if (message.delegatorAddress !== "") {
+        if (message.delegatorAddress !== '') {
             writer.uint32(10).string(message.delegatorAddress);
         }
-        if (message.validatorAddress !== "") {
+        if (message.validatorAddress !== '') {
             writer.uint32(18).string(message.validatorAddress);
         }
         return writer;
@@ -812,14 +812,14 @@ export const DVPair = {
             message.delegatorAddress = String(object.delegatorAddress);
         }
         else {
-            message.delegatorAddress = "";
+            message.delegatorAddress = '';
         }
         if (object.validatorAddress !== undefined &&
             object.validatorAddress !== null) {
             message.validatorAddress = String(object.validatorAddress);
         }
         else {
-            message.validatorAddress = "";
+            message.validatorAddress = '';
         }
         return message;
     },
@@ -838,14 +838,14 @@ export const DVPair = {
             message.delegatorAddress = object.delegatorAddress;
         }
         else {
-            message.delegatorAddress = "";
+            message.delegatorAddress = '';
         }
         if (object.validatorAddress !== undefined &&
             object.validatorAddress !== null) {
             message.validatorAddress = object.validatorAddress;
         }
         else {
-            message.validatorAddress = "";
+            message.validatorAddress = '';
         }
         return message;
     },
@@ -908,19 +908,19 @@ export const DVPairs = {
     },
 };
 const baseDVVTriplet = {
-    delegatorAddress: "",
-    validatorSrcAddress: "",
-    validatorDstAddress: "",
+    delegatorAddress: '',
+    validatorSrcAddress: '',
+    validatorDstAddress: '',
 };
 export const DVVTriplet = {
     encode(message, writer = Writer.create()) {
-        if (message.delegatorAddress !== "") {
+        if (message.delegatorAddress !== '') {
             writer.uint32(10).string(message.delegatorAddress);
         }
-        if (message.validatorSrcAddress !== "") {
+        if (message.validatorSrcAddress !== '') {
             writer.uint32(18).string(message.validatorSrcAddress);
         }
-        if (message.validatorDstAddress !== "") {
+        if (message.validatorDstAddress !== '') {
             writer.uint32(26).string(message.validatorDstAddress);
         }
         return writer;
@@ -955,21 +955,21 @@ export const DVVTriplet = {
             message.delegatorAddress = String(object.delegatorAddress);
         }
         else {
-            message.delegatorAddress = "";
+            message.delegatorAddress = '';
         }
         if (object.validatorSrcAddress !== undefined &&
             object.validatorSrcAddress !== null) {
             message.validatorSrcAddress = String(object.validatorSrcAddress);
         }
         else {
-            message.validatorSrcAddress = "";
+            message.validatorSrcAddress = '';
         }
         if (object.validatorDstAddress !== undefined &&
             object.validatorDstAddress !== null) {
             message.validatorDstAddress = String(object.validatorDstAddress);
         }
         else {
-            message.validatorDstAddress = "";
+            message.validatorDstAddress = '';
         }
         return message;
     },
@@ -990,21 +990,21 @@ export const DVVTriplet = {
             message.delegatorAddress = object.delegatorAddress;
         }
         else {
-            message.delegatorAddress = "";
+            message.delegatorAddress = '';
         }
         if (object.validatorSrcAddress !== undefined &&
             object.validatorSrcAddress !== null) {
             message.validatorSrcAddress = object.validatorSrcAddress;
         }
         else {
-            message.validatorSrcAddress = "";
+            message.validatorSrcAddress = '';
         }
         if (object.validatorDstAddress !== undefined &&
             object.validatorDstAddress !== null) {
             message.validatorDstAddress = object.validatorDstAddress;
         }
         else {
-            message.validatorDstAddress = "";
+            message.validatorDstAddress = '';
         }
         return message;
     },
@@ -1067,19 +1067,19 @@ export const DVVTriplets = {
     },
 };
 const baseDelegation = {
-    delegatorAddress: "",
-    validatorAddress: "",
-    shares: "",
+    delegatorAddress: '',
+    validatorAddress: '',
+    shares: '',
 };
 export const Delegation = {
     encode(message, writer = Writer.create()) {
-        if (message.delegatorAddress !== "") {
+        if (message.delegatorAddress !== '') {
             writer.uint32(10).string(message.delegatorAddress);
         }
-        if (message.validatorAddress !== "") {
+        if (message.validatorAddress !== '') {
             writer.uint32(18).string(message.validatorAddress);
         }
-        if (message.shares !== "") {
+        if (message.shares !== '') {
             writer.uint32(26).string(message.shares);
         }
         return writer;
@@ -1114,20 +1114,20 @@ export const Delegation = {
             message.delegatorAddress = String(object.delegatorAddress);
         }
         else {
-            message.delegatorAddress = "";
+            message.delegatorAddress = '';
         }
         if (object.validatorAddress !== undefined &&
             object.validatorAddress !== null) {
             message.validatorAddress = String(object.validatorAddress);
         }
         else {
-            message.validatorAddress = "";
+            message.validatorAddress = '';
         }
         if (object.shares !== undefined && object.shares !== null) {
             message.shares = String(object.shares);
         }
         else {
-            message.shares = "";
+            message.shares = '';
         }
         return message;
     },
@@ -1147,34 +1147,34 @@ export const Delegation = {
             message.delegatorAddress = object.delegatorAddress;
         }
         else {
-            message.delegatorAddress = "";
+            message.delegatorAddress = '';
         }
         if (object.validatorAddress !== undefined &&
             object.validatorAddress !== null) {
             message.validatorAddress = object.validatorAddress;
         }
         else {
-            message.validatorAddress = "";
+            message.validatorAddress = '';
         }
         if (object.shares !== undefined && object.shares !== null) {
             message.shares = object.shares;
         }
         else {
-            message.shares = "";
+            message.shares = '';
         }
         return message;
     },
 };
 const baseUnbondingDelegation = {
-    delegatorAddress: "",
-    validatorAddress: "",
+    delegatorAddress: '',
+    validatorAddress: '',
 };
 export const UnbondingDelegation = {
     encode(message, writer = Writer.create()) {
-        if (message.delegatorAddress !== "") {
+        if (message.delegatorAddress !== '') {
             writer.uint32(10).string(message.delegatorAddress);
         }
-        if (message.validatorAddress !== "") {
+        if (message.validatorAddress !== '') {
             writer.uint32(18).string(message.validatorAddress);
         }
         for (const v of message.entries) {
@@ -1214,14 +1214,14 @@ export const UnbondingDelegation = {
             message.delegatorAddress = String(object.delegatorAddress);
         }
         else {
-            message.delegatorAddress = "";
+            message.delegatorAddress = '';
         }
         if (object.validatorAddress !== undefined &&
             object.validatorAddress !== null) {
             message.validatorAddress = String(object.validatorAddress);
         }
         else {
-            message.validatorAddress = "";
+            message.validatorAddress = '';
         }
         if (object.entries !== undefined && object.entries !== null) {
             for (const e of object.entries) {
@@ -1252,14 +1252,14 @@ export const UnbondingDelegation = {
             message.delegatorAddress = object.delegatorAddress;
         }
         else {
-            message.delegatorAddress = "";
+            message.delegatorAddress = '';
         }
         if (object.validatorAddress !== undefined &&
             object.validatorAddress !== null) {
             message.validatorAddress = object.validatorAddress;
         }
         else {
-            message.validatorAddress = "";
+            message.validatorAddress = '';
         }
         if (object.entries !== undefined && object.entries !== null) {
             for (const e of object.entries) {
@@ -1271,8 +1271,8 @@ export const UnbondingDelegation = {
 };
 const baseUnbondingDelegationEntry = {
     creationHeight: 0,
-    initialBalance: "",
-    balance: "",
+    initialBalance: '',
+    balance: '',
 };
 export const UnbondingDelegationEntry = {
     encode(message, writer = Writer.create()) {
@@ -1282,10 +1282,10 @@ export const UnbondingDelegationEntry = {
         if (message.completionTime !== undefined) {
             Timestamp.encode(toTimestamp(message.completionTime), writer.uint32(18).fork()).ldelim();
         }
-        if (message.initialBalance !== "") {
+        if (message.initialBalance !== '') {
             writer.uint32(26).string(message.initialBalance);
         }
-        if (message.balance !== "") {
+        if (message.balance !== '') {
             writer.uint32(34).string(message.balance);
         }
         return writer;
@@ -1338,13 +1338,13 @@ export const UnbondingDelegationEntry = {
             message.initialBalance = String(object.initialBalance);
         }
         else {
-            message.initialBalance = "";
+            message.initialBalance = '';
         }
         if (object.balance !== undefined && object.balance !== null) {
             message.balance = String(object.balance);
         }
         else {
-            message.balance = "";
+            message.balance = '';
         }
         return message;
     },
@@ -1382,21 +1382,21 @@ export const UnbondingDelegationEntry = {
             message.initialBalance = object.initialBalance;
         }
         else {
-            message.initialBalance = "";
+            message.initialBalance = '';
         }
         if (object.balance !== undefined && object.balance !== null) {
             message.balance = object.balance;
         }
         else {
-            message.balance = "";
+            message.balance = '';
         }
         return message;
     },
 };
 const baseRedelegationEntry = {
     creationHeight: 0,
-    initialBalance: "",
-    sharesDst: "",
+    initialBalance: '',
+    sharesDst: '',
 };
 export const RedelegationEntry = {
     encode(message, writer = Writer.create()) {
@@ -1406,10 +1406,10 @@ export const RedelegationEntry = {
         if (message.completionTime !== undefined) {
             Timestamp.encode(toTimestamp(message.completionTime), writer.uint32(18).fork()).ldelim();
         }
-        if (message.initialBalance !== "") {
+        if (message.initialBalance !== '') {
             writer.uint32(26).string(message.initialBalance);
         }
-        if (message.sharesDst !== "") {
+        if (message.sharesDst !== '') {
             writer.uint32(34).string(message.sharesDst);
         }
         return writer;
@@ -1458,13 +1458,13 @@ export const RedelegationEntry = {
             message.initialBalance = String(object.initialBalance);
         }
         else {
-            message.initialBalance = "";
+            message.initialBalance = '';
         }
         if (object.sharesDst !== undefined && object.sharesDst !== null) {
             message.sharesDst = String(object.sharesDst);
         }
         else {
-            message.sharesDst = "";
+            message.sharesDst = '';
         }
         return message;
     },
@@ -1500,31 +1500,31 @@ export const RedelegationEntry = {
             message.initialBalance = object.initialBalance;
         }
         else {
-            message.initialBalance = "";
+            message.initialBalance = '';
         }
         if (object.sharesDst !== undefined && object.sharesDst !== null) {
             message.sharesDst = object.sharesDst;
         }
         else {
-            message.sharesDst = "";
+            message.sharesDst = '';
         }
         return message;
     },
 };
 const baseRedelegation = {
-    delegatorAddress: "",
-    validatorSrcAddress: "",
-    validatorDstAddress: "",
+    delegatorAddress: '',
+    validatorSrcAddress: '',
+    validatorDstAddress: '',
 };
 export const Redelegation = {
     encode(message, writer = Writer.create()) {
-        if (message.delegatorAddress !== "") {
+        if (message.delegatorAddress !== '') {
             writer.uint32(10).string(message.delegatorAddress);
         }
-        if (message.validatorSrcAddress !== "") {
+        if (message.validatorSrcAddress !== '') {
             writer.uint32(18).string(message.validatorSrcAddress);
         }
-        if (message.validatorDstAddress !== "") {
+        if (message.validatorDstAddress !== '') {
             writer.uint32(26).string(message.validatorDstAddress);
         }
         for (const v of message.entries) {
@@ -1567,21 +1567,21 @@ export const Redelegation = {
             message.delegatorAddress = String(object.delegatorAddress);
         }
         else {
-            message.delegatorAddress = "";
+            message.delegatorAddress = '';
         }
         if (object.validatorSrcAddress !== undefined &&
             object.validatorSrcAddress !== null) {
             message.validatorSrcAddress = String(object.validatorSrcAddress);
         }
         else {
-            message.validatorSrcAddress = "";
+            message.validatorSrcAddress = '';
         }
         if (object.validatorDstAddress !== undefined &&
             object.validatorDstAddress !== null) {
             message.validatorDstAddress = String(object.validatorDstAddress);
         }
         else {
-            message.validatorDstAddress = "";
+            message.validatorDstAddress = '';
         }
         if (object.entries !== undefined && object.entries !== null) {
             for (const e of object.entries) {
@@ -1614,21 +1614,21 @@ export const Redelegation = {
             message.delegatorAddress = object.delegatorAddress;
         }
         else {
-            message.delegatorAddress = "";
+            message.delegatorAddress = '';
         }
         if (object.validatorSrcAddress !== undefined &&
             object.validatorSrcAddress !== null) {
             message.validatorSrcAddress = object.validatorSrcAddress;
         }
         else {
-            message.validatorSrcAddress = "";
+            message.validatorSrcAddress = '';
         }
         if (object.validatorDstAddress !== undefined &&
             object.validatorDstAddress !== null) {
             message.validatorDstAddress = object.validatorDstAddress;
         }
         else {
-            message.validatorDstAddress = "";
+            message.validatorDstAddress = '';
         }
         if (object.entries !== undefined && object.entries !== null) {
             for (const e of object.entries) {
@@ -1642,7 +1642,7 @@ const baseParams = {
     maxValidators: 0,
     maxEntries: 0,
     historicalEntries: 0,
-    bondDenom: "",
+    bondDenom: '',
 };
 export const Params = {
     encode(message, writer = Writer.create()) {
@@ -1658,7 +1658,7 @@ export const Params = {
         if (message.historicalEntries !== 0) {
             writer.uint32(32).uint32(message.historicalEntries);
         }
-        if (message.bondDenom !== "") {
+        if (message.bondDenom !== '') {
             writer.uint32(42).string(message.bondDenom);
         }
         return writer;
@@ -1723,7 +1723,7 @@ export const Params = {
             message.bondDenom = String(object.bondDenom);
         }
         else {
-            message.bondDenom = "";
+            message.bondDenom = '';
         }
         return message;
     },
@@ -1772,7 +1772,7 @@ export const Params = {
             message.bondDenom = object.bondDenom;
         }
         else {
-            message.bondDenom = "";
+            message.bondDenom = '';
         }
         return message;
     },
@@ -1853,13 +1853,13 @@ export const DelegationResponse = {
         return message;
     },
 };
-const baseRedelegationEntryResponse = { balance: "" };
+const baseRedelegationEntryResponse = { balance: '' };
 export const RedelegationEntryResponse = {
     encode(message, writer = Writer.create()) {
         if (message.redelegationEntry !== undefined) {
             RedelegationEntry.encode(message.redelegationEntry, writer.uint32(10).fork()).ldelim();
         }
-        if (message.balance !== "") {
+        if (message.balance !== '') {
             writer.uint32(34).string(message.balance);
         }
         return writer;
@@ -1901,7 +1901,7 @@ export const RedelegationEntryResponse = {
             message.balance = String(object.balance);
         }
         else {
-            message.balance = "";
+            message.balance = '';
         }
         return message;
     },
@@ -1929,7 +1929,7 @@ export const RedelegationEntryResponse = {
             message.balance = object.balance;
         }
         else {
-            message.balance = "";
+            message.balance = '';
         }
         return message;
     },
@@ -2013,13 +2013,13 @@ export const RedelegationResponse = {
         return message;
     },
 };
-const basePool = { notBondedTokens: "", bondedTokens: "" };
+const basePool = { notBondedTokens: '', bondedTokens: '' };
 export const Pool = {
     encode(message, writer = Writer.create()) {
-        if (message.notBondedTokens !== "") {
+        if (message.notBondedTokens !== '') {
             writer.uint32(10).string(message.notBondedTokens);
         }
-        if (message.bondedTokens !== "") {
+        if (message.bondedTokens !== '') {
             writer.uint32(18).string(message.bondedTokens);
         }
         return writer;
@@ -2051,13 +2051,13 @@ export const Pool = {
             message.notBondedTokens = String(object.notBondedTokens);
         }
         else {
-            message.notBondedTokens = "";
+            message.notBondedTokens = '';
         }
         if (object.bondedTokens !== undefined && object.bondedTokens !== null) {
             message.bondedTokens = String(object.bondedTokens);
         }
         else {
-            message.bondedTokens = "";
+            message.bondedTokens = '';
         }
         return message;
     },
@@ -2076,27 +2076,27 @@ export const Pool = {
             message.notBondedTokens = object.notBondedTokens;
         }
         else {
-            message.notBondedTokens = "";
+            message.notBondedTokens = '';
         }
         if (object.bondedTokens !== undefined && object.bondedTokens !== null) {
             message.bondedTokens = object.bondedTokens;
         }
         else {
-            message.bondedTokens = "";
+            message.bondedTokens = '';
         }
         return message;
     },
 };
 var globalThis = (() => {
-    if (typeof globalThis !== "undefined")
+    if (typeof globalThis !== 'undefined')
         return globalThis;
-    if (typeof self !== "undefined")
+    if (typeof self !== 'undefined')
         return self;
-    if (typeof window !== "undefined")
+    if (typeof window !== 'undefined')
         return window;
-    if (typeof global !== "undefined")
+    if (typeof global !== 'undefined')
         return global;
-    throw "Unable to locate global object";
+    throw 'Unable to locate global object';
 })();
 function toTimestamp(date) {
     const seconds = date.getTime() / 1000;
@@ -2112,7 +2112,7 @@ function fromJsonTimestamp(o) {
     if (o instanceof Date) {
         return o;
     }
-    else if (typeof o === "string") {
+    else if (typeof o === 'string') {
         return new Date(o);
     }
     else {
@@ -2121,7 +2121,7 @@ function fromJsonTimestamp(o) {
 }
 function longToNumber(long) {
     if (long.gt(Number.MAX_SAFE_INTEGER)) {
-        throw new globalThis.Error("Value is larger than Number.MAX_SAFE_INTEGER");
+        throw new globalThis.Error('Value is larger than Number.MAX_SAFE_INTEGER');
     }
     return long.toNumber();
 }

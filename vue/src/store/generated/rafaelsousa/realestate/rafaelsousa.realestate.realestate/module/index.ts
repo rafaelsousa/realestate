@@ -1,19 +1,21 @@
 // THIS FILE IS GENERATED AUTOMATICALLY. DO NOT MODIFY.
 
-import { StdFee } from '@cosmjs/launchpad'
-import { SigningStargateClient } from '@cosmjs/stargate'
-import { EncodeObject, OfflineSigner, Registry } from '@cosmjs/proto-signing'
-import { Api } from './rest'
-import { MsgCreateProperty, MsgDeleteProperty, MsgUpdateProperty } from './types/realestate/tx'
+import { StdFee } from "@cosmjs/launchpad";
+import { SigningStargateClient } from "@cosmjs/stargate";
+import { Registry, OfflineSigner, EncodeObject, DirectSecp256k1HdWallet } from "@cosmjs/proto-signing";
+import { Api } from "./rest";
+import { MsgDeleteProperty } from "./types/realestate/tx";
+import { MsgUpdateProperty } from "./types/realestate/tx";
+import { MsgCreateProperty } from "./types/realestate/tx";
 
 
 const types = [
-  ['/rafaelsousa.realestate.realestate.MsgDeleteProperty', MsgDeleteProperty],
-  ['/rafaelsousa.realestate.realestate.MsgCreateProperty', MsgCreateProperty],
-  ['/rafaelsousa.realestate.realestate.MsgUpdateProperty', MsgUpdateProperty],
-
-]
-export const MissingWalletError = new Error('wallet is required')
+  ["/rafaelsousa.realestate.realestate.MsgDeleteProperty", MsgDeleteProperty],
+  ["/rafaelsousa.realestate.realestate.MsgUpdateProperty", MsgUpdateProperty],
+  ["/rafaelsousa.realestate.realestate.MsgCreateProperty", MsgCreateProperty],
+  
+];
+export const MissingWalletError = new Error("wallet is required");
 
 export const registry = new Registry(<any>types);
 
@@ -42,23 +44,11 @@ const txClient = async (wallet: OfflineSigner, { addr: addr }: TxClientOptions =
   const { address } = (await wallet.getAccounts())[0];
 
   return {
-    signAndBroadcast: (msgs: EncodeObject[], { fee, memo }: SignAndBroadcastOptions = {
-      fee: defaultFee,
-      memo: '',
-    }) => client.signAndBroadcast(address, msgs, fee, memo),
-    msgDeleteProperty: (data: MsgDeleteProperty): EncodeObject => ({
-      typeUrl: '/rafaelsousa.realestate.realestate.MsgDeleteProperty',
-      value: MsgDeleteProperty.fromPartial(data),
-    }),
-    msgCreateProperty: (data: MsgCreateProperty): EncodeObject => ({
-      typeUrl: '/rafaelsousa.realestate.realestate.MsgCreateProperty',
-      value: MsgCreateProperty.fromPartial(data),
-    }),
-    msgUpdateProperty: (data: MsgUpdateProperty): EncodeObject => ({
-      typeUrl: '/rafaelsousa.realestate.realestate.MsgUpdateProperty',
-      value: MsgUpdateProperty.fromPartial(data),
-    }),
-
+    signAndBroadcast: (msgs: EncodeObject[], { fee, memo }: SignAndBroadcastOptions = {fee: defaultFee, memo: ""}) => client.signAndBroadcast(address, msgs, fee,memo),
+    msgDeleteProperty: (data: MsgDeleteProperty): EncodeObject => ({ typeUrl: "/rafaelsousa.realestate.realestate.MsgDeleteProperty", value: MsgDeleteProperty.fromPartial( data ) }),
+    msgUpdateProperty: (data: MsgUpdateProperty): EncodeObject => ({ typeUrl: "/rafaelsousa.realestate.realestate.MsgUpdateProperty", value: MsgUpdateProperty.fromPartial( data ) }),
+    msgCreateProperty: (data: MsgCreateProperty): EncodeObject => ({ typeUrl: "/rafaelsousa.realestate.realestate.MsgCreateProperty", value: MsgCreateProperty.fromPartial( data ) }),
+    
   };
 };
 

@@ -1,0 +1,23 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor seller    #red
+actor buyer     #blue
+actor broker    #black
+actor inspector #green
+
+group transfer
+    buyer -> property_keeper    : purchase_offer
+    property_keeper -> bank_keeper : lock_assets
+
+    seller -> property_keeper    : submit_to_evaluation
+    property_keeper -> property_keeper : lock_property
+
+    inspector -> property_keeper : emit_report
+    bank_keeper -> inspector : transfer_fees
+
+end
+
+@enduml

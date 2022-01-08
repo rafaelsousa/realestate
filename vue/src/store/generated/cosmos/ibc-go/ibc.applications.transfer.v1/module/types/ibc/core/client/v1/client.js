@@ -1,13 +1,13 @@
 /* eslint-disable */
-import * as Long from "long";
-import { util, configure, Writer, Reader } from "protobufjs/minimal";
-import { Any } from "../../../../google/protobuf/any";
-import { Plan } from "../../../../cosmos/upgrade/v1beta1/upgrade";
-export const protobufPackage = "ibc.core.client.v1";
-const baseIdentifiedClientState = { clientId: "" };
+import * as Long from 'long';
+import { configure, Reader, util, Writer } from 'protobufjs/minimal';
+import { Any } from '../../../../google/protobuf/any';
+import { Plan } from '../../../../cosmos/upgrade/v1beta1/upgrade';
+export const protobufPackage = 'ibc.core.client.v1';
+const baseIdentifiedClientState = { clientId: '' };
 export const IdentifiedClientState = {
     encode(message, writer = Writer.create()) {
-        if (message.clientId !== "") {
+        if (message.clientId !== '') {
             writer.uint32(10).string(message.clientId);
         }
         if (message.clientState !== undefined) {
@@ -41,7 +41,7 @@ export const IdentifiedClientState = {
             message.clientId = String(object.clientId);
         }
         else {
-            message.clientId = "";
+            message.clientId = '';
         }
         if (object.clientState !== undefined && object.clientState !== null) {
             message.clientState = Any.fromJSON(object.clientState);
@@ -66,7 +66,7 @@ export const IdentifiedClientState = {
             message.clientId = object.clientId;
         }
         else {
-            message.clientId = "";
+            message.clientId = '';
         }
         if (object.clientState !== undefined && object.clientState !== null) {
             message.clientState = Any.fromPartial(object.clientState);
@@ -157,10 +157,10 @@ export const ConsensusStateWithHeight = {
         return message;
     },
 };
-const baseClientConsensusStates = { clientId: "" };
+const baseClientConsensusStates = { clientId: '' };
 export const ClientConsensusStates = {
     encode(message, writer = Writer.create()) {
-        if (message.clientId !== "") {
+        if (message.clientId !== '') {
             writer.uint32(10).string(message.clientId);
         }
         for (const v of message.consensusStates) {
@@ -196,7 +196,7 @@ export const ClientConsensusStates = {
             message.clientId = String(object.clientId);
         }
         else {
-            message.clientId = "";
+            message.clientId = '';
         }
         if (object.consensusStates !== undefined &&
             object.consensusStates !== null) {
@@ -224,7 +224,7 @@ export const ClientConsensusStates = {
             message.clientId = object.clientId;
         }
         else {
-            message.clientId = "";
+            message.clientId = '';
         }
         if (object.consensusStates !== undefined &&
             object.consensusStates !== null) {
@@ -236,23 +236,23 @@ export const ClientConsensusStates = {
     },
 };
 const baseClientUpdateProposal = {
-    title: "",
-    description: "",
-    subjectClientId: "",
-    substituteClientId: "",
+    title: '',
+    description: '',
+    subjectClientId: '',
+    substituteClientId: '',
 };
 export const ClientUpdateProposal = {
     encode(message, writer = Writer.create()) {
-        if (message.title !== "") {
+        if (message.title !== '') {
             writer.uint32(10).string(message.title);
         }
-        if (message.description !== "") {
+        if (message.description !== '') {
             writer.uint32(18).string(message.description);
         }
-        if (message.subjectClientId !== "") {
+        if (message.subjectClientId !== '') {
             writer.uint32(26).string(message.subjectClientId);
         }
-        if (message.substituteClientId !== "") {
+        if (message.substituteClientId !== '') {
             writer.uint32(34).string(message.substituteClientId);
         }
         return writer;
@@ -289,27 +289,27 @@ export const ClientUpdateProposal = {
             message.title = String(object.title);
         }
         else {
-            message.title = "";
+            message.title = '';
         }
         if (object.description !== undefined && object.description !== null) {
             message.description = String(object.description);
         }
         else {
-            message.description = "";
+            message.description = '';
         }
         if (object.subjectClientId !== undefined &&
             object.subjectClientId !== null) {
             message.subjectClientId = String(object.subjectClientId);
         }
         else {
-            message.subjectClientId = "";
+            message.subjectClientId = '';
         }
         if (object.substituteClientId !== undefined &&
             object.substituteClientId !== null) {
             message.substituteClientId = String(object.substituteClientId);
         }
         else {
-            message.substituteClientId = "";
+            message.substituteClientId = '';
         }
         return message;
     },
@@ -330,38 +330,38 @@ export const ClientUpdateProposal = {
             message.title = object.title;
         }
         else {
-            message.title = "";
+            message.title = '';
         }
         if (object.description !== undefined && object.description !== null) {
             message.description = object.description;
         }
         else {
-            message.description = "";
+            message.description = '';
         }
         if (object.subjectClientId !== undefined &&
             object.subjectClientId !== null) {
             message.subjectClientId = object.subjectClientId;
         }
         else {
-            message.subjectClientId = "";
+            message.subjectClientId = '';
         }
         if (object.substituteClientId !== undefined &&
             object.substituteClientId !== null) {
             message.substituteClientId = object.substituteClientId;
         }
         else {
-            message.substituteClientId = "";
+            message.substituteClientId = '';
         }
         return message;
     },
 };
-const baseUpgradeProposal = { title: "", description: "" };
+const baseUpgradeProposal = { title: '', description: '' };
 export const UpgradeProposal = {
     encode(message, writer = Writer.create()) {
-        if (message.title !== "") {
+        if (message.title !== '') {
             writer.uint32(10).string(message.title);
         }
-        if (message.description !== "") {
+        if (message.description !== '') {
             writer.uint32(18).string(message.description);
         }
         if (message.plan !== undefined) {
@@ -404,13 +404,13 @@ export const UpgradeProposal = {
             message.title = String(object.title);
         }
         else {
-            message.title = "";
+            message.title = '';
         }
         if (object.description !== undefined && object.description !== null) {
             message.description = String(object.description);
         }
         else {
-            message.description = "";
+            message.description = '';
         }
         if (object.plan !== undefined && object.plan !== null) {
             message.plan = Plan.fromJSON(object.plan);
@@ -446,13 +446,13 @@ export const UpgradeProposal = {
             message.title = object.title;
         }
         else {
-            message.title = "";
+            message.title = '';
         }
         if (object.description !== undefined && object.description !== null) {
             message.description = object.description;
         }
         else {
-            message.description = "";
+            message.description = '';
         }
         if (object.plan !== undefined && object.plan !== null) {
             message.plan = Plan.fromPartial(object.plan);
@@ -542,7 +542,7 @@ export const Height = {
         return message;
     },
 };
-const baseParams = { allowedClients: "" };
+const baseParams = { allowedClients: '' };
 export const Params = {
     encode(message, writer = Writer.create()) {
         for (const v of message.allowedClients) {
@@ -600,19 +600,19 @@ export const Params = {
     },
 };
 var globalThis = (() => {
-    if (typeof globalThis !== "undefined")
+    if (typeof globalThis !== 'undefined')
         return globalThis;
-    if (typeof self !== "undefined")
+    if (typeof self !== 'undefined')
         return self;
-    if (typeof window !== "undefined")
+    if (typeof window !== 'undefined')
         return window;
-    if (typeof global !== "undefined")
+    if (typeof global !== 'undefined')
         return global;
-    throw "Unable to locate global object";
+    throw 'Unable to locate global object';
 })();
 function longToNumber(long) {
     if (long.gt(Number.MAX_SAFE_INTEGER)) {
-        throw new globalThis.Error("Value is larger than Number.MAX_SAFE_INTEGER");
+        throw new globalThis.Error('Value is larger than Number.MAX_SAFE_INTEGER');
     }
     return long.toNumber();
 }

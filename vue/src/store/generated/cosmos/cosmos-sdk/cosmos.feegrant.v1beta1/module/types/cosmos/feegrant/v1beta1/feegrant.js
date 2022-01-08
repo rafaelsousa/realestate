@@ -1,10 +1,10 @@
 /* eslint-disable */
-import { Timestamp } from "../../../google/protobuf/timestamp";
-import { Coin } from "../../../cosmos/base/v1beta1/coin";
-import { Duration } from "../../../google/protobuf/duration";
-import { Any } from "../../../google/protobuf/any";
-import { Writer, Reader } from "protobufjs/minimal";
-export const protobufPackage = "cosmos.feegrant.v1beta1";
+import { Timestamp } from '../../../google/protobuf/timestamp';
+import { Coin } from '../../../cosmos/base/v1beta1/coin';
+import { Duration } from '../../../google/protobuf/duration';
+import { Any } from '../../../google/protobuf/any';
+import { Reader, Writer } from 'protobufjs/minimal';
+export const protobufPackage = 'cosmos.feegrant.v1beta1';
 const baseBasicAllowance = {};
 export const BasicAllowance = {
     encode(message, writer = Writer.create()) {
@@ -236,7 +236,7 @@ export const PeriodicAllowance = {
         return message;
     },
 };
-const baseAllowedMsgAllowance = { allowedMessages: "" };
+const baseAllowedMsgAllowance = { allowedMessages: '' };
 export const AllowedMsgAllowance = {
     encode(message, writer = Writer.create()) {
         if (message.allowance !== undefined) {
@@ -317,13 +317,13 @@ export const AllowedMsgAllowance = {
         return message;
     },
 };
-const baseGrant = { granter: "", grantee: "" };
+const baseGrant = { granter: '', grantee: '' };
 export const Grant = {
     encode(message, writer = Writer.create()) {
-        if (message.granter !== "") {
+        if (message.granter !== '') {
             writer.uint32(10).string(message.granter);
         }
-        if (message.grantee !== "") {
+        if (message.grantee !== '') {
             writer.uint32(18).string(message.grantee);
         }
         if (message.allowance !== undefined) {
@@ -360,13 +360,13 @@ export const Grant = {
             message.granter = String(object.granter);
         }
         else {
-            message.granter = "";
+            message.granter = '';
         }
         if (object.grantee !== undefined && object.grantee !== null) {
             message.grantee = String(object.grantee);
         }
         else {
-            message.grantee = "";
+            message.grantee = '';
         }
         if (object.allowance !== undefined && object.allowance !== null) {
             message.allowance = Any.fromJSON(object.allowance);
@@ -392,13 +392,13 @@ export const Grant = {
             message.granter = object.granter;
         }
         else {
-            message.granter = "";
+            message.granter = '';
         }
         if (object.grantee !== undefined && object.grantee !== null) {
             message.grantee = object.grantee;
         }
         else {
-            message.grantee = "";
+            message.grantee = '';
         }
         if (object.allowance !== undefined && object.allowance !== null) {
             message.allowance = Any.fromPartial(object.allowance);
@@ -423,7 +423,7 @@ function fromJsonTimestamp(o) {
     if (o instanceof Date) {
         return o;
     }
-    else if (typeof o === "string") {
+    else if (typeof o === 'string') {
         return new Date(o);
     }
     else {

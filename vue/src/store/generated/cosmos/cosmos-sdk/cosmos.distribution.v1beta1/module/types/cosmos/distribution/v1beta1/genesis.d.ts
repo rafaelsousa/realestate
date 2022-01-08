@@ -1,6 +1,6 @@
-import { Writer, Reader } from "protobufjs/minimal";
-import { DecCoin } from "../../../cosmos/base/v1beta1/coin";
-import { ValidatorAccumulatedCommission, ValidatorHistoricalRewards, ValidatorCurrentRewards, DelegatorStartingInfo, ValidatorSlashEvent, Params, FeePool } from "../../../cosmos/distribution/v1beta1/distribution";
+import { Reader, Writer } from 'protobufjs/minimal';
+import { DecCoin } from '../../../cosmos/base/v1beta1/coin';
+import { DelegatorStartingInfo, FeePool, Params, ValidatorAccumulatedCommission, ValidatorCurrentRewards, ValidatorHistoricalRewards, ValidatorSlashEvent } from '../../../cosmos/distribution/v1beta1/distribution';
 export declare const protobufPackage = "cosmos.distribution.v1beta1";
 /**
  * DelegatorWithdrawInfo is the address for where distributions rewards are

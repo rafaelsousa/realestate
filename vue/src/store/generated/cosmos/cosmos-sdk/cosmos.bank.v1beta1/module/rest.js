@@ -161,9 +161,9 @@ export class Api extends HttpClient {
          */
         this.queryBalance = (address, query, params = {}) => this.request({
             path: `/cosmos/bank/v1beta1/balances/${address}/by_denom`,
-            method: "GET",
+            method: 'GET',
             query: query,
-            format: "json",
+            format: 'json',
             ...params,
         });
         /**

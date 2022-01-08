@@ -1,11 +1,7 @@
-import { StdFee } from "@cosmjs/launchpad";
-import { Registry, OfflineSigner, EncodeObject } from "@cosmjs/proto-signing";
-import { Api } from "./rest";
-import { MsgEditValidator } from "./types/cosmos/staking/v1beta1/tx";
-import { MsgCreateValidator } from "./types/cosmos/staking/v1beta1/tx";
-import { MsgDelegate } from "./types/cosmos/staking/v1beta1/tx";
-import { MsgBeginRedelegate } from "./types/cosmos/staking/v1beta1/tx";
-import { MsgUndelegate } from "./types/cosmos/staking/v1beta1/tx";
+import { StdFee } from '@cosmjs/launchpad';
+import { EncodeObject, OfflineSigner, Registry } from '@cosmjs/proto-signing';
+import { Api } from './rest';
+import { MsgBeginRedelegate, MsgCreateValidator, MsgDelegate, MsgEditValidator, MsgUndelegate } from './types/cosmos/staking/v1beta1/tx';
 export declare const MissingWalletError: Error;
 export declare const registry: Registry;
 interface TxClientOptions {

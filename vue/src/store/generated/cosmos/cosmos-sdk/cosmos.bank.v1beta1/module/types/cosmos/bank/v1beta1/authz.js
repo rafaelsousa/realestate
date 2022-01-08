@@ -1,7 +1,7 @@
 /* eslint-disable */
-import { Coin } from "../../../cosmos/base/v1beta1/coin";
-import { Writer, Reader } from "protobufjs/minimal";
-export const protobufPackage = "cosmos.bank.v1beta1";
+import { Coin } from '../../../cosmos/base/v1beta1/coin';
+import { Reader, Writer } from 'protobufjs/minimal';
+export const protobufPackage = 'cosmos.bank.v1beta1';
 const baseSendAuthorization = {};
 export const SendAuthorization = {
     encode(message, writer = Writer.create()) {

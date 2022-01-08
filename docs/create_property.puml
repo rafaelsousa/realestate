@@ -1,0 +1,30 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor owner #red
+actor surveyour #blue
+
+
+group creation
+    owner -> property_keeper    : create_property
+    property_keeper -> property_keeper : mint_property
+
+    owner -> property_keeper    : create_house
+    property_keeper -> property_keeper : mint_property
+end
+
+group certification
+    owner -> property_keeper : request_certification
+    property_keeper -> property_keeper : lock_property
+    property_keeper -> bank_keeper : lock_assets
+
+    surveyour -> property_keeper : emit_certificate
+    property_keeper -> property_keeper : update_property
+    property_keeper -> property_keeper : unlock_property
+    property_keeper -> bank_keeper : unlock_assets
+    bank_keeper -> surveyour : transfer_assets
+end
+
+@enduml

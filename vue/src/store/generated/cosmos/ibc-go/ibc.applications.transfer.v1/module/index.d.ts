@@ -1,7 +1,7 @@
-import { StdFee } from "@cosmjs/launchpad";
-import { Registry, OfflineSigner, EncodeObject } from "@cosmjs/proto-signing";
-import { Api } from "./rest";
-import { MsgTransfer } from "./types/ibc/applications/transfer/v1/tx";
+import { StdFee } from '@cosmjs/launchpad';
+import { EncodeObject, OfflineSigner, Registry } from '@cosmjs/proto-signing';
+import { Api } from './rest';
+import { MsgTransfer } from './types/ibc/applications/transfer/v1/tx';
 export declare const MissingWalletError: Error;
 export declare const registry: Registry;
 interface TxClientOptions {

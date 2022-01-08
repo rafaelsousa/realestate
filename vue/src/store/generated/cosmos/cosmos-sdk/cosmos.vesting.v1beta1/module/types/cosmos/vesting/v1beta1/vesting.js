@@ -1,9 +1,9 @@
 /* eslint-disable */
-import * as Long from "long";
-import { util, configure, Writer, Reader } from "protobufjs/minimal";
-import { BaseAccount } from "../../../cosmos/auth/v1beta1/auth";
-import { Coin } from "../../../cosmos/base/v1beta1/coin";
-export const protobufPackage = "cosmos.vesting.v1beta1";
+import * as Long from 'long';
+import { configure, Reader, util, Writer } from 'protobufjs/minimal';
+import { BaseAccount } from '../../../cosmos/auth/v1beta1/auth';
+import { Coin } from '../../../cosmos/base/v1beta1/coin';
+export const protobufPackage = 'cosmos.vesting.v1beta1';
 const baseBaseVestingAccount = { endTime: 0 };
 export const BaseVestingAccount = {
     encode(message, writer = Writer.create()) {
@@ -526,19 +526,19 @@ export const PermanentLockedAccount = {
     },
 };
 var globalThis = (() => {
-    if (typeof globalThis !== "undefined")
+    if (typeof globalThis !== 'undefined')
         return globalThis;
-    if (typeof self !== "undefined")
+    if (typeof self !== 'undefined')
         return self;
-    if (typeof window !== "undefined")
+    if (typeof window !== 'undefined')
         return window;
-    if (typeof global !== "undefined")
+    if (typeof global !== 'undefined')
         return global;
-    throw "Unable to locate global object";
+    throw 'Unable to locate global object';
 })();
 function longToNumber(long) {
     if (long.gt(Number.MAX_SAFE_INTEGER)) {
-        throw new globalThis.Error("Value is larger than Number.MAX_SAFE_INTEGER");
+        throw new globalThis.Error('Value is larger than Number.MAX_SAFE_INTEGER');
     }
     return long.toNumber();
 }

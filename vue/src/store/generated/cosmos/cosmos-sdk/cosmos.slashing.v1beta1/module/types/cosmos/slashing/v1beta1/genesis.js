@@ -1,8 +1,8 @@
 /* eslint-disable */
-import * as Long from "long";
-import { util, configure, Writer, Reader } from "protobufjs/minimal";
-import { Params, ValidatorSigningInfo, } from "../../../cosmos/slashing/v1beta1/slashing";
-export const protobufPackage = "cosmos.slashing.v1beta1";
+import * as Long from 'long';
+import { configure, Reader, util, Writer } from 'protobufjs/minimal';
+import { Params, ValidatorSigningInfo } from '../../../cosmos/slashing/v1beta1/slashing';
+export const protobufPackage = 'cosmos.slashing.v1beta1';
 const baseGenesisState = {};
 export const GenesisState = {
     encode(message, writer = Writer.create()) {
@@ -105,10 +105,10 @@ export const GenesisState = {
         return message;
     },
 };
-const baseSigningInfo = { address: "" };
+const baseSigningInfo = { address: '' };
 export const SigningInfo = {
     encode(message, writer = Writer.create()) {
-        if (message.address !== "") {
+        if (message.address !== '') {
             writer.uint32(10).string(message.address);
         }
         if (message.validatorSigningInfo !== undefined) {
@@ -142,7 +142,7 @@ export const SigningInfo = {
             message.address = String(object.address);
         }
         else {
-            message.address = "";
+            message.address = '';
         }
         if (object.validatorSigningInfo !== undefined &&
             object.validatorSigningInfo !== null) {
@@ -168,7 +168,7 @@ export const SigningInfo = {
             message.address = object.address;
         }
         else {
-            message.address = "";
+            message.address = '';
         }
         if (object.validatorSigningInfo !== undefined &&
             object.validatorSigningInfo !== null) {
@@ -180,10 +180,10 @@ export const SigningInfo = {
         return message;
     },
 };
-const baseValidatorMissedBlocks = { address: "" };
+const baseValidatorMissedBlocks = { address: '' };
 export const ValidatorMissedBlocks = {
     encode(message, writer = Writer.create()) {
-        if (message.address !== "") {
+        if (message.address !== '') {
             writer.uint32(10).string(message.address);
         }
         for (const v of message.missedBlocks) {
@@ -219,7 +219,7 @@ export const ValidatorMissedBlocks = {
             message.address = String(object.address);
         }
         else {
-            message.address = "";
+            message.address = '';
         }
         if (object.missedBlocks !== undefined && object.missedBlocks !== null) {
             for (const e of object.missedBlocks) {
@@ -246,7 +246,7 @@ export const ValidatorMissedBlocks = {
             message.address = object.address;
         }
         else {
-            message.address = "";
+            message.address = '';
         }
         if (object.missedBlocks !== undefined && object.missedBlocks !== null) {
             for (const e of object.missedBlocks) {
@@ -327,19 +327,19 @@ export const MissedBlock = {
     },
 };
 var globalThis = (() => {
-    if (typeof globalThis !== "undefined")
+    if (typeof globalThis !== 'undefined')
         return globalThis;
-    if (typeof self !== "undefined")
+    if (typeof self !== 'undefined')
         return self;
-    if (typeof window !== "undefined")
+    if (typeof window !== 'undefined')
         return window;
-    if (typeof global !== "undefined")
+    if (typeof global !== 'undefined')
         return global;
-    throw "Unable to locate global object";
+    throw 'Unable to locate global object';
 })();
 function longToNumber(long) {
     if (long.gt(Number.MAX_SAFE_INTEGER)) {
-        throw new globalThis.Error("Value is larger than Number.MAX_SAFE_INTEGER");
+        throw new globalThis.Error('Value is larger than Number.MAX_SAFE_INTEGER');
     }
     return long.toNumber();
 }
