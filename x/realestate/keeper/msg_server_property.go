@@ -21,6 +21,7 @@ func (k msgServer) CreateProperty(goCtx context.Context, msg *types.MsgCreatePro
 		Zipcode:   msg.Zipcode,
 		Latitude:  msg.Latitude,
 		Longitude: msg.Longitude,
+		Owner:     msg.Owner,
 	}
 
 	id := k.AppendProperty(

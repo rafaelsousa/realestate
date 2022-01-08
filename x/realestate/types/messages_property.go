@@ -13,7 +13,7 @@ const (
 
 var _ sdk.Msg = &MsgCreateProperty{}
 
-func NewMsgCreateProperty(creator string, address string, city string, state string, country string, zipcode string, latitude string, longitude string) *MsgCreateProperty {
+func NewMsgCreateProperty(creator string, address string, city string, state string, country string, zipcode string, latitude string, longitude string, owner string) *MsgCreateProperty {
 	return &MsgCreateProperty{
 		Creator:   creator,
 		Address:   address,
@@ -23,6 +23,7 @@ func NewMsgCreateProperty(creator string, address string, city string, state str
 		Zipcode:   zipcode,
 		Latitude:  latitude,
 		Longitude: longitude,
+		Owner:     owner,
 	}
 }
 

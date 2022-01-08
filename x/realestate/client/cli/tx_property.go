@@ -29,7 +29,8 @@ func CmdCreateProperty() *cobra.Command {
 				return err
 			}
 
-			msg := types.NewMsgCreateProperty(clientCtx.GetFromAddress().String(), argAddress, argCity, argState, argCountry, argZipcode, argLatitude, argLongitude)
+			owner := clientCtx.GetFromAddress().String()
+			msg := types.NewMsgCreateProperty(owner, argAddress, argCity, argState, argCountry, argZipcode, argLatitude, argLongitude, owner)
 			if err := msg.ValidateBasic(); err != nil {
 				return err
 			}

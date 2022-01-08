@@ -46,6 +46,7 @@ message MsgCreateProperty {
   string zipcode = 6;
   string latitude = 7;
   string longitude = 8;
+  string owner = 9;
 }
 
 message MsgCreatePropertyResponse {
