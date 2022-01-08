@@ -9,9 +9,12 @@ const TypeMsgRequestCertification = "request_certification"
 
 var _ sdk.Msg = &MsgRequestCertification{}
 
-func NewMsgRequestCertification(creator string) *MsgRequestCertification {
+func NewMsgRequestCertification(creator string, property uint64, fees sdk.Coin, surveyor string) *MsgRequestCertification {
 	return &MsgRequestCertification{
-		Creator: creator,
+		Creator:  creator,
+		Property: property,
+		Fees:     &fees,
+		Surveyor: surveyor,
 	}
 }
 

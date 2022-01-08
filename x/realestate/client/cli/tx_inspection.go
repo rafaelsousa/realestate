@@ -1,6 +1,7 @@
 package cli
 
 import (
+	sdk "github.com/cosmos/cosmos-sdk/types"
 	"strconv"
 
 	"github.com/cosmos/cosmos-sdk/client"
@@ -26,7 +27,11 @@ func CmdCreateInspection() *cobra.Command {
 				return err
 			}
 
-			msg := types.NewMsgCreateInspection(clientCtx.GetFromAddress().String(), argInspector, uint64(argProperty), argFees, argInspectionResults)
+			fees, err := sdk.ParseCoinNormalized(argFees)
+			if err != nil {
+				return err
+			}
+			msg := types.NewMsgCreateInspection(clientCtx.GetFromAddress().String(), argInspector, uint64(argProperty), fees, argInspectionResults)
 			if err := msg.ValidateBasic(); err != nil {
 				return err
 			}
@@ -55,6 +60,10 @@ func CmdUpdateInspection() *cobra.Command {
 			argProperty, _ := strconv.Atoi(args[2])
 
 			argFees := args[3]
+			fees, err := sdk.ParseCoinNormalized(argFees)
+			if err != nil {
+				return err
+			}
 
 			argInspectionResults := args[4]
 
@@ -63,7 +72,7 @@ func CmdUpdateInspection() *cobra.Command {
 				return err
 			}
 
-			msg := types.NewMsgUpdateInspection(clientCtx.GetFromAddress().String(), id, argInspector, uint64(argProperty), argFees, argInspectionResults)
+			msg := types.NewMsgUpdateInspection(clientCtx.GetFromAddress().String(), id, argInspector, uint64(argProperty), fees, argInspectionResults)
 			if err := msg.ValidateBasic(); err != nil {
 				return err
 			}

@@ -13,12 +13,12 @@ const (
 
 var _ sdk.Msg = &MsgCreateInspection{}
 
-func NewMsgCreateInspection(creator string, inspector string, property uint64, fees string, inspectionResults string) *MsgCreateInspection {
+func NewMsgCreateInspection(creator string, inspector string, property uint64, fees sdk.Coin, inspectionResults string) *MsgCreateInspection {
 	return &MsgCreateInspection{
 		Creator:           creator,
 		Inspector:         inspector,
 		Property:          property,
-		Fees:              fees,
+		Fees:              &fees,
 		InspectionResults: inspectionResults,
 	}
 }
@@ -54,13 +54,13 @@ func (msg *MsgCreateInspection) ValidateBasic() error {
 
 var _ sdk.Msg = &MsgUpdateInspection{}
 
-func NewMsgUpdateInspection(creator string, id uint64, inspector string, property uint64, fees string, inspectionResults string) *MsgUpdateInspection {
+func NewMsgUpdateInspection(creator string, id uint64, inspector string, property uint64, fees sdk.Coin, inspectionResults string) *MsgUpdateInspection {
 	return &MsgUpdateInspection{
 		Id:                id,
 		Creator:           creator,
 		Inspector:         inspector,
 		Property:          property,
-		Fees:              fees,
+		Fees:              &fees,
 		InspectionResults: inspectionResults,
 	}
 }

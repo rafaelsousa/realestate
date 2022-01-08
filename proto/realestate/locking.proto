@@ -1,5 +1,6 @@
 syntax = "proto3";
 package rafaelsousa.realestate.realestate;
+import "cosmos/base/v1beta1/coin.proto";
 
 option go_package = "github.com/rafaelsousa/realestate/x/realestate/types";
 
@@ -7,8 +8,8 @@ message Locking {
   uint64 id = 1;
   string owner = 2; 
   string dateLocking = 3; 
-  string dateUnlocking = 4; 
-  uint64 assets = 5;
+  string dateUnlocking = 4;
+  cosmos.base.v1beta1.Coin assets = 5;
   uint64 property = 6;
   string creator = 7;
 }

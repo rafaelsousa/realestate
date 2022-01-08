@@ -10,10 +10,10 @@ type msgServer struct {
 	Keeper
 }
 
-func (k msgServer) lockAssets(ctx sdk.Context, owner string, fees uint64, bkeeper bankkeeper.Keeper) error {
+func (k msgServer) lockAssets(ctx sdk.Context, owner string, fees *sdk.Coin, bkeeper bankkeeper.Keeper) error {
 
 	addr, _ := sdk.AccAddressFromBech32(owner)
-	amount := sdk.NewCoins(sdk.NewCoin(types.GovernanceToken, sdk.NewInt(int64(fees))))
+	amount := sdk.NewCoins(*fees)
 
 	return bkeeper.SendCoinsFromAccountToModule(ctx, addr, types.ModuleName, amount)
 

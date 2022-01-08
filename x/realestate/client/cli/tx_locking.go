@@ -1,6 +1,7 @@
 package cli
 
 import (
+	sdk "github.com/cosmos/cosmos-sdk/types"
 	"strconv"
 
 	"github.com/cosmos/cosmos-sdk/client"
@@ -19,7 +20,10 @@ func CmdCreateLocking() *cobra.Command {
 			argOwner := args[0]
 			argDateLocking := args[1]
 			argDateUnlocking := args[2]
-			argUnlockFees, _ := strconv.Atoi(args[3])
+			argUnlockFees, err := sdk.ParseCoinNormalized(args[3])
+			if err != nil {
+				return err
+			}
 			argProperty, _ := strconv.Atoi(args[4])
 
 			clientCtx, err := client.GetClientTxContext(cmd)
@@ -27,7 +31,7 @@ func CmdCreateLocking() *cobra.Command {
 				return err
 			}
 
-			msg := types.NewMsgCreateLocking(clientCtx.GetFromAddress().String(), argOwner, argDateLocking, argDateUnlocking, uint64(argUnlockFees), uint64(argProperty))
+			msg := types.NewMsgCreateLocking(clientCtx.GetFromAddress().String(), argOwner, argDateLocking, argDateUnlocking, &argUnlockFees, uint64(argProperty))
 			if err := msg.ValidateBasic(); err != nil {
 				return err
 			}
@@ -57,7 +61,7 @@ func CmdUpdateLocking() *cobra.Command {
 
 			argDateUnlocking := args[3]
 
-			argUnlockFees, _ := strconv.Atoi(args[4])
+			argUnlockFees, _ := sdk.ParseCoinNormalized(args[4])
 
 			argProperty, _ := strconv.Atoi(args[5])
 
@@ -66,7 +70,7 @@ func CmdUpdateLocking() *cobra.Command {
 				return err
 			}
 
-			msg := types.NewMsgUpdateLocking(clientCtx.GetFromAddress().String(), id, argOwner, argDateLocking, argDateUnlocking, uint64(argUnlockFees), uint64(argProperty))
+			msg := types.NewMsgUpdateLocking(clientCtx.GetFromAddress().String(), id, argOwner, argDateLocking, argDateUnlocking, argUnlockFees, uint64(argProperty))
 			if err := msg.ValidateBasic(); err != nil {
 				return err
 			}
