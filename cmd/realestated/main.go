@@ -9,6 +9,9 @@ import (
 )
 
 func main() {
+	SetupIPFS()
+	// Initializes the IPFS
+
 	rootCmd, _ := cosmoscmd.NewRootCmd(
 		app.Name,
 		app.AccountAddressPrefix,

@@ -244,6 +244,7 @@ message MsgRequestCertificationResponse {
 message MsgEmitCertificate {
   string creator = 1;
   string certificate = 2;
+  uint64 property = 3;
 }
 
 message MsgEmitCertificateResponse {

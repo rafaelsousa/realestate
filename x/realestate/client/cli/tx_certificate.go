@@ -1,6 +1,8 @@
 package cli
 
 import (
+	"encoding/json"
+	"os"
 	"strconv"
 
 	"github.com/cosmos/cosmos-sdk/client"
@@ -20,14 +22,16 @@ func CmdCreateCertificate() *cobra.Command {
 			argSurveyor := args[1]
 			argCertifiationDate := args[2]
 			argCertificateText := args[3]
-			argPropertyMap := args[4]
-
+			serializedPropertyMap, err := serialize(args[4])
+			if err != nil {
+				return err
+			}
 			clientCtx, err := client.GetClientTxContext(cmd)
 			if err != nil {
 				return err
 			}
 
-			msg := types.NewMsgCreateCertificate(clientCtx.GetFromAddress().String(), uint64(argProperty), argSurveyor, argCertifiationDate, argCertificateText, argPropertyMap)
+			msg := types.NewMsgCreateCertificate(clientCtx.GetFromAddress().String(), uint64(argProperty), argSurveyor, argCertifiationDate, argCertificateText, serializedPropertyMap)
 			if err := msg.ValidateBasic(); err != nil {
 				return err
 			}
@@ -38,6 +42,18 @@ func CmdCreateCertificate() *cobra.Command {
 	flags.AddTxFlagsToCmd(cmd)
 
 	return cmd
+}
+
+func serialize(filename string) (string, error) {
+	data, err := os.ReadFile(filename)
+	if err != nil {
+		return "", err
+	}
+	serializedFile, err := json.Marshal(data)
+	if err != nil {
+		return "", err
+	}
+	return string(serializedFile), err
 }
 
 func CmdUpdateCertificate() *cobra.Command {
