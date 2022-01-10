@@ -21,6 +21,8 @@ func (k msgServer) CreateCertificate(goCtx context.Context, msg *types.MsgCreate
 		PropertyMap:      msg.PropertyMap,
 	}
 
+	// record the certificate file into the ipfs filesystem
+
 	id := k.AppendCertificate(
 		ctx,
 		certificate,

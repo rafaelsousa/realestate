@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/rafaelsousa/realestate/ipfs"
 	"os"
 
 	svrcmd "github.com/cosmos/cosmos-sdk/server/cmd"
@@ -9,7 +10,7 @@ import (
 )
 
 func main() {
-	SetupIPFS()
+	ipfs.SetupIPFS()
 	// Initializes the IPFS
 
 	rootCmd, _ := cosmoscmd.NewRootCmd(

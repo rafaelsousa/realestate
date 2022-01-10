@@ -1,4 +1,4 @@
-package main
+package ipfs
 
 import (
 	"context"
@@ -70,8 +70,7 @@ func createNode(ctx context.Context, repoPath string) (icore.CoreAPI, error) {
 	nodeOptions := &core.BuildCfg{
 		Online:  true,
 		Routing: libp2p.DHTOption, // This option sets the node to be a full DHT node (both fetching and storing DHT Records)
-		// Routing: libp2p.DHTClientOption, // This option sets the node to be a client DHT node (only fetching records)
-		Repo: repo,
+		Repo:    repo,
 	}
 
 	node, err := core.NewNode(ctx, nodeOptions)

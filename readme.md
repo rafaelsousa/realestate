@@ -1,6 +1,17 @@
 # realestate
 **realestate** is a blockchain built using Cosmos SDK and Tendermint and created with [Starport](https://starport.com).
 
+This is a simple implementation of a layer 1 blockchain that simulates the 
+creating (minting) or properties and some chain of responsability : surveyors are intended
+to certify the property.
+
+## Technical Dependencies
+
+* golang 1.17
+* starport
+
+
+
 ## Get started
 
 ```
